@@ -45,6 +45,7 @@
 # version 2.3 - Added enviroment varable support to setup updates via users crontab
 # version 2.4 - Bug fixes
 # version 2.5 - Updated the update URL
+# version 2.6 - Improved support modern macOS versions
 #
 
 # enviroment varibles setup
@@ -249,123 +250,127 @@ trap - EXIT
 # configure macOS to not auto delete browser data directories from /tmp/
 os_type="$(uname)"
 if [[ "${os_type}" == "Darwin" ]] && [[ "${SPB_SKIP_OVERWRITE_CHECK}" != "true" ]] ; then 
-    mod_applied_to_periodic_conf=$(grep "daily_clean_tmps_ignore" /etc/defaults/periodic.conf | grep "browser-" > /dev/null ; echo ${?})
-    if [[ ${mod_applied_to_periodic_conf} != 0 ]] ; then
-        # running on macOS
-        echo ""
-        echo "  SPB specific notes for macOS users :"
-        echo ""
-        echo "      Some versions of macOS automatically clean-up the /tmp/ directory periodically."
-        echo "      In the event your browser becomes unresponsive then this is likely due to such an automatic"
-        echo "      clean up of the directory."
-        echo ""
-        echo "      It is possible to work around this issue by adding an additional line to cleanup script."
-        echo "      Making the change to the automated clean up script requires sudo access on the system."
-        echo "      The file to modify is prevents automated clean up of the SPB browser data is : " 
-        echo "      /etc/defaults/periodic.conf" 
-        echo ""
-        echo "      Typically, this file contains at least one entry starting with : "
-        echo "      daily_clean_tmps_ignore=" 
-        echo ""
-        echo "      To make the alteration manually edit the file : /etc/defaults/periodic.conf "
-        echo "      and locate the last line which states with :"
-        echo "      \"daily_clean_tmps_ignore\""
-        echo ""
-        echo "      Then, directly below that line add the line below :"
-        echo "      daily_clean_tmps_ignore=\"\$daily_clean_tmps_ignore browser-\""
-        echo ""
-        echo "      Once this changes is complete, you should no longer have issues with browser unresponsivness"
-        echo "      when the browser is left open for three days or more." 
-        echo ""
-        echo "      If you plan to only use the browser for less than 72 hours, then this alteration is not needed."
-        echo ""
-        echo "      It is reccomended that you just let this script to make the above "
-        echo "      alteration automatically on your behalf - (this requires sudo access)"
-        echo "      Proceed with automatic edits to the file below : "
-        echo -n "      '/etc/defaults/periodic.conf' file? [y/N] : "
-        read update_peridic_file
-        if \
-            [[ "${update_peridic_file}" == "y" ]] || \
-            [[ "${update_peridic_file}" == "Y" ]]|| \
-            [[ "${update_peridic_file}" == "yes" ]] || \
-            [[ "${update_peridic_file}" == "Yes" ]] || \
-            [[ "${update_peridic_file}" == "YES" ]] \
-        ; then
-            if ! [ -f /etc/defaults/periodic.conf ] ; then
-                echo ""
-                echo "        ERROR : Unable to locate /etc/defaults/periodic.conf"
-                echo ""
-                exit -10
-            fi
-            grep daily_clean_tmps_ignore /etc/defaults/periodic.conf > /dev/null
-            if [[ ${?} != 0  ]] ; then
-                echo "" ; echo "        ERROR : origional /tmp/periodic.conf file is missing daily_clean_tmps_ignore variable line(s)" ; echo "" ; exit -8
-            fi
-            touch /tmp/periodic.conf 
-            if [[ ${?} != 0  ]] ; then
-                echo "" ; echo "        ERROR : creating tempoary file : /tmp/periodic.conf" ; echo "" ; exit -8
-            fi
-            chmod 700 /tmp/periodic.conf 
-            if [[ ${?} != 0  ]] ; then
-                echo "" ; echo "        ERROR : altering file permissions : /tmp/periodic.conf" ; echo "" ; exit -9
-            fi
-            awk -v n="daily_clean_tmps_ignore=\"\$daily_clean_tmps_ignore browser-\"" '
-            /daily_clean_tmps_ignore=/ {l=NR}
-            {lines[NR]=$0}
-            END {
-                for(i=1;i<=NR;i++) {
-                print lines[i]
-                if(i==l) print n
-                }
-            }
-            ' /etc/defaults/periodic.conf > /tmp/periodic.conf
-            if [[ ${?} == 0 ]] ; then
-                echo ""
-                echo "    In order for this script to automatically modify the /etc/defaults/preidic.conf"
-                echo "    file, you will now be prompted for your sudo password."
-                echo ""
-                elevate_privildges 
-                # backup the origional file (just in case)
-                sudo cp /etc/defaults/periodic.conf /etc/defaults/periodic.conf.spb.bak
-                if [[ ${?} != 0  ]] ; then
+    darwin_major=$(uname -r | cut -d. -f1)
+    # if darwin version is less than 23 (macOS < 14 Sonoma)
+    if [ "$darwin_major" -lt 23 ]; then
+        mod_applied_to_periodic_conf=$(grep "daily_clean_tmps_ignore" /etc/defaults/periodic.conf | grep "browser-" > /dev/null ; echo ${?})
+        if [[ ${mod_applied_to_periodic_conf} != 0 ]] ; then
+            # running on macOS
+            echo ""
+            echo "  SPB specific notes for macOS users :"
+            echo ""
+            echo "      Some versions of macOS automatically clean-up the /tmp/ directory periodically."
+            echo "      In the event your browser becomes unresponsive then this is likely due to such an automatic"
+            echo "      clean up of the directory."
+            echo ""
+            echo "      It is possible to work around this issue by adding an additional line to cleanup script."
+            echo "      Making the change to the automated clean up script requires sudo access on the system."
+            echo "      The file to modify is prevents automated clean up of the SPB browser data is : " 
+            echo "      /etc/defaults/periodic.conf" 
+            echo ""
+            echo "      Typically, this file contains at least one entry starting with : "
+            echo "      daily_clean_tmps_ignore=" 
+            echo ""
+            echo "      To make the alteration manually edit the file : /etc/defaults/periodic.conf "
+            echo "      and locate the last line which states with :"
+            echo "      \"daily_clean_tmps_ignore\""
+            echo ""
+            echo "      Then, directly below that line add the line below :"
+            echo "      daily_clean_tmps_ignore=\"\$daily_clean_tmps_ignore browser-\""
+            echo ""
+            echo "      Once this changes is complete, you should no longer have issues with browser unresponsivness"
+            echo "      when the browser is left open for three days or more." 
+            echo ""
+            echo "      If you plan to only use the browser for less than 72 hours, then this alteration is not needed."
+            echo ""
+            echo "      It is reccomended that you just let this script to make the above "
+            echo "      alteration automatically on your behalf - (this requires sudo access)"
+            echo "      Proceed with automatic edits to the file below : "
+            echo -n "      '/etc/defaults/periodic.conf' file? [y/N] : "
+            read update_peridic_file
+            if \
+                [[ "${update_peridic_file}" == "y" ]] || \
+                [[ "${update_peridic_file}" == "Y" ]]|| \
+                [[ "${update_peridic_file}" == "yes" ]] || \
+                [[ "${update_peridic_file}" == "Yes" ]] || \
+                [[ "${update_peridic_file}" == "YES" ]] \
+            ; then
+                if ! [ -f /etc/defaults/periodic.conf ] ; then
                     echo ""
-                    echo "        ERROR : unable to create backup of /etc/defaults/periodic.conf"
-                    echo "                sudo authentication failed"
+                    echo "        ERROR : Unable to locate /etc/defaults/periodic.conf"
                     echo ""
                     exit -10
                 fi
-                # using tee instead of cat so 
-                # that we can use sudo for writing the data
-                # + we will easily be able to show file if needed down the road
-                sudo tee /etc/defaults/periodic.conf < /tmp/periodic.conf > /dev/null
-                if [[ ${?} == 0  ]] ; then
-                    rm -rf /tmp/periodic.conf
-                    echo ""
-                    echo "        Periodic clean script has been successfully updated." 
-                    echo "        You are now all set to start use start-private-browser"
-                    echo "        with browser sessions which extend beyond a single day."
-                    echo ""
-                    echo "        A copy of the origional file has been saved : "
-                    echo "        /etc/defaults/periodic.conf.spb.bak"
-                    echo ""
-                    echo "        To restore the origional file, run the command : "
-                    echo "        sudo cat /etc/defaults/periodic.conf.spb.bak > /etc/defaults/periodic.conf"
-                    echo ""
-                else
-                   echo ""
-                   echo "        ERROR : Unable to update the file : /etc/defaults/periodic.conf"
-                   echo "                You could try running the following command manually : " 
-                   echo ""
-                   echo "                sudo cat /tmp/periodic.conf > /etc/defaults/periodic.conf"
-                   echo ""
+                grep daily_clean_tmps_ignore /etc/defaults/periodic.conf > /dev/null
+                if [[ ${?} != 0  ]] ; then
+                    echo "" ; echo "        ERROR : origional /tmp/periodic.conf file is missing daily_clean_tmps_ignore variable line(s)" ; echo "" ; exit -8
                 fi
-            fi
-        else 
-        echo ""
-        echo "  Understood. No changes made to the '/etc/defaults/periodic.conf'" 
-        echo ""
-    fi
-        echo ""
+                touch /tmp/periodic.conf 
+                if [[ ${?} != 0  ]] ; then
+                    echo "" ; echo "        ERROR : creating tempoary file : /tmp/periodic.conf" ; echo "" ; exit -8
+                fi
+                chmod 700 /tmp/periodic.conf 
+                if [[ ${?} != 0  ]] ; then
+                    echo "" ; echo "        ERROR : altering file permissions : /tmp/periodic.conf" ; echo "" ; exit -9
+                fi
+                awk -v n="daily_clean_tmps_ignore=\"\$daily_clean_tmps_ignore browser-\"" '
+                /daily_clean_tmps_ignore=/ {l=NR}
+                {lines[NR]=$0}
+                END {
+                    for(i=1;i<=NR;i++) {
+                    print lines[i]
+                    if(i==l) print n
+                    }
+                }
+                ' /etc/defaults/periodic.conf > /tmp/periodic.conf
+                if [[ ${?} == 0 ]] ; then
+                    echo ""
+                    echo "    In order for this script to automatically modify the /etc/defaults/preidic.conf"
+                    echo "    file, you will now be prompted for your sudo password."
+                    echo ""
+                    elevate_privildges 
+                    # backup the origional file (just in case)
+                    sudo cp /etc/defaults/periodic.conf /etc/defaults/periodic.conf.spb.bak
+                    if [[ ${?} != 0  ]] ; then
+                        echo ""
+                        echo "        ERROR : unable to create backup of /etc/defaults/periodic.conf"
+                        echo "                sudo authentication failed"
+                        echo ""
+                        exit -10
+                    fi
+                    # using tee instead of cat so 
+                    # that we can use sudo for writing the data
+                    # + we will easily be able to show file if needed down the road
+                    sudo tee /etc/defaults/periodic.conf < /tmp/periodic.conf > /dev/null
+                    if [[ ${?} == 0  ]] ; then
+                        rm -rf /tmp/periodic.conf
+                        echo ""
+                        echo "        Periodic clean script has been successfully updated." 
+                        echo "        You are now all set to start use start-private-browser"
+                        echo "        with browser sessions which extend beyond a single day."
+                        echo ""
+                        echo "        A copy of the origional file has been saved : "
+                        echo "        /etc/defaults/periodic.conf.spb.bak"
+                        echo ""
+                        echo "        To restore the origional file, run the command : "
+                        echo "        sudo cat /etc/defaults/periodic.conf.spb.bak > /etc/defaults/periodic.conf"
+                        echo ""
+                    else
+                       echo ""
+                       echo "        ERROR : Unable to update the file : /etc/defaults/periodic.conf"
+                       echo "                You could try running the following command manually : " 
+                       echo ""
+                       echo "                sudo cat /tmp/periodic.conf > /etc/defaults/periodic.conf"
+                       echo ""
+                    fi
+                fi
+            else 
+            echo ""
+            echo "  Understood. No changes made to the '/etc/defaults/periodic.conf'" 
+            echo ""
+        fi
+            echo ""
+        fi
     fi
 fi
 
