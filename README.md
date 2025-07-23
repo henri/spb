@@ -5,7 +5,7 @@ Have you wished there was an easy way to interact with the web from your termina
 SPB presents the power to navigate the surging currents of our planets vast digital oceans right at your fingertips. SPB is a deceptivly simple shell [script](https://github.com/henri/spb/blob/main/050.start-private-browser.bash) which will rapidly spawn one or more isolated browser sessons. 
 
 <p align="center">
-  <a href="https://github.com/henri/spb/#lock-spb-start-private-browser"><img src="https://github.com/henri/spb/blob/readme-images/images/spb-fish.png" width="90%"></a>
+  <a href="https://github.com/henri/spb/#lock-spb-start-private-browser"><img src="https://github.com/henri/spb/blob/readme-images/spb-fish.png?raw=true" width="90%"></a>
 </p>
 
 Swim happily ; SPB [installs](https://github.com/henri/spb/?tab=readme-ov-file#floppy_disk-installation) into your home directory (no need for sudo) and is [easily removed](https://github.com/henri/spb/?tab=readme-ov-file#bookmark_tabs-usage) in the event you don't make use of SPB each and every day. [This Git Hub Repository](https://gist.github.com/henri/spb) has everything you need to [install and update](https://github.com/henri/spb/?tab=readme-ov-file#floppy_disk-installation) SPB on your systems.
