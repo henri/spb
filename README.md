@@ -72,14 +72,14 @@ Handy wrapper scripts to facilitate SPB usage via the command line :
 <sub> Click on the 'snippit name' links below in order to show usage information relating to a specific snippit</sub>
 | command       | snippit name          | explanation |
 | ------------- | --------------------- | ------------|
-|  spb  |  [spb](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-fish) | an alias to start-private-browser but shortedned to spb |
-|  spb-tor  |  [spb-tor](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-tor-fishh) | start SPB with [Tor](https://www.torproject.org) network enabled ; equivilent to spb --tor|
-| spb-ddg |  [DuckDuckGo Search](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-ddg-fish)  |  start multiple DuckDuckGo searches |
-| spb-ddg-ai  | [DuckDuckGo Chat](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-ddg-ai-fish) | have multiple DuckDuckGo AI (LLM) chats  |
-| spb-brave  | [Brave Search](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-brave-fish) | start multiple Brave searches |
-| spb-brave-ai  | [Brave Browser Leo Summary](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-ddg-ai-fish) | begin multiple Brave AI (Leo) summerisations |
-| spb-yt  |  [YouTube Search](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-yt-fish) | initate simultanius YouTube searches |
-|  spb-pai  |  [Perplexity AI Chat](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-perlexity-ai-fish) | kick off converstations with Perplexity AI |
+|  `spb`  |  [spb](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-fish) | an alias to start-private-browser but shortedned to spb |
+|  `spb-tor`  |  [spb-tor](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-tor-fishh) | start SPB with [Tor](https://www.torproject.org) network enabled ; equivilent to spb --tor|
+| `spb-ddg` |  [DuckDuckGo Search](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-ddg-fish)  |  start multiple DuckDuckGo searches |
+| `spb-ddg-ai`  | [DuckDuckGo Chat](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-ddg-ai-fish) | have multiple DuckDuckGo AI (LLM) chats  |
+| `spb-brave`  | [Brave Search](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-brave-fish) | start multiple Brave searches |
+| `spb-brave-ai`  | [Brave Browser Leo Summary](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-ddg-ai-fish) | begin multiple Brave AI (Leo) summerisations |
+| `spb-yt`  |  [YouTube Search](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-yt-fish) | initate simultanius YouTube searches |
+|  `spb-pai`  |  [Perplexity AI Chat](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-perlexity-ai-fish) | kick off converstations with Perplexity AI |
   
 > <sub>If your system has [fish](https://fishshell.com/) installed and you run the update system in an unattended mode, then these snippits will be installed / updated. This is because that is the default option. When running in unattended mode all default options are selected. If you do not want the above [snippits installed](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-fish-function-installer-bash) please run the update script interactivly and enter "no" when asked during the install process. Aagain the prompt for opting out is only available during interative mode when using [spb-update.bash](https://gist.github.com/henri/34f5452525ddc3727bb66729114ca8b4#file-600-spb-update-bash) script or when manually running the [install/update](https://gist.github.com/henri/34f5452525ddc3727bb66729114ca8b4#floppy_disk-installation) process.
 
