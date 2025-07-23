@@ -93,10 +93,10 @@ The templates are stored in the directory : ~/bin/spb-templates/
   
 | example command                      | explanation    |
 | ------------------------------| -------------- |
-| `spb --new-template template-name` | Creates a new template and loads a browser <br>within which you may edit this newley<br>created template.Upon quit<br>the template will be saved  | 
-| `spb --edit--template template-name`  | Edits the existing template and load a<br> browser in which you may edit the<br> exiting template.<br>Upon quit the template will be updated  | 
-| `spb --template template-name` | Loads the existing template within a new browser.<br>Upon quit all data from<br>the session is deleted.  |
-| `spb --template template-name --standard` | Loads the specififed template.<br>But will not start in incogneto mode. |
+| `spb --new-template template-name` | Creates a new template and loads<br>a browser >within which you<br>may edit this newley<br>created template.<br>Upon quit the template<br>will be saved  | 
+| `spb --edit--template template-name`  | Edits the existing template<br> and load a browser in<br>which you may edit the<br>exiting template.<br>Upon quit the <br>template will be updated  | 
+| `spb --template template-name` | Loads the existing template<br>within a new browser.<br>Upon quit all data from<br>the session is deleted.  |
+| `spb --template template-name --standard` | Loads the specififed template.<br>But will not start<br>in incogneto mode. |
 | `spb --list-tempaltes` | Presents a list of templates on your system. |
 
 
