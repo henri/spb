@@ -8,7 +8,7 @@ SPB presents the power to navigate the surging currents of our planets vast digi
   <a href="https://github.com/henri/spb/#lock-spb-start-private-browser"><img src="https://github.com/henri/spb/blob/readme-images/spb-fish.png?raw=true" width="90%"></a>
 </p>
 
-Swim happily ; SPB [installs](https://github.com/henri/spb/?tab=readme-ov-file#floppy_disk-installation) into your home directory (no need for sudo) and is [easily removed](https://github.com/henri/spb/?tab=readme-ov-file#bookmark_tabs-usage) in the event you don't make use of SPB each and every day. [This Git Hub Repository](https://gist.github.com/henri/spb) has everything you need to [install and update](https://github.com/henri/spb/?tab=readme-ov-file#floppy_disk-installation) SPB on your systems.
+Swim happily ; SPB [installs](https://github.com/henri/spb/?tab=readme-ov-file#floppy_disk-installation) into your home directory (no need for sudo) and is [easily removed](https://github.com/henri/spb/?tab=readme-ov-file#bookmark_tabs-usage) in the event you don't make use of SPB each and every day. [This Git Hub Repository](https://github.com/henri/spb) has everything you need to [install and update](https://github.com/henri/spb/?tab=readme-ov-file#floppy_disk-installation) SPB on your systems.
 
 [Harness the power](https://github.com/henri/spb/?tab=readme-ov-file#raising_hand-why-is-spb-needed) of isolated web sessions with SPB. Every time you run SPB a new instance of [Brave](https://brave.com/) (a modern web browser) is spawned within a fresh [screen](https://www.gnu.org/software/screen/) session. When you close the browser, SPB will delete all <b>web</b> data related to that browser session from your computer. 
 
@@ -158,7 +158,7 @@ If you do not trust yourself to check the project code below or you do not trust
   
 Already have spb and fish snippits setup, you may issue the following command to have perplexity vet the code : 
 ```
-spb-pai "would you vet the following project code for malware : https://gist.github.com/henri/spb"
+spb-pai "would you vet the following project code for malware : https://github.com/henri/spb"
 ```
 
 <p align="center">
