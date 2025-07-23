@@ -10,7 +10,7 @@
 # shell - automatical styles !!!
 #
 # This script downloads spb files from this URL : 
-# https://gist.github.com/henri/34f5452525ddc3727bb66729114ca8b4/
+# https://github.com/henri/spb
 # 
 # Once this script has successfully exectued, start a private browser with this command : 
 # ~/bin/start-private-browser.bash
@@ -44,6 +44,7 @@
 # version 2.2 - Minor readme improvements regarding macOS /tmp/ dir edits
 # version 2.3 - Added enviroment varable support to setup updates via users crontab
 # version 2.4 - Bug fixes
+# version 2.5 - Updated the update URL
 #
 
 # enviroment varibles setup
@@ -114,14 +115,14 @@ function elevate_privildges () {
 
 # clone a copy of the latest version into the temp directory 
 echo "Downloading latest version of SPB (start-private-browser)..." 
-git clone --progress --depth 1 --single-branch --branch=main https://gist.github.com/henri/34f5452525ddc3727bb66729114ca8b4 start-private-browser-latest  2>&1
+git clone --progress --depth 1 --single-branch --branch=main https://github.com/henri/spb start-private-browser-latest  2>&1
 if [[ $? != 0 ]] ; then
-        echo ""
-        echo "ERROR! : Sucking down latest version from git!"
-        echo "         It is likely that git is not installed on"
-        echo "         this system or there is a problem with"
-        echo "         network access or possibly GitHub has"
-        echo "         crashed or has been blocked?"
+    echo ""
+    echo "ERROR! : Sucking down latest version from git!"
+    echo "         It is likely that git is not installed on"
+    echo "         this system or there is a problem with"
+    echo "         network access or possibly GitHub has"
+    echo "         crashed or has been blocked?"
     echo ""
     echo "         I am sure you will sort it out!"
     exit -98

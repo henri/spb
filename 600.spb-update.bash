@@ -9,7 +9,7 @@
 # or some other mechanisim to automate the upgrade process.
 #
 # This script is part of the spb project :
-# https://gist.github.com/henri/34f5452525ddc3727bb66729114ca8b4/
+# https://github.com/henri/spb
 #
 # Licenced Under the GNU GPL v3 or later
 # https://www.gnu.org/licenses/gpl-3.0.en.html
@@ -26,6 +26,7 @@
 # version 1.9 - further improvments related to --no-delay option when used in conjunction with --auto-monitoring
 # version 2.0 - minor help output information improvements
 # version 2.1 - attempts to keep scroll back when viewing the log file with tail
+# version 2.2 - updated the update URL
 #
 
 # check if we are running with a connected tty for input
@@ -140,7 +141,7 @@ if [[ "${arg}" == "--help" ]] || [[ "${arg}" == "-h" ]] ; then
         if [ -t 0 ] ; then # we are running interactivly
             echo "" ; echo ""
             echo "  This script is part of the SPB (start-private-browser) project :"
-            echo "    - https://gist.github.com/henri/34f5452525ddc3727bb66729114ca8b4/" ; echo "" ; echo ""
+            echo "    - https://gist.github.com/henri/spb" ; echo "" ; echo ""
             echo "      Usage : " ; echo ""
             echo "             # Show this help message" ; echo ""
             echo "                 ~/bin/spb-update.bash --help" ; echo "" ; echo ""
@@ -202,8 +203,8 @@ if [ -t 0 ] && [[ "${SPB_UPDATE_AUTO_ANSWER}" != "true" ]] ; then
      echo "Interactive TTY detected. Running interactive update..."
     # update SPB
     /bin/bash -c "$(curl -fsSL \
-https://gist.githubusercontent.com/henri/\
-34f5452525ddc3727bb66729114ca8b4/raw/\
+https://raw.githubusercontent.com/\
+henri/spb/refs/heads/main/\
 500.spb-install-script.bash)"
     exit_status=${?}
     clean_exit
@@ -265,8 +266,8 @@ start_epoch="$(date +%s)"
 # check the update script is accessable
 script_accessable=$(curl -fsSL \
 -o /dev/null -w "%{http_code}" \
-https://gist.githubusercontent.com/henri/\
-34f5452525ddc3727bb66729114ca8b4/raw/\
+https://raw.githubusercontent.com/\
+henri/spb/refs/heads/main/\
 500.spb-install-script.bash 2> /dev/null)
 
 # convert a 200 code into a 0 code.
@@ -277,8 +278,8 @@ if [[ ${script_accessable} == 0 ]] ; then
     
     # update SPB
     /bin/bash -c "$(curl -fsSL \
-https://gist.githubusercontent.com/henri/\
-34f5452525ddc3727bb66729114ca8b4/raw/\
+https://raw.githubusercontent.com/\
+henri/spb/refs/heads/main/\
 500.spb-install-script.bash)" 2>&1 >> ${log_file}
 update_exit_status=${PIPESTATUS[0]}
 exit_status=${update_exit_status}

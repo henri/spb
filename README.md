@@ -18,8 +18,8 @@ This project is still in a [seedling stage](https://gist.github.com/henri/34f545
 Kick-off install/upgrade by running the ~~one liner~~ four lines below in your terminal : 
 ```bash
 /bin/bash -c "$(curl -fsSL \
-https://gist.githubusercontent.com/henri/\
-34f5452525ddc3727bb66729114ca8b4/raw/\
+https://raw.githubusercontent.com/\
+henri/spb/refs/heads/main/\
 500.spb-install-script.bash)"
 ```
 > <sub>Detailed install instructions : Copy and paste the lines above into a terminal and press enter.</sub>
