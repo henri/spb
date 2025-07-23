@@ -16,7 +16,7 @@
 # https://www.gnu.org/licenses/gpl-3.0.en.html
 #
 # Project home page (featuring additional information and easy installation guide) :
-# https://gist.github.com/henri/34f5452525ddc3727bb66729114ca8b4
+# https://github.com/henri/spb
 #
 # version 1.0 - initial release
 # version 1.1 - added a check to make sure brave is installed before doing anything
