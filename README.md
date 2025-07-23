@@ -104,7 +104,7 @@ The templates are stored in the directory : ~/bin/spb-templates/
 ### :triangular_flag_on_post: Compatiability 
 Mild testing has been completed on the following operating systems : 
 <p align="left">
-  <a href="https://gist.github.com/henri/34f5452525ddc3727bb66729114ca8b4#triangular_flag_on_post-compatiability" ><img src="https://gist.github.com/user-attachments/assets/df4b47c8-6377-44a4-a1ba-03222bf71d50" width="30%"></a>
+  <a href="https://github.com/henri/spb/?tab=readme-ov-file#triangular_flag_on_post-compatiability" ><img src="https://private-user-images.githubusercontent.com/30340/447723805-df4b47c8-6377-44a4-a1ba-03222bf71d50.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NTMyNjQ1ODgsIm5iZiI6MTc1MzI2NDI4OCwicGF0aCI6Ii8zMDM0MC80NDc3MjM4MDUtZGY0YjQ3YzgtNjM3Ny00NGE0LWExYmEtMDMyMjJiZjcxZDUwLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTA3MjMlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwNzIzVDA5NTEyOFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTYyYWFiOWE4YjljOTQ4MDJiMWQzOTkyYzBjZWM5ZmY2YzQ4NGJmNzZiMzI2OThhMWMwYjJkZWY3ZmZmNTk1ZGYmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.IfAptuV-Xr06eYvggXZHCbe2DeFneAVqXqirCzzwMaw" width="30%"></a>
 </p>
   
   - <b>GNU/LINUX</b>
@@ -143,7 +143,7 @@ When automatiaclly or manually running the install / update commands, data from 
 As the default browser option in SPB is [Brave](https://brave.com/) and that project is a telemetry sender ; it is advisable that you read the Brave [privacy policy](https://brave.com/privacy/browser/). Brave is an [open source project](https://github.com/brave/brave-browser). However, if having any kind of telemetry being sent out is a problem then you should opt to use a different browser. Also, follow and chime into [this issue on github](https://github.com/brave/brave-browser/issues/40799) with your opinion(s) regarding telemetry opt-out features within Brave. 
 
 <p align="center">
-  <a href="https://gist.github.com/henri/34f5452525ddc3727bb66729114ca8b4#shield-telemetry-and-privacy" ><img src="https://gist.github.com/user-attachments/assets/2a5e69ab-5e4d-4ffd-87d5-f857f1ee50b4" width="60%"></a>
+  <a href="https://github.com/henri/spb/?tab=readme-ov-file#shield-telemetry-and-privacy" ><img src="https://private-user-images.githubusercontent.com/30340/447722644-2a5e69ab-5e4d-4ffd-87d5-f857f1ee50b4.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NTMyNjQ1ODgsIm5iZiI6MTc1MzI2NDI4OCwicGF0aCI6Ii8zMDM0MC80NDc3MjI2NDQtMmE1ZTY5YWItNWU0ZC00ZmZkLTg3ZDUtZjg1N2YxZWU1MGI0LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTA3MjMlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwNzIzVDA5NTEyOFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWMwNDE0ZTM5MDA4NzNmNDk2OTk5ZGMwYzRjNWQ5YTZiYjBlZGRjN2NhYjdkZDJlZGQ4NmFjZDRiYmY2ODE4MDEmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.-NASzznS5qNZzxTF9YmrkAj6rA_bosMC2365sc04dDY" width="60%"></a>
 </p>
   
 Different operating systems and even different LINUX distributions have different stances on privacy and telemetry. As such it is advisable that you check these details for your specific operating system. This project works on a variety of operating systems each with their own particulars relating to privacy and telemetry.
@@ -163,7 +163,7 @@ spb-pai "would you vet the following project code for malware : https://gist.git
 
 <p align="center">
   <!-- <img src="https://gist.github.com/user-attachments/assets/195556ee-8792-4915-a27c-e95d4c09c71f" width="76%"> -->
-  <a href="https://gist.github.com/henri/34f5452525ddc3727bb66729114ca8b4#lock-security-and-trust" ><img src="https://gist.github.com/user-attachments/assets/4051339c-e104-4718-aaa0-8a59bb1cfba4" width="80%"></a>
+  <a href="https://github.com/henri/spb/?tab=readme-ov-file#lock-security-and-trust" ><img src="https://private-user-images.githubusercontent.com/30340/448168720-4051339c-e104-4718-aaa0-8a59bb1cfba4.jpeg?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NTMyNjQ1ODgsIm5iZiI6MTc1MzI2NDI4OCwicGF0aCI6Ii8zMDM0MC80NDgxNjg3MjAtNDA1MTMzOWMtZTEwNC00NzE4LWFhYTAtOGE1OWJiMWNmYmE0LmpwZWc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNzIzJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDcyM1QwOTUxMjhaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT04ZDQzYmQ4OTc4YzQzNmVkZDkyZDFhMDdmNDY2MGYzNDI4YjgwYTNmMTJhNDRlNDE2YzM4ZjI1ZTBkNTcwMzMzJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.XG--ejICfLN7_lazWFCkF-40lbTKZr2mbI5xJ0RlYwo" width="80%"></a>
 </p>
   
 ### :arrows_counterclockwise: Automate Installation and Updates
@@ -240,7 +240,7 @@ May the privacy be with you!
 ---
 
 <p align="center">
-  <a href="https://gist.github.com/henri/34f5452525ddc3727bb66729114ca8b4#raising_hand-why-is-spb-needed"><img src="https://gist.github.com/user-attachments/assets/c6298a91-929f-4b72-8af0-0f56f8f2e6ec"></a>
+  <a href="https://github.com/henri/spb/?tab=readme-ov-file#raising_hand-why-is-spb-needed"><img src="https://private-user-images.githubusercontent.com/30340/418500033-c6298a91-929f-4b72-8af0-0f56f8f2e6ec.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NTMyNjQ1ODgsIm5iZiI6MTc1MzI2NDI4OCwicGF0aCI6Ii8zMDM0MC80MTg1MDAwMzMtYzYyOThhOTEtOTI5Zi00YjcyLThhZjAtMGY1NmY4ZjJlNmVjLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTA3MjMlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwNzIzVDA5NTEyOFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTM1YmQ4YjkwOTVjYTY0ZDkxOWFkYTUwMDQ2YjE0ZjVkM2FmM2RhNDFiZjFiMGVkNGQxZWE5MTNlYzJlNWM5ZTgmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.2-QUQEqqPrPQYr3b81wYlJ4V37QpU7XIS_O5keQrmM4"></a>
 </p>
 
 --- 
