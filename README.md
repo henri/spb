@@ -229,7 +229,7 @@ SPB is released under the [GNU GPL 3 or later](https://www.gnu.org/licenses/gpl-
 
 ### :raising_hand: Why is SPB needed? 
 
-The use cases for this script are immense and include [simplified day-to-day web browsing](https://github.com/henri/spb/blob/main/600.spb-update.bash#star-usage-examples), trouble-shooting, testing, load-testing, AI Agents performing multiple tasks or just having multiple tabs which are not related in terms of cookies etc. 
+The use cases for this script are immense and include [simplified day-to-day web browsing](https://github.com/henri/spb/?tab=readme-ov-file#star-usage-examples), trouble-shooting, testing, load-testing, AI Agents performing multiple tasks or just having multiple tabs which are not related in terms of cookies etc. 
 
 When starting a private session within the [Safari WebBrowser](https://en.wikipedia.org/wiki/Safari_(web_browser)) on [MacOS](https://en.wikipedia.org/wiki/MacOS) each tab is seperate (the cookies are not shared between tabs). However, most other browsers share the private cookies with all private tabs. One approach is not better or worse. But if you would like to have multiple instances of a browser but not have them sharing all those dirty cookies, then this script allows you to start up all as many private (and separate) sessions as you need and as your system will cope with in terms of system resources. Have fun loading some private browsers.
 
