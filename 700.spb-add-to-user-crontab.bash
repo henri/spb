@@ -5,7 +5,7 @@
 # users crontab if it is not already present.
 #
 # This script is part of the spb project : 
-# https://gist.github.com/henri/34f5452525ddc3727bb66729114ca8b4/
+# https://gist.github.com/henri/spb
 #
 # Licenced Under the GNU GPL v3 or later
 # https://www.gnu.org/licenses/gpl-3.0.en.html
