@@ -27,6 +27,7 @@
 # version 2.0 - minor help output information improvements
 # version 2.1 - attempts to keep scroll back when viewing the log file with tail
 # version 2.2 - updated the update URL
+# version 2.3 - imrpoved log viewing reliability
 #
 
 # check if we are running with a connected tty for input
@@ -109,6 +110,7 @@ function update_auto_answer () {
       echo "" ; echo ""
       echo "Starting up SPB update log monitoring system..."
       echo ""
+      touch ~/bin/spb-update.log
       sleep 2
       # this could be more fancy and monitor the screen session / get the tail PID and auto kill but no we are not doing that.
       rm -f ${lock_file} # remove the lock
