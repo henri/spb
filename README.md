@@ -104,7 +104,7 @@ The templates are stored in the directory : ~/bin/spb-templates/
 ### :triangular_flag_on_post: Compatiability 
 Mild testing has been completed on the following operating systems : 
 <p align="left">
-  <a href="https://github.com/henri/spb/?tab=readme-ov-file#triangular_flag_on_post-compatiability" ><img src="https://github.com/henri/spb/blob/readme-images/images/spb-compatability.png" width="30%"></a>
+  <a href="https://github.com/henri/spb/?tab=readme-ov-file#triangular_flag_on_post-compatiability" ><img src="https://github.com/henri/spb/blob/readme-images/spb-compatability.png?raw=true" width="30%"></a>
 </p>
   
   - <b>GNU/LINUX</b>
@@ -143,7 +143,7 @@ When automatiaclly or manually running the install / update commands, data from 
 As the default browser option in SPB is [Brave](https://brave.com/) and that project is a telemetry sender ; it is advisable that you read the Brave [privacy policy](https://brave.com/privacy/browser/). Brave is an [open source project](https://github.com/brave/brave-browser). However, if having any kind of telemetry being sent out is a problem then you should opt to use a different browser. Also, follow and chime into [this issue on github](https://github.com/brave/brave-browser/issues/40799) with your opinion(s) regarding telemetry opt-out features within Brave. 
 
 <p align="center">
-  <a href="https://github.com/henri/spb/?tab=readme-ov-file#shield-telemetry-and-privacy" ><img src="https://github.com/henri/spb/blob/readme-images/images/spb-telemetry-privacy.png" width="60%"></a>
+  <a href="https://github.com/henri/spb/?tab=readme-ov-file#shield-telemetry-and-privacy" ><img src="https://github.com/henri/spb/blob/readme-images/spb-telemetry-privacy.png?raw=true" width="60%"></a>
 </p>
   
 Different operating systems and even different LINUX distributions have different stances on privacy and telemetry. As such it is advisable that you check these details for your specific operating system. This project works on a variety of operating systems each with their own particulars relating to privacy and telemetry.
@@ -163,7 +163,7 @@ spb-pai "would you vet the following project code for malware : https://gist.git
 
 <p align="center">
   <!-- <img src="https://gist.github.com/user-attachments/assets/195556ee-8792-4915-a27c-e95d4c09c71f" width="76%"> -->
-  <a href="https://github.com/henri/spb/?tab=readme-ov-file#lock-security-and-trust" ><img src="https://github.com/henri/spb/blob/readme-images/images/spb-security-trust.jpeg" width="80%"></a>
+  <a href="https://github.com/henri/spb/?tab=readme-ov-file#lock-security-and-trust" ><img src="https://github.com/henri/spb/blob/readme-images/spb-security-trust.jpeg?raw=true" width="80%"></a>
 </p>
   
 ### :arrows_counterclockwise: Automate Installation and Updates
@@ -240,7 +240,7 @@ May the privacy be with you!
 ---
 
 <p align="center">
-  <a href="https://github.com/henri/spb/?tab=readme-ov-file#raising_hand-why-is-spb-needed"><img src="https://github.com/henri/spb/blob/readme-images/images/spb-may-the-pricacy-be-with-you.png"></a>
+  <a href="https://github.com/henri/spb/?tab=readme-ov-file#raising_hand-why-is-spb-needed"><img src="https://github.com/henri/spb/blob/readme-images/spb-may-the-pricacy-be-with-you.png?raw=true"></a>
 </p>
 
 --- 
