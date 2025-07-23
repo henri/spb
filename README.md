@@ -5,7 +5,7 @@ Have you wished there was an easy way to interact with the web from your termina
 SPB presents the power to navigate the surging currents of our planets vast digital oceans right at your fingertips. SPB is a deceptivly simple shell [script](https://gist.github.com/henri/34f5452525ddc3727bb66729114ca8b4#file-050-start-private-browser-bash) which will rapidly spawn one or more isolated browser sessons. 
 
 <p align="center">
-  <a href="https://gist.github.com/henri/34f5452525ddc3727bb66729114ca8b4#file-005-start-private-browser-installer-md"><img src="https://gist.github.com/user-attachments/assets/ebf7f754-655b-46c0-b3c4-a296607d5aee" width="90%"></a>
+  <a href="https://github.com/henri/spb/#lock-spb-start-private-browser"><img src="https://gist.github.com/user-attachments/assets/ebf7f754-655b-46c0-b3c4-a296607d5aee" width="90%"></a>
 </p>
 
 Swim happily ; SPB [installs](https://gist.github.com/henri/34f5452525ddc3727bb66729114ca8b4#floppy_disk-installation) into your home directory (no need for sudo) and is [easily removed](https://gist.github.com/henri/34f5452525ddc3727bb66729114ca8b4#bookmark_tabs-usage) in the event you don't make use of SPB each and every day. [This GIST](https://gist.github.com/henri/34f5452525ddc3727bb66729114ca8b4) has everything you need to [install and update](https://gist.github.com/henri/34f5452525ddc3727bb66729114ca8b4#floppy_disk-installation) SPB on your systems.
