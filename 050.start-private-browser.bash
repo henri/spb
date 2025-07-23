@@ -52,6 +52,7 @@
 # version 4.1 - minor improvments to output relating to updates
 # version 4.2 - bug fixs
 # version 4.3 - altered configuration defaults working towards improved browser compatibaility
+# version 4.4 - prepared multi-browser compatibility foundations
 #
 
 ##
@@ -90,25 +91,18 @@ template_browser_id_absolute="" # when creating a new template this is set to th
 spb_configuration_file_path="${template_dir_parent}/${spb_configuration_file_name}" # using the template directory to store the configuration file
 spb_configuration_file_absolute="${spb_configuration_file_path/#\~/$HOME}" # expand the home tild if needed
 
-# # current incarnation of default settings.... better appraoch must be possible or we run with this (dev-default-browser branch)?
-# # this approach is backwards compatible ... otherwise bite the bulllet and consider associative arrays (for key-value pairs)
-# # configure default - inbuilt browser options data (used if you set a default browser)
-# # headers : browser-name,linux-command,macOS-command
-# default_browsers=( 
-#     "brave,brave-browser,/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"
-#     "vivaldi,vivaldi-stable,/Applications/BVivaldi.app/Contents/MacOS/Vivaldi" 
-# )
-# # right now we will just suck out brave as the default
-# IFS=',' read -r browser_name linux_command macOS_command <<< "${default_browsers[0]}"
-# echo "browser_name : ${browser_name}"
-# echo "linux_command : ${linux_command}"
-# echo "macOS_command : ${macOS_command}"
-# or another approach
-# declare -A brave
-# brave[macOS]="/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"
-# brave[linux]="brave-browser"
-# echo "${brave[linux]}"
-# echo "${brave[macOS]}"
+# default browser values - these are the commands which we run on various operating systems for various browsers
+declare -A spb_default_browser_data
+spb_default_browser_data["vivaldi:linux"]="vivaldi"
+spb_default_browser_data["vivaldi:darwin"]="/Applications/Vivaldi.app/Contents/MacOS/Vivaldi"
+spb_default_browser_data["brave:linux"]="brave-browser"
+spb_default_browser_data["brave:darwin"]="/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"
+
+# configure the default SPB browser
+if [ -z "$spb_browser_name" ]; then
+    # check this value has not been configured via configuration file / enviroment varable
+    spb_browser_name="brave"
+fi
 
 # internal argument parsing varables
 skip_arg="false"
@@ -545,26 +539,21 @@ if [ -r ${spb_configuration_file_absolute} ] ; then
     source ${spb_configuration_file_absolute}
 fi
 
-# check this value has not been configured via configuration file / enviroment varable - essentially allowing those options
-if [ -z "$spb_browser_name" ]; then
-    spb_browser_name="brave"
-fi
-
 # check the operating system ; also check on brave and screen availability on system
-os_type="$(uname)"
-if [[ "${os_type}" == "Darwin" ]] ; then
+os_type=$(uname -s | tr '[:upper:]' '[:lower:]')
+if [[ "${os_type}" == "darwin" ]] ; then
     # running on macOS
     if [ -z "$spb_browser_path" ]; then
-        # check this value has not been configured via configuration file / enviroment varable - essentially allowing those options
-        spb_browser_path="/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"
+        # check this value has not been configured via configuration file / enviroment varable
+        spb_browser_path="${spb_default_browser_data[$spb_browser_name:$os_type]}"
     fi
-    mktemp_options="-d"
     if [[ -x "${spb_browser_path}" ]] ; then spb_browser_available=0 ; else spb_browser_available=1 ; fi
-elif [[ "${os_type}" == "Linux" ]] || [[ "$(uname)" == "FreeBSD" ]]; then
+    mktemp_options="-d"
+elif [[ "${os_type}" == "linux" ]] || [[ "$(uname)" == "freebsd" ]]; then
     # running on GNU/LINUX or FreeBSD
     if [ -z "$spb_browser_path" ]; then
-        # check this value has not been configured via configuration file / enviroment varable - essentially allowing those options
-        spb_browser_path="brave-browser"
+        # check this value has not been configured via configuration file / enviroment varable
+        spb_browser_path="${spb_default_browser_data[$spb_browser_name:$os_type]}"
     fi
     which ${spb_browser_path} >> /dev/null ; spb_browser_available=${?}
     mktemp_options="--directory"
@@ -574,7 +563,7 @@ else
     echo "              Please note this script requires a POSIX compliant"
     echo "              or at minimum a POSIX like operating system"
     echo ""
-    echo -99
+    exit -99
 fi
 
 # report if specified browser is not available on this system, then report the problem
@@ -670,10 +659,10 @@ function report_general_browser_lock_file_information() {
         echo ""
         echo "         Once removed, you could then attempt re-runing your command."
     else
-        if [[ "${os_type}" != "Darwin" ]] ; then
+        if [[ "${os_type}" != "darwin" ]] ; then
             echo "         Sometimes browsers take a while to exit after you close the last window."
         fi
-        if [[ "${os_type}" == "Darwin" ]] ; then
+        if [[ "${os_type}" == "darwin" ]] ; then
             echo "         Sometimes browsers take a while to exit after they have been quit."
             echo ""
             echo "         Remember on macOS you must specifically quit the browser as closing"
