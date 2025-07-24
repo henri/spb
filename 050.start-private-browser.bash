@@ -58,6 +58,7 @@
 # version 4.7 - bug fixs relating to older versions of bash
 # version 4.8 - improvements to mutli-browser compatability
 # version 4.9 - initial enviroment variable support for spb browser configuration
+# version 5.0 - initial spb configuration file support - only via sourcing
 #
 
 ##
@@ -84,8 +85,8 @@ num_args=$#
 
 # configure the default SPB browser name
 spb_browser_name_default="brave"
-spb_browser_is_default="true"
 spb_browser_name_externally_configured="false"
+spb_browser_is_default="true"
 if [[ -z "$spb_browser_name" ]] ; then
     # check this value has not been configured via configuration file / enviroment varable
     spb_browser_name="${spb_browser_name_default}"
@@ -119,6 +120,21 @@ if [[ spb_external_count -eq 1 ]] ; then
     exit -176
 fi
 
+# List of currently supported configration file options
+# set these as exported enivroment varaibles or place them
+# in the configration file and they will automatically be
+# exported when this script runs and finds the configuration
+# file. Configration file path is within the varaible :
+# spb_configuration_file_name (above in this script)
+#
+# export spb_browser_name="brave"
+# export spb_browser_path="brave-browser"
+#
+
+# configure the configuration file paths
+spb_configuration_file_path="${template_dir_parent}/${spb_configuration_file_name}" # using the template directory to store the configuration file
+spb_configuration_file_absolute="${spb_configuration_file_path/#\~/$HOME}" # expand the home tild if needed
+
 # update the template directory parent so that it is browser specific
 template_dir_parent="${template_dir_parent}/${spb_browser_name}"     
 
@@ -136,8 +152,6 @@ standard_mode="false" # when set to true, we will not default to running incogni
 quite_mode="false"
 force_stop_mode="false"
 template_browser_id_absolute="" # when creating a new template this is set to the full absolute path to the template browser_id file
-spb_configuration_file_path="${template_dir_parent}/${spb_configuration_file_name}" # using the template directory to store the configuration file
-spb_configuration_file_absolute="${spb_configuration_file_path/#\~/$HOME}" # expand the home tild if needed
 spb_default_multi_browser_support="false"
 
 # default multi-browser support enabled - if we are running bash version 4 or later
@@ -149,6 +163,8 @@ if [[ -z ${BASH_VERSINFO} ]] ; then
         spb_default_browser_data["vivaldi:darwin"]="/Applications/Vivaldi.app/Contents/MacOS/Vivaldi"
         spb_default_browser_data["brave:linux"]="brave-browser"
         spb_default_browser_data["brave:darwin"]="/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"
+        spb_default_browser_data["chromium:linux"]="chromium"
+        spb_default_browser_data["chromium:darwin"]="/Applications/Chromium.app/Contents/MacOS/Chromium"
         spb_default_multi_browser_support="true"
     fi
 fi
