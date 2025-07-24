@@ -55,6 +55,7 @@
 # version 4.4 - prepared multi-browser compatibility foundations
 # version 4.5 - initial templating compatibility checks implimented
 # version 4.6 - improved template listing output in relation to multi-browser improvements
+# version 4.7 - bug fixs relating to older versions of bash
 #
 
 ##
@@ -99,6 +100,7 @@ template_dir_parent="${template_dir_parent}/${spb_browser_name}"
 # updated variables and the defaults
 creating_new_template="false"
 spb_list_templates="false"
+
 new_template_dir_name=""
 edit_template_dir_name=""
 use_template_dir_name=""
@@ -111,14 +113,17 @@ force_stop_mode="false"
 template_browser_id_absolute="" # when creating a new template this is set to the full absolute path to the template browser_id file
 spb_configuration_file_path="${template_dir_parent}/${spb_configuration_file_name}" # using the template directory to store the configuration file
 spb_configuration_file_absolute="${spb_configuration_file_path/#\~/$HOME}" # expand the home tild if needed
+spb_default_multi_browser_support="false"
 
-# default browser values - these are the commands which we run on various operating systems for various browsers
-declare -A spb_default_browser_data
-spb_default_browser_data["vivaldi:linux"]="vivaldi"
-spb_default_browser_data["vivaldi:darwin"]="/Applications/Vivaldi.app/Contents/MacOS/Vivaldi"
-spb_default_browser_data["brave:linux"]="brave-browser"
-spb_default_browser_data["brave:darwin"]="/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"
-
+if [[ ${BASH_VERSINFO} -ge 4 ]] ; then
+    # default browser values - these are the commands which we run on various operating systems for various browsers
+    declare -A spb_default_browser_data
+    spb_default_browser_data["vivaldi:linux"]="vivaldi"
+    spb_default_browser_data["vivaldi:darwin"]="/Applications/Vivaldi.app/Contents/MacOS/Vivaldi"
+    spb_default_browser_data["brave:linux"]="brave-browser"
+    spb_default_browser_data["brave:darwin"]="/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"
+    spb_default_multi_browser_support="true"
+fi
 
 # internal argument parsing varables
 skip_arg="false"
@@ -639,7 +644,12 @@ if [[ "${os_type}" == "darwin" ]] ; then
     # running on macOS
     if [ -z "$spb_browser_path" ]; then
         # check this value has not been configured via configuration file / enviroment varable
-        spb_browser_path="${spb_default_browser_data[$spb_browser_name:$os_type]}"
+        if [[ "${spb_default_multi_browser_support}" == "true" ]] ; then
+            spb_browser_path="${spb_default_browser_data[$spb_browser_name:$os_type]}"
+        else
+            # rocking an older version of bash so we stick with brave
+            spb_browser_path="/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"
+        fi
     fi
     if [[ -x "${spb_browser_path}" ]] ; then spb_browser_available=0 ; else spb_browser_available=1 ; fi
     mktemp_options="-d"
@@ -978,11 +988,11 @@ while [[ ${#} -ge 1 ]] ; do
     # note, that no additional checking for validy of options is performed.
     # maybe in a future version of this script.
     if [[ $(echo "${1}" | grep -e "^-") ]] ; then
-        brave_option_name=$(echo "${1}" | sed -n 's/.*--\([^=]*\)=.*/\1/p')
-        brave_option_value=$(echo "${1}" | sed 's/^[^=]*=//')
-        if [[ ${brave_option_name} != "" ]] && [[ ${brave_option_value} != "" ]] ; then
-            new_brave_argument="--${brave_option_name}=\"${brave_option_value}\""
-            browser_options="${browser_options} ${new_brave_argument}"
+        browser_option_name=$(echo "${1}" | sed -n 's/.*--\([^=]*\)=.*/\1/p')
+        browser_option_value=$(echo "${1}" | sed 's/^[^=]*=//')
+        if [[ ${browser_option_name} != "" ]] && [[ ${browser_option_value} != "" ]] ; then
+            new_browser_argument="--${browser_option_name}=\"${browser_option_value}\""
+            browser_options="${browser_options} ${new_browser_argument}"
         else
             browser_options="${browser_options} ${1}"
         fi
@@ -996,7 +1006,7 @@ while [[ ${#} -ge 1 ]] ; do
 done
 
 
-# start a screen session with the name based off the temp directory, then once brave exits delete the temporary directory
+# start a screen session with the name based off the temp directory, then once browser exits delete the temporary directory
 screen -S "${screen_session_name}" -dm bash -c " \"${spb_browser_path}\" ${browser_options} ${url_list} ; sleep 1 ; sync ; rm -rf ${browser_tmp_directory} ${spb_etlfr_cmd} "
 exit 0
 
