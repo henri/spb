@@ -131,13 +131,13 @@ if [[ spb_external_count -eq 1 ]] ; then
             echo "         the 'spb_browser_path' varable must also be set!"
         else
             # multi-browser support not enabled - expain one of these has been set but not both of them 
-            echo "         Multi-Browser support is disabled due to your older version of BASH!"
-            echo "         As such if you configure either of the follwoing envirment varibales :"
+            echo "         Automatic multi-browser support is unavailable due to the older version of BASH!"
+            echo "         Upgrade BASH or when configure either of the follwoing envirment varibales :"
             echo ""
             echo "                         spb_browser_name or spb_browser_path"
             echo ""
-            echo "         You must configure the other, they either must both be set or"
-            echo "         alterativly neither of should be externally configured."
+            echo "         You must also configure the other. They either must both be set or alterativly"
+            echo "         neither varable should be externally configured."
 
         fi
         echo ""
