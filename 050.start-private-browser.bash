@@ -54,7 +54,7 @@
 # version 4.3 - altered configuration defaults working towards improved browser compatibaility
 # version 4.4 - prepared multi-browser compatibility foundations
 # version 4.5 - initial templating compatibility checks implimented
-# version 4.6 - imprtoved listing in relation to multi-browser improvements
+# version 4.6 - improved template listing output in relation to multi-browser improvements
 #
 
 ##
