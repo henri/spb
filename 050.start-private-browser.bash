@@ -59,6 +59,7 @@
 # version 4.8 - improvements to mutli-browser compatability
 # version 4.9 - initial enviroment variable support for spb browser configuration
 # version 5.0 - initial spb configuration file support - only via sourcing
+# version 5.1 - bug fixes relating to loading order of configuration file
 #
 
 ##
@@ -100,6 +101,7 @@ if [[ "${spb_browser_name_default}" != "${spb_browser_name}" ]] ; then
     # it is important to ensure the template type 
     # matches the specified browser
     spb_browser_is_default="false"
+    echo Hello
 fi
 spb_external_count=0
 [[ ! -z "${spb_browser_path}" ]] && spb_external_count=$((spb_external_count+1))
@@ -120,6 +122,7 @@ if [[ spb_external_count -eq 1 ]] ; then
     exit -176
 fi
 
+
 # List of currently supported configration file options
 # set these as exported enivroment varaibles or place them
 # in the configration file and they will automatically be
@@ -134,6 +137,12 @@ fi
 # configure the configuration file paths
 spb_configuration_file_path="${template_dir_parent}/${spb_configuration_file_name}" # using the template directory to store the configuration file
 spb_configuration_file_absolute="${spb_configuration_file_path/#\~/$HOME}" # expand the home tild if needed
+#
+# configuration file loading
+if [ -r ${spb_configuration_file_absolute} ] ; then
+    # lets start with sourcing, then we can move onto parsing
+    source ${spb_configuration_file_absolute}
+fi
 
 # update the template directory parent so that it is browser specific
 template_dir_parent="${template_dir_parent}/${spb_browser_name}"     
@@ -425,6 +434,7 @@ function check_template_name() {
     fi
 }
 
+# function used to clean the template lock file ; should anything go wrong during pre-flight checks
 function clean_lock_file() {
     rm -f ${template_lock_file_absolute}
 
@@ -460,16 +470,16 @@ function check_template_browser_identification() {
     fi
     if [[ "${selected_browser_id_name}" != "${template_browser_id_name}" ]] ; then
         echo ""
-        echo "ERROR! : Selected browser and template identiciation do not match!" 
+        echo "        ERROR! : Selected browser and template identiciation do not match!" 
         echo ""
         echo "             Selected Browser ID : ${selected_browser_id_name}"
         echo "             Template browser ID : ${template_browser_id_name}"
         echo ""
-        echo "         The selected browser ID and the template ID must match!"
+        echo "        The selected browser ID and the template ID must match!"
         echo ""
-        echo "         If the browser and teampate data do not match, then we"
-        echo "         may currupt the data or have unexected results during"
-        echo "         browser usage."
+        echo "        If the browser and teampate data do not match, then we"
+        echo "        may currupt the data or have unexected results during"
+        echo "        browser usage."
         echo ""
         clean_lock_file
         exit -68
@@ -681,12 +691,6 @@ fi
 ##
 ## Pre flight checks
 ## 
-
-# configuration file loading
-if [ -r ${spb_configuration_file_absolute} ] ; then
-    # lets start with sourcing, then we can move onto parsing
-    source ${spb_configuration_file_absolute}
-fi
 
 # check the operating system ; also check on brave and screen availability on system
 os_type=$(uname -s | tr '[:upper:]' '[:lower:]')
@@ -939,31 +943,34 @@ screen_session_name="${screen_session_prefix}-$(echo "${browser_tmp_directory}" 
 
 # templating (copy the template over)
 if [[ "${use_template_dir_name}" != "" ]] ; then
-    if [[ -e ${template_browser_id_absolute} ]] && [[ "${template_browser_id_absolute}" != "" ]] ; then
+    if [[   -e ${template_browser_id_absolute} ]] && [[ "${template_browser_id_absolute}" != "" ]] ; then
         check_template_browser_identification
     else
         echo ""
-        echo "WARNING : Unable to locate template browser id file :"
+        echo "          WARNING : Unable to locate template browser id file :"
         echo ""
         echo "              ${template_browser_id_absolute}"
         echo ""
         echo "          Please be sure this template is compatible with your browser!"
-        echo "          If there is a mismatch data curruption extreamlly likely to occour!"
+        echo "          If there is a mismatch data curruption is extreamlly likely to occour!"
         echo ""
         echo "          If you do not answer within 60 seconds then we will not proceed."
         echo ""
-        echo -n "       Would you like to continue and load this template? [y/N] : "
+        echo -n "          Would you like to continue and load this template? [y/N] : "
         proceed_with_unconfirmed_browser_identification=""
+        proceeded_automatically=" (manually)"
         timeout --foreground 60s read proceed_with_unconfirmed_browser_identification
+        proceed_with_timeout_result=${?}
+        if [[ ${proceed_with_timeout_result} != 0 ]] ; then echo "" ; proceeded_automatically=" (automatically)" ; fi 
         if \
             [[ "${proceed_with_unconfirmed_browser_identification}" != "y" ]] && \
             [[ "${proceed_with_unconfirmed_browser_identification}" != "Y" ]] && \
             [[ "${proceed_with_unconfirmed_browser_identification}" != "yes" ]] && \
             [[ "${proceed_with_unconfirmed_browser_identification}" != "Yes" ]] && \
             [[ "${proceed_with_unconfirmed_browser_identification}" != "YES" ]] \
-        ; then
+        ; then 
             echo ""
-            echo "          Tempalte loading aborted due to possibility of data curruption."
+            echo "          Tempalte loading aborted${proceeded_automatically} due to possibility of data curruption."
             echo "          This is due to possible selected browser and tempate mismatch!"
             echo ""
             exit -223
