@@ -56,6 +56,8 @@
 # version 4.5 - initial templating compatibility checks implimented
 # version 4.6 - improved template listing output in relation to multi-browser improvements
 # version 4.7 - bug fixs relating to older versions of bash
+# version 4.8 - improvements to mutli-browser compatability
+# version 4.9 - initial enviroment variable support for spb browser configuration
 #
 
 ##
@@ -83,15 +85,38 @@ num_args=$#
 # configure the default SPB browser name
 spb_browser_name_default="brave"
 spb_browser_is_default="true"
-if [ -z "$spb_browser_name" ]; then
+spb_browser_name_externally_configured="false"
+if [[ -z "$spb_browser_name" ]] ; then
     # check this value has not been configured via configuration file / enviroment varable
     spb_browser_name="${spb_browser_name_default}"
-elif [[ "${spb_browser_name_default}" != "${spb_browser_name}" ]] ; then
+else
+    # this value has been configured via configuation file / enviroment varable
+    spb_browser_name_externally_configured="true"
+fi
+if [[ "${spb_browser_name_default}" != "${spb_browser_name}" ]] ; then
     # this varable is used to keep track of which variables need to have been set
     # sanity checks in relation to templating subsystem 
     # it is important to ensure the template type 
     # matches the specified browser
     spb_browser_is_default="false"
+fi
+spb_external_count=0
+[[ ! -z "${spb_browser_path}" ]] && spb_external_count=$((spb_external_count+1))
+[[ "${spb_browser_name_externally_configured}" == "true" ]] && spb_external_count=$((spb_external_count+1))
+if [[ spb_external_count -eq 1 ]] ; then
+    # one of these has been set but not both of them (bottle out with a message)
+    echo ""
+    echo "ERROR! : Unable to proceed eviroment variable problem!"
+    echo "         If you configure either of the follwoing envirment varibales :"
+    echo ""
+    echo "                   spb_browser_name or spb_browser_path"
+    echo ""
+    echo "         You must configure the other, they either must both be set or"
+    echo "         alterativly neither of should be externally configured."
+    echo ""
+    echo "         This is related to tempalte directory organisation."
+    echo ""
+    exit -176
 fi
 
 # update the template directory parent so that it is browser specific
@@ -115,14 +140,17 @@ spb_configuration_file_path="${template_dir_parent}/${spb_configuration_file_nam
 spb_configuration_file_absolute="${spb_configuration_file_path/#\~/$HOME}" # expand the home tild if needed
 spb_default_multi_browser_support="false"
 
-if [[ ${BASH_VERSINFO} -ge 4 ]] ; then
-    # default browser values - these are the commands which we run on various operating systems for various browsers
-    declare -A spb_default_browser_data
-    spb_default_browser_data["vivaldi:linux"]="vivaldi"
-    spb_default_browser_data["vivaldi:darwin"]="/Applications/Vivaldi.app/Contents/MacOS/Vivaldi"
-    spb_default_browser_data["brave:linux"]="brave-browser"
-    spb_default_browser_data["brave:darwin"]="/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"
-    spb_default_multi_browser_support="true"
+# default multi-browser support enabled - if we are running bash version 4 or later
+if [[ -z ${BASH_VERSINFO} ]] ; then
+    if [[ ${BASH_VERSINFO} -ge 4 ]] ; then
+        # default browser values - these are the commands which we run on various operating systems for various browsers
+        declare -A spb_default_browser_data
+        spb_default_browser_data["vivaldi:linux"]="vivaldi"
+        spb_default_browser_data["vivaldi:darwin"]="/Applications/Vivaldi.app/Contents/MacOS/Vivaldi"
+        spb_default_browser_data["brave:linux"]="brave-browser"
+        spb_default_browser_data["brave:darwin"]="/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"
+        spb_default_multi_browser_support="true"
+    fi
 fi
 
 # internal argument parsing varables
@@ -642,7 +670,7 @@ fi
 os_type=$(uname -s | tr '[:upper:]' '[:lower:]')
 if [[ "${os_type}" == "darwin" ]] ; then
     # running on macOS
-    if [ -z "$spb_browser_path" ]; then
+    if [[ -z "$spb_browser_path" ]] ; then
         # check this value has not been configured via configuration file / enviroment varable
         if [[ "${spb_default_multi_browser_support}" == "true" ]] ; then
             spb_browser_path="${spb_default_browser_data[$spb_browser_name:$os_type]}"
@@ -655,7 +683,7 @@ if [[ "${os_type}" == "darwin" ]] ; then
     mktemp_options="-d"
 elif [[ "${os_type}" == "linux" ]] || [[ "$(uname)" == "freebsd" ]]; then
     # running on GNU/LINUX or FreeBSD
-    if [ -z "$spb_browser_path" ]; then
+    if [[ -z "$spb_browser_path" ]] ; then
         # check this value has not been configured via configuration file / enviroment varable
         if [[ "${spb_default_multi_browser_support}" == "true" ]] ; then
             spb_browser_path="${spb_default_browser_data[$spb_browser_name:$os_type]}"
