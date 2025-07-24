@@ -60,6 +60,7 @@
 # version 4.9 - initial enviroment variable support for spb browser configuration
 # version 5.0 - initial spb configuration file support - only via sourcing
 # version 5.1 - bug fixes relating to loading order of configuration file
+# version 5.2 - improved template listing output and bug fixes relating to multi-broser support
 #
 
 ##
@@ -83,6 +84,22 @@ spb_etlfr_cmd="" # spb edit template lock file remove command (leave this blank 
 args=("$@")
 index=0
 num_args=$#
+spb_default_multi_browser_support="false"
+
+# default multi-browser support enabled - if we are running bash version 4 or later
+if [[ ! -z ${BASH_VERSINFO} ]] ; then
+    if [[ ${BASH_VERSINFO} -ge 4 ]] ; then
+        # default browser values - these are the commands which we run on various operating systems for various browsers
+        declare -A spb_default_browser_data
+        spb_default_browser_data["vivaldi:linux"]="vivaldi"
+        spb_default_browser_data["vivaldi:darwin"]="/Applications/Vivaldi.app/Contents/MacOS/Vivaldi"
+        spb_default_browser_data["brave:linux"]="brave-browser"
+        spb_default_browser_data["brave:darwin"]="/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"
+        spb_default_browser_data["chromium:linux"]="chromium"
+        spb_default_browser_data["chromium:darwin"]="/Applications/Chromium.app/Contents/MacOS/Chromium"
+        spb_default_multi_browser_support="true"
+    fi
+fi
 
 # configure the default SPB browser name
 spb_browser_name_default="brave"
@@ -101,25 +118,34 @@ if [[ "${spb_browser_name_default}" != "${spb_browser_name}" ]] ; then
     # it is important to ensure the template type 
     # matches the specified browser
     spb_browser_is_default="false"
-    echo Hello
 fi
 spb_external_count=0
 [[ ! -z "${spb_browser_path}" ]] && spb_external_count=$((spb_external_count+1))
 [[ "${spb_browser_name_externally_configured}" == "true" ]] && spb_external_count=$((spb_external_count+1))
 if [[ spb_external_count -eq 1 ]] ; then
-    # one of these has been set but not both of them (bottle out with a message)
-    echo ""
-    echo "ERROR! : Unable to proceed eviroment variable problem!"
-    echo "         If you configure either of the follwoing envirment varibales :"
-    echo ""
-    echo "                   spb_browser_name or spb_browser_path"
-    echo ""
-    echo "         You must configure the other, they either must both be set or"
-    echo "         alterativly neither of should be externally configured."
-    echo ""
-    echo "         This is related to tempalte directory organisation."
-    echo ""
-    exit -176
+    if [[ "${spb_browser_name_externally_configured}" == "false" ]] || [[ "${spb_default_multi_browser_support}" == "false" ]]  ; then
+        echo "" ; echo "ERROR! : Unable to proceed eviroment variable problem!" ; echo ""
+        if [[ "${spb_default_multi_browser_support}" == "true" ]]  ; then
+            # multi-broser support enabled - report the situation relating to enviroment varables
+            echo "         When the 'spb_browser_path' enviroment varable is configured,"
+            echo "         the 'spb_browser_path' varable must also be set!"
+        else
+            # multi-browser support not enabled - expain one of these has been set but not both of them 
+            echo "         Multi-Browser support is disabled due to your older version of BASH!"
+            echo "         As such if you configure either of the follwoing envirment varibales :"
+            echo ""
+            echo "                         spb_browser_name or spb_browser_path"
+            echo ""
+            echo "         You must configure the other, they either must both be set or"
+            echo "         alterativly neither of should be externally configured."
+
+        fi
+        echo ""
+        echo "         This requirment is in relation to the template"
+        echo "         system directory organisation."
+        echo ""
+        exit -176
+    fi
 fi
 
 
@@ -161,22 +187,6 @@ standard_mode="false" # when set to true, we will not default to running incogni
 quite_mode="false"
 force_stop_mode="false"
 template_browser_id_absolute="" # when creating a new template this is set to the full absolute path to the template browser_id file
-spb_default_multi_browser_support="false"
-
-# default multi-browser support enabled - if we are running bash version 4 or later
-if [[ -z ${BASH_VERSINFO} ]] ; then
-    if [[ ${BASH_VERSINFO} -ge 4 ]] ; then
-        # default browser values - these are the commands which we run on various operating systems for various browsers
-        declare -A spb_default_browser_data
-        spb_default_browser_data["vivaldi:linux"]="vivaldi"
-        spb_default_browser_data["vivaldi:darwin"]="/Applications/Vivaldi.app/Contents/MacOS/Vivaldi"
-        spb_default_browser_data["brave:linux"]="brave-browser"
-        spb_default_browser_data["brave:darwin"]="/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"
-        spb_default_browser_data["chromium:linux"]="chromium"
-        spb_default_browser_data["chromium:darwin"]="/Applications/Chromium.app/Contents/MacOS/Chromium"
-        spb_default_multi_browser_support="true"
-    fi
-fi
 
 # internal argument parsing varables
 skip_arg="false"
@@ -257,7 +267,12 @@ if [[ ${spb_list_templates} == "true" ]] ; then
     
     teamplate_dir_parent_dirname=$(dirname ${template_dir_parent})
     awk_cut_point=$(basename ${teamplate_dir_parent_dirname})
-    find ${teamplate_dir_parent_dirname/#\~/$HOME} -maxdepth 2 -type d | grep -v "available" | awk -F "$awk_cut_point" '{print $2}' | awk 'gsub("/", "&")!=1' | sed 's/^\///' | awk '{gsub(/\//, "\t\t")}1' | cat 
+
+    # this monstrosity outputs nicley formated output when you list the templates
+    find ${teamplate_dir_parent_dirname/#\~/$HOME} -maxdepth 2 -type d | grep -v "available" \
+    | awk -F "$awk_cut_point" '{print $2}' | awk 'gsub("/", "&")!=1' | sed 's/^\///' \
+    | awk '{gsub(/\//, "\t\t")}1' |  awk '{if($1!=last){if(NR>1)print""};last=$1;print}' | awk 'NR>1'| cat 
+
     spb_template_listing_status=${?}
     if [[ "${quite_mode}" != "true" ]] ; then echo "" ; fi
     exit ${spb_template_listing_status}
@@ -712,6 +727,7 @@ elif [[ "${os_type}" == "linux" ]] || [[ "$(uname)" == "freebsd" ]]; then
     if [[ -z "$spb_browser_path" ]] ; then
         # check this value has not been configured via configuration file / enviroment varable
         if [[ "${spb_default_multi_browser_support}" == "true" ]] ; then
+
             spb_browser_path="${spb_default_browser_data[$spb_browser_name:$os_type]}"
         else
             # rocking an older version of bash so we stick with brave
