@@ -10,7 +10,7 @@
 # This script may be easily modified to work with different Blink based browsers for example
 # chromium, vivaldi, opera etc...
 #
-# Henri Shustak 2024
+# (C)Copyright Henri Shustak 2024
 #
 # Released under the GNU GPLv3 or later licence :
 # https://www.gnu.org/licenses/gpl-3.0.en.html
@@ -66,7 +66,7 @@
 
 # configuration variables
 screen_session_prefix="spb-session"                 #  prefix of the screen session name
-temp_path="/tmp/browser"                            #  location of temporary browser data
+temp_path="/tmp/spb-browser"                        #  location of temporary browser data
 template_dir_parent="~/bin/spb-templates"           #  location of spb templates
 template_browser_id_filename="spb-browser.id"       #  file which will contain the browser identifier for this template
 update_script_path="~/bin/spb-update.bash"          #  where to find the spb-update script
