@@ -736,9 +736,16 @@ if [[ ${spb_browser_available} != 0 ]] ; then
     echo "         ${spb_browser_path}"
     echo ""
     if [[ "${spb_browser_name}" == "brave" ]] ; then
-    # only brave download instructions are supported at this time.
     echo "         Instructions to install ${spb_browser_name} are available from the URL below : "
     echo "         https://brave.com/download/"
+    fi
+    if [[ "${spb_browser_name}" == "vivaldi" ]] ; then
+    echo "         Instructions to install ${spb_browser_name} are available from the URL below : "
+    echo "         https://vivaldi.com/download/"
+    fi
+    if [[ "${spb_browser_name}" == "chromium" ]] ; then
+    echo "         Instructions to install ${spb_browser_name} are available from the URL below : "
+    echo "         https://www.chromium.org/getting-involved/download-chromium/"
     fi
     echo ""
     exit -1
