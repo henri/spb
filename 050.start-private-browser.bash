@@ -228,10 +228,11 @@ if [[ ${spb_list_templates} == "true" ]] ; then
         echo "Specify only the template name."
         echo ""
         echo "SPB Templates List :"
-        echo 
     fi
-    awk_cut_point=$(basename $(dirname ${template_dir_parent}))
-    find ${template_dir_parent/#\~/$HOME} -maxdepth 1 -type d | grep -v "available" | awk -F "$awk_cut_point" '{print $2}' | sed '/^[^\/]*\/[^\/]*$/d' | sed 's|^/||' | sed 's|/|\t|g' |  cat 
+    
+    teamplate_dir_parent_dirname=$(dirname ${template_dir_parent})
+    awk_cut_point=$(basename ${teamplate_dir_parent_dirname})
+    find ${teamplate_dir_parent_dirname/#\~/$HOME} -maxdepth 2 -type d | grep -v "available" | awk -F "$awk_cut_point" '{print $2}' | awk 'gsub("/", "&")!=1' | sed 's/^\///' | awk '{gsub(/\//, "\t\t")}1' | cat 
     spb_template_listing_status=${?}
     if [[ "${quite_mode}" != "true" ]] ; then echo "" ; fi
     exit ${spb_template_listing_status}
@@ -610,6 +611,9 @@ for arg in "$@" ; do
                     echo ""
                     echo "         The template specified was not found : "
                     echo "         ${template_dir_parent}/${use_template_dir_name}"
+                    echo ""
+                    echo "         List available teampltes with the command below : "
+                    echo "         ${0} --list-templates"
                     echo ""
                     exit -78
                 fi
@@ -1042,4 +1046,3 @@ done
 # start a screen session with the name based off the temp directory, then once browser exits delete the temporary directory
 screen -S "${screen_session_name}" -dm bash -c " \"${spb_browser_path}\" ${browser_options} ${url_list} ; sleep 1 ; sync ; rm -rf ${browser_tmp_directory} ${spb_etlfr_cmd} "
 exit 0
-
