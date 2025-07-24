@@ -10,7 +10,7 @@
 # This script may be easily modified to work with different Blink based browsers for example
 # chromium, vivaldi, opera etc...
 #
-# (C)Copyright Henri Shustak 2024
+# (C) Copyright Henri Shustak 2024
 #
 # Released under the GNU GPLv3 or later licence :
 # https://www.gnu.org/licenses/gpl-3.0.en.html
