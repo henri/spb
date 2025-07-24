@@ -53,6 +53,8 @@
 # version 4.2 - bug fixs
 # version 4.3 - altered configuration defaults working towards improved browser compatibaility
 # version 4.4 - prepared multi-browser compatibility foundations
+# version 4.5 - initial templating compatibility checks implimented
+# version 4.6 - imprtoved listing in relation to multi-browser improvements
 #
 
 ##
@@ -77,7 +79,26 @@ args=("$@")
 index=0
 num_args=$#
 
+# configure the default SPB browser name
+spb_browser_name_default="brave"
+spb_browser_is_default="true"
+if [ -z "$spb_browser_name" ]; then
+    # check this value has not been configured via configuration file / enviroment varable
+    spb_browser_name="${spb_browser_name_default}"
+elif [[ "${spb_browser_name_default}" != "${spb_browser_name}" ]] ; then
+    # this varable is used to keep track of which variables need to have been set
+    # sanity checks in relation to templating subsystem 
+    # it is important to ensure the template type 
+    # matches the specified browser
+    spb_browser_is_default="false"
+fi
+
+# update the template directory parent so that it is browser specific
+template_dir_parent="${template_dir_parent}/${spb_browser_name}"     
+
 # updated variables and the defaults
+creating_new_template="false"
+spb_list_templates="false"
 new_template_dir_name=""
 edit_template_dir_name=""
 use_template_dir_name=""
@@ -98,11 +119,6 @@ spb_default_browser_data["vivaldi:darwin"]="/Applications/Vivaldi.app/Contents/M
 spb_default_browser_data["brave:linux"]="brave-browser"
 spb_default_browser_data["brave:darwin"]="/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"
 
-# configure the default SPB browser
-if [ -z "$spb_browser_name" ]; then
-    # check this value has not been configured via configuration file / enviroment varable
-    spb_browser_name="brave"
-fi
 
 # internal argument parsing varables
 skip_arg="false"
@@ -145,15 +161,7 @@ for arg in "$@" ; do
 
   # list templates
   if [[ "${arg}" == "--list-templates" ]] ; then
-    # if [[ ${index} != 0 ]] || [[ ${num_args} -gt 1 ]]; then
-    #   echo ""
-    #   echo "ERROR! : Using the ${arg} option is not compatiable with any other"
-    #   echo "         arguments / parameters."
-    #   echo ""
-    #   exit -79
-    # fi
-    ls ${template_dir_parent/#\~/$HOME} | cat
-    exit ${?}
+    spb_list_templates="true"
   fi
   
   # forcefully close a browser session via identifier
@@ -168,6 +176,33 @@ for arg in "$@" ; do
   fi
 
 done
+
+# show available spb templates
+if [[ ${spb_list_templates} == "true" ]] ; then
+    # if [[ ${index} != 0 ]] || [[ ${num_args} -gt 1 ]]; then
+    #   echo ""
+    #   echo "ERROR! : Using the ${arg} option is not compatiable with any other"
+    #   echo "         arguments / parameters."
+    #   echo ""
+    #   exit -79
+    # fi
+    # ls ${template_dir_parent/#\~/$HOME} | grep -v "available" | cat
+    if [[ "${quite_mode}" != "true" ]] ; then
+        echo "" 
+        echo "SPB Template Notes : "
+        echo "When loading, editing or creating templates,"
+        echo "you must not specify the browser name!"
+        echo "Specify only the template name."
+        echo ""
+        echo "SPB Templates List :"
+        echo 
+    fi
+    awk_cut_point=$(basename $(dirname ${template_dir_parent}))
+    find ${template_dir_parent/#\~/$HOME} -maxdepth 1 -type d | grep -v "available" | awk -F "$awk_cut_point" '{print $2}' | sed '/^[^\/]*\/[^\/]*$/d' | sed 's|^/||' | sed 's|/|\t|g' |  cat 
+    spb_template_listing_status=${?}
+    if [[ "${quite_mode}" != "true" ]] ; then echo "" ; fi
+    exit ${spb_template_listing_status}
+fi
 
 # show usage information
 if [[ "${help_wanted}" == "yes" ]] ; then
@@ -338,6 +373,59 @@ function check_template_name() {
     fi
 }
 
+function clean_lock_file() {
+    rm -f ${template_lock_file_absolute}
+
+}
+
+function check_template_browser_identification() {
+    if [[ "${quite_mode}" != "true" ]] ; then
+            echo "        Browser compatability check..."
+    fi
+    if [[ ! -f ${template_browser_id_absolute} ]] || [[ ! -r ${template_browser_id_absolute} ]] ; then
+        echo "" ; 
+        echo "ERROR! : Unable to read the template browser identification!" 
+        echo ""
+        echo "         Check permissions are set correctly for your browser"
+        echo "         template ID file : " 
+        echo ""
+        echo "             ${template_browser_id_absolute}"
+        echo ""
+        clean_lock_file
+        exit -71
+    fi
+    local selected_browser_id_name=$("${spb_browser_path}" --version | awk '{print $1}' | tr '[:upper:]' '[:lower:]')
+    if [[ ${?} != 0 ]] || [[ "${selected_browser_id_name}" == "" ]] ; then
+        echo "" ; echo "ERROR! : Unable to calculate selected browser identification!" ; echo ""
+        clean_lock_file
+        exit -70
+    fi
+    local template_browser_id_name=$(cat ${template_browser_id_absolute} | head -n 1 | awk '{print $1}' | tr '[:upper:]' '[:lower:]')
+    if [[ ${?} != 0 ]] || [[ "${template_browser_id_name}" == "" ]] ; then
+        echo "" ; echo "ERROR! : Unable to calculate template browser identification!" ; echo ""
+        clean_lock_file
+        exit -69
+    fi
+    if [[ "${selected_browser_id_name}" != "${template_browser_id_name}" ]] ; then
+        echo ""
+        echo "ERROR! : Selected browser and template identiciation do not match!" 
+        echo ""
+        echo "             Selected Browser ID : ${selected_browser_id_name}"
+        echo "             Template browser ID : ${template_browser_id_name}"
+        echo ""
+        echo "         The selected browser ID and the template ID must match!"
+        echo ""
+        echo "         If the browser and teampate data do not match, then we"
+        echo "         may currupt the data or have unexected results during"
+        echo "         browser usage."
+        echo ""
+        clean_lock_file
+        exit -68
+    fi
+    return 0
+}
+
+
 # process arguments using a for loop (yes it seems crazy but that is the way we are doing it)
 # this is a custom arg parser in 2025 :)
 for arg in "$@" ; do
@@ -429,11 +517,13 @@ for arg in "$@" ; do
                 if [[ "${quite_mode}" != "true" ]] ; then
                     echo "Editing existing SPB template : ${edit_template_dir_absolute}"
                 fi
+                # used for storing and retriving browser template identification
+                template_browser_id_absolute="${edit_template_dir_absolute}/${template_browser_id_filename}"
             elif [[ "${arg}" == "--new-template" ]] ; then
                 new_template_dir_name="${next_arg}"
                 new_template_dir_absolute="$(echo ${template_dir_parent/#\~/$HOME}/${new_template_dir_name})"
                 if ! [ -d $(echo ${template_dir_parent/#\~/$HOME}) ] ; then
-                    mkdir $(echo ${template_dir_parent/#\~/$HOME})
+                    mkdir -p $(echo ${template_dir_parent/#\~/$HOME})
                     if [[ ${?} == 0 ]] ; then
                         if [[ "${quite_mode}" != "true" ]] ; then
                             echo "Created SPB template direcotry : ${template_dir_parent/#\~/$HOME}"
@@ -463,14 +553,15 @@ for arg in "$@" ; do
                         echo "" ; echo "ERROR! : Unable to create new SPB template : ${new_template_dir_absolute}" ; echo ""
                         exit -21
                     fi
-                    # setting this vaiable will result in browser informaiton being stored within this template
-                    template_browser_id_absolute="${new_template_dir_absolute}/${template_browser_id_filename}"
                     # mop up the new mess as we will now be using the template
                     edit_template_dir_name="${new_template_dir_name}"
                     edit_template_dir_absolute="$(echo ${template_dir_parent/#\~/$HOME}/${edit_template_dir_name})"
                     new_template_dir_name=""
                     new_template_dir_absolute=""
+                    creating_new_template="true"
                 fi
+                # used for storing and retriving browser template identification
+                template_browser_id_absolute="${edit_template_dir_absolute}/${template_browser_id_filename}"
             else
                 # TODO : probably we also want a way to configure this from a configuration file... needs looking at :)
                 use_template_dir_name="${next_arg}"
@@ -489,7 +580,10 @@ for arg in "$@" ; do
                     echo ""
                     exit -78
                 fi
+                # used for storing and retriving browser template identification
+                template_browser_id_absolute="${use_template_dir_absolute}/${template_browser_id_filename}"
             fi
+
       else
           echo ""
           echo "ERROR! : Using the ${arg} option requires specifing a template name"
@@ -697,7 +791,7 @@ function report_general_browser_lock_file_information() {
     echo ""
 }
 
-# template coping pre-flight checks
+# template copying pre-flight checks
 if [[ "${use_template_dir_name}" != "" ]] ; then
     if [ -e ${template_lock_file_absolute} ] ; then
         echo ""
@@ -773,6 +867,36 @@ screen_session_name="${screen_session_prefix}-$(echo "${browser_tmp_directory}" 
 
 # templating (copy the template over)
 if [[ "${use_template_dir_name}" != "" ]] ; then
+    if [[ -e ${template_browser_id_absolute} ]] && [[ "${template_browser_id_absolute}" != "" ]] ; then
+        check_template_browser_identification
+    else
+        echo ""
+        echo "WARNING : Unable to locate template browser id file :"
+        echo ""
+        echo "              ${template_browser_id_absolute}"
+        echo ""
+        echo "          Please be sure this template is compatible with your browser!"
+        echo "          If there is a mismatch data curruption extreamlly likely to occour!"
+        echo ""
+        echo "          If you do not answer within 60 seconds then we will not proceed."
+        echo ""
+        echo -n "       Would you like to continue and load this template? [y/N] : "
+        proceed_with_unconfirmed_browser_identification=""
+        timeout --foreground 60s read proceed_with_unconfirmed_browser_identification
+        if \
+            [[ "${proceed_with_unconfirmed_browser_identification}" != "y" ]] && \
+            [[ "${proceed_with_unconfirmed_browser_identification}" != "Y" ]] && \
+            [[ "${proceed_with_unconfirmed_browser_identification}" != "yes" ]] && \
+            [[ "${proceed_with_unconfirmed_browser_identification}" != "Yes" ]] && \
+            [[ "${proceed_with_unconfirmed_browser_identification}" != "YES" ]] \
+        ; then
+            echo ""
+            echo "          Tempalte loading aborted due to possibility of data curruption."
+            echo "          This is due to possible selected browser and tempate mismatch!"
+            echo ""
+            exit -223
+        fi
+    fi
     if [[ "${quite_mode}" != "true" ]] ; then
         echo "        Copying template data..."
     fi
@@ -804,13 +928,31 @@ if [[ "${edit_template_dir_name}" != "" ]] ; then
     if [[ ${?} != 0 ]] ; then
         echo "" ; echo "        WARNING! : Unable establish symlink within temporary directory to the template."
     fi
-    if [[ "${template_browser_id_absolute}" != "" ]] ; then
-        if [[ "${quite_mode}" != "true" ]] ; then
-            echo "        Storing browser information..."
+    if [[ "${creating_new_template}" == "true" ]] ; then
+        # creating a new template
+        if [[ "${template_browser_id_absolute}" != "" ]] ; then
+            if [[ "${quite_mode}" != "true" ]] ; then
+                echo "        Storing browser information..."
+            fi
+            "${spb_browser_path}" --version > ${template_browser_id_absolute}
+            if [[ ${?} != 0 ]] ; then
+                echo "" ; echo "        WARNING! : Unable save browser information into within the template."
+            fi
+        else
+            echo "ERROR! : Unable to resolve absolute path for template data."
+            clean_lock_file
+            exit -75
         fi
-        "${spb_browser_path}" --version > ${template_browser_id_absolute}
-        if [[ ${?} != 0 ]] ; then
-            echo "" ; echo "        WARNING! : Unable save browser information into within the template."
+    else
+        # editing existing template
+        if [[ -e ${template_browser_id_absolute} ]] && [[ "${template_browser_id_absolute}" != "" ]] ; then
+            # template browser id file found so confirm it is compatible with browser
+            check_template_browser_identification
+        else
+            echo "ERROR! : Unable to locate template browser id file : "
+            echo "         ${template_browser_id_absolute}"
+            clean_lock_file
+            exit -73
         fi
     fi
     if [[ "${quite_mode}" != "true" ]] ; then
