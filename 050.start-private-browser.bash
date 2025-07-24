@@ -268,6 +268,8 @@ if [[ "${help_wanted}" == "yes" ]] ; then
     echo "         It is possible this will also work on many other posix compliant"
     echo "         opterating systems. Your miliage may vary."
     echo ""
+    echo "         If a configuration file is found, then it will sourced :"
+    echo "         ${spb_configuration_file_path}"
     echo ""
     echo "         Usage Summary : "
     echo ""
