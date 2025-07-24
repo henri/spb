@@ -657,7 +657,12 @@ elif [[ "${os_type}" == "linux" ]] || [[ "$(uname)" == "freebsd" ]]; then
     # running on GNU/LINUX or FreeBSD
     if [ -z "$spb_browser_path" ]; then
         # check this value has not been configured via configuration file / enviroment varable
-        spb_browser_path="${spb_default_browser_data[$spb_browser_name:$os_type]}"
+        if [[ "${spb_default_multi_browser_support}" == "true" ]] ; then
+            spb_browser_path="${spb_default_browser_data[$spb_browser_name:$os_type]}"
+        else
+            # rocking an older version of bash so we stick with brave
+            spb_browser_path="brave-browser"
+        fi
     fi
     which ${spb_browser_path} >> /dev/null ; spb_browser_available=${?}
     mktemp_options="--directory"
