@@ -1092,16 +1092,13 @@ if [[ "${use_template_dir_name}" != "" ]] ; then
         echo "          Please be sure this template is compatible with your browser!"
         echo "          If there is a mismatch data curruption is extreamlly likely to occour!"
         echo ""
-        if [[ "${timeout_available}" == "true" ]] ; then
-        echo "          If you do not answer within 60 seconds then we will not proceed." ; echo ""
-        fi
+        echo "          If you do not answer within 60 seconds then we will not proceed."
+        echo ""
         echo -n "          Would you like to continue and load this template? [y/N] : "
         proceed_with_unconfirmed_browser_identification=""
         proceeded_automatically=" (manually)"
-        if [[ "${timeout_available}" == "true" ]] ; then
-            timeout --foreground 60s read proceed_with_unconfirmed_browser_identification
-        else
-            read proceed_with_unconfirmed_browser_identification
+        # timeout --foreground 60s read proceed_with_unconfirmed_browser_identification
+        read -t 60 proceed_with_unconfirmed_browser_identification
         fi
         proceed_with_timeout_result=${?}
         if [[ ${proceed_with_timeout_result} != 0 ]] ; then echo "" ; proceeded_automatically=" (automatically)" ; fi 
