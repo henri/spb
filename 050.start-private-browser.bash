@@ -281,7 +281,7 @@ for arg in "$@" ; do
         echo "         This is due to you running an older version"
         echo "         of BASH on your system, please update to"
         echo "         latest version of BASH if you would like"
-        echo "         to use the --broser option"
+        echo "         to use the --browser option."
         echo ""
         echo "         If you want to use an alterave browser"
         echo "         but do not want to upgrade your version"
