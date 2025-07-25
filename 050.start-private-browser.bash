@@ -64,7 +64,7 @@
 # version 5.2 - improvments with regards support for crosplatform multi-browser support
 # version 5.3 - updates to the built in help
 # version 5.4 - bug fixes
-# version 5.5 - improved quite mode for listing templates
+# version 5.5 - added ability to list availble browsers in multi-mode
 #
 
 ##
@@ -669,6 +669,25 @@ for arg in "$@" ; do
     valid_argument_found="true"
   fi
 
+  # list browsers
+  if [[ "${arg}" == "--list-browsers" ]] ; then
+    if [[ "${spb_default_multi_browser_support}" == "false" ]] ; then
+        echo ""
+        echo "ERROR! : You have requested a list of browsers."
+        echo "         Unfortunatly multi-browser support is"
+        echo "         not availbe due to your older version"
+        echo "         of bash on this system. Upgrade BASH"
+        echo "         and try again."
+        echo ""
+        exit -150
+    fi
+    for key in "${!spb_default_browser_data[@]}"; do
+        spb_default_browser_list="${key%%:*}\n${spb_default_browser_list}"
+    done
+    echo -e ${spb_default_browser_list} | awk 'NF' | sort -u
+    exit 0
+  fi
+
   # check for tempate or template editing
   if [[ "${arg}" == "--template" ]] || [[ "${arg}" == "--edit-template" ]] ||  [[ "${arg}" == "--new-template" ]] ; then
         # check they are not listed more than once
@@ -899,6 +918,7 @@ if [[ ${spb_browser_available} != 0 ]] ; then
     echo ""
     exit -1
 fi
+
 
 # report if screen is not available
 which screen >> /dev/null ; screen_available=${?}
@@ -1228,5 +1248,4 @@ done
 # start a screen session with the name based off the temp directory, then once browser exits delete the temporary directory
 screen -S "${screen_session_name}" -dm bash -c " \"${spb_browser_path}\" ${browser_options} ${url_list} ; sleep 1 ; sync ; rm -rf ${browser_tmp_directory} ${spb_etlfr_cmd} "
 exit 0
-
 
