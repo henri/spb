@@ -50,7 +50,7 @@
 # version 3.9 - further improvements to multi-browser support within the templating system
 # version 4.0 - added update option support
 # version 4.1 - minor improvments to output relating to updates
-# version 4.2 - bug fixs
+# version 4.2 - bug fixes
 # version 4.3 - altered configuration defaults working towards improved browser compatibaility
 # version 4.4 - prepared multi-browser compatibility foundations
 # version 4.5 - initial templating compatibility checks implimented
@@ -63,6 +63,7 @@
 # version 5.2 - improved template listing output and bug fixes relating to multi-broser support
 # version 5.2 - improvments with regards support for crosplatform multi-browser support
 # version 5.3 - updates to the built in help
+# version 5.4 - bug fixes
 #
 
 ##
