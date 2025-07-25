@@ -307,8 +307,6 @@ for arg in "$@" ; do
         exit -164
     fi
 
-    echo $pre_next_arg
-
     # update the browser name and other varibles which depend on the browser name 
     spb_browser_name="${pre_next_arg}"
     spb_browser_name_externally_configured="true"
@@ -316,7 +314,7 @@ for arg in "$@" ; do
         spb_browser_is_default="false" 
     fi
     template_dir_parent="${template_dir_parent}/${spb_browser_name}"
-    echo ${template_dir_parent}
+    
   fi
 
   ((pre_index++))
