@@ -61,6 +61,7 @@
 # version 5.0 - initial spb configuration file support - only via sourcing
 # version 5.1 - bug fixes relating to loading order of configuration file
 # version 5.2 - improved template listing output and bug fixes relating to multi-broser support
+# version 5.2 - improvments with regards support for crosplatform multi-browser support
 #
 
 ##
@@ -83,6 +84,7 @@ spb_etlfr_cmd="" # spb edit template lock file remove command (leave this blank 
 # setup varabels for processing arguments we ares pecifcially NOT using get opts 
 args=("$@")
 index=0
+pre_index=0
 num_args=$#
 spb_default_multi_browser_support="false"
 
@@ -91,12 +93,22 @@ if [[ ! -z ${BASH_VERSINFO} ]] ; then
     if [[ ${BASH_VERSINFO} -ge 4 ]] ; then
         # default browser values - these are the commands which we run on various operating systems for various browsers
         declare -A spb_default_browser_data
-        spb_default_browser_data["vivaldi:linux"]="vivaldi"
+        # # # # # # # # # # # # #
+        spb_default_browser_data["vivaldi:linux:mint"]="vivaldi"
+        spb_default_browser_data["vivaldi:linux:arch"]="vivaldi"
         spb_default_browser_data["vivaldi:darwin"]="/Applications/Vivaldi.app/Contents/MacOS/Vivaldi"
-        spb_default_browser_data["brave:linux"]="brave-browser"
+        spb_default_browser_data["vivaldi:freebsd"]="vivaldi"
+        # # # # # # # # # # # # #
+        spb_default_browser_data["brave:linux:mint"]="brave-browser"
+        spb_default_browser_data["brave:linux:arch"]="brave"
         spb_default_browser_data["brave:darwin"]="/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"
-        spb_default_browser_data["chromium:linux"]="chromium"
+        spb_default_browser_data["brave:freebsd"]="brave-browser"
+        # # # # # # # # # # # # #
+        spb_default_browser_data["chromium:linux:mint"]="chromium"
+        spb_default_browser_data["chromium:linux:arch"]="chromium"
         spb_default_browser_data["chromium:darwin"]="/Applications/Chromium.app/Contents/MacOS/Chromium"
+        spb_default_browser_data["chromium:freebsd"]="chromium"
+        # # # # # # # # # # # # #
         spb_default_multi_browser_support="true"
     fi
 fi
@@ -190,6 +202,7 @@ template_browser_id_absolute="" # when creating a new template this is set to th
 
 # internal argument parsing varables
 skip_arg="false"
+pre_skip_arg="false"
 pre_arg_scan_proceed="true"
 
 
@@ -199,6 +212,13 @@ pre_arg_scan_proceed="true"
 
 # pre argument scanning (arguments which will almost allways end up exiting before we actually start a browser)
 for arg in "$@" ; do
+
+  # skip some paramaters passed into script
+  if [[ "${pre_skip_arg}" == "true" ]] ; then
+    pre_skip_arg="false"
+    ((pre_index++))
+    continue
+  fi
 
   # check for help wanted
   if [[ "${arg}" == "-h" ]] || [[ "${arg}" == "--help" ]] ; then
@@ -242,6 +262,56 @@ for arg in "$@" ; do
     quite_mode="true"
     valid_argument_found="true"
   fi
+
+  # check to see if quite mode should be enabled
+  if [[ "${arg}" == "--browser" ]] ; then
+
+    # look ahead for passed argument parameters
+    if (( pre_index + 1 < num_args )) ; then
+        pre_next_arg="${args[pre_index + 1]}"
+    else
+        pre_next_arg=""
+    fi
+
+    if [[ "${spb_default_multi_browser_support}" == "false" ]] ; then
+        echo ""
+        echo "ERROR! : SPB multi-browser Support is not availble!"
+        echo ""
+        echo "         This is due to you running an older version"
+        echo "         of BASH on your system, please update to"
+        echo "         latest version of BASH if you would like"
+        echo "         to use the --broser option"
+        echo ""
+        echo "         If you want to use an alterave browser"
+        echo "         but do not want to upgrade your version"
+        echo "         of BASH, then you may configure the alt"
+        echo "         browser by setting enviroment variables."
+        echo "         It is possible to set these in the SPB"
+        echo "         configuration file or via your shell."
+        echo ""
+        exit -165
+    fi
+
+    # okay lets see whats what
+    if [[ "${pre_next_arg}" != "" ]] ; then
+        # configure the system to skip the next argument for processing 
+        # as it is the value for this one
+            pre_skip_arg="true"
+    fi
+
+    echo $pre_next_arg
+
+    # update the browser name and other varibles which depend on the browser name 
+    spb_browser_name="${pre_next_arg}"
+    spb_browser_name_externally_configured="true"
+    if [[ "${spb_browser_name_default}" != "${spb_browser_name}" ]] ; then 
+        spb_browser_is_default="false" 
+    fi
+    template_dir_parent="${template_dir_parent}/${spb_browser_name}"
+    echo ${template_dir_parent}
+  fi
+
+  ((pre_index++))
 
 done
 
@@ -722,12 +792,44 @@ if [[ "${os_type}" == "darwin" ]] ; then
     fi
     if [[ -x "${spb_browser_path}" ]] ; then spb_browser_available=0 ; else spb_browser_available=1 ; fi
     mktemp_options="-d"
-elif [[ "${os_type}" == "linux" ]] || [[ "$(uname)" == "freebsd" ]]; then
-    # running on GNU/LINUX or FreeBSD
+elif [[ "${os_type}" == "linux" ]] ; then
+    # running on GNU/LINUX
+    distro=$(grep ^ID= /etc/os-release | awk -F "=" '{print $2}' )
+    if [[ "${distro}" == "linuxmint" ]] ; then distro="mint" ; fi
     if [[ -z "$spb_browser_path" ]] ; then
         # check this value has not been configured via configuration file / enviroment varable
         if [[ "${spb_default_multi_browser_support}" == "true" ]] ; then
-
+            spb_browser_path="${spb_default_browser_data[$spb_browser_name:$os_type:$distro]}"
+            if [[ "${spb_browser_path}" == "" ]] ; then
+                # rocking unsupported distribution so just take a punt with common brave executable names
+                which brave >> /dev/null && spb_browser_path="brave"
+                which brave-browser >> /dev/null && spb_browser_path="brave-browser"
+                if [[ "${spb_browser_name}" != "brave" ]] ; then
+                    spb_browser_name="brave"
+                    echo ""
+                    echo "WARNING! : The browser name has been reverted to \"brave\""
+                    echo "           This script ran the following command : "
+                    echo "           spb_browser_name=\"brave\""
+                    echo ""
+                    echo "           A different name was requested but the operating"
+                    echo "           system you are using is not currently supported"
+                    echo "           by SPB. Feel free to put in a pull request or "
+                    echo "           open an issue."
+                    echo 
+                fi
+            fi 
+        else
+            # rocking an older version of bash so we stick with brave
+            spb_browser_path="brave-browser"
+        fi
+    fi
+    which ${spb_browser_path} >> /dev/null ; spb_browser_available=${?}
+    mktemp_options="--directory"
+elif [[ "$(uname)" == "freebsd" ]] ; then
+    # running on  FreeBSD
+    if [[ -z "$spb_browser_path" ]] ; then
+        # check this value has not been configured via configuration file / enviroment varable
+        if [[ "${spb_default_multi_browser_support}" == "true" ]] ; then
             spb_browser_path="${spb_default_browser_data[$spb_browser_name:$os_type]}"
         else
             # rocking an older version of bash so we stick with brave
@@ -1082,9 +1184,11 @@ while [[ ${#} -ge 1 ]] ; do
             browser_options="${browser_options} ${1}"
         fi
     else
-        if [[ "${1}" != "--edit_template_dir_name" ]] && [[ "${1}" != "--use_template_dir_name" ]] && [[ "${1}" != "${use_template_dir_name}" ]] &&  [[ "${1}" != "${edit_template_dir_name}" ]] ; then
-            # build the URL list (but exclude the template and edit-tempate data which may be have been provided)
-            url_list="${url_list} \"${1}\""
+        if [[ "${1}" != "--edit_template_dir_name" ]] && [[ "${1}" != "--use_template_dir_name" ]] && [[ "${1}" != "${use_template_dir_name}" ]] && [[ "${1}" != "${edit_template_dir_name}" ]]  ; then
+            if [[ "${1}" != "--browser" ]] && [[ "${1}" != "${spb_browser_name}" ]] ; then
+                # build the URL list (but exclude the template and edit-tempate data which may be have been provided)
+                url_list="${url_list} \"${1}\""
+            fi
         fi
     fi
     shift
@@ -1094,3 +1198,5 @@ done
 # start a screen session with the name based off the temp directory, then once browser exits delete the temporary directory
 screen -S "${screen_session_name}" -dm bash -c " \"${spb_browser_path}\" ${browser_options} ${url_list} ; sleep 1 ; sync ; rm -rf ${browser_tmp_directory} ${spb_etlfr_cmd} "
 exit 0
+
+
