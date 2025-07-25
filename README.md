@@ -41,7 +41,7 @@ Start a **new private browser** session :
 
 Show SPB **help**  : 
 ```bash
-~/bin/start-private-browser.bash --help | less
+~/bin/start-private-browser.bash --help | less -S
 ```
   
 **Update** SPB : 
@@ -51,7 +51,7 @@ Show SPB **help**  :
   
 Update SPB **help** : 
 ```bash
-~/bin/spb-update.bash --help | less
+~/bin/spb-update.bash --help | less -S
 ```
 
 **Uninstall** SPB from your system : 
