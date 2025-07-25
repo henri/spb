@@ -65,6 +65,7 @@
 # version 5.3 - updates to the built in help
 # version 5.4 - bug fixes
 # version 5.5 - added ability to list availble browsers in multi-mode with option --list-browsers
+# version 5.6 - improved multi-browser support
 #
 
 ##
@@ -99,16 +100,22 @@ if [[ ! -z ${BASH_VERSINFO} ]] ; then
         # # # # # # # # # # # # #
         spb_default_browser_data["vivaldi:linux:mint"]="vivaldi"
         spb_default_browser_data["vivaldi:linux:arch"]="vivaldi"
+        spb_default_browser_data["vivaldi:linux:endeavouros"]="vivaldi"
+        spb_default_browser_data["vivaldi:linux:manjaro"]="vivaldi"
         spb_default_browser_data["vivaldi:darwin"]="/Applications/Vivaldi.app/Contents/MacOS/Vivaldi"
         spb_default_browser_data["vivaldi:freebsd"]="vivaldi"
         # # # # # # # # # # # # #
         spb_default_browser_data["brave:linux:mint"]="brave-browser"
         spb_default_browser_data["brave:linux:arch"]="brave"
+        spb_default_browser_data["brave:linux:endeavouros"]="brave"
+        spb_default_browser_data["brave:linux:manjaro"]="brave"
         spb_default_browser_data["brave:darwin"]="/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"
         spb_default_browser_data["brave:freebsd"]="brave-browser"
         # # # # # # # # # # # # #
         spb_default_browser_data["chromium:linux:mint"]="chromium"
         spb_default_browser_data["chromium:linux:arch"]="chromium"
+        spb_default_browser_data["chromium:linux:endeavouros"]="chromium"
+        spb_default_browser_data["chromium:linux:manjaro"]="chromium"
         spb_default_browser_data["chromium:darwin"]="/Applications/Chromium.app/Contents/MacOS/Chromium"
         spb_default_browser_data["chromium:freebsd"]="chromium"
         # # # # # # # # # # # # #
