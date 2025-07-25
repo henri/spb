@@ -28,6 +28,7 @@
 # version 2.1 - attempts to keep scroll back when viewing the log file with tail
 # version 2.2 - updated the update URL
 # version 2.3 - improved log viewing reliability
+# version 2.4 - checking screen is installed
 #
 
 # check if we are running with a connected tty for input
@@ -66,6 +67,26 @@ else
 fi
 tail_runtime_timeout=15 # how long to wait when running tail
 auto_update_proceed_timeout=60 # when you are asked a question
+
+# report if screen is not available
+which screen >> /dev/null ; screen_available=${?}
+if [[ ${screen_available} != 0 ]] ; then
+    echo "ERROR! : Unable to locate screen on your system."
+    echo ""
+    echo "         Ensure that screen is installed on your system and that the "
+    echo "         correct path is configured within your PATH enviroment variable."
+    echo ""
+    echo "         Official instructions to install screen are available from the URL below : "
+    echo "         https://www.gnu.org/software/screen/"
+    echo ""
+    echo "         Non-Offical instructions to install screen on LINUX are available from the URL below : "
+    echo "         https://linuxtldr.com/installing-screen/"
+    echo ""
+    echo "         Non-Offical instructions to install screen on FreeBSD are available from the URL below : "
+    echo "         https://joshdawes.com/installing-screen-for-freebsd/"
+    echo ""
+    exit -1
+fi
 
 # this will tidy up the lock file if we exit
 function clean_exit () {
