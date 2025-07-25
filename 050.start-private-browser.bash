@@ -62,6 +62,7 @@
 # version 5.1 - bug fixes relating to loading order of configuration file
 # version 5.2 - improved template listing output and bug fixes relating to multi-broser support
 # version 5.2 - improvments with regards support for crosplatform multi-browser support
+# version 5.3 - updates to the built in help
 #
 
 ##
@@ -297,6 +298,13 @@ for arg in "$@" ; do
         # configure the system to skip the next argument for processing 
         # as it is the value for this one
             pre_skip_arg="true"
+    else
+        echo ""
+        echo "ERROR! : When you specify --browser you must also"
+        echo "         supply a browser name which will be used"
+        echo "         instread of the default browser name."
+        echo ""
+        exit -164
     fi
 
     echo $pre_next_arg
@@ -385,6 +393,9 @@ if [[ "${help_wanted}" == "yes" ]] ; then
     echo "            # update the spb system and assosiated fish snippits using default options"
     echo "            $ start-private-browser --update"
     echo ""
+    echo "            # specify a browser name which will be loaded rather than the defualt"
+    echo "            $ start-private-browser --browser <name-of-browser>"
+    echo ""
     echo ""
     echo "         Templates (Usage & Management) : "
     echo ""
@@ -420,6 +431,9 @@ if [[ "${help_wanted}" == "yes" ]] ; then
     echo ""
     echo "            # start a new private browser session using the tor network"
     echo "            $ start-private-browser --tor"
+    echo ""
+    echo "            # start a new private browser session using vivaldi as the browser"
+    echo "            $ start-private-browser --browser vivaldi"
     echo ""
     echo "            # pass additional argument (proxy in this example) to private browser"
     echo "            $ start-private-browser --proxy-server=\"http://myproxy.com:9090\" \"https://brave.com\""
