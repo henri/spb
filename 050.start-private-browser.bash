@@ -64,7 +64,6 @@
 # version 5.2 - improvments with regards support for crosplatform multi-browser support
 # version 5.3 - updates to the built in help
 # version 5.4 - bug fixes
-# version 5.5 - added ability to list availble browsers in multi-mode
 #
 
 ##
@@ -228,6 +227,25 @@ for arg in "$@" ; do
     help_wanted="yes"
     valid_argument_found="true"
     break
+  fi
+
+  # list browsers
+  if [[ "${arg}" == "--list-browsers" ]] ; then
+    if [[ "${spb_default_multi_browser_support}" == "false" ]] ; then
+        echo ""
+        echo "ERROR! : You have requested a list of browsers."
+        echo "         Unfortunatly multi-browser support is"
+        echo "         not availbe due to your older version"
+        echo "         of bash on this system. Upgrade BASH"
+        echo "         and try again."
+        echo ""
+        exit -150
+    fi
+    for key in "${!spb_default_browser_data[@]}"; do
+        spb_default_browser_list="${key%%:*}\n${spb_default_browser_list}"
+    done
+    echo -e ${spb_default_browser_list} | awk 'NF' | sort -u
+    exit 0
   fi
 
   # check for update wanted
@@ -667,25 +685,6 @@ for arg in "$@" ; do
     fi
     standard_mode="true"
     valid_argument_found="true"
-  fi
-
-  # list browsers
-  if [[ "${arg}" == "--list-browsers" ]] ; then
-    if [[ "${spb_default_multi_browser_support}" == "false" ]] ; then
-        echo ""
-        echo "ERROR! : You have requested a list of browsers."
-        echo "         Unfortunatly multi-browser support is"
-        echo "         not availbe due to your older version"
-        echo "         of bash on this system. Upgrade BASH"
-        echo "         and try again."
-        echo ""
-        exit -150
-    fi
-    for key in "${!spb_default_browser_data[@]}"; do
-        spb_default_browser_list="${key%%:*}\n${spb_default_browser_list}"
-    done
-    echo -e ${spb_default_browser_list} | awk 'NF' | sort -u
-    exit 0
   fi
 
   # check for tempate or template editing
