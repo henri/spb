@@ -1092,8 +1092,9 @@ if [[ "${use_template_dir_name}" != "" ]] ; then
         echo "          Please be sure this template is compatible with your browser!"
         echo "          If there is a mismatch data curruption is extreamlly likely to occour!"
         echo ""
-        echo "          If you do not answer within 60 seconds then we will not proceed."
-        echo ""
+        if [[ "${timeout_available}" == "true" ]] ; then
+        echo "          If you do not answer within 60 seconds then we will not proceed." ; echo ""
+        fi
         echo -n "          Would you like to continue and load this template? [y/N] : "
         proceed_with_unconfirmed_browser_identification=""
         proceeded_automatically=" (manually)"
