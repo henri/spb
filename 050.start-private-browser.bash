@@ -64,6 +64,7 @@
 # version 5.2 - improvments with regards support for crosplatform multi-browser support
 # version 5.3 - updates to the built in help
 # version 5.4 - bug fixes
+# version 5.5 - added ability to list availble browsers in multi-mode with option --list-browsers
 #
 
 ##
@@ -418,6 +419,9 @@ if [[ "${help_wanted}" == "yes" ]] ; then
     echo ""
     echo "            # specify a browser name which will be loaded rather than the defualt"
     echo "            $ start-private-browser --browser <name-of-browser>"
+    echo ""
+    echo "            # show list of default browser names which may be selected"
+    echo "            $ start-private-browser --list-browsers"
     echo ""
     echo ""
     echo "         Templates (Usage & Management) : "
