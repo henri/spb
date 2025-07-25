@@ -1081,6 +1081,9 @@ screen_session_name="${screen_session_prefix}-$(echo "${browser_tmp_directory}" 
 
 # templating (copy the template over)
 if [[ "${use_template_dir_name}" != "" ]] ; then
+
+    echo use_template_dir_name ${use_template_dir_name}
+    exit 0
     if [[   -e ${template_browser_id_absolute} ]] && [[ "${template_browser_id_absolute}" != "" ]] ; then
         check_template_browser_identification
     else
@@ -1097,9 +1100,7 @@ if [[ "${use_template_dir_name}" != "" ]] ; then
         echo -n "          Would you like to continue and load this template? [y/N] : "
         proceed_with_unconfirmed_browser_identification=""
         proceeded_automatically=" (manually)"
-        # timeout --foreground 60s read proceed_with_unconfirmed_browser_identification
         read -t 60 proceed_with_unconfirmed_browser_identification
-        fi
         proceed_with_timeout_result=${?}
         if [[ ${proceed_with_timeout_result} != 0 ]] ; then echo "" ; proceeded_automatically=" (automatically)" ; fi 
         if \
