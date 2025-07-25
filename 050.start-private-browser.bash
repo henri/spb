@@ -463,6 +463,14 @@ if [[ "${help_wanted}" == "yes" ]] ; then
     exit 0
 fi
 
+# setup tail runtime timeout value for --auto-monitoring option
+which timeout >> /dev/null ; timeout_available=${?}
+if [[ ${timeout_available} == 0 ]] ; then
+    timeout_available="true"
+else
+    timeout_available="false"
+fi
+
 # kick off update
 if [[ "${update_wanted}" == "yes" ]] ; then
     update_script_path_absolute="${update_script_path/#\~/$HOME}"
@@ -1089,7 +1097,11 @@ if [[ "${use_template_dir_name}" != "" ]] ; then
         echo -n "          Would you like to continue and load this template? [y/N] : "
         proceed_with_unconfirmed_browser_identification=""
         proceeded_automatically=" (manually)"
-        timeout --foreground 60s read proceed_with_unconfirmed_browser_identification
+        if [[ "${timeout_available}" == "true" ]] ; then
+            timeout --foreground 60s read proceed_with_unconfirmed_browser_identification
+        else
+            read proceed_with_unconfirmed_browser_identification
+        fi
         proceed_with_timeout_result=${?}
         if [[ ${proceed_with_timeout_result} != 0 ]] ; then echo "" ; proceeded_automatically=" (automatically)" ; fi 
         if \
