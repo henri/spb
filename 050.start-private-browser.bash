@@ -64,6 +64,7 @@
 # version 5.2 - improvments with regards support for crosplatform multi-browser support
 # version 5.3 - updates to the built in help
 # version 5.4 - bug fixes
+# version 5.5 - improved quite mode for listing templates
 #
 
 ##
@@ -333,25 +334,30 @@ if [[ ${spb_list_templates} == "true" ]] ; then
     # fi
     # ls ${template_dir_parent/#\~/$HOME} | grep -v "available" | cat
     if [[ "${quite_mode}" != "true" ]] ; then
-        echo "" 
+        echo "" ; echo ""
         echo "SPB Template Notes : "
         echo "When loading, editing or creating templates,"
         echo "you must not specify the browser name!"
         echo "Specify only the template name."
-        echo ""
-        echo "SPB Templates List :"
+        echo "" ; echo ""
+        echo "SPB Templates List :" 
     fi
     
-    teamplate_dir_parent_dirname=$(dirname ${template_dir_parent})
-    awk_cut_point=$(basename ${teamplate_dir_parent_dirname})
+    template_dir_parent_dirname=$(dirname ${template_dir_parent})
+    awk_cut_point=$(basename ${template_dir_parent_dirname})
 
     # this monstrosity outputs nicley formated output when you list the templates
-    find ${teamplate_dir_parent_dirname/#\~/$HOME} -maxdepth 2 -type d | grep -v "available" \
+    template_list=$(find ${template_dir_parent_dirname/#\~/$HOME} -maxdepth 2 -type d | grep -v "available" \
     | awk -F "$awk_cut_point" '{print $2}' | awk 'gsub("/", "&")!=1' | sed 's/^\///' \
-    | awk '{gsub(/\//, "\t\t")}1' |  awk '{if($1!=last){if(NR>1)print""};last=$1;print}' | awk 'NR>1'| cat 
+    | awk '{gsub(/\//, "\t\t")}1' |  awk '{if($1!=last){if(NR>1)print""};last=$1;print}' \
+    | awk 'NR>1' | cat)
 
     spb_template_listing_status=${?}
-    if [[ "${quite_mode}" != "true" ]] ; then echo "" ; fi
+    if [[ "${quite_mode}" == "true" ]] ; then 
+        echo "${template_list}" | awk 'NF'
+    else
+        echo "${template_list}" ; echo ""
+    fi
     exit ${spb_template_listing_status}
 fi
 
