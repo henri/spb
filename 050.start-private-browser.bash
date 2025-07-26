@@ -66,6 +66,7 @@
 # version 5.4 - bug fixes
 # version 5.5 - added ability to list availble browsers in multi-mode with option --list-browsers
 # version 5.6 - improved multi-browser support
+# version 5.7 - bug fix related to loading templates
 #
 
 ##
@@ -1121,9 +1122,6 @@ screen_session_name="${screen_session_prefix}-$(echo "${browser_tmp_directory}" 
 
 # templating (copy the template over)
 if [[ "${use_template_dir_name}" != "" ]] ; then
-
-    echo use_template_dir_name ${use_template_dir_name}
-    exit 0
     if [[   -e ${template_browser_id_absolute} ]] && [[ "${template_browser_id_absolute}" != "" ]] ; then
         check_template_browser_identification
     else
