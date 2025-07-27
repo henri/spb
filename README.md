@@ -108,10 +108,16 @@ Mild testing has been completed on the following operating systems :
 </p>
   
   - <b>GNU/LINUX</b>
-      - Linux Mint
+      - [Linux Mint](https://www.linuxmint.com/)
           - ``` apt-get update && apt-get install git fish coreutils ```
           - ``` curl -fsS https://dl.brave.com/install.sh | sh ```
-      - EndeavourOS
+      - [Arch](https://archlinux.org/)
+          - ``` sudo pacman -Syu git fish coreutils grep ```
+          - ``` yay -S brave-bin ```
+      - [EndeavourOS](https://endeavouros.com/)
+          - ``` sudo pacman -Syu git fish coreutils grep ```
+          - ``` yay -S brave-bin ```
+      - [Manjearo](https://manjaro.org/)
           - ``` sudo pacman -Syu git fish coreutils grep ```
           - ``` yay -S brave-bin ```
   
