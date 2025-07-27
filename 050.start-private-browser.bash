@@ -67,6 +67,7 @@
 # version 5.5 - added ability to list availble browsers in multi-mode with option --list-browsers
 # version 5.6 - improved multi-browser support
 # version 5.7 - bug fix related to loading templates
+# version 5.8 - improved logic paths during edge cases of browser template laoding
 #
 
 ##
@@ -1046,6 +1047,23 @@ function report_general_browser_lock_file_information() {
     echo ""
 }
 
+function create_template_browser_identification() {
+    # creating a new template
+        if [[ "${template_browser_id_absolute}" != "" ]] ; then
+            if [[ "${quite_mode}" != "true" ]] ; then
+                echo "        Storing browser information..."
+            fi
+            "${spb_browser_path}" --version > ${template_browser_id_absolute}
+            if [[ ${?} != 0 ]] ; then
+                echo "" ; echo "        WARNING! : Unable save browser information into within the template."
+            fi
+        else
+            echo "ERROR! : Unable to resolve absolute path for template data."
+            clean_lock_file
+            exit -75
+        fi
+}
+
 # template copying pre-flight checks
 if [[ "${use_template_dir_name}" != "" ]] ; then
     if [ -e ${template_lock_file_absolute} ] ; then
@@ -1130,12 +1148,25 @@ if [[ "${use_template_dir_name}" != "" ]] ; then
         echo ""
         echo "              ${template_browser_id_absolute}"
         echo ""
-        echo "          Please be sure this template is compatible with your browser!"
-        echo "          If there is a mismatch data curruption is extreamlly likely to occour!"
+        echo "          Please be sure this selected template is compatible with your browser!"
         echo ""
-        echo "          If you do not answer within 60 seconds then we will not proceed."
+        echo "          Currently selected browser is : \"${spb_browser_name}\""
         echo ""
-        echo -n "          Would you like to continue and load this template? [y/N] : "
+        echo "          If this is not the correct browser for this template,"
+        echo "          it is possible to use the '--browser' option to switch browsers."
+        echo ""
+        echo "          Example usage below demonstrates how to select the brave browser : "
+        echo ""
+        echo "          ~/bin/start-private-browser.bash --browser brave"
+        echo ""
+        echo "          If there is a browser mismatch ***DATA CURRUPTION*** is extreamlly likely!"
+        echo ""
+        echo "          Continuing will generate the template browser id and if successful,"
+        echo "          the next step will be to load the requested template."
+        echo ""
+        echo "          If you do not answer within 60 seconds then we will NOT proceed."
+        echo ""
+        echo -n "          Would you like to proceed? [y/N] : "
         proceed_with_unconfirmed_browser_identification=""
         proceeded_automatically=" (manually)"
         read -t 60 proceed_with_unconfirmed_browser_identification
@@ -1153,6 +1184,9 @@ if [[ "${use_template_dir_name}" != "" ]] ; then
             echo "          This is due to possible selected browser and tempate mismatch!"
             echo ""
             exit -223
+        else
+            echo ""
+            create_template_browser_identification
         fi
     fi
     if [[ "${quite_mode}" != "true" ]] ; then
@@ -1187,20 +1221,7 @@ if [[ "${edit_template_dir_name}" != "" ]] ; then
         echo "" ; echo "        WARNING! : Unable establish symlink within temporary directory to the template."
     fi
     if [[ "${creating_new_template}" == "true" ]] ; then
-        # creating a new template
-        if [[ "${template_browser_id_absolute}" != "" ]] ; then
-            if [[ "${quite_mode}" != "true" ]] ; then
-                echo "        Storing browser information..."
-            fi
-            "${spb_browser_path}" --version > ${template_browser_id_absolute}
-            if [[ ${?} != 0 ]] ; then
-                echo "" ; echo "        WARNING! : Unable save browser information into within the template."
-            fi
-        else
-            echo "ERROR! : Unable to resolve absolute path for template data."
-            clean_lock_file
-            exit -75
-        fi
+        create_template_browser_identification
     else
         # editing existing template
         if [[ -e ${template_browser_id_absolute} ]] && [[ "${template_browser_id_absolute}" != "" ]] ; then
