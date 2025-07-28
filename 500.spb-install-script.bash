@@ -375,7 +375,7 @@ if [[ "${os_type}" == "Darwin" ]] && [[ "${SPB_SKIP_OVERWRITE_CHECK}" != "true" 
 fi
 
 # show alias commands (various shells) - if we do some shell detection could run this command automatically.
-existing_spb_alias_return_code=$( fish -c ' "alias" | grep -E "^alias spb " > /dev/null ; echo $status ' )
+existing_spb_alias_return_code=$( fish -c ' "alias" | grep -E "^alias spb " > /dev/null ; echo $status ' 2> /dev/null )
 if [[ ${existing_spb_alias_return_code} == 0 ]] ; then
     configure_update_spb_fs="update"
 else 
