@@ -59,7 +59,7 @@ trap 'clean_exit' EXIT
 exit_status=0
 
 # setup tail runtime timeout value for --auto-monitoring option
-which timeout >> /dev/null ; timeout_available=${?}
+which timeout 2>&1 >> /dev/null ; timeout_available=${?}
 if [[ ${timeout_available} == 0 ]] ; then
     timeout_available="true"
 else
@@ -69,7 +69,7 @@ tail_runtime_timeout=15 # how long to wait when running tail
 auto_update_proceed_timeout=60 # when you are asked a question
 
 # report if screen is not available
-which screen >> /dev/null ; screen_available=${?}
+which screen 2>&1 >> /dev/null ; screen_available=${?}
 if [[ ${screen_available} != 0 ]] ; then
     echo "ERROR! : Unable to locate screen on your system."
     echo ""
