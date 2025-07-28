@@ -251,8 +251,11 @@ for arg in "$@" ; do
         echo ""
         exit -150
     fi
+    os_type=$(uname -s | tr '[:upper:]' '[:lower:]')
     for key in "${!spb_default_browser_data[@]}"; do
-        spb_default_browser_list="${key%%:*}\n${spb_default_browser_list}"
+        if [[ $( echo "${key}" | awk -F ":" '{print $2}' | grep "${os_type}" ) ]] ; then
+            spb_default_browser_list="${key%%:*}\n${spb_default_browser_list}"
+        fi
     done
     echo -e ${spb_default_browser_list} | awk 'NF' | sort -u
     exit 0
@@ -505,7 +508,7 @@ if [[ "${help_wanted}" == "yes" ]] ; then
 fi
 
 # setup tail runtime timeout value for --auto-monitoring option
-which timeout 1>/dev/null 2>/dev/null ; timeout_available=${?}
+which timeout 2>&1 >> /dev/null ; timeout_available=${?}
 if [[ ${timeout_available} == 0 ]] ; then
     timeout_available="true"
 else
@@ -517,7 +520,7 @@ if [[ "${update_wanted}" == "yes" ]] ; then
     update_script_path_absolute="${update_script_path/#\~/$HOME}"
     if [ -x ${update_script_path_absolute} ] ; then
         updating_fish_snippits_message=""
-        if $(which fish 1>/dev/null 2>/dev/null) ; then
+        if $(which fish 2>&1 >> /dev/null) ; then
             updating_fish_snippits_message=" and related fish snippits"
         fi
         echo "" 
@@ -863,8 +866,8 @@ elif [[ "${os_type}" == "linux" ]] ; then
             spb_browser_path="${spb_default_browser_data[$spb_browser_name:$os_type:$distro]}"
             if [[ "${spb_browser_path}" == "" ]] ; then
                 # rocking unsupported distribution so just take a punt with common brave executable names
-                which brave 1>/dev/null 2>/dev/null && spb_browser_path="brave"
-                which brave-browser 1>/dev/null 2>/dev/null && spb_browser_path="brave-browser"
+                which brave 2>&1 >> /dev/null && spb_browser_path="brave"
+                which brave-browser >> /dev/null && spb_browser_path="brave-browser"
                 if [[ "${spb_browser_name}" != "brave" ]] ; then
                     spb_browser_name="brave"
                     echo ""
@@ -884,7 +887,7 @@ elif [[ "${os_type}" == "linux" ]] ; then
             spb_browser_path="brave-browser"
         fi
     fi
-    which ${spb_browser_path} 1>/dev/null 2>/dev/null ; spb_browser_available=${?}
+    which ${spb_browser_path} 2>&1 >> /dev/null ; spb_browser_available=${?}
     mktemp_options="--directory"
 elif [[ "$(uname)" == "freebsd" ]] ; then
     # running on  FreeBSD
@@ -897,7 +900,7 @@ elif [[ "$(uname)" == "freebsd" ]] ; then
             spb_browser_path="brave-browser"
         fi
     fi
-    which ${spb_browser_path} 1>/dev/null 2>/dev/null ; spb_browser_available=${?}
+    which ${spb_browser_path} 2>&1 >> /dev/null ; spb_browser_available=${?}
     mktemp_options="--directory"
 else
     echo "ERROR! : Unsupported operating system."
@@ -936,7 +939,7 @@ fi
 
 
 # report if screen is not available
-which screen 1>/dev/null 2>/dev/null ; screen_available=${?}
+which screen 2>&1 >> /dev/null ; screen_available=${?}
 if [[ ${screen_available} != 0 ]] ; then
     echo "ERROR! : Unable to locate screen on your system."
     echo ""
