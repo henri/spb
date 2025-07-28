@@ -74,7 +74,7 @@ fi
 # check mark
 tick_mark='\xE2\x9C\x94'
 
-which git >> /dev/null ; git_available=${?}
+which git 2>&1 > /dev/null ; git_available=${?}
 if [[ ${git_available} != 0 ]] ; then
     echo "ERROR! : The git command was not detected on your system."
     echo "         Ensure it is part of your path or install git onto your"
@@ -382,7 +382,7 @@ else
     configure_update_spb_fs="configure"
 fi
 auto_install_fish_snippits_ask="yes"
-if $(which fish >/dev/null) ; then
+if $(which fish 2>&1 >/dev/null) ; then
     # if the skipping enviroment varable was set to true, then we will not be asking questions we will just update
     if [[ "${SPB_SKIP_OVERWRITE_CHECK}" == "true" ]] ; then
         auto_install_fish_snippits_ask="no"
@@ -428,13 +428,13 @@ function print_command_header {
     fi
 }
 
-if $(which fish >/dev/null) && [[ ! -e ~/.config/fish/functions/start-private-browser.fish ]] ; then
+if $(which fish 2>&1 >/dev/null) && [[ ! -e ~/.config/fish/functions/start-private-browser.fish ]] ; then
     print_command_header
     echo "     - fish"
     echo "       alias -s start-private-browser=\"~/bin/start-private-browser.bash\""
     echo ""
 fi
-if $(which fish >/dev/null) && [[ ! -e ~/.config/fish/functions/spb.fish ]] ; then
+if $(which fish 2>&1 >/dev/null) && [[ ! -e ~/.config/fish/functions/spb.fish ]] ; then
     print_command_header
     echo "     - fish"
     echo "       alias -s spb=\"start-private-browser\""
@@ -445,13 +445,13 @@ if $(which fish >/dev/null) && [[ ! -e ~/.config/fish/functions/spb.fish ]] ; th
     echo "       https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8"
     echo ""
 fi
-if $(which bash >/dev/null) && ! $(grep --silent start-private-browser ~/.bash_alias 2>/dev/null)  ; then
+if $(which bash 2>&1 >/dev/null) && ! $(grep --silent start-private-browser ~/.bash_alias 2>/dev/null)  ; then
     print_command_header
     echo "     - bash"
     echo "       echo alias start-private-browser=\"~/bin/start-private-browser.bash\" >> ~/.bash_alias && sync && . ~/.bash_alias"
     echo ""
 fi
-if $(which zsh >/dev/null) && $(ps -a | grep --silent zsh) && ! $(grep --silent start-private-browser ~/.zsh_alias 2>/dev/null)  ; then
+if $(which zsh 2>&1 >/dev/null) && $(ps -a | grep --silent zsh) && ! $(grep --silent start-private-browser ~/.zsh_alias 2>/dev/null)  ; then
     print_command_header
     echo "     - zsh"
     echo "       echo alias start-private-browser=\"~/bin/start-private-browser.bash\" >> ~/.zsh_alias && sync && . ~/.zsh_alias"
