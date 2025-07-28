@@ -1032,7 +1032,7 @@ function report_general_browser_lock_file_information() {
             echo "             ~/bin/start-private-browser.bash --force-stop ${spb_screen_session_template_lock_identifier}"
             echo ""
             echo "         The command above will send a control-c (AKA SIGINT or Signal Interrupt)"
-            echo "         to the browser process (see importantnote above)."
+            echo "         to the browser process (see important note above)."
             echo ""
             echo "         Should that command above fail you may also consider killing the screen"
             echo "         process using the commad below (see important note above) :"
