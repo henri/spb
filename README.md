@@ -111,24 +111,34 @@ Mild testing has been completed on the following operating systems :
   
   - <b>GNU/LINUX</b>
       - [Linux Mint](https://www.linuxmint.com/)
-          - ``` apt-get update && apt-get install git fish coreutils ```
-          - ``` curl -fsS https://dl.brave.com/install.sh | sh ```
+        ```
+          apt-get update && apt-get install git fish coreutils
+          curl -fsS https://dl.brave.com/install.sh | sh
+        ```
       - [Arch](https://archlinux.org/)
-          - ``` sudo pacman -Syu git fish coreutils grep screen ```
-          - ``` yay -S brave-bin ```
+        ```
+          sudo pacman -Syu git fish coreutils grep screen 
+          yay -S brave-bin
+        ```
       - [EndeavourOS](https://endeavouros.com/)
-          - ``` sudo pacman -Syu git fish coreutils grep screen ```
-          - ``` yay -S brave-bin ```
+        ```
+          sudo pacman -Syu git fish coreutils grep screen
+          yay -S brave-bin
+        ```
       - [Manjearo](https://manjaro.org/)
-          - ``` sudo pacman -Syu git fish coreutils grep screen ```
-          - ``` curl -fsS https://dl.brave.com/install.sh | sh  ```
+        ```
+          sudo pacman -Syu git fish coreutils grep screen
+          curl -fsS https://dl.brave.com/install.sh | sh
+        ```
   
    - <b>MacOS</b>
        - Brew or MacPorts are the reccomedned approaches to managing SPB dependencies on MacOS
            - MacOS pacakge managers 
                - [Brew](https://brew.sh)
-                   - ``` brew install git fish coreutils ```
-                   - ``` brew install --cask brave-browser ```
+                 ```
+                   brew install git fish coreutils
+                   brew install --cask brave-browser
+                 ```
                - [MacPorts](https://www.macports.org/)
                    - ``` sudo port install git fish coreutils ```
                    - Visit the [Brave website](https://brave.com/download/) and to manually install.
