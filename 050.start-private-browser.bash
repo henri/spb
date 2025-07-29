@@ -68,6 +68,7 @@
 # version 5.6 - improved multi-browser support
 # version 5.7 - bug fix related to loading templates
 # version 5.8 - improved logic paths during edge cases of browser template laoding
+# version 5.9 - added check on LINUX for the DISPLAY enviroment varable
 #
 
 ##
@@ -841,6 +842,14 @@ fi
 ## Pre flight checks
 ## 
 
+function report_no_display_detected() {
+    echo ""
+    echo "ERROR! : Unable to detect connected graphical display for this shell!"
+    echo "Check that your shell is connected to a graphiucal session and try again."
+    echo ""
+    exit -77
+}
+
 # check the operating system ; also check on brave and screen availability on system
 os_type=$(uname -s | tr '[:upper:]' '[:lower:]')
 if [[ "${os_type}" == "darwin" ]] ; then
@@ -854,6 +863,8 @@ if [[ "${os_type}" == "darwin" ]] ; then
             spb_browser_path="/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"
         fi
     fi
+    # check for graphical connection
+    if [[ "$(ioreg -lw0 1> 2>/dev/null | grep IODisplayEDID)" == "" ]] ; then report_no_display_detected ; fi
     if [[ -x "${spb_browser_path}" ]] ; then spb_browser_available=0 ; else spb_browser_available=1 ; fi
     mktemp_options="-d"
 elif [[ "${os_type}" == "linux" ]] ; then
@@ -887,6 +898,7 @@ elif [[ "${os_type}" == "linux" ]] ; then
             spb_browser_path="brave-browser"
         fi
     fi
+    if [[ "$(echo $DISPLAY)" == "" ]] ; then report_no_display_detected ; fi
     which ${spb_browser_path} 2>&1 >> /dev/null ; spb_browser_available=${?}
     mktemp_options="--directory"
 elif [[ "$(uname)" == "freebsd" ]] ; then
@@ -899,7 +911,9 @@ elif [[ "$(uname)" == "freebsd" ]] ; then
             # rocking an older version of bash so we stick with brave
             spb_browser_path="brave-browser"
         fi
+        
     fi
+    if [[ "$(echo $DISPLAY)" == "" ]] ; then report_no_display_detected ; fi
     which ${spb_browser_path} 2>&1 >> /dev/null ; spb_browser_available=${?}
     mktemp_options="--directory"
 else
