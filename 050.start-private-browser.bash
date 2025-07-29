@@ -68,7 +68,7 @@
 # version 5.6 - improved multi-browser support
 # version 5.7 - bug fix related to loading templates
 # version 5.8 - improved logic paths during edge cases of browser template laoding
-# version 5.9 - added check on LINUX for the DISPLAY enviroment varable
+# version 5.9 - implimented detection for shells without connected display enviroment(s)
 #
 
 ##
