@@ -24,7 +24,7 @@ henri/spb/refs/heads/main/\
 ```
 > <sub>Detailed install instructions : Copy and paste the lines above into a terminal and press enter.</sub>
 
-> <sub>Operating system specific installation instructions [available below](https://github.com/henri/spb/blob/main/README.md#triangular_flag_on_post-compatiability).</sub>
+> <sub>Operating system specific installation instructions for SPB dependinceies is [available below](https://github.com/henri/spb/blob/main/README.md#triangular_flag_on_post-compatiability).</sub>
 
 > <sub>Only run code from sources whom you [trust](https://github.com/henri/spb/?tab=readme-ov-file#lock-security-and-trust). Inspect SPB source-code [ [installer](./34f5452525ddc3727bb66729114ca8b4#file-500-spb-install-script-bash), [project](./34f5452525ddc3727bb66729114ca8b4#file-050-start-private-browser-bash) and [fish snippits](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8) ] below.</sub>
 
