@@ -844,7 +844,7 @@ fi
 
 function report_no_display_detected() {
     echo ""
-    echo "ERROR! : Unable to detect connected graphical display for this shell!"
+    echo "ERROR! : Unable to detect any connected graphical display(s) for this shell!"
     echo "         Ensure your shell is connected to a graphiucal session and try again."
     echo ""
     exit -77
