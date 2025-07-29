@@ -864,7 +864,7 @@ if [[ "${os_type}" == "darwin" ]] ; then
         fi
     fi
     # check for graphical connection
-    if [[ "$(ioreg -lw0 2>> /dev/null | grep IODisplayEDID)" == "" ]] ; then report_no_display_detected ; fi
+    if ! launchctl print gui/$(id -u) 2>/dev/null | grep -q 'session = Aqua' ; then report_no_display_detected ; fi
     if [[ -x "${spb_browser_path}" ]] ; then spb_browser_available=0 ; else spb_browser_available=1 ; fi
     mktemp_options="-d"
 elif [[ "${os_type}" == "linux" ]] ; then
