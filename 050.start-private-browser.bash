@@ -69,6 +69,9 @@
 # version 5.7 - bug fix related to loading templates
 # version 5.8 - improved logic paths during edge cases of browser template laoding
 # version 5.9 - implimented detection for shells without connected display enviroment(s)
+# version 6.0 - experimental support for ungoogled-chrome, firefox and palemoon
+# version 6.1 - improved template loading, additional linux distribution support (this needs some work)
+# version 6.2 - improved argument parsing and bug fixes
 #
 
 ##
@@ -78,7 +81,7 @@
 # configuration variables
 screen_session_prefix="spb-session"                 #  prefix of the screen session name
 temp_path="/tmp/spb-browser"                        #  location of temporary browser data
-template_dir_parent="~/bin/spb-templates"           #  location of spb templates
+template_dir_base="~/bin/spb-templates"       #  location of spb templates
 template_browser_id_filename="spb-browser.id"       #  file which will contain the browser identifier for this template
 update_script_path="~/bin/spb-update.bash"          #  where to find the spb-update script
 update_script_arguments="--auto-monitoring"         #  arguents passed to update script when running an update
@@ -95,36 +98,88 @@ pre_index=0
 num_args=$#
 spb_default_multi_browser_support="false"
 
+# os detection
+os_type=$(uname -s | tr '[:upper:]' '[:lower:]')
+
 # default multi-browser support enabled - if we are running bash version 4 or later
 if [[ ! -z ${BASH_VERSINFO} ]] ; then
     if [[ ${BASH_VERSINFO} -ge 4 ]] ; then
         # default browser values - these are the commands which we run on various operating systems for various browsers
+        # remember if your operating system is not listed, it is possible to use enviroment variables or the configuration
+        # file to specify the browser name and browser path for any browser / operating system pair
         declare -A spb_default_browser_data
         # # # # # # # # # # # # #
+        spb_default_browser_data["palemoon:linux:mint"]="palemoon"
+        spb_default_browser_data["palemoon:linux:arch"]="palemoon"
+        spb_default_browser_data["palemoon:linux:ubuntu"]="palemoon"
+        spb_default_browser_data["palemoon:linux:debian"]="palemoon"
+        spb_default_browser_data["palemoon:linux:endeavouros"]="palemoon"
+        spb_default_browser_data["palemoon:linux:manjaro"]="palemoon"
+        spb_default_browser_data["palemoon:linux:centos"]="palemoon"
+        spb_default_browser_data["palemoon:linux:fredora"]="palemoon"
+        spb_default_browser_data["palemoon:darwin"]="/Applications/Pale Moon.app/Contents/MacOS/palemoon"
+        spb_default_browser_data["palemoon:freebsd"]="palemoon"
+        # # # # # # # # # # # # #
+        spb_default_browser_data["firefox:linux:mint"]="firefox"
+        spb_default_browser_data["firefox:linux:arch"]="firefox"
+        spb_default_browser_data["firefox:linux:ubuntu"]="firefox"
+        spb_default_browser_data["firefox:linux:debian"]="firefox"
+        spb_default_browser_data["firefox:linux:endeavouros"]="firefox"
+        spb_default_browser_data["firefox:linux:manjaro"]="firefox"
+        spb_default_browser_data["firefox:linux:centos"]="firefox"
+        spb_default_browser_data["firefox:linux:fredora"]="firefox"
+        spb_default_browser_data["firefox:darwin"]="/Applications/Firefox.app/Contents/MacOS/Firefox"
+        spb_default_browser_data["firefox:freebsd"]="firefox"
+        # # # # # # # # # # # # #
+        spb_default_browser_data["ungoogled-chromium:linux:mint"]="ungoogled-chromium"
+        spb_default_browser_data["ungoogled-chromium:linux:ubuntu"]="ungoogled-chromium"
+        spb_default_browser_data["ungoogled-chromium:linux:debian"]="ungoogled-chromium"
+        spb_default_browser_data["ungoogled-chromium:linux:arch"]="ungoogled-chromium"
+        spb_default_browser_data["ungoogled-chromium:linux:endeavouros"]="ungoogled-chromium"
+        spb_default_browser_data["ungoogled-chromium:linux:manjaro"]="ungoogled-chrome"
+        spb_default_browser_data["ungoogled-chromium:linux:centos"]="ungoogled-chrome"
+        spb_default_browser_data["ungoogled-chromium:linux:fredora"]="ungoogled-chrome"
+        spb_default_browser_data["ungoogled-chromium:freebsd"]="ungoogled-chromium"
+        spb_default_browser_data["ungoogled-chromium:darwin"]="/Applications/Chromium.app/Contents/MacOS/Chromium"
+        # # # # # # # # # # # # #
         spb_default_browser_data["vivaldi:linux:mint"]="vivaldi"
+        spb_default_browser_data["vivaldi:linux:ubuntu"]="vivaldi"
+        spb_default_browser_data["vivaldi:linux:debian"]="vivaldi"
         spb_default_browser_data["vivaldi:linux:arch"]="vivaldi"
         spb_default_browser_data["vivaldi:linux:endeavouros"]="vivaldi"
         spb_default_browser_data["vivaldi:linux:manjaro"]="vivaldi"
-        spb_default_browser_data["vivaldi:darwin"]="/Applications/Vivaldi.app/Contents/MacOS/Vivaldi"
+        spb_default_browser_data["vivaldi:linux:centos"]="vivaldi"
+        spb_default_browser_data["vivaldi:linux:fredora"]="vivaldi"
         spb_default_browser_data["vivaldi:freebsd"]="vivaldi"
+        spb_default_browser_data["vivaldi:darwin"]="/Applications/Vivaldi.app/Contents/MacOS/Vivaldi"
         # # # # # # # # # # # # #
         spb_default_browser_data["brave:linux:mint"]="brave-browser"
+        spb_default_browser_data["brave:linux:ubuntu"]="brave-browser"
+        spb_default_browser_data["brave:linux:debian"]="brave-browser"
         spb_default_browser_data["brave:linux:arch"]="brave"
         spb_default_browser_data["brave:linux:endeavouros"]="brave"
         spb_default_browser_data["brave:linux:manjaro"]="brave"
-        spb_default_browser_data["brave:darwin"]="/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"
+        spb_default_browser_data["brave:linux:centos"]="brave-browser"
+        spb_default_browser_data["brave:linux:fredora"]="brave-browser"
         spb_default_browser_data["brave:freebsd"]="brave-browser"
+        spb_default_browser_data["brave:darwin"]="/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"
         # # # # # # # # # # # # #
         spb_default_browser_data["chromium:linux:mint"]="chromium"
+        spb_default_browser_data["chromium:linux:ubuntu"]="chromium"
+        spb_default_browser_data["chromium:linux:debian"]="chromium"
         spb_default_browser_data["chromium:linux:arch"]="chromium"
         spb_default_browser_data["chromium:linux:endeavouros"]="chromium"
         spb_default_browser_data["chromium:linux:manjaro"]="chromium"
-        spb_default_browser_data["chromium:darwin"]="/Applications/Chromium.app/Contents/MacOS/Chromium"
+        spb_default_browser_data["chromium:linux:centos"]="chromium"
+        spb_default_browser_data["chromium:linux:fredora"]="chromium"
         spb_default_browser_data["chromium:freebsd"]="chromium"
+        spb_default_browser_data["chromium:darwin"]="/Applications/Chromium.app/Contents/MacOS/Chromium"
         # # # # # # # # # # # # #
         spb_default_multi_browser_support="true"
+        # # # # # # # # # # # # #
     fi
 fi
+
 
 # configure the default SPB browser name
 spb_browser_name_default="brave"
@@ -132,6 +187,23 @@ spb_browser_name_externally_configured="false"
 spb_browser_is_default="true"
 if [[ -z "$spb_browser_name" ]] ; then
     # check this value has not been configured via configuration file / enviroment varable
+    if [[ "${spb_browser_name}" == "ungoogled-chromium" ]] && [[ -d /Applications/Chromium.app ]] ; then
+        # check if ungoogled-chromium is installed
+        chromium_developer=$(spctl -a -vvv -t install /Applications/Chromium.app 2>&1 | grep "origin=Developer ID Application" | awk -F "origin=Developer ID Application: " '{print $2}')
+        if [[ "${chromium_developer}" != "Qian Qian (B9A88FL5XJ)" ]] ; then
+            echo "ERROR! : You have requested the browser : ${spb_browser_name}"
+            echo "         However, ungoogled-chromium is not installed on your system."
+            exit -34
+        fi
+    fi
+    if [[ "${spb_browser_name}" == "chromium" ]] && [[ -d /Applications/Chromium.app ]] ; then
+        # check if chromium is installed
+        chromium_developer=$(spctl -a -vvv -t install /Applications/Chromium.app 2>&1 | grep "origin=Developer ID Application" | awk -F "origin=Developer ID Application: " '{print $2}')
+        if [[ "${chromium_developer}" == "Qian Qian (B9A88FL5XJ)" ]] ; then
+            echo "WARNING! : You have requested the browser : ${spb_browser_name}"
+            echo "           However, ungoogled-chromium is installed on your system."
+        fi
+    fi
     spb_browser_name="${spb_browser_name_default}"
 else
     # this value has been configured via configuation file / enviroment varable
@@ -186,7 +258,7 @@ fi
 #
 
 # configure the configuration file paths
-spb_configuration_file_path="${template_dir_parent}/${spb_configuration_file_name}" # using the template directory to store the configuration file
+spb_configuration_file_path="${template_dir_base}/${spb_configuration_file_name}" # using the template directory to store the configuration file (TODO : needs to be altered to allow changing location of the template directory more easily)
 spb_configuration_file_absolute="${spb_configuration_file_path/#\~/$HOME}" # expand the home tild if needed
 #
 # configuration file loading
@@ -196,7 +268,7 @@ if [ -r ${spb_configuration_file_absolute} ] ; then
 fi
 
 # update the template directory parent so that it is browser specific
-template_dir_parent="${template_dir_parent}/${spb_browser_name}"     
+template_dir_parent="${template_dir_base}/${spb_browser_name}"     
 
 # updated variables and the defaults
 creating_new_template="false"
@@ -252,7 +324,6 @@ for arg in "$@" ; do
         echo ""
         exit -150
     fi
-    os_type=$(uname -s | tr '[:upper:]' '[:lower:]')
     for key in "${!spb_default_browser_data[@]}"; do
         if [[ $( echo "${key}" | awk -F ":" '{print $2}' | grep "${os_type}" ) ]] ; then
             spb_default_browser_list="${key%%:*}\n${spb_default_browser_list}"
@@ -347,7 +418,7 @@ for arg in "$@" ; do
     if [[ "${spb_browser_name_default}" != "${spb_browser_name}" ]] ; then 
         spb_browser_is_default="false" 
     fi
-    template_dir_parent="${template_dir_parent}/${spb_browser_name}"
+    template_dir_parent="${template_dir_base}/${spb_browser_name}"
     
   fi
 
@@ -851,7 +922,6 @@ function report_no_display_detected() {
 }
 
 # check the operating system ; also check on brave and screen availability on system
-os_type=$(uname -s | tr '[:upper:]' '[:lower:]')
 if [[ "${os_type}" == "darwin" ]] ; then
     # running on macOS
     if [[ -z "$spb_browser_path" ]] ; then
@@ -1207,20 +1277,39 @@ if [[ "${use_template_dir_name}" != "" ]] ; then
         fi
     fi
     if [[ "${quite_mode}" != "true" ]] ; then
-        echo "        Copying template data..."
+        template_data_disk_usage=$(du -hs ${use_template_dir_absolute} | awk '{print $1}')
+        echo "        Copying ${template_data_disk_usage}B template data..."
     fi
     cp -r ${use_template_dir_absolute}/. ${browser_tmp_directory}/
     if [[ ${?} != 0 ]] ; then
+        echo ""
         echo "ERROR! : Unable to copy template into place"
         exit -5
     fi
     if [[ "${quite_mode}" != "true" ]] ; then
+        # echo "          [ ${template_data_disk_usage}B transfered ]"
         echo "        Syncronizing filesystem..."
     fi
-    sync
+    sync --file-system ${use_template_dir_absolute}
+    sync --file-system ${browser_tmp_directory}
 fi
 
-# check if we are editing a template 
+# check if we are we using firefox or palemoon (experimental)
+if [[ "${spb_browser_name}" == "firefox" ]] || [[ "${spb_browser_name}" == "palemoon" ]]; then 
+    incognito_options="--private-window"
+    spb_data_browser_specifc_options="--new-instance --no-remote --profile "
+else
+    incognito_options="--incognito"
+    spb_data_browser_specifc_options="--user-data-dir="
+fi
+
+# check if we are we running in standard mode
+if [[ "${standard_mode}" == "true" ]] ; then 
+    # not running incognito mode (eg standard mode)
+    incognito_options=""
+fi
+
+# check if we are editing a template
 if [[ "${edit_template_dir_name}" != "" ]] ; then
     # saving the session details into the lock file
     echo "${screen_session_name}" > ${template_lock_file_absolute}
@@ -1228,7 +1317,7 @@ if [[ "${edit_template_dir_name}" != "" ]] ; then
         echo "        WARNING! : Unable to save session details within the lock file."
     fi
     # temp directory is not used for this session (keeping the data and saving into the tempalte)
-    user_data_directory="--user-data-dir=${edit_template_dir_absolute}"
+    user_data_directory_options="${spb_data_browser_specifc_options}${edit_template_dir_absolute}"
     # create a sym-link within that directory to the template for clarity
     if [[ "${quite_mode}" != "true" ]] ; then
         echo "        Linking to template data..."
@@ -1252,23 +1341,18 @@ if [[ "${edit_template_dir_name}" != "" ]] ; then
         fi
     fi
     if [[ "${quite_mode}" != "true" ]] ; then
-        echo "        Syncronizing filesystem..."
+        echo "        Syncronizing filesystems..."
     fi
-    sync
+    sync --file-system ${browser_tmp_directory}
+    sync --file-system ${edit_template_dir_absolute}
 else
     # standard usage # using the temp directory (delete when browser closes)
-    user_data_directory="--user-data-dir=${browser_tmp_directory}"
+    user_data_directory_options="${spb_data_browser_specifc_options}${browser_tmp_directory}"
 fi
 
-# are we running in standard mode
-incognito_options="--incognito"
-if [[ "${standard_mode}" == "true" ]] ; then 
-    # not running incognito mode (eg standard mode)
-    incognito_options=""
-fi
 
 # parse the arguments for options and URL's to pass to brave.
-browser_options="${user_data_directory} ${incognito_options}"
+browser_options="${user_data_directory_options} ${incognito_options}"
 url_list=""
 while [[ ${#} -ge 1 ]] ; do
     # note, that no additional checking for validy of options is performed.
@@ -1280,21 +1364,21 @@ while [[ ${#} -ge 1 ]] ; do
             new_browser_argument="--${browser_option_name}=\"${browser_option_value}\""
             browser_options="${browser_options} ${new_browser_argument}"
         else
-            browser_options="${browser_options} ${1}"
+            if [[ "${1}" != "--browser" ]] && [[ "${1}" != "--template" ]] && [[ "${1}" != "--new-template" ]] && [[ "${1}" != "--edit-template" ]] ; then
+                browser_options="${browser_options} ${1}"
+            fi
         fi
     else
-        if [[ "${1}" != "--edit_template_dir_name" ]] && [[ "${1}" != "--use_template_dir_name" ]] && [[ "${1}" != "${use_template_dir_name}" ]] && [[ "${1}" != "${edit_template_dir_name}" ]]  ; then
-            if [[ "${1}" != "--browser" ]] && [[ "${1}" != "${spb_browser_name}" ]] ; then
-                # build the URL list (but exclude the template and edit-tempate data which may be have been provided)
-                url_list="${url_list} \"${1}\""
-            fi
+        if [[ "${1}" != "${spb_browser_name}" ]] && [[ "${1}" != "${use_template_dir_name}" ]] && [[ "${1}" != "${edit_template_dir_name}" ]] ; then
+            # build the URL list (but exclude the spb_browser_name, template and edit-tempate data which may be have been provided)
+            url_list="${url_list} \"${1}\""
         fi
     fi
     shift
 done
 
-
 # start a screen session with the name based off the temp directory, then once browser exits delete the temporary directory
 screen -S "${screen_session_name}" -dm bash -c " \"${spb_browser_path}\" ${browser_options} ${url_list} ; sleep 1 ; sync ; rm -rf ${browser_tmp_directory} ${spb_etlfr_cmd} "
 exit 0
+
 
