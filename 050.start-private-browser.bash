@@ -188,7 +188,7 @@ spb_browser_is_default="true"
 if [[ -z "$spb_browser_name" ]] ; then
     # check this value has not been configured via configuration file / enviroment varable
     if [[ "${os_type}" == "darwin" ]] ; then 
-        if[[ "${spb_browser_name}" == "ungoogled-chromium" ]] && [[ -d /Applications/Chromium.app ]] ; then
+        if [[ "${spb_browser_name}" == "ungoogled-chromium" ]] && [[ -d /Applications/Chromium.app ]] ; then
             # check if ungoogled-chromium is installed (on macOS) - the install will share the same location and name so this is somewhat important
             chromium_developer=$(spctl -a -vvv -t install /Applications/Chromium.app 2>&1 | grep "origin=Developer ID Application" | awk -F "origin=Developer ID Application: " '{print $2}')
             if [[ "${chromium_developer}" != "Qian Qian (B9A88FL5XJ)" ]] ; then
