@@ -62,11 +62,11 @@ rm -ri ~/bin/start-private-browser.bash ~/bin/spb-update.bash ~/bin/spb-update.l
 ```
 
 ### :star: Usage Examples
-The real power of SPB is not so much with the basic usage listed above but the abillity to user wrapper scripts or even simple functions which leverege SPB to automaate tasks. 
+The real power of SPB is less about the basic usage listed above and more the abillity to automate tasks using SPB wrapper scripts and functions. Get ready for SPB to make your life better each and every day.
   
-Automations which leverage SPB may be something simple like performing a search, starting a chat. They may be more complex operatons controlled by scripts which will assist you with performing testing, benchmarking or any other series of steps which you need to be able to carry out more than once.
+Automations which leverage SPB may be simple operations such as performing a search or starting a chat. They may be also be complex operatons controlled by scripts which will assist you with performing testing, benchmarking and other steps which you may need to be able to carry out repeatedly.
 
-Below are examples to get you started with SPB to enhance every day web based tasks. More examples are to come which will provide expamples for testing, benchmarking, more advanced automations and leveraging AI agents. If you have created something which you feel may be useful to the SPB communitiy, [start a discussion](https://github.com/henri/henri/discussions/categories/spb).
+Below are starter SPB examples for the fish shell to enhance every day web based tasks. More examples are on the horizon which will are expamples for testing, benchmarking, more advanced automations such as  leveraging AI agents. If you have created something which you feel may be useful to the SPB communitiy, [start a discussion](https://github.com/henri/henri/discussions/categories/spb) and share your ideas.
 
 Handy wrapper scripts to facilitate SPB usage via the command line : 
 > <sub>During [installation](https://github.com/henri/spb/?tab=readme-ov-file#floppy_disk-installation) if fish is installed, you will be prompted to automatically install these fish snippits. If you install fish after SPB and would like to install these snippits, just run the [update command](https://github.com/henri/spb/?tab=readme-ov-file#bookmark_tabs-usage) or [re-install](https://github.com/henri/spb/?tab=readme-ov-file#floppy_disk-installation)</sub>
