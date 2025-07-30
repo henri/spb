@@ -62,7 +62,7 @@ rm -ri ~/bin/start-private-browser.bash ~/bin/spb-update.bash ~/bin/spb-update.l
 ```
 
 ### :star: Usage Examples
-The real power of SPB is not so much with the basic usage listed above but with the abillity to create wrapper scripts or even simple functions which leverege SPB to perform specific operations automatically on your behalf. 
+The real power of SPB is not so much with the basic usage listed above but the abillity to user wrapper scripts or even simple functions which leverege SPB to automaate tasks. 
   
 Automations which leverage SPB may be something simple like performing a search, starting a chat. They may be more complex operatons controlled by scripts which will assist you with performing testing, benchmarking or any other series of steps which you need to be able to carry out more than once.
 
