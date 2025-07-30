@@ -72,6 +72,7 @@
 # version 6.0 - experimental support for ungoogled-chrome, firefox and palemoon
 # version 6.1 - improved template loading, additional linux distribution support (this needs some work)
 # version 6.2 - improved argument parsing and bug fixes
+# version 6.3 - bug fix relating to opening urls in --standard mode with firefox and palemoon
 #
 
 ##
@@ -1297,7 +1298,7 @@ if [[ "${use_template_dir_name}" != "" ]] ; then
 fi
 
 # check if we are we using firefox or palemoon (experimental)
-if [[ "${spb_browser_name}" == "firefox" ]] || [[ "${spb_browser_name}" == "palemoon" ]]; then 
+if [[ "${spb_browser_name}" == "firefox" ]] || [[ "${spb_browser_name}" == "palemoon" ]] ; then 
     incognito_options="--private-window"
     spb_data_browser_specifc_options="--new-instance --no-remote --profile "
 else
@@ -1307,8 +1308,12 @@ fi
 
 # check if we are we running in standard mode
 if [[ "${standard_mode}" == "true" ]] ; then 
-    # not running incognito mode (eg standard mode)
-    incognito_options=""
+    if [[ "${spb_browser_name}" == "firefox" ]] || [[ "${spb_browser_name}" == "palemoon" ]] ; then 
+        incognito_options="--new-window"
+    else
+        # not running incognito mode (eg standard mode)
+        incognito_options=""
+    fi
 fi
 
 # check if we are editing a template
@@ -1382,5 +1387,4 @@ done
 # start a screen session with the name based off the temp directory, then once browser exits delete the temporary directory
 screen -S "${screen_session_name}" -dm bash -c " \"${spb_browser_path}\" ${browser_options} ${url_list} ; sleep 1 ; sync ; rm -rf ${browser_tmp_directory} ${spb_etlfr_cmd} "
 exit 0
-
 
