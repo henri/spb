@@ -72,7 +72,7 @@
 # version 6.0 - experimental support for ungoogled-chrome, firefox and palemoon
 # version 6.1 - improved template loading, additional linux distribution support (this needs some work)
 # version 6.2 - improved argument parsing and bug fixes
-# version 6.3 - bug fix relating to opening urls in --standard mode with firefox and palemoon
+# version 6.3 - bug fix relating to experimntal firefox and palemoon support
 #
 
 ##
@@ -1300,7 +1300,7 @@ fi
 # check if we are we using firefox or palemoon (experimental)
 if [[ "${spb_browser_name}" == "firefox" ]] || [[ "${spb_browser_name}" == "palemoon" ]] ; then 
     incognito_options="--private-window"
-    spb_data_browser_specifc_options="--new-instance --no-remote --profile "
+    spb_data_browser_specifc_options="--new-instance --no-remote --class CustomClass --profile "
 else
     incognito_options="--incognito"
     spb_data_browser_specifc_options="--user-data-dir="
