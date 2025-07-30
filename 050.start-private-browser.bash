@@ -187,21 +187,23 @@ spb_browser_name_externally_configured="false"
 spb_browser_is_default="true"
 if [[ -z "$spb_browser_name" ]] ; then
     # check this value has not been configured via configuration file / enviroment varable
-    if [[ "${spb_browser_name}" == "ungoogled-chromium" ]] && [[ -d /Applications/Chromium.app ]] ; then
-        # check if ungoogled-chromium is installed
-        chromium_developer=$(spctl -a -vvv -t install /Applications/Chromium.app 2>&1 | grep "origin=Developer ID Application" | awk -F "origin=Developer ID Application: " '{print $2}')
-        if [[ "${chromium_developer}" != "Qian Qian (B9A88FL5XJ)" ]] ; then
-            echo "ERROR! : You have requested the browser : ${spb_browser_name}"
-            echo "         However, ungoogled-chromium is not installed on your system."
-            exit -34
+    if [[ "${os_type}" == "darwin" ]] ; then 
+        if[[ "${spb_browser_name}" == "ungoogled-chromium" ]] && [[ -d /Applications/Chromium.app ]] ; then
+            # check if ungoogled-chromium is installed (on macOS) - the install will share the same location and name so this is somewhat important
+            chromium_developer=$(spctl -a -vvv -t install /Applications/Chromium.app 2>&1 | grep "origin=Developer ID Application" | awk -F "origin=Developer ID Application: " '{print $2}')
+            if [[ "${chromium_developer}" != "Qian Qian (B9A88FL5XJ)" ]] ; then
+                echo "ERROR! : You have requested the browser : ${spb_browser_name}"
+                echo "         However, ungoogled-chromium is not installed on your system."
+                exit -34
+            fi
         fi
-    fi
-    if [[ "${spb_browser_name}" == "chromium" ]] && [[ -d /Applications/Chromium.app ]] ; then
-        # check if chromium is installed
-        chromium_developer=$(spctl -a -vvv -t install /Applications/Chromium.app 2>&1 | grep "origin=Developer ID Application" | awk -F "origin=Developer ID Application: " '{print $2}')
-        if [[ "${chromium_developer}" == "Qian Qian (B9A88FL5XJ)" ]] ; then
-            echo "WARNING! : You have requested the browser : ${spb_browser_name}"
-            echo "           However, ungoogled-chromium is installed on your system."
+        if [[ "${spb_browser_name}" == "chromium" ]] && [[ -d /Applications/Chromium.app ]] ; then
+            # check if chromium is installed
+            chromium_developer=$(spctl -a -vvv -t install /Applications/Chromium.app 2>&1 | grep "origin=Developer ID Application" | awk -F "origin=Developer ID Application: " '{print $2}')
+            if [[ "${chromium_developer}" == "Qian Qian (B9A88FL5XJ)" ]] ; then
+                echo "WARNING! : You have requested the browser : ${spb_browser_name}"
+                echo "           However, ungoogled-chromium is installed on your system."
+            fi
         fi
     fi
     spb_browser_name="${spb_browser_name_default}"
