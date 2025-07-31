@@ -82,7 +82,7 @@
 # configuration variables
 screen_session_prefix="spb-session"                 #  prefix of the screen session name
 temp_path="/tmp/spb-browser"                        #  location of temporary browser data
-template_dir_base="~/bin/spb-templates"       #  location of spb templates
+template_dir_base="~/bin/spb-templates"             #  location of spb templates
 template_browser_id_filename="spb-browser.id"       #  file which will contain the browser identifier for this template
 update_script_path="~/bin/spb-update.bash"          #  where to find the spb-update script
 update_script_arguments="--auto-monitoring"         #  arguents passed to update script when running an update
