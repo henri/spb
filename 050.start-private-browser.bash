@@ -12,7 +12,7 @@
 #
 # (C) Copyright Henri Shustak 2024
 #
-# Released under the GNU GPLv3 or later licence :
+# Released under the GNU GPLv3 or later license :
 # https://www.gnu.org/licenses/gpl-3.0.en.html
 #
 # Project home page (featuring additional information and easy installation guide) :
@@ -23,19 +23,19 @@
 # version 1.2 - added a basic help menu explaining the functionality (if you call it with -h or --help)
 # version 1.3 - added basic support for FreeBSD and MacOS
 # version 1.4 - added support for listing the running sessions (just list them via screen - nothing internal keeping track)
-# version 1.5 - initial support for passing additional options to brave implimented (note : zero checking of option validity)
+# version 1.5 - initial support for passing additional options to brave implemented (note : zero checking of option validity)
 # version 1.6 - updates to the help output\
 # version 1.7 - added url to download brave if it is not installed
 # version 1.8 - added user-agent usage example
 # version 1.9 - added additional sanity check
-# version 2.0 - addeditional requirement check that screen is installed before doing anything
+# version 2.0 - additional requirement check that screen is installed before doing anything
 # version 2.1 - bug fix related to screen detection
 # version 2.2 - minor improvement when listing active sessions
 # version 2.3 - added additional usage notes
 # version 2.4 - added improved support for displaying help
 # version 2.5 - improved option parsing system
-# version 2.6 - initial foundations for templating sub-system implimented
-# version 2.7 - improved option parsing to allow for greater felxibility
+# version 2.6 - initial foundations for templating sub-system implemented
+# version 2.7 - improved option parsing to allow for greater flexibility
 # version 2.8 - increased verbosity of output while loading template data
 # version 2.9 - added locking to the templates and squashed bugs
 # version 3.0 - added standard option to not start incognito mode
@@ -43,56 +43,56 @@
 # version 3.2 - prevent coping a template while it is being edited
 # version 3.3 - improved template lock file session support, improved template support and squashed bugs
 # version 3.4 - reporting and error handling relating to lock files improved
-# version 3.5 - further improvments to template lock file subsystem reliability and user support dialog
-# version 3.6 - cross platform compatibility enhancment
+# version 3.5 - further improvements to template lock file subsystem reliability and user support dialog
+# version 3.6 - cross platform compatibility enhancement
 # version 3.7 - added a force stop command (to kill an spb session)
-# version 3.8 - foundation laid for the template system to support browser comptability
+# version 3.8 - foundation laid for the template system to support browser compatibility
 # version 3.9 - further improvements to multi-browser support within the templating system
 # version 4.0 - added update option support
-# version 4.1 - minor improvments to output relating to updates
+# version 4.1 - minor improvements to output relating to updates
 # version 4.2 - bug fixes
-# version 4.3 - altered configuration defaults working towards improved browser compatibaility
+# version 4.3 - altered configuration defaults working towards improved browser compatibility
 # version 4.4 - prepared multi-browser compatibility foundations
-# version 4.5 - initial templating compatibility checks implimented
+# version 4.5 - initial templating compatibility checks implemented
 # version 4.6 - improved template listing output in relation to multi-browser improvements
-# version 4.7 - bug fixs relating to older versions of bash
-# version 4.8 - improvements to mutli-browser compatability
-# version 4.9 - initial enviroment variable support for spb browser configuration
+# version 4.7 - bug fixes relating to older versions of bash
+# version 4.8 - improvements to mutli-browser compatibility
+# version 4.9 - initial environment variable support for spb browser configuration
 # version 5.0 - initial spb configuration file support - only via sourcing
 # version 5.1 - bug fixes relating to loading order of configuration file
-# version 5.2 - improved template listing output and bug fixes relating to multi-broser support
-# version 5.2 - improvments with regards support for crosplatform multi-browser support
+# version 5.2 - improved template listing output and bug fixes relating to multi-browser support
+# version 5.2 - improvements with regards support for cross-platform multi-browser support
 # version 5.3 - updates to the built in help
 # version 5.4 - bug fixes
-# version 5.5 - added ability to list availble browsers in multi-mode with option --list-browsers
+# version 5.5 - added ability to list available browsers in multi-mode with option --list-browsers
 # version 5.6 - improved multi-browser support
 # version 5.7 - bug fix related to loading templates
 # version 5.8 - improved logic paths during edge cases of browser template laoding
-# version 5.9 - implimented detection for shells without connected display enviroment(s)
+# version 5.9 - implemented detection for shells without connected display enviroment(s)
 # version 6.0 - experimental support for ungoogled-chrome, firefox and palemoon
 # version 6.1 - improved template loading, additional linux distribution support (this needs some work)
 # version 6.2 - improved argument parsing and bug fixes
-# version 6.3 - bug fix relating to experimntal firefox and palemoon support
+# version 6.3 - bug fix relating to experimental firefox and palemoon support
 #
 
 ##
-## Configuration of Varibles
+## Configuration of Variables
 ## 
 
 # configuration variables
 screen_session_prefix="spb-session"                 #  prefix of the screen session name
 temp_path="/tmp/spb-browser"                        #  location of temporary browser data
-template_dir_base="~/bin/spb-templates"             #  location of spb templates
+template_dir_base="~/bin/spb-templates"       #  location of spb templates
 template_browser_id_filename="spb-browser.id"       #  file which will contain the browser identifier for this template
 update_script_path="~/bin/spb-update.bash"          #  where to find the spb-update script
-update_script_arguments="--auto-monitoring"         #  arguents passed to update script when running an update
+update_script_arguments="--auto-monitoring"         #  arguments passed to update script when running an update
 spb_configuration_file_name="spb.config"
 
-# lock file varables to protect tempaltes being edited
+# lock file variables to protect templates being edited
 spb_template_lock_file_name="spb-template-edit.lock"
 spb_etlfr_cmd="" # spb edit template lock file remove command (leave this blank it is automatically updated when required)
 
-# setup varabels for processing arguments we ares pecifcially NOT using get opts 
+# setup variables for processing arguments we ares specifically NOT using get opts 
 args=("$@")
 index=0
 pre_index=0
@@ -106,7 +106,7 @@ os_type=$(uname -s | tr '[:upper:]' '[:lower:]')
 if [[ ! -z ${BASH_VERSINFO} ]] ; then
     if [[ ${BASH_VERSINFO} -ge 4 ]] ; then
         # default browser values - these are the commands which we run on various operating systems for various browsers
-        # remember if your operating system is not listed, it is possible to use enviroment variables or the configuration
+        # remember if your operating system is not listed, it is possible to use environment variables or the configuration
         # file to specify the browser name and browser path for any browser / operating system pair
         declare -A spb_default_browser_data
         # # # # # # # # # # # # #
@@ -187,7 +187,7 @@ spb_browser_name_default="brave"
 spb_browser_name_externally_configured="false"
 spb_browser_is_default="true"
 if [[ -z "$spb_browser_name" ]] ; then
-    # check this value has not been configured via configuration file / enviroment varable
+    # check this value has not been configured via configuration file / environment variables
     if [[ "${os_type}" == "darwin" ]] ; then 
         if [[ "${spb_browser_name}" == "ungoogled-chromium" ]] && [[ -d /Applications/Chromium.app ]] ; then
             # check if ungoogled-chromium is installed (on macOS) - the install will share the same location and name so this is somewhat important
@@ -209,11 +209,11 @@ if [[ -z "$spb_browser_name" ]] ; then
     fi
     spb_browser_name="${spb_browser_name_default}"
 else
-    # this value has been configured via configuation file / enviroment varable
+    # this value has been configured via configuration file / environment variable
     spb_browser_name_externally_configured="true"
 fi
 if [[ "${spb_browser_name_default}" != "${spb_browser_name}" ]] ; then
-    # this varable is used to keep track of which variables need to have been set
+    # this variable is used to keep track of which variables need to have been set
     # sanity checks in relation to templating subsystem 
     # it is important to ensure the template type 
     # matches the specified browser
@@ -224,36 +224,36 @@ spb_external_count=0
 [[ "${spb_browser_name_externally_configured}" == "true" ]] && spb_external_count=$((spb_external_count+1))
 if [[ spb_external_count -eq 1 ]] ; then
     if [[ "${spb_browser_name_externally_configured}" == "false" ]] || [[ "${spb_default_multi_browser_support}" == "false" ]]  ; then
-        echo "" ; echo "ERROR! : Unable to proceed eviroment variable problem!" ; echo ""
+        echo "" ; echo "ERROR! : Unable to proceed environment variable problem!" ; echo ""
         if [[ "${spb_default_multi_browser_support}" == "true" ]]  ; then
-            # multi-broser support enabled - report the situation relating to enviroment varables
+            # multi-broser support enabled - report the situation relating to environment variables
             echo "         When the 'spb_browser_path' enviroment varable is configured,"
             echo "         the 'spb_browser_path' varable must also be set!"
         else
-            # multi-browser support not enabled - expain one of these has been set but not both of them 
+            # multi-browser support not enabled - explain one of these has been set but not both of them 
             echo "         Automatic multi-browser support is unavailable due to the older version of BASH!"
-            echo "         Upgrade BASH or when configure either of the follwoing envirment varibales :"
+            echo "         Upgrade BASH or when configure either of the following environment variables :"
             echo ""
             echo "                         spb_browser_name or spb_browser_path"
             echo ""
-            echo "         You must also configure the other. They either must both be set or alterativly"
-            echo "         neither varable should be externally configured."
+            echo "         You must also configure the other. They either must both be set or alternatively"
+            echo "         neither variable should be externally configured."
 
         fi
         echo ""
-        echo "         This requirment is in relation to the template"
-        echo "         system directory organisation."
+        echo "         This requirement is in relation to the template"
+        echo "         system directory organization."
         echo ""
         exit -176
     fi
 fi
 
 
-# List of currently supported configration file options
-# set these as exported enivroment varaibles or place them
-# in the configration file and they will automatically be
+# List of currently supported configuration file options
+# set these as exported environment variables or place them
+# in the configuration file and they will automatically be
 # exported when this script runs and finds the configuration
-# file. Configration file path is within the varaible :
+# file. Configuration file path is within the variable :
 # spb_configuration_file_name (above in this script)
 #
 # export spb_browser_name="brave"
@@ -288,7 +288,7 @@ quite_mode="false"
 force_stop_mode="false"
 template_browser_id_absolute="" # when creating a new template this is set to the full absolute path to the template browser_id file
 
-# internal argument parsing varables
+# internal argument parsing variables
 skip_arg="false"
 pre_skip_arg="false"
 pre_arg_scan_proceed="true"
@@ -298,10 +298,10 @@ pre_arg_scan_proceed="true"
 ## Argument Processing
 ## 
 
-# pre argument scanning (arguments which will almost allways end up exiting before we actually start a browser)
+# pre argument scanning (arguments which will almost always end up exiting before we actually start a browser)
 for arg in "$@" ; do
 
-  # skip some paramaters passed into script
+  # skip some parameters passed into script
   if [[ "${pre_skip_arg}" == "true" ]] ; then
     pre_skip_arg="false"
     ((pre_index++))
@@ -320,8 +320,8 @@ for arg in "$@" ; do
     if [[ "${spb_default_multi_browser_support}" == "false" ]] ; then
         echo ""
         echo "ERROR! : You have requested a list of browsers."
-        echo "         Unfortunatly multi-browser support is"
-        echo "         not availbe due to your older version"
+        echo "         Unfortunately multi-browser support is"
+        echo "         not available due to your older version"
         echo "         of bash on this system. Upgrade BASH"
         echo "         and try again."
         echo ""
@@ -384,17 +384,17 @@ for arg in "$@" ; do
 
     if [[ "${spb_default_multi_browser_support}" == "false" ]] ; then
         echo ""
-        echo "ERROR! : SPB multi-browser Support is not availble!"
+        echo "ERROR! : SPB multi-browser Support is not available!"
         echo ""
         echo "         This is due to you running an older version"
         echo "         of BASH on your system, please update to"
         echo "         latest version of BASH if you would like"
         echo "         to use the --browser option."
         echo ""
-        echo "         If you want to use an alterave browser"
+        echo "         If you want to use an alternative browser"
         echo "         but do not want to upgrade your version"
         echo "         of BASH, then you may configure the alt"
-        echo "         browser by setting enviroment variables."
+        echo "         browser by setting environment variables."
         echo "         It is possible to set these in the SPB"
         echo "         configuration file or via your shell."
         echo ""
@@ -410,12 +410,12 @@ for arg in "$@" ; do
         echo ""
         echo "ERROR! : When you specify --browser you must also"
         echo "         supply a browser name which will be used"
-        echo "         instread of the default browser name."
+        echo "         instead of the default browser name."
         echo ""
         exit -164
     fi
 
-    # update the browser name and other varibles which depend on the browser name 
+    # update the browser name and other variables which depend on the browser name 
     spb_browser_name="${pre_next_arg}"
     spb_browser_name_externally_configured="true"
     if [[ "${spb_browser_name_default}" != "${spb_browser_name}" ]] ; then 
@@ -433,7 +433,7 @@ done
 if [[ ${spb_list_templates} == "true" ]] ; then
     # if [[ ${index} != 0 ]] || [[ ${num_args} -gt 1 ]]; then
     #   echo ""
-    #   echo "ERROR! : Using the ${arg} option is not compatiable with any other"
+    #   echo "ERROR! : Using the ${arg} option is not compatible with any other"
     #   echo "         arguments / parameters."
     #   echo ""
     #   exit -79
@@ -452,7 +452,7 @@ if [[ ${spb_list_templates} == "true" ]] ; then
     template_dir_parent_dirname=$(dirname ${template_dir_parent})
     awk_cut_point=$(basename ${template_dir_parent_dirname})
 
-    # this monstrosity outputs nicley formated output when you list the templates
+    # this monstrosity outputs nicely formatted output when you list the templates
     template_list=$(find ${template_dir_parent_dirname/#\~/$HOME} -maxdepth 2 -type d | grep -v "available" \
     | awk -F "$awk_cut_point" '{print $2}' | awk 'gsub("/", "&")!=1' | sed 's/^\///' \
     | awk '{gsub(/\//, "\t\t")}1' |  awk '{if($1!=last){if(NR>1)print""};last=$1;print}' \
@@ -472,14 +472,14 @@ if [[ "${help_wanted}" == "yes" ]] ; then
     echo ""
     echo "         SPB or 'start-private-browser' is a wrapper to the brave-browser command."
     echo ""
-    echo "         This wrapper allows you to quickly start as many sperate instances"
+    echo "         This wrapper allows you to quickly start as many separate instances"
     echo "         of the brave-browser as your system has available memory to run"
-    echo "         simultianuusly under a single graphical login."
+    echo "         simultaneously under a single graphical login."
     echo ""
-    echo "         Requirments include gnu/screen and the brave-browser to be installed"
-    echo "         on your system. This script has been mildly tested on gnu/linux mint."
-    echo "         It is possible this will also work on many other posix compliant"
-    echo "         opterating systems. Your miliage may vary."
+    echo "         Requirements include gnu/screen and the brave-browser to be installed"
+    echo "         on your system. This script has been mildly tested on GNU/LINUX Mint."
+    echo "         It is possible this will also work on many other POSIX compliant"
+    echo "         operating systems. Your millage may vary."
     echo ""
     echo "         If a configuration file is found, then it will sourced :"
     echo "         ${spb_configuration_file_path}"
@@ -495,16 +495,16 @@ if [[ "${help_wanted}" == "yes" ]] ; then
     echo "            # start the browser but no incognito option will be passed to the browser"
     echo "            $ start-private-browser --standard [URL-TO-OPEN]"
     echo ""
-    echo "            # surpress important notification output"
+    echo "            # suppress important notification output"
     echo "            $ start-private-browser --quite"
     echo ""
-    echo "            # forceably close a browser session if it has hung"
+    echo "            # force-ably close a browser session if it has hung"
     echo "            $ start-private-browser --force-stop <instance-identifier>"
     echo ""
-    echo "            # update the spb system and assosiated fish snippits using default options"
+    echo "            # update the spb system and associated fish snippets using default options"
     echo "            $ start-private-browser --update"
     echo ""
-    echo "            # specify a browser name which will be loaded rather than the defualt"
+    echo "            # specify a browser name which will be loaded rather than the default"
     echo "            $ start-private-browser --browser <name-of-browser>"
     echo ""
     echo "            # show list of default browser names which may be selected"
@@ -596,7 +596,7 @@ if [[ "${update_wanted}" == "yes" ]] ; then
     if [ -x ${update_script_path_absolute} ] ; then
         updating_fish_snippits_message=""
         if $(which fish 2>&1 >> /dev/null) ; then
-            updating_fish_snippits_message=" and related fish snippits"
+            updating_fish_snippits_message=" and related fish snippets"
         fi
         echo "" 
         echo "Preparing to update SPB${updating_fish_snippits_message}."
@@ -630,7 +630,7 @@ if [[ "${update_wanted}" == "yes" ]] ; then
     fi
 fi
 
-# function to valadate the template name
+# function to validate the template name
 function check_template_name() {
     local template_name=${1}
     # prevent reserved template names from being used.
@@ -641,7 +641,7 @@ function check_template_name() {
           echo ""
           exit -167
     fi
-    # prevent template names being used that have spaces or non alpha-numeric characteers
+    # prevent template names being used that have spaces or non alpha-numeric characters
     if ! [[ "${template_name}" =~ ^[a-zA-Z0-9._-]+$ ]] ; then
           echo ""
           echo "ERROR! : Using that template name \"${template_name}\" is not possible."
@@ -694,15 +694,15 @@ function check_template_browser_identification() {
     fi
     if [[ "${selected_browser_id_name}" != "${template_browser_id_name}" ]] ; then
         echo ""
-        echo "        ERROR! : Selected browser and template identiciation do not match!" 
+        echo "        ERROR! : Selected browser and template identification do not match!" 
         echo ""
         echo "             Selected Browser ID : ${selected_browser_id_name}"
         echo "             Template browser ID : ${template_browser_id_name}"
         echo ""
         echo "        The selected browser ID and the template ID must match!"
         echo ""
-        echo "        If the browser and teampate data do not match, then we"
-        echo "        may currupt the data or have unexected results during"
+        echo "        If the browser and template data do not match, then we"
+        echo "        may corrupt the data or have unexpected results during"
         echo "        browser usage."
         echo ""
         clean_lock_file
@@ -716,7 +716,7 @@ function check_template_browser_identification() {
 # this is a custom arg parser in 2025 :)
 for arg in "$@" ; do
 
-  # skip some paramaters passed into script
+  # skip some parameters passed into script
   if [[ "${skip_arg}" == "true" ]] ; then
     skip_arg="false"
     ((index++))
@@ -734,7 +734,7 @@ for arg in "$@" ; do
   if [[ "${force_stop_mode}" == "true" ]] ; then
     if [[ "${arg}" == "--force-stop" ]] ; then
         if [[ "${next_arg}" != "" ]] ; then
-            # valadate the argument provided
+            # validate the argument provided
             force_stop_identifier_valid=$(echo "${next_arg}" | grep ${screen_session_prefix} > /dev/null && echo true)
             if [[ "${force_stop_identifier_valid}" == "true" ]] ; then
                 # force stop the instance provided
@@ -781,7 +781,7 @@ for arg in "$@" ; do
     valid_argument_found="true"
   fi
 
-  # check for tempate or template editing
+  # check for template or template editing
   if [[ "${arg}" == "--template" ]] || [[ "${arg}" == "--edit-template" ]] ||  [[ "${arg}" == "--new-template" ]] ; then
         # check they are not listed more than once
         if [[ "${edit_template_dir_name}" != "" ]] || [[ "${use_template_dir_name}" != "" ]] || [[ "${new_template_dir_name}" != "" ]] ; then
@@ -796,14 +796,14 @@ for arg in "$@" ; do
             skip_arg="true"
             valid_argument_found="true"
             check_template_name "${next_arg}"
-            # update template varables 
+            # update template variables 
             if [[ "${arg}" == "--edit-template" ]] ; then
                 edit_template_dir_name="${next_arg}"
                 edit_template_dir_absolute="$(echo ${template_dir_parent/#\~/$HOME}/${edit_template_dir_name})"
                 if [[ "${quite_mode}" != "true" ]] ; then
                     echo "Editing existing SPB template : ${edit_template_dir_absolute}"
                 fi
-                # used for storing and retriving browser template identification
+                # used for storing and retrieving browser template identification
                 template_browser_id_absolute="${edit_template_dir_absolute}/${template_browser_id_filename}"
             elif [[ "${arg}" == "--new-template" ]] ; then
                 new_template_dir_name="${next_arg}"
@@ -829,7 +829,7 @@ for arg in "$@" ; do
                     echo ""
                     exit -22
                 else
-                    # create the new template directrory
+                    # create the new template directory
                     mkdir "${new_template_dir_absolute}"
                     if [[ ${?} == 0 ]] ; then
                         if [[ "${quite_mode}" != "true" ]] ; then
@@ -846,7 +846,7 @@ for arg in "$@" ; do
                     new_template_dir_absolute=""
                     creating_new_template="true"
                 fi
-                # used for storing and retriving browser template identification
+                # used for storing and retrieving browser template identification
                 template_browser_id_absolute="${edit_template_dir_absolute}/${template_browser_id_filename}"
             else
                 # TODO : probably we also want a way to configure this from a configuration file... needs looking at :)
@@ -858,24 +858,24 @@ for arg in "$@" ; do
                 # check that directory exists
                 if ! [ -d ${use_template_dir_absolute} ] ; then
                     echo ""
-                    echo "ERROR! : Using the ${arg} option requires specifing a template name"
+                    echo "ERROR! : Using the ${arg} option requires specifying a template name"
                     echo "         which matches an existing template."
                     echo ""
                     echo "         The template specified was not found : "
                     echo "         ${template_dir_parent}/${use_template_dir_name}"
                     echo ""
-                    echo "         List available teampltes with the command below : "
+                    echo "         List available templates with the command below : "
                     echo "         ${0} --list-templates"
                     echo ""
                     exit -78
                 fi
-                # used for storing and retriving browser template identification
+                # used for storing and retrieving browser template identification
                 template_browser_id_absolute="${use_template_dir_absolute}/${template_browser_id_filename}"
             fi
 
       else
           echo ""
-          echo "ERROR! : Using the ${arg} option requires specifing a template name"
+          echo "ERROR! : Using the ${arg} option requires specifying a template name"
           echo "         for an existing template directory."
           echo ""
           echo "         Run command below for list of valid templates : "
@@ -903,7 +903,7 @@ for arg in "$@" ; do
 
 done
 
-# prevent --edit-template and --template options being used togehter
+# prevent --edit-template and --template options being used together
 if [[ "${edit_template_dir_name}" != "" ]] && [[ "${use_template_dir_name}" != "" ]] ; then
       echo ""
       echo "ERROR! : Using the the --template and --edit-template options together is not yet supported"
@@ -919,7 +919,7 @@ fi
 function report_no_display_detected() {
     echo ""
     echo "ERROR! : Unable to detect any connected graphical display(s) for this shell!"
-    echo "         Ensure your shell is connected to a graphiucal session and try again."
+    echo "         Ensure your shell is connected to a graphical session and try again."
     echo ""
     exit -77
 }
@@ -928,7 +928,7 @@ function report_no_display_detected() {
 if [[ "${os_type}" == "darwin" ]] ; then
     # running on macOS
     if [[ -z "$spb_browser_path" ]] ; then
-        # check this value has not been configured via configuration file / enviroment varable
+        # check this value has not been configured via configuration file / environment variable
         if [[ "${spb_default_multi_browser_support}" == "true" ]] ; then
             spb_browser_path="${spb_default_browser_data[$spb_browser_name:$os_type]}"
         else
@@ -945,7 +945,7 @@ elif [[ "${os_type}" == "linux" ]] ; then
     distro=$(grep ^ID= /etc/os-release | awk -F "=" '{print $2}' )
     if [[ "${distro}" == "linuxmint" ]] ; then distro="mint" ; fi
     if [[ -z "$spb_browser_path" ]] ; then
-        # check this value has not been configured via configuration file / enviroment varable
+        # check this value has not been configured via configuration file / environment variable
         if [[ "${spb_default_multi_browser_support}" == "true" ]] ; then
             spb_browser_path="${spb_default_browser_data[$spb_browser_name:$os_type:$distro]}"
             if [[ "${spb_browser_path}" == "" ]] ; then
@@ -977,7 +977,7 @@ elif [[ "${os_type}" == "linux" ]] ; then
 elif [[ "$(uname)" == "freebsd" ]] ; then
     # running on  FreeBSD
     if [[ -z "$spb_browser_path" ]] ; then
-        # check this value has not been configured via configuration file / enviroment varable
+        # check this value has not been configured via configuration file / environment variable
         if [[ "${spb_default_multi_browser_support}" == "true" ]] ; then
             spb_browser_path="${spb_default_browser_data[$spb_browser_name:$os_type]}"
         else
@@ -1000,12 +1000,12 @@ fi
 
 # report if specified browser is not available on this system, then report the problem
 if [[ ${spb_browser_available} != 0 ]] ; then
-    echo "ERROR! : Unable to locate specificed browser on your system."
+    echo "ERROR! : Unable to locate specified browser on your system."
     echo ""
     echo "         Ensure that ${spb_browser_name} is installed on your system and that the "
-    echo "         correct path is configured within your PATH enviroment variable."
+    echo "         correct path is configured within your PATH environment variable."
     echo ""
-    echo "         The spb_browser_path (enviroment varable) currently set is displayed below : "
+    echo "         The spb_browser_path (environment variable) currently set is displayed below : "
     echo "         ${spb_browser_path}"
     echo ""
     if [[ "${spb_browser_name}" == "brave" ]] ; then
@@ -1031,7 +1031,7 @@ if [[ ${screen_available} != 0 ]] ; then
     echo "ERROR! : Unable to locate screen on your system."
     echo ""
     echo "         Ensure that screen is installed on your system and that the "
-    echo "         correct path is configured within your PATH enviroment variable."
+    echo "         correct path is configured within your PATH environment variable."
     echo ""
     echo "         Official instructions to install screen are available from the URL below : "
     echo "         https://www.gnu.org/software/screen/"
@@ -1045,7 +1045,7 @@ if [[ ${screen_available} != 0 ]] ; then
     exit -1
 fi
 
-# configure general template editing and loading varables
+# configure general template editing and loading variables
 if [[ "${edit_template_dir_name}" != "" ]] ||  [[ "${use_template_dir_name}" != "" ]] ; then
     if [[ "${edit_template_dir_name}" != "" ]] ; then
         # this is a template we are editing
@@ -1097,7 +1097,7 @@ function report_general_browser_lock_file_information() {
         echo ""
         echo "             rm -i ${template_lock_file_absolute}"
         echo ""
-        echo "         Once removed, you could then attempt re-runing your command."
+        echo "         Once removed, you could then attempt re-running your command."
     else
         if [[ "${os_type}" != "darwin" ]] ; then
             echo "         Sometimes browsers take a while to exit after you close the last window."
@@ -1115,17 +1115,17 @@ function report_general_browser_lock_file_information() {
         process_id_to_kill=$($0 --list | grep "${spb_screen_session_template_lock_identifier}" | awk -F "." '{print $1}')
         if [[ ${process_id_to_kill} != "" ]] ; then
             echo "         IMPORTANT NOTE : Rather than issuing either of the commands below. It is strongly"
-            echo "         reccomended that you simply wait for the browser to shutdown gracefully ; in order"
-            echo "         to avoid curruption of the template data."
+            echo "         recommended that you simply wait for the browser to shutdown gracefully ; in order"
+            echo "         to avoid corruption of the template data."
             echo ""
-            echo "         If you decide to forcfully stop the process, consider issing the following command : "
+            echo "         If you decide to forcefully stop the process, consider issuing the following command : "
             echo "             ~/bin/start-private-browser.bash --force-stop ${spb_screen_session_template_lock_identifier}"
             echo ""
             echo "         The command above will send a control-c (AKA SIGINT or Signal Interrupt)"
             echo "         to the browser process (see important note above)."
             echo ""
             echo "         Should that command above fail you may also consider killing the screen"
-            echo "         process using the commad below (see important note above) :"
+            echo "         process using the command below (see important note above) :"
             echo "              kill ${process_id_to_kill}"
             echo ""
             echo "         If you run either of the commands above, just wait a moment and then"
@@ -1161,7 +1161,7 @@ if [[ "${use_template_dir_name}" != "" ]] ; then
         echo "ERROR! : The template you are attempting to load contains an SPB edit lock :"
         echo "         ${template_lock_file_absolute}"
         echo ""
-        echo "         It is likley that you are currently editing this template."
+        echo "         It is likely that you are currently editing this template."
         echo "         As such loading this the template is not possible."
         report_general_browser_lock_file_information
         if [[ "${spb_screen_session_template_lock_identifier}" == "${spb_screen_identifier_error_read_message}" ]] ; then
@@ -1211,7 +1211,7 @@ fi
 ## Now we commence with take off
 ## 
 
-# create a tmporary directory and setup the permissions so that only your user has access to the direcotry
+# create a temporary directory and setup the permissions so that only your user has access to the directory
 browser_tmp_directory=$(mktemp ${mktemp_options} ${temp_path}-$(whoami)-XXXXX)
 if [[ $? != 0 ]] || [[ ! -d ${browser_tmp_directory} ]] ; then
     echo "ERROR! : Unable to create temporary user data directory"
@@ -1249,7 +1249,7 @@ if [[ "${use_template_dir_name}" != "" ]] ; then
         echo ""
         echo "          ~/bin/start-private-browser.bash --browser brave"
         echo ""
-        echo "          If there is a browser mismatch ***DATA CURRUPTION*** is extreamlly likely!"
+        echo "          If there is a browser mismatch ***DATA CURRUPTION*** is extremely likely!"
         echo ""
         echo "          Continuing will generate the template browser id and if successful,"
         echo "          the next step will be to load the requested template."
@@ -1270,8 +1270,8 @@ if [[ "${use_template_dir_name}" != "" ]] ; then
             [[ "${proceed_with_unconfirmed_browser_identification}" != "YES" ]] \
         ; then 
             echo ""
-            echo "          Tempalte loading aborted${proceeded_automatically} due to possibility of data curruption."
-            echo "          This is due to possible selected browser and tempate mismatch!"
+            echo "          Template loading aborted${proceeded_automatically} due to possibility of data corruption."
+            echo "          This is due to possible selected browser and template mismatch!"
             echo ""
             exit -223
         else
@@ -1290,8 +1290,8 @@ if [[ "${use_template_dir_name}" != "" ]] ; then
         exit -5
     fi
     if [[ "${quite_mode}" != "true" ]] ; then
-        # echo "          [ ${template_data_disk_usage}B transfered ]"
-        echo "        Syncronizing filesystem..."
+        # echo "          [ ${template_data_disk_usage}B transferred ]"
+        echo "        Synchronizing filesystem..."
     fi
     sync --file-system ${use_template_dir_absolute}
     sync --file-system ${browser_tmp_directory}
@@ -1323,7 +1323,7 @@ if [[ "${edit_template_dir_name}" != "" ]] ; then
     if [[ ${?} != 0 ]] ; then
         echo "        WARNING! : Unable to save session details within the lock file."
     fi
-    # temp directory is not used for this session (keeping the data and saving into the tempalte)
+    # temp directory is not used for this session (keeping the data and saving into the template)
     user_data_directory_options="${spb_data_browser_specifc_options}${edit_template_dir_absolute}"
     # create a sym-link within that directory to the template for clarity
     if [[ "${quite_mode}" != "true" ]] ; then
@@ -1348,7 +1348,7 @@ if [[ "${edit_template_dir_name}" != "" ]] ; then
         fi
     fi
     if [[ "${quite_mode}" != "true" ]] ; then
-        echo "        Syncronizing filesystems..."
+        echo "        Synchronizing filesystems..."
     fi
     sync --file-system ${browser_tmp_directory}
     sync --file-system ${edit_template_dir_absolute}
@@ -1362,7 +1362,7 @@ fi
 browser_options="${user_data_directory_options} ${incognito_options}"
 url_list=""
 while [[ ${#} -ge 1 ]] ; do
-    # note, that no additional checking for validy of options is performed.
+    # note, that no additional checking for validly of options is performed.
     # maybe in a future version of this script.
     if [[ $(echo "${1}" | grep -e "^-") ]] ; then
         browser_option_name=$(echo "${1}" | sed -n 's/.*--\([^=]*\)=.*/\1/p')
@@ -1372,12 +1372,12 @@ while [[ ${#} -ge 1 ]] ; do
             browser_options="${browser_options} ${new_browser_argument}"
         else
             if [[ "${1}" != "--browser" ]] && [[ "${1}" != "--template" ]] && [[ "${1}" != "--new-template" ]] && [[ "${1}" != "--edit-template" ]] ; then
-                browser_options="${browser_options} ${1}"
+                browser_options="${1} ${browser_options}"
             fi
         fi
     else
         if [[ "${1}" != "${spb_browser_name}" ]] && [[ "${1}" != "${use_template_dir_name}" ]] && [[ "${1}" != "${edit_template_dir_name}" ]] ; then
-            # build the URL list (but exclude the spb_browser_name, template and edit-tempate data which may be have been provided)
+            # build the URL list (but exclude the spb_browser_name, template and edit-template data which may be have been provided)
             url_list="${url_list} \"${1}\""
         fi
     fi
