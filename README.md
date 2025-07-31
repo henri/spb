@@ -24,13 +24,13 @@ henri/spb/refs/heads/main/\
 ```
 > <sub>Detailed install instructions : Copy and paste the lines above into a terminal and press enter.</sub>
 
-> <sub>**Operating system specific installation instructions for SPB dependinceies is [available below](https://github.com/henri/spb/blob/main/README.md#triangular_flag_on_post-compatiability).**</sub>
+> <sub>**Operating system specific installation instructions for SPB dependencies is [available below](https://github.com/henri/spb/blob/main/README.md#triangular_flag_on_post-compatibility).**</sub>
 
-> <sub>Only run code from sources whom you [trust](https://github.com/henri/spb/?tab=readme-ov-file#lock-security-and-trust). Inspect SPB source-code [ [installer](./34f5452525ddc3727bb66729114ca8b4#file-500-spb-install-script-bash), [project](./34f5452525ddc3727bb66729114ca8b4#file-050-start-private-browser-bash) and [fish snippits](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8) ] below.</sub>
+> <sub>Only run code from sources whom you [trust](https://github.com/henri/spb/?tab=readme-ov-file#lock-security-and-trust). Inspect SPB source-code [ [installer](./34f5452525ddc3727bb66729114ca8b4#file-500-spb-install-script-bash), [project](./34f5452525ddc3727bb66729114ca8b4#file-050-start-private-browser-bash) and [fish snippets](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8) ] below.</sub>
 
-> <sub>The [installer/update](https://github.com/henri/spb/blob/main/500.spb-install-script.bash) script is a convienince to simplify installation and updating of spb on your system(s). Updates are semi-automatic because in order to update you manually run the [installer](https://github.com/henri/spb/blob/main/500.spb-install-script.bash) interactivly. Check the [automated notes](https://github.com/henri/spb/?tab=readme-ov-file#arrows_counterclockwise-automate-installation-and-updates) for details on configuring unattended spb updates and installations. Also, before enabling automatic updtes read the [disclaimer section](https://github.com/henri/spb/?tab=readme-ov-file#warning-disclaimer) carfully.</sub>
+> <sub>The [installer/update](https://github.com/henri/spb/blob/main/500.spb-install-script.bash) script is a convenience to simplify installation and updating of spb on your system(s). Updates are semi-automatic because in order to update you manually run the [installer](https://github.com/henri/spb/blob/main/500.spb-install-script.bash) interactively. Check the [automated notes](https://github.com/henri/spb/?tab=readme-ov-file#arrows_counterclockwise-automate-installation-and-updates) for details on configuring unattended spb updates and installations. Also, before enabling automatic updtes read the [disclaimer section](https://github.com/henri/spb/?tab=readme-ov-file#warning-disclaimer) carfully.</sub>
 
-> <sub>If you prefer to use spb without using the install/update script (not reccomdned) ; copy the SBP [project](https://github.com/henri/spb/blob/main/050.start-private-browser.bash) script to your system and make it executable.<sub>
+> <sub>If you prefer to use spb without using the install/update script (not recommended) ; copy the SBP [project](https://github.com/henri/spb/blob/main/050.start-private-browser.bash) script to your system and make it executable.<sub>
   
 ### :bookmark_tabs: Usage
 
@@ -62,51 +62,51 @@ rm -ri ~/bin/start-private-browser.bash ~/bin/spb-update.bash ~/bin/spb-update.l
 ```
 
 ### :star: Usage Examples
-The real power of SPB is less about the basic usage listed above and more the abillity to automate tasks using SPB wrapper scripts and functions. Get ready for SPB to make your life better each and every day.
+The real power of SPB is less about the basic usage listed above and more the ability to automate tasks using SPB wrapper scripts and functions. Get ready for SPB to make your life better each and every day.
   
-Automations which leverage SPB may be simple operations such as performing a search or starting a chat. They may be also be complex operatons controlled by scripts which will assist you with performing testing, benchmarking and other steps which you may need to be able to carry out repeatedly.
+Automatons which leverage SPB may be simple operations such as performing a search or starting a chat. They may be also be complex operations controlled by scripts which will assist you with performing testing, bench-marking and other steps which you may need to be able to carry out repeatedly.
 
-Below are starter SPB examples for the fish shell to enhance every day web based tasks. More examples are on the horizon which will are expamples for testing, benchmarking, more advanced automations such as  leveraging AI agents. If you have created something which you feel may be useful to the SPB communitiy, [start a discussion](https://github.com/henri/henri/discussions/categories/spb) and share your ideas.
+Below are starter SPB examples for the fish shell to enhance every day web based tasks. More examples are on the horizon which will are examples for testing, bench-marking, more advanced automatons such as  leveraging AI agents. If you have created something which you feel may be useful to the SPB community, [start a discussion](https://github.com/henri/henri/discussions/categories/spb) and share your ideas.
 
 Handy wrapper scripts to facilitate SPB usage via the command line : 
-> <sub>During [installation](https://github.com/henri/spb/?tab=readme-ov-file#floppy_disk-installation) if fish is installed, you will be prompted to automatically install these fish snippits. If you install fish after SPB and would like to install these snippits, just run the [update command](https://github.com/henri/spb/?tab=readme-ov-file#bookmark_tabs-usage) or [re-install](https://github.com/henri/spb/?tab=readme-ov-file#floppy_disk-installation)</sub>
+> <sub>During [installation](https://github.com/henri/spb/?tab=readme-ov-file#floppy_disk-installation) if fish is installed, you will be prompted to automatically install these fish snippets. If you install fish after SPB and would like to install these snippets, just run the [update command](https://github.com/henri/spb/?tab=readme-ov-file#bookmark_tabs-usage) or [re-install](https://github.com/henri/spb/?tab=readme-ov-file#floppy_disk-installation)</sub>
 #### [fish shell wrappers](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8) 
-<sub> Click on the 'snippit name' links below in order to show usage information relating to a specific snippit</sub>
-| command         | snippit name          | explanation |
+<sub> Click on the 'snippet name' links below in order to show usage information relating to a specific snippit</sub>
+| command         | snippet name          | explanation |
 | --------------- | --------------------- | ------------|
 |  `spb`          |  [spb](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-fish) | an alias to start-private-browser<br>but shortedned to spb |
-|  `spb-tor`      |  [spb-tor](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-tor-fishh) | start SPB with [Tor](https://www.torproject.org) network enabled ;<br>equivilent to spb --tor|
+|  `spb-tor`      |  [spb-tor](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-tor-fishh) | start SPB with [Tor](https://www.torproject.org) network enabled ;<br>equivalent to spb --tor|
 | `spb-ddg`       |  [DuckDuckGo Search](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-ddg-fish)  |  start multiple DuckDuckGo searches |
 | `spb-ddg-ai`    | [DuckDuckGo Chat](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-ddg-ai-fish) | have multiple DuckDuckGo AI (LLM) chats  |
 | `spb-brave`     | [Brave Search](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-brave-fish) | start multiple Brave searches |
 | `spb-brave-ai`  | [Brave Browser Leo Summary](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-brave-ai-fish) | begin multiple Brave AI (Leo) summerisations |
-| `spb-yt`        |  [YouTube Search](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-yt-fish) | initate simultanius YouTube searches |
-|  `spb-pai`      |  [Perplexity AI Chat](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-perlexity-ai-fish) | kick off converstations with Perplexity AI |
+| `spb-yt`        |  [YouTube Search](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-yt-fish) | initiate simultaneous YouTube searches |
+|  `spb-pai`      |  [Perplexity AI Chat](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-perlexity-ai-fish) | kick off conversations with Perplexity AI |
   
-> <sub>If your system has [fish](https://fishshell.com/) installed and you run the update system in an unattended mode, then these snippits will be installed / updated. This is because that is the default option. When running in unattended mode all default options are selected. If you do not want the above [snippits installed](https://github.com/henri/spb/?tab=readme-ov-file#file-spb-fish-function-installer-bash) please run the update script interactivly and enter "no" when asked during the install process. Aagain the prompt for opting out is only available during interative mode when using [spb-update.bash](https://github.com/henri/spb/blob/main/600.spb-update.bash) script or when manually running the [install/update](https://github.com/henri/spb/?tab=readme-ov-file#floppy_disk-installation) process.
+> <sub>If your system has [fish](https://fishshell.com/) installed and you run the update system in an unattended mode, then these snippets will be installed / updated. This is because that is the default option. When running in unattended mode all default options are selected. If you do not want the above [snippets installed](https://github.com/henri/spb/?tab=readme-ov-file#file-spb-fish-function-installer-bash) please run the update script interactively and enter "no" when asked during the install process. Again the prompt for opting out is only available during interactive mode when using [spb-update.bash](https://github.com/henri/spb/blob/main/600.spb-update.bash) script or when manually running the [install/update](https://github.com/henri/spb/?tab=readme-ov-file#floppy_disk-installation) process.
 
 
-<sub>The SPB project is <b>not</b> affiliated with any of the companies or the services listed above. Before using third party web services as listed above (eg Ai, Search, etc) it is reccomended that you first consult the services usage and privay policy. Many of these web based services offer a service in exchange for gathering and storing supplied information). Additional, examples like this are welcomed. If you put together something and would like, share a link to your work then comment below or [start a discussion](https://github.com/henri/henri/discussions/categories/spb)</sub>
+<sub>The SPB project is <b>not</b> affiliated with any of the companies or the services listed above. Before using third party web services as listed above (eg Ai, Search, etc) it is recommended that you first consult the services usage and privacy policy. Many of these web based services offer a service in exchange for gathering and storing supplied information). Additional, examples like this are welcomed. If you put together something and would like, share a link to your work then comment below or [start a discussion](https://github.com/henri/henri/discussions/categories/spb)</sub>
 
 #### SPB Templating Support
-The built-in templating sub-system allows you to list, create, edit and load browser data templates. Essentially, this allows you to configure a browser just as you like and then load this template as needed for future browsing sessions. When you load an existing template a copy of the template is created for your session and then when you quit that copy is deleted. However, you still have the template and may start as many sepeate browser instances as you like form that template.
+The built-in templating sub-system allows you to list, create, edit and load browser data templates. Essentially, this allows you to configure a browser just as you like and then load this template as needed for future browsing sessions. When you load an existing template a copy of the template is created for your session and then when you quit that copy is deleted. However, you still have the template and may start as many separate browser instances as you like form that template.
 
 The templates are stored in the directory : ~/bin/spb-templates/
   
 | example command                      | explanation    |
 | ------------------------------| -------------- |
-| `spb --new-template template-name` | Creates a new template and loads a browser within which you<br>may edit this newley created template.<br><br>Upon quit the template will be saved  | 
+| `spb --new-template template-name` | Creates a new template and loads a browser within which you<br>may edit this newly created template.<br><br>Upon quit the template will be saved  | 
 | `spb --edit--template template-name`  | Edits the existing template and load a browser in<br>which you may edit the exiting template.<br><br>Upon quit the template will be updated  | 
 | `spb --template template-name` | Loads the existing template<br>within a new browser.<br><br>Upon quit all data from<br>the session is deleted.  |
-| `spb --template template-name --standard` | Loads the specififed template.<br>But will not start in incogneto mode. |
-| `spb --list-tempaltes` | Presents a list of templates on your system. |
+| `spb --template template-name --standard` | Loads the specified template.<br>But will not start in incognito mode. |
+| `spb --list-templates` | Presents a list of templates on your system. |
 
 
   
-### :triangular_flag_on_post: Compatiability 
+### :triangular_flag_on_post: Compatibility 
 Mild testing has been completed on the following operating systems : 
 <p align="left">
-  <a href="https://github.com/henri/spb/?tab=readme-ov-file#triangular_flag_on_post-compatiability" ><img src="https://github.com/henri/spb/blob/readme-images/spb-compatability.png?raw=true" width="30%"></a>
+  <a href="https://github.com/henri/spb/?tab=readme-ov-file#triangular_flag_on_post-compatibility" ><img src="https://github.com/henri/spb/blob/readme-images/spb-compatability.png?raw=true" width="30%"></a>
 </p>
   
   - <b>GNU/LINUX</b>
@@ -132,7 +132,7 @@ Mild testing has been completed on the following operating systems :
         ```
   
    - <b>MacOS</b>
-       - Brew or MacPorts are the reccomedned approaches to managing SPB dependencies on MacOS
+       - Brew or MacPorts are the recommend approaches to managing SPB dependencies on MacOS
            - MacOS pacakge managers 
                - [Brew](https://brew.sh)
                  ```
@@ -147,16 +147,16 @@ Mild testing has been completed on the following operating systems :
   
   
 ### :shield: Telemetry and Privacy
-As you would expect. The SPB project has zero telemetry. As such if you decide to install and use this software nothing is sent back to mothership. 
+As you would expect. The SPB project has zero telemetry. As such if you decide to install and use this software nothing is sent back to mother-ship. 
   
-  > Note : If you schdule or manually run an install / update, then your system will poll and potentailly access this Github gist. As such, it is advisable that you read the section below regarding this project being hosted on GitHub. If this is a problem think twice before installing SPB or running SPB updates (manually / scheduled).
+  > Note : If you schedule or manually run an install / update, then your system will poll and potentially access this Github gist. As such, it is advisable that you read the section below regarding this project being hosted on GitHub. If this is a problem think twice before installing SPB or running SPB updates (manually / scheduled).
 
 SPB is hosted on GitHub :octocat: and as such data is recorded :record_button: as you access this page. At the bottom of this page you will find links to manage the way GitHub handles your data and tracking within a browser. Also, the following links are useful with regards understanding the stance of GitHub towards privacy and trust : 
 
   - [GitHub Trust Center : Privacy](https://github.com/trust-center/privacy)
   - [GitHub Site Policy : Privacy](https://docs.github.com/en/site-policy/privacy-policies)
 
-When automatiaclly or manually running the install / update commands, data from your system is sent to GitHub infrasturcture so that SPB is able to be installed / updated on your system. If this is a problem in your enviroment, it is suggested that you [roll your own](ttps://github.com/henri/spb/?tab=readme-ov-file#roll-your-own) update system.
+When automatically or manually running the install / update commands, data from your system is sent to GitHub infrastructure so that SPB is able to be installed / updated on your system. If this is a problem in your environment, it is suggested that you [roll your own](ttps://github.com/henri/spb/?tab=readme-ov-file#roll-your-own) update system.
 
 As the default browser option in SPB is [Brave](https://brave.com/) and that project is a telemetry sender ; it is advisable that you read the Brave [privacy policy](https://brave.com/privacy/browser/). Brave is an [open source project](https://github.com/brave/brave-browser). However, if having any kind of telemetry being sent out is a problem then you should opt to use a different browser. Also, follow and chime into [this issue on github](https://github.com/brave/brave-browser/issues/40799) with your opinion(s) regarding telemetry opt-out features within Brave. 
 
@@ -166,15 +166,15 @@ As the default browser option in SPB is [Brave](https://brave.com/) and that pro
   
 Different operating systems and even different LINUX distributions have different stances on privacy and telemetry. As such it is advisable that you check these details for your specific operating system. This project works on a variety of operating systems each with their own particulars relating to privacy and telemetry.
 
-> #### SPB Fish Snippits 
-> <sub>Should you use spb-ddg, spb-ddg-ai or spb-pai fish snippits, then you will want to have a close look at the terms of service from [DuckDuckGo](https://duckduckgo.com/privacy) and [Perlexity Ai](https://www.perplexity.ai/hub/legal/privacy-policy) whose websites you will be accessing. If you are using spb-yt then be sure to check [Googles privacy policy](https://policies.google.com/privacy).</sub>
+> #### SPB Fish Snippets 
+> <sub>Should you use spb-ddg, spb-ddg-ai or spb-pai fish snippets, then you will want to have a close look at the terms of service from [DuckDuckGo](https://duckduckgo.com/privacy) and [Perplexity Ai](https://www.perplexity.ai/hub/legal/privacy-policy) whose websites you will be accessing. If you are using spb-yt then be sure to check [Googles privacy policy](https://policies.google.com/privacy).</sub>
 
   
 ### :lock: Security and Trust
 You should only run code and use software from sources you trust! 
-If you do not trust yourself to check the project code below or you do not trust my judgment, then it is reccomended to not run this code. The alternative is asking someone familar with shell scripting (the language used to create SPB) to vet the code on your behalf. Just make sure if you ask someone to help you vet the code ; that you also trust them. With 25+ years of experience writing shell scripts, you would hope that I have learnt to test my work.
+If you do not trust yourself to check the project code below or you do not trust my judgment, then it is recommended to not run this code. The alternative is asking someone familiar with shell scripting (the language used to create SPB) to vet the code on your behalf. Just make sure if you ask someone to help you vet the code ; that you also trust them. With 25+ years of experience writing shell scripts, you would hope that I have learnt to test my work.
   
-Already have spb and fish snippits setup, you may issue the following command to have perplexity vet the code : 
+Already have spb and fish snippets setup, you may issue the following command to have perplexity vet the code : 
 ```
 spb-pai "would you vet the following project code for malware : https://github.com/henri/spb"
 ```
@@ -185,7 +185,7 @@ spb-pai "would you vet the following project code for malware : https://github.c
 </p>
   
 ### :arrows_counterclockwise: Automate Installation and Updates
-The included [spb-update.bash](https://github.com/henri/spb/blob/main/600.spb-update.bash) script may be run interactivly (see [usage above](https://github.com/henri/spb/?tab=readme-ov-file#bookmark_tabs-usage)). Alterativly, you may prefer to start it via a scheduling program (eg.[cron](https://en.wikipedia.org/wiki/Cron)) so that SPB regularly updates automatically. 
+The included [spb-update.bash](https://github.com/henri/spb/blob/main/600.spb-update.bash) script may be run interactively (see [usage above](https://github.com/henri/spb/?tab=readme-ov-file#bookmark_tabs-usage)). Alternatively, you may prefer to start it via a scheduling program (eg.[cron](https://en.wikipedia.org/wiki/Cron)) so that SPB regularly updates automatically. 
   
 #### Setup Automated Updates
 If you would like to have SPB update automatically, then the [spb-add-to-user-crontab.bash](https://github.com/henri/spb/blob/main/700.spb-add-to-user-crontab.bash) script will load a pre-defined crontab entry which will automatically update SPB each week using the [spb-update.bash](https://github.com/henri/spb/?tab=readme-ov-file#file-600-spb-update-bash) script. The step of running this auto-setup cron script is a manual. The setup of a cron job is not automated in any way beyond manually starting the [spb-add-to-user-crontab.bash](https://github.com/henri/spb/blob/main/700.spb-add-to-user-crontab.bash) script. The easiest way to setup the crontab entry is to run the command below from a bash shell :
@@ -197,11 +197,11 @@ https://raw.githubusercontent.com/\
 henri/spb/refs/heads/main/\
 500.spb-install-script.bash)"
 ```
-  > <sub>This is the same command used to install SPB, with one key difference : an enviroment varable SPB_CRON_SETUP is set to "ture" and exported.</sub>
+  > <sub>This is the same command used to install SPB, with one key difference : an environment varable SPB_CRON_SETUP is set to "ture" and exported.</sub>
 
-The setup of unattended / automated SPB updates (eg. using the command above) will result in default choices being selected which you would normally be able to interactivly select. Also, see [notes regarding telemitry and privacy](https://github.com/henri/spb/?tab=readme-ov-file#shield-telemetry-and-privacy) if you schedule or manually start an SPB update.
+The setup of unattended / automated SPB updates (eg. using the command above) will result in default choices being selected which you would normally be able to interactively select. Also, see [notes regarding telemitry and privacy](https://github.com/henri/spb/?tab=readme-ov-file#shield-telemetry-and-privacy) if you schedule or manually start an SPB update.
   
-#### Start Unatteded Updates (automtaically picks default choices)
+#### Start Unattended Updates (automatically picks default choices)
 Start an automated (unattended) update and monitor the progress by running the command below within a shell : 
 ```
   ~/bin/spb-update.bash --auto-monitoring
@@ -211,8 +211,8 @@ Start an automated (unattended) update and monitor the progress by running the c
 #### Roll Your Own
 If you are looking to roll your own update system, then the notes below will assist you :
   - Pick a scheduling system (cron, launchd etc..) and add an entry
-    - ensure that you export the following enviroment variable (examples for fish and bash are below) :
-      - The example update script is written in bash and includes this enviroment varable export already.
+    - ensure that you export the following environment variable (examples for fish and bash are below) :
+      - The example update script is written in bash and includes this environment variable export already.
         - fish
           - ```set --export SPB_SKIP_OVERWRITE_CHECK "true"```
           - ```set --export SPB_UPDATE_SCRIPT_SKIP="true"```
@@ -226,7 +226,7 @@ If you are looking to roll your own update system, then the notes below will ass
   
 All of the above and much more is handled for you if you use the included [update script](https://github.com/henri/spb/blob/main/600.spb-update.bash). 
   
-If you export proxy enviroment varables (as showen below) then the SPB install / update scripts will respect these settings and perform network operations via the specified proxy.
+If you export proxy environment variables (as shown below) then the SPB install / update scripts will respect these settings and perform network operations via the specified proxy.
 
 ```
   # proxy settings for SPB install / update scripts
@@ -242,7 +242,7 @@ If you export proxy enviroment varables (as showen below) then the SPB install /
 ```
 
   
-### :memo: Licencing, Terms of Use and Legal
+### :memo: Licensing, Terms of Use and Legal
 SPB is released under the [GNU GPL 3 or later](https://www.gnu.org/licenses/gpl-3.0.html). The GNU GPL is a free software licence which [protects users freedoms](https://www.gnu.org/philosophy/free-sw.en.html). Learn more about [escaping to freedom](https://www.fsf.org/blogs/rms/20140407-geneva-tedx-talk-free-software-free-society). 
 
 ### :raising_hand: Why is SPB needed? 
@@ -264,9 +264,9 @@ May the privacy be with you!
 --- 
 
 ### :warning: Disclaimer
-SPB (start private browser) is able to start multiple private browsers. But do not expect more functionaility or privacy from running a browser in incogneto mode. The idea behind SPB is that you can load multiple instances which are somewhat seperated from one and other. Each instance is still running under your user accont and on your system. 
+SPB (start private browser) is able to start multiple private browsers. But do not expect more functionality or privacy from running a browser in incognito mode. The idea behind SPB is that you can load multiple instances which are somewhat separated from one and other. Each instance is still running under your user account and on your system. 
 
-In the event additional privcay is required run SPB within a VM or within a continer. If higher levels of privacy are needed, then consider these projects :
+In the event additional privacy is required run SPB within a VM or within a container. If higher levels of privacy are needed, then consider these projects :
 
   * [Tails](https://tails.net/)
   * [Whonix](https://www.whonix.org/)
@@ -278,9 +278,9 @@ Currently there are no plans to make this work on Microsoft Windows. It may work
 
 At this stage the script is configured by direct editing. At some point perhaps a config file will be a thing? See the [road map](https://github.com/henri/spb/blob/main/900.roadmap.md) for details.
   
-If you decide to setup a [scheduled automatic update](https://github.com/henri/spb/blob/main/700.spb-add-to-user-crontab.bash), then you should trust that I am not going to add any malicious code into this system in the future and that the security of my systems are good enough to prevent someone else pushing malware into the code base. This applies to any software (not just SPB) which automatially updates (even if it is open source). You must alwasy trust the developers sufficiently if you enable auto-updates. This is why by design SPB will not automatically enable auto-updates. SPB expects that if you enable automatic updates you are intentionally placing trust in me to not mess with your system(s) deliberately and that I will secure my systems as the developer sufficiently to protect the SPB code base and build processes less, they break my security in order to take advantage of yours. Remember that any software system which automatically updates via the internet has these same risks.
+If you decide to setup a [scheduled automatic update](https://github.com/henri/spb/blob/main/700.spb-add-to-user-crontab.bash), then you should trust that I am not going to add any malicious code into this system in the future and that the security of my systems are good enough to prevent someone else pushing malware into the code base. This applies to any software (not just SPB) which automatically updates (even if it is open source). You must alwasy trust the developers sufficiently if you enable auto-updates. This is why by design SPB will not automatically enable auto-updates. SPB expects that if you enable automatic updates you are intentionally placing trust in me to not mess with your system(s) deliberately and that I will secure my systems as the developer sufficiently to protect the SPB code base and build processes less, they break my security in order to take advantage of yours. Remember that any software system which automatically updates via the internet has these same risks.
 
-This project is still in the :seedling: seedling stage (with lots of potetential). If you have suggestions / ideas to improve the way it works, then please [start a discussion](https://github.com/henri/henri/discussions/categories/spb). If you test this on a particular operating system and it works or is not working for you please also leave a comment so that others know to give it a try or not :)
+This project is still in the :seedling: seedling stage (with lots of potential). If you have suggestions / ideas to improve the way it works, then please [start a discussion](https://github.com/henri/henri/discussions/categories/spb). If you test this on a particular operating system and it works or is not working for you please also leave a comment so that others know to give it a try or not :)
 
 ### :rocket: Contributing to the project
 In order to protect users of this project all contributors must comply with the [Developer Certificate of Origin](https://developercertificate.org). This ensures that all contributions are properly licensed and attributed.
