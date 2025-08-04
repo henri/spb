@@ -10,7 +10,7 @@ SPB presents the power to navigate the surging currents of our planets vast digi
 
 Swim happily ; SPB [installs](https://github.com/henri/spb/?tab=readme-ov-file#floppy_disk-installation) into your home directory (no need for sudo) and is [easily removed](https://github.com/henri/spb/?tab=readme-ov-file#bookmark_tabs-usage) in the event you don't make use of SPB each and every day. [This GitHub repository](https://github.com/henri/spb) has everything you need to [install and update](https://github.com/henri/spb/?tab=readme-ov-file#floppy_disk-installation) SPB on your systems.
 
-[Harness the power](https://github.com/henri/spb/?tab=readme-ov-file#raising_hand-why-is-spb-needed) of isolated web sessions with SPB. Every time you run SPB a new instance of [Brave](https://brave.com/) (a modern web browser) is spawned within a fresh [screen](https://www.gnu.org/software/screen/) session. When you close the browser, SPB will delete all <b>web</b> data related to that browser session from your computer. 
+[Harness the power](https://github.com/henri/spb/?tab=readme-ov-file#raising_hand-why-is-spb-needed) of isolated web sessions with SPB. Every time you run SPB a new instance of [Brave](https://brave.com/) (a modern web browser) is spawned within a fresh [screen](https://www.gnu.org/software/screen/) session. When you close the browser, [SPB will delete all <b>web</b> data related to that browser session](https://github.com/henri/spb#spb-templating-support) from your computer. 
 
 This project is still in a [seedling stage](https://github.com/henri/spb/?tab=readme-ov-file#warning-disclaimer). If you find a bug please [start a discussion](https://github.com/henri/henri/discussions/categories/spb) or open an issue. SPB is free software, if you enjoy using SPB then share a link with friends. This way you and your friends enjoy the [benifits](https://github.com/henri/spb/?tab=readme-ov-file#raising_hand-why-is-spb-needed) of SPB together!
 
@@ -92,6 +92,8 @@ Handy wrapper scripts to facilitate SPB usage via the command line :
 The built-in templating sub-system allows you to list, create, edit and load browser data templates. Essentially, this allows you to configure a browser just as you like and then load this template as needed for future browsing sessions. When you load an existing template a copy of the template is created for your session and then when you quit that copy is deleted. However, you still have the template and may start as many separate browser instances as you like form that template.
 
 The templates are stored in the directory : ~/bin/spb-templates/
+
+> **IMPORTANT NOTE** : Using "--new-tempalte" or "--edit-template options" will result in data from your websession <br> being saved to your computer. This stored data enables access and loading of the tempalte at a later time.
   
 | example command                      | explanation    |
 | ------------------------------| -------------- |
@@ -100,7 +102,6 @@ The templates are stored in the directory : ~/bin/spb-templates/
 | `spb --template template-name` | Loads the existing template<br>within a new browser.<br><br>Upon quit all data from<br>the session is deleted.  |
 | `spb --template template-name --standard` | Loads the specified template.<br>But will not start in incognito mode. |
 | `spb --list-templates` | Presents a list of templates on your system. |
-
 
   
 ### :triangular_flag_on_post: Compatibility 
