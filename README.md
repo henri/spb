@@ -93,7 +93,7 @@ The built-in templating sub-system allows you to list, create, edit and load bro
 
 The templates are stored in the directory : ~/bin/spb-templates/
 
-> **IMPORTANT NOTE** : Using "--new-template" or "--edit-template options" will result in data from<br>your websession  being saved to your computer. This stored data enables access and<br>loading of the tempalte at a later time.
+> **IMPORTANT NOTE** : <br>Using either "--new-template" or "--edit-template" options will result in data from<br>your websession being saved to your computer. This stored data enables access and<br>loading of the tempalte at a later time.
   
 | example command                      | explanation    |
 | ------------------------------| -------------- |
