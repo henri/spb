@@ -111,7 +111,7 @@ Mild testing has been completed on the following operating systems :
   <a href="https://github.com/henri/spb/?tab=readme-ov-file#triangular_flag_on_post-compatibility" ><img src="https://github.com/henri/spb/blob/readme-images/spb-compatability.png?raw=true" width="30%"></a>
 </p>
 
-  > Each section has instructions for installing SPB dependencies onto the listed system. At present the SPB installer will not automatically install dependiencies. That is left to you. Either use the instructions below or install them using your prefered approach.
+  > Each operating system section listed below lists instructions for installing SPB dependencies onto the listed system using the terminal. At present the SPB installer will not automatically install dependiencies. That is left to you. SPB will not work correctly without the dependecies installed on your system. Either use the instructions below for your operating system or install dependcies using your prefered approach.
 
   - <b>GNU/LINUX</b>
       - [Linux Mint](https://www.linuxmint.com/)
