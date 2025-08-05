@@ -15,8 +15,8 @@ Swim happily ; SPB [installs](https://github.com/henri/spb/?tab=readme-ov-file#f
 This project is still in a [seedling stage](https://github.com/henri/spb/?tab=readme-ov-file#warning-disclaimer). If you find a bug please [start a discussion](https://github.com/henri/spb/discussions) or open an issue. SPB is free software, if you enjoy using SPB then share a link with friends. This way you and your friends enjoy the [benifits](https://github.com/henri/spb/?tab=readme-ov-file#raising_hand-why-is-spb-needed) of SPB together!
 
 ### :floppy_disk: Installation 
-  - [Confirm your operating is supported and install dependicies](https://github.com/henri/spb/blob/main/README.md#triangular_flag_on_post-compatibility)
-  - Kick-off install/upgrade by running the ~~one liner~~ four lines below in your terminal : 
+  1. [Confirm your operating is supported and install dependicies](https://github.com/henri/spb/blob/main/README.md#triangular_flag_on_post-compatibility)
+  2. Kick-off install/upgrade by running the ~~one liner~~ four lines below in your terminal : 
 ```bash
 /bin/bash -c "$(curl -fsSL \
 https://raw.githubusercontent.com/\
