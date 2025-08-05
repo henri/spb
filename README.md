@@ -113,7 +113,7 @@ Mild testing has been completed on the following operating systems :
 
   > Each operating system section listed below lists instructions for installing SPB dependencies onto the listed system using the terminal. At present the SPB installer will not automatically install dependiencies. That is left to you. SPB will not work correctly without the dependecies installed on your system. Either use the instructions below for your operating system or install dependcies using your prefered approach.
 
-<sub>Once the SPB dependencies have been installed, [proceed with installation of SPB](https://github.com/henri/spb/blob/main/README.md#floppy_disk-installation)</sub>
+<sub>Once the SPB dependencies have been installed, [proceed with the installation of SPB](https://github.com/henri/spb/blob/main/README.md#floppy_disk-installation)</sub>
 
   - <b>GNU/LINUX</b>
       - [Linux Mint](https://www.linuxmint.com/)
