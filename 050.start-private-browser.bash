@@ -74,6 +74,7 @@
 # version 6.2 - improved argument parsing and bug fixes
 # version 6.3 - bug fix relating to experimental firefox and palemoon support
 # version 6.4 - added template copy progress bar using gcp if it is installed on the system
+# version 6.5 - added template copy progress bar using pv and tar if they are available on the system and gcp is not available
 #
 
 ##
@@ -281,7 +282,8 @@ spb_list_templates="false"
 new_template_dir_name=""
 edit_template_dir_name=""
 use_template_dir_name=""
-tempalte_size_to_show_progress_bar="180" # mesured in MB (if the tempalte is greater than this size and gcp is installed, then a progress bar is displayed during the copy)
+template_show_progress_bar="true" # even this is set to true, the size of the template must be exceed the value set in template template_size_to_show_progress_bar before the progress bar is shown
+template_size_to_show_progress_bar="180" # mesured in MB (if the tempalte is greater than this size and gcp is installed, then a progress bar is displayed during the copy)
 help_wanted="no"
 update_wanted="no"
 valid_argument_found="false"
@@ -1281,31 +1283,53 @@ if [[ "${use_template_dir_name}" != "" ]] ; then
             create_template_browser_identification
         fi
     fi
+    # check out which programs are installed on this system for displaying progress bar when coping
+    template_copy_progress_bar_possible="false"
     if [[ "${quite_mode}" != "true" ]] ; then
-        which gcp 2>&1 >> /dev/null ; gcp_available=${?}
-        if [[ ${gcp_available} == 0 ]] ; then
-            gcp_available="true"
-        else
-            gcp_available="false"
+        if [[ "${template_show_progress_bar}" == "true" ]] ; then
+            which gcp 2>&1 >> /dev/null ; gcp_available=${?}
+            if [[ ${gcp_available} == 0 ]] ; then
+                gcp_available="true"
+                template_copy_progress_bar_possible="true"
+            else
+                gcp_available="false"
+                which pv 2>&1 >> /dev/null ; pv_available=${?}
+                if [[ ${pv_available} == 0 ]] ; then
+                    pv_available="true"
+                    which tar 2>&1 >> /dev/null ; tar_available=${?}
+                    if [[ ${tar_available} == 0 ]] ; then
+                        tar_available="true"
+                        template_copy_progress_bar_possible="true"
+                    else
+                        tar_available="false"
+                    fi
+                else
+                    pv_available="false"
+                fi
+            fi
+            if [[ "${template_copy_progress_bar_possible}" == "true" ]] ; then
+                template_data_disk_usage_megabytes=$(du -s -m --apparent-size ${use_template_dir_absolute} | awk '{print $1}')
+            fi
         fi
         template_data_disk_usage_human=$(du -hs --apparent-size ${use_template_dir_absolute} | awk '{print $1}')
         echo "        Copying ${template_data_disk_usage_human}B template data..."
-        if [[ "${gcp_available}" == "true" ]] ; then
-            template_data_disk_usage_megabytes=$(du -s -m --apparent-size ${use_template_dir_absolute} | awk '{print $1}')
-        fi
     fi
     # copy the data (showing the progress or not depending on settings)
-    if [[ "${quite_mode}" != "true" ]] && [[ "${gcp_available}" == "true" ]] && [[ ${template_data_disk_usage_megabytes} -gt ${tempalte_size_to_show_progress_bar} ]] ; then
+    if [[ "${quite_mode}" != "true" ]] && [[ "${template_copy_progress_bar_possible}" == "true" ]] && [[ ${template_data_disk_usage_megabytes} -gt ${template_size_to_show_progress_bar} ]] ; then
         # copy template with progress bar
-        gcp -r ${use_template_dir_absolute}/* ${browser_tmp_directory}/
-        template_copy_status=${?}
+        if [[ "${gcp_available}" == "true" ]] ; then
+            gcp -r ${use_template_dir_absolute}/* ${browser_tmp_directory}/
+            template_copy_status=${?}
+        else
+            tar -C ${use_template_dir_absolute} -cf - ./ | pv -s $(du -sb --apparent-size ${use_template_dir_absolute} |  awk '{print $1}') | tar -C ${browser_tmp_directory} -xf -
+            template_copy_status=${?}
+        fi
         echo -ne "\033[A\033[K" # erase the progress bar once the copy process has completed
     else
         # copy template but do not show bar
         cp -r ${use_template_dir_absolute}/. ${browser_tmp_directory}/
         template_copy_status=${?}
     fi
-    #tar -cf - ${use_template_dir_absolute} 2> /dev/null | pv -s $(du -sb ${use_template_dir_absolute} | awk '{print $1}') | tar -xf - -C ${browser_tmp_directory}
     if [[ ${template_copy_status} != 0 ]] ; then
         echo ""
         echo "ERROR! : Unable to copy template into place"
