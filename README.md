@@ -118,7 +118,7 @@ Mild testing has been completed on the following operating systems :
   - <b>GNU/LINUX</b>
       - [Linux Mint](https://www.linuxmint.com/)
         ```
-          apt-get update && apt-get install git fish coreutils
+          apt-get update && apt-get install git fish coreutils gcp
           curl -fsS https://dl.brave.com/install.sh | sh
         ```
       - [Arch](https://archlinux.org/)
