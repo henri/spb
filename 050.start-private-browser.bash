@@ -75,7 +75,7 @@
 # version 6.3 - bug fix relating to experimental firefox and palemoon support
 # version 6.4 - added template copy progress bar using gcp if it is installed on the system
 # version 6.5 - added template copy progress bar using pv and tar if they are available on the system and gcp is not available
-# version 6.6 - bug fix for du arguments so they work on macOS and improved support for APFS file systems with templates
+# version 6.6 - bug fix resolved du arguments so they work on macOS and provide apparent size of templates on disk
 
 ##
 ## Configuration of Variables
@@ -1320,7 +1320,7 @@ if [[ "${use_template_dir_name}" != "" ]] ; then
                     # the temporary directory is on an APFS volume (which if the source we copy from is APFS, then we should use cp rather than tar)
                     if [[ $(stat -f %d ${browser_tmp_directory})  == $(stat -f %d ${use_template_dir_absolute}) ]] ; then
                         # we are coping on the same volume and this is APFS so we will use cp because it is really fast
-                        template_copy_progress_bar_possible="true"
+                        template_copy_progress_bar_possible="false"
                     fi
                 fi
             fi
