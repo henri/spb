@@ -1292,6 +1292,7 @@ if [[ "${use_template_dir_name}" != "" ]] ; then
     # template specific varables used to control the template copy
     template_copy_progress_bar_possible="false"
     template_copy_mac_clone_possible="false"
+    template_copy_clone_argument=""
 
     # calculate if running on macOS if using cp is going to be faster than tar
     if [[ "${os_type}" == "darwin" ]] ; then
@@ -1303,6 +1304,7 @@ if [[ "${use_template_dir_name}" != "" ]] ; then
                 # we are copying on the same volume and this is APFS so we will use cp because it is really fast
                 template_copy_progress_bar_possible="false"
                 template_copy_mac_clone_possible="true"
+                template_copy_clone_argument="-c"
             fi
         fi
     fi
@@ -1339,7 +1341,7 @@ if [[ "${use_template_dir_name}" != "" ]] ; then
     # report copying template data unless quite mode enabled
     if [[ "${quite_mode}" != "true" ]] ; then
         template_data_disk_usage_human=$(du -hs ${du_apparent_size_option} ${use_template_dir_absolute} | awk '{print $1}')
-        if [[ "${template_copy_mac_clone_possible}" == true ]] ; then
+        if [[ "${template_copy_mac_clone_possible}" == "true" ]] ; then
             template_copy_or_clone="Cloning"
         else
             template_copy_or_clone="Copying"
@@ -1362,15 +1364,8 @@ if [[ "${use_template_dir_name}" != "" ]] ; then
         echo -ne "\033[A\033[K" # erase the progress bar once the copy process has completed
     else
         # copy template but do not show bar
-        if [[ "${template_copy_mac_clone_possible}" == "true" ]] ; then
-            # copy using APFS clone
-            ditto --clone ${use_template_dir_absolute}/. ${browser_tmp_directory}/
-            template_copy_status=${?}
-        else
-            # stright copy
-            cp -r ${use_template_dir_absolute}/. ${browser_tmp_directory}/
-            template_copy_status=${?}
-        fi
+        cp ${template_copy_clone_argument} -r ${use_template_dir_absolute}/. ${browser_tmp_directory}/
+        template_copy_status=${?}
     fi
     if [[ ${template_copy_status} != 0 ]] ; then
         echo ""
