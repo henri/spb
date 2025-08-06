@@ -12,6 +12,11 @@ Swim happily ; SPB [installs](https://github.com/henri/spb/?tab=readme-ov-file#f
 
 [Harness the power](https://github.com/henri/spb/?tab=readme-ov-file#raising_hand-why-is-spb-needed) of isolated web sessions with SPB. Every time you run SPB a new instance of [Brave](https://brave.com/) (a modern web browser) is spawned within a fresh [screen](https://www.gnu.org/software/screen/) session. When you close the browser, [SPB will delete all <b>web</b> data related to that browser session](https://github.com/henri/spb#spb-templating-support) from your computer. 
 
+<p align="left">
+  <a href="https://https://www.gnu.org/licenses/gpl-3.0.en.html"><img src="http://img.shields.io/badge/License-GPLv3-red.svg"></a>
+  <a href="https://www.gnu.org/software/bash/"><img src="https://img.shields.io/badge/bash_script-%23121011.svg?logo=gnu-bash&logoColor=white"></a>
+</p>
+
 This project is still in a [seedling stage](https://github.com/henri/spb/?tab=readme-ov-file#warning-disclaimer). If you find a bug please [start a discussion](https://github.com/henri/spb/discussions) or open an issue. SPB is free software, if you enjoy using SPB then share a link with friends. This way you and your friends enjoy the [benifits](https://github.com/henri/spb/?tab=readme-ov-file#raising_hand-why-is-spb-needed) of SPB together!
 
 ### :floppy_disk: Installation 
