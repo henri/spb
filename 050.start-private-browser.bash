@@ -40,7 +40,7 @@
 # version 2.9 - added locking to the templates and squashed bugs
 # version 3.0 - added standard option to not start incognito mode
 # version 3.1 - added a quite mode option for less verbose output
-# version 3.2 - prevent coping a template while it is being edited
+# version 3.2 - prevent copying a template while it is being edited
 # version 3.3 - improved template lock file session support, improved template support and squashed bugs
 # version 3.4 - reporting and error handling relating to lock files improved
 # version 3.5 - further improvements to template lock file subsystem reliability and user support dialog
@@ -75,7 +75,8 @@
 # version 6.3 - bug fix relating to experimental firefox and palemoon support
 # version 6.4 - added template copy progress bar using gcp if it is installed on the system
 # version 6.5 - added template copy progress bar using pv and tar if they are available on the system and gcp is not available
-# version 6.6 - bug fix resolved regarding du arguments for macOS and also added APFS template cloning support (it is faster)
+# version 6.6 - bug fix resolved relating to du options on macOS and also added APFS template cloning support (it is faster)
+# version 6.7 - bug fix we now correctly report that we are copying template data
 
 ##
 ## Configuration of Variables
@@ -1288,10 +1289,26 @@ if [[ "${use_template_dir_name}" != "" ]] ; then
         fi
     fi
 
-    # check which programs are installed on this system for displaying progress bar while making a copy of the template
+    # template specific varables used to control the template copy
     template_copy_progress_bar_possible="false"
     template_copy_mac_clone_possible="false"
-    if [[ "${quite_mode}" != "true" ]] ; then
+
+    # calculate if running on macOS if using cp is going to be faster than tar
+    if [[ "${os_type}" == "darwin" ]] ; then
+        # find the file system type of the tempoary directory
+        darwin_browser_tmp_dir_file_system_type=$(diskutil info $(df ${browser_tmp_directory} | tail -n 1 | awk '{print $1}') | grep "File System Personality" | awk -F "File System Personality:   " '{print $2}' )
+        if [[ "${darwin_browser_tmp_dir_file_system_type}" == "APFS" ]] ; then
+            # the temporary directory is on an APFS volume (which if the source we copy from is APFS, then we should use cp rather than tar)
+            if [[ $(stat -f %d ${browser_tmp_directory})  == $(stat -f %d ${use_template_dir_absolute}) ]] ; then
+                # we are copying on the same volume and this is APFS so we will use cp because it is really fast
+                template_copy_progress_bar_possible="false"
+                template_copy_mac_clone_possible="true"
+            fi
+        fi
+    fi
+
+    # check which programs are installed on this system for displaying progress bar while making a copy of the template
+    if [[ "${quite_mode}" != "true" ]] && [[ "${template_copy_mac_clone_possible}" == "false" ]]; then
         if [[ "${template_show_progress_bar}" == "true" ]] ; then
             which gcp 2>&1 >> /dev/null ; gcp_available=${?}
             if [[ ${gcp_available} == 0 ]] && [[ ${os_type} != "darwin" ]] ; then
@@ -1313,25 +1330,21 @@ if [[ "${use_template_dir_name}" != "" ]] ; then
                     pv_available="false"
                 fi
             fi
-            # calculate if running on macOS if using cp is going to be faster than tar
-            if [[ "${os_type}" == "darwin" ]] ; then
-                # find the file system type of the tempoary directory
-                darwin_browser_tmp_dir_file_system_type=$(diskutil info $(df ${browser_tmp_directory} | tail -n 1 | awk '{print $1}') | grep "File System Personality" | awk -F "File System Personality:   " '{print $2}' )
-                if [[ "${darwin_browser_tmp_dir_file_system_type}" == "APFS" ]] ; then
-                    # the temporary directory is on an APFS volume (which if the source we copy from is APFS, then we should use cp rather than tar)
-                    if [[ $(stat -f %d ${browser_tmp_directory})  == $(stat -f %d ${use_template_dir_absolute}) ]] ; then
-                        # we are coping on the same volume and this is APFS so we will use cp because it is really fast
-                        template_copy_progress_bar_possible="false"
-                        template_copy_mac_clone_possible="true"
-                    fi
-                fi
-            fi
             if [[ "${template_copy_progress_bar_possible}" == "true" ]] ; then
                 template_data_disk_usage_megabytes=$(du -s -m ${du_apparent_size_option} ${use_template_dir_absolute} | awk '{print $1}')
             fi
         fi
+    fi
+
+    # report copying template data unless quite mode enabled
+    if [[ "${quite_mode}" != "true" ]] ; then
         template_data_disk_usage_human=$(du -hs ${du_apparent_size_option} ${use_template_dir_absolute} | awk '{print $1}')
-        echo "        Copying ${template_data_disk_usage_human}B template data..."
+        if [[ "${template_copy_mac_clone_possible}" == true ]] ; then
+            template_copy_or_clone="Cloning"
+        else
+            template_copy_or_clone="Copying"
+        fi
+        echo "        ${template_copy_or_clone} ${template_data_disk_usage_human}B template data..."
     fi
 
     # copy the data (showing the progress or not depending on settings)
