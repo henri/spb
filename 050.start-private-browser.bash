@@ -75,7 +75,7 @@
 # version 6.3 - bug fix relating to experimental firefox and palemoon support
 # version 6.4 - added template copy progress bar using gcp if it is installed on the system
 # version 6.5 - added template copy progress bar using pv and tar if they are available on the system and gcp is not available
-#
+# version 6.6 - bug fix for du arguments so they work on macOS and improved support for APFS file systems with templates
 
 ##
 ## Configuration of Variables
@@ -944,6 +944,7 @@ if [[ "${os_type}" == "darwin" ]] ; then
     if ! launchctl print gui/$(id -u) 2>/dev/null | grep -q 'session = Aqua' ; then report_no_display_detected ; fi
     if [[ -x "${spb_browser_path}" ]] ; then spb_browser_available=0 ; else spb_browser_available=1 ; fi
     mktemp_options="-d"
+    du_apparent_size_option="-A"
 elif [[ "${os_type}" == "linux" ]] ; then
     # running on GNU/LINUX
     distro=$(grep ^ID= /etc/os-release | awk -F "=" '{print $2}' )
@@ -978,6 +979,7 @@ elif [[ "${os_type}" == "linux" ]] ; then
     if [[ "$(echo $DISPLAY)" == "" ]] ; then report_no_display_detected ; fi
     which ${spb_browser_path} 2>&1 >> /dev/null ; spb_browser_available=${?}
     mktemp_options="--directory"
+    du_apparent_size_option="--apparent-size"
 elif [[ "$(uname)" == "freebsd" ]] ; then
     # running on  FreeBSD
     if [[ -z "$spb_browser_path" ]] ; then
@@ -992,7 +994,8 @@ elif [[ "$(uname)" == "freebsd" ]] ; then
     fi
     if [[ "$(echo $DISPLAY)" == "" ]] ; then report_no_display_detected ; fi
     which ${spb_browser_path} 2>&1 >> /dev/null ; spb_browser_available=${?}
-    mktemp_options="--directory"
+    mktemp_options="-d"
+    du_apparent_size_option="-A"
 else
     echo "ERROR! : Unsupported operating system."
     echo ""
@@ -1234,6 +1237,7 @@ screen_session_name="${screen_session_prefix}-$(echo "${browser_tmp_directory}" 
 
 # templating (copy the template over)
 if [[ "${use_template_dir_name}" != "" ]] ; then
+
     if [[   -e ${template_browser_id_absolute} ]] && [[ "${template_browser_id_absolute}" != "" ]] ; then
         check_template_browser_identification
     else
@@ -1283,12 +1287,13 @@ if [[ "${use_template_dir_name}" != "" ]] ; then
             create_template_browser_identification
         fi
     fi
-    # check out which programs are installed on this system for displaying progress bar when coping
+
+    # check which programs are installed on this system for displaying progress bar while making a copy of the template
     template_copy_progress_bar_possible="false"
     if [[ "${quite_mode}" != "true" ]] ; then
         if [[ "${template_show_progress_bar}" == "true" ]] ; then
             which gcp 2>&1 >> /dev/null ; gcp_available=${?}
-            if [[ ${gcp_available} == 0 ]] ; then
+            if [[ ${gcp_available} == 0 ]] && [[ ${os_type} != "darwin" ]] ; then
                 gcp_available="true"
                 template_copy_progress_bar_possible="true"
             else
@@ -1307,13 +1312,26 @@ if [[ "${use_template_dir_name}" != "" ]] ; then
                     pv_available="false"
                 fi
             fi
+            # calculate if running on macOS if using cp is going to be faster than tar
+            if [[ "${os_type}" == "darwin" ]] ; then
+                # find the file system type of the tempoary directory
+                darwin_browser_tmp_dir_file_system_type=$(diskutil info $(df ${browser_tmp_directory} | tail -n 1 | awk '{print $1}') | grep "File System Personality" | awk -F "File System Personality:   " '{print $2}' )
+                if [[ "${darwin_browser_tmp_dir_file_system_type}" == "APFS" ]] ; then
+                    # the temporary directory is on an APFS volume (which if the source we copy from is APFS, then we should use cp rather than tar)
+                    if [[ $(stat -f %d ${browser_tmp_directory})  == $(stat -f %d ${use_template_dir_absolute}) ]] ; then
+                        # we are coping on the same volume and this is APFS so we will use cp because it is really fast
+                        template_copy_progress_bar_possible="true"
+                    fi
+                fi
+            fi
             if [[ "${template_copy_progress_bar_possible}" == "true" ]] ; then
-                template_data_disk_usage_megabytes=$(du -s -m --apparent-size ${use_template_dir_absolute} | awk '{print $1}')
+                template_data_disk_usage_megabytes=$(du -s -m ${du_apparent_size_option} ${use_template_dir_absolute} | awk '{print $1}')
             fi
         fi
-        template_data_disk_usage_human=$(du -hs --apparent-size ${use_template_dir_absolute} | awk '{print $1}')
+        template_data_disk_usage_human=$(du -hs ${du_apparent_size_option} ${use_template_dir_absolute} | awk '{print $1}')
         echo "        Copying ${template_data_disk_usage_human}B template data..."
     fi
+
     # copy the data (showing the progress or not depending on settings)
     if [[ "${quite_mode}" != "true" ]] && [[ "${template_copy_progress_bar_possible}" == "true" ]] && [[ ${template_data_disk_usage_megabytes} -gt ${template_size_to_show_progress_bar} ]] ; then
         # copy template with progress bar
@@ -1321,8 +1339,10 @@ if [[ "${use_template_dir_name}" != "" ]] ; then
             gcp -r ${use_template_dir_absolute}/* ${browser_tmp_directory}/
             template_copy_status=${?}
         else
-            tar -C ${use_template_dir_absolute} -cf - ./ | pv -s $(du -sb --apparent-size ${use_template_dir_absolute} |  awk '{print $1}') | tar -C ${browser_tmp_directory} -xf -
+            tput civis # hide terminal cursor
+            tar -C ${use_template_dir_absolute} -cf - ./ | pv -s ${template_data_disk_usage_megabytes}M | tar -C ${browser_tmp_directory} -xf -
             template_copy_status=${?}
+            tput cnorm # bring back terminal cursor
         fi
         echo -ne "\033[A\033[K" # erase the progress bar once the copy process has completed
     else
@@ -1335,11 +1355,13 @@ if [[ "${use_template_dir_name}" != "" ]] ; then
         echo "ERROR! : Unable to copy template into place"
         exit -5
     fi
+
+    # sync the file system at the required paths (macos will sync everything)
     if [[ "${quite_mode}" != "true" ]] ; then
         # echo "          [ ${template_data_disk_usage_human}B transferred ]"
         echo "        Synchronizing filesystem..."
     fi
-    sync --file-system ${use_template_dir_absolute}
+    sync --file-system ${use_template_dir_absolute} 
     sync --file-system ${browser_tmp_directory}
 fi
 
@@ -1364,13 +1386,16 @@ fi
 
 # check if we are editing a template
 if [[ "${edit_template_dir_name}" != "" ]] ; then
+
     # saving the session details into the lock file
     echo "${screen_session_name}" > ${template_lock_file_absolute}
     if [[ ${?} != 0 ]] ; then
         echo "        WARNING! : Unable to save session details within the lock file."
     fi
+
     # temp directory is not used for this session (keeping the data and saving into the template)
     user_data_directory_options="${spb_data_browser_specifc_options}${edit_template_dir_absolute}"
+    
     # create a sym-link within that directory to the template for clarity
     if [[ "${quite_mode}" != "true" ]] ; then
         echo "        Linking to template data..."
@@ -1379,6 +1404,8 @@ if [[ "${edit_template_dir_name}" != "" ]] ; then
     if [[ ${?} != 0 ]] ; then
         echo "" ; echo "        WARNING! : Unable establish symlink within temporary directory to the template."
     fi
+
+    # create or check template browser identification file (used to ensure compatability of templates)
     if [[ "${creating_new_template}" == "true" ]] ; then
         create_template_browser_identification
     else
@@ -1393,11 +1420,14 @@ if [[ "${edit_template_dir_name}" != "" ]] ; then
             exit -73
         fi
     fi
+
+    # sync the file system at the required paths (macos will sync everything)
     if [[ "${quite_mode}" != "true" ]] ; then
         echo "        Synchronizing filesystems..."
     fi
     sync --file-system ${browser_tmp_directory}
     sync --file-system ${edit_template_dir_absolute}
+
 else
     # standard usage # using the temp directory (delete when browser closes)
     user_data_directory_options="${spb_data_browser_specifc_options}${browser_tmp_directory}"
