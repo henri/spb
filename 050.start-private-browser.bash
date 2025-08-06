@@ -76,7 +76,7 @@
 # version 6.4 - added template copy progress bar using gcp if it is installed on the system
 # version 6.5 - added template copy progress bar using pv and tar if they are available on the system and gcp is not available
 # version 6.6 - bug fix resolved relating to du options on macOS and also added APFS template cloning support (it is faster)
-# version 6.7 - bug fix we now correctly report that we are copying template data
+# version 6.7 - bug fix we now correctly report when we are copying or cloning template data
 
 ##
 ## Configuration of Variables
