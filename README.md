@@ -21,9 +21,9 @@ Swim happily ; SPB [installs](https://github.com/henri/spb/?tab=readme-ov-file#f
   <a href="https://brave.com/"><img src="https://img.shields.io/badge/Brave-%23121011.svg?logo=Brave&logoColor=white"></a>
   <img src="https://img.shields.io/badge/%2B-%23121011?logoColor=white">
   <a href="https://www.gnu.org/software/screen/"><img src="https://img.shields.io/badge/GNU-screen-%23121011.svg?logo=terminal&logoColor=white"></a>
-  
-  
-  
+  <img src="https://img.shields.io/badge/%2B-%23121011?logoColor=white">
+  <a href="https://kernel.org/"><img src="https://img.shields.io/badge/Linux-%23121011.svg?logo=linux&logoColor=white"></a>
+ 
 </p>
 
 This project is still in a [seedling stage](https://github.com/henri/spb/?tab=readme-ov-file#warning-disclaimer). If you find a bug please [start a discussion](https://github.com/henri/spb/discussions) or open an issue. SPB is free software, if you enjoy using SPB then share a link with friends. This way you and your friends enjoy the [benifits](https://github.com/henri/spb/?tab=readme-ov-file#raising_hand-why-is-spb-needed) of SPB together!
