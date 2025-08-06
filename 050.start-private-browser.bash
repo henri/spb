@@ -1290,6 +1290,7 @@ if [[ "${use_template_dir_name}" != "" ]] ; then
 
     # check which programs are installed on this system for displaying progress bar while making a copy of the template
     template_copy_progress_bar_possible="false"
+    template_copy_mac_clone_possible="false"
     if [[ "${quite_mode}" != "true" ]] ; then
         if [[ "${template_show_progress_bar}" == "true" ]] ; then
             which gcp 2>&1 >> /dev/null ; gcp_available=${?}
@@ -1321,6 +1322,7 @@ if [[ "${use_template_dir_name}" != "" ]] ; then
                     if [[ $(stat -f %d ${browser_tmp_directory})  == $(stat -f %d ${use_template_dir_absolute}) ]] ; then
                         # we are coping on the same volume and this is APFS so we will use cp because it is really fast
                         template_copy_progress_bar_possible="false"
+                        template_copy_mac_clone_possible="true"
                     fi
                 fi
             fi
@@ -1347,12 +1349,20 @@ if [[ "${use_template_dir_name}" != "" ]] ; then
         echo -ne "\033[A\033[K" # erase the progress bar once the copy process has completed
     else
         # copy template but do not show bar
-        cp -r ${use_template_dir_absolute}/. ${browser_tmp_directory}/
-        template_copy_status=${?}
+        if [[ "${template_copy_mac_clone_possible}" == "true" ]] ; then
+            # copy using APFS clone
+            ditto --clone ${use_template_dir_absolute}/. ${browser_tmp_directory}/
+            template_copy_status=${?}
+        else
+            # stright copy
+            cp -r ${use_template_dir_absolute}/. ${browser_tmp_directory}/
+            template_copy_status=${?}
+        fi
     fi
     if [[ ${template_copy_status} != 0 ]] ; then
         echo ""
         echo "ERROR! : Unable to copy template into place"
+        rm -rf ${browser_tmp_directory}
         exit -5
     fi
 
