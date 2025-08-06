@@ -73,6 +73,7 @@
 # version 6.1 - improved template loading, additional linux distribution support (this needs some work)
 # version 6.2 - improved argument parsing and bug fixes
 # version 6.3 - bug fix relating to experimental firefox and palemoon support
+# version 6.4 - added template copy progress bar using gcp if it is installed on the system
 #
 
 ##
@@ -280,6 +281,7 @@ spb_list_templates="false"
 new_template_dir_name=""
 edit_template_dir_name=""
 use_template_dir_name=""
+tempalte_size_to_show_progress_bar="180" # mesured in MB (if the tempalte is greater than this size and gcp is installed, then a progress bar is displayed during the copy)
 help_wanted="no"
 update_wanted="no"
 valid_argument_found="false"
@@ -1280,17 +1282,37 @@ if [[ "${use_template_dir_name}" != "" ]] ; then
         fi
     fi
     if [[ "${quite_mode}" != "true" ]] ; then
-        template_data_disk_usage=$(du -hs ${use_template_dir_absolute} | awk '{print $1}')
-        echo "        Copying ${template_data_disk_usage}B template data..."
+        which gcp 2>&1 >> /dev/null ; gcp_available=${?}
+        if [[ ${gcp_available} == 0 ]] ; then
+            gcp_available="true"
+        else
+            gcp_available="false"
+        fi
+        template_data_disk_usage_human=$(du -hs --apparent-size ${use_template_dir_absolute} | awk '{print $1}')
+        echo "        Copying ${template_data_disk_usage_human}B template data..."
+        if [[ "${gcp_available}" == "true" ]] ; then
+            template_data_disk_usage_megabytes=$(du -s -m --apparent-size ${use_template_dir_absolute} | awk '{print $1}')
+        fi
     fi
-    cp -r ${use_template_dir_absolute}/. ${browser_tmp_directory}/
-    if [[ ${?} != 0 ]] ; then
+    # copy the data (showing the progress or not depending on settings)
+    if [[ "${quite_mode}" != "true" ]] && [[ "${gcp_available}" == "true" ]] && [[ ${template_data_disk_usage_megabytes} -gt ${tempalte_size_to_show_progress_bar} ]] ; then
+        # copy template with progress bar
+        gcp -r ${use_template_dir_absolute}/* ${browser_tmp_directory}/
+        template_copy_status=${?}
+        echo -ne "\033[A\033[K" # erase the progress bar once the copy process has completed
+    else
+        # copy template but do not show bar
+        cp -r ${use_template_dir_absolute}/. ${browser_tmp_directory}/
+        template_copy_status=${?}
+    fi
+    #tar -cf - ${use_template_dir_absolute} 2> /dev/null | pv -s $(du -sb ${use_template_dir_absolute} | awk '{print $1}') | tar -xf - -C ${browser_tmp_directory}
+    if [[ ${template_copy_status} != 0 ]] ; then
         echo ""
         echo "ERROR! : Unable to copy template into place"
         exit -5
     fi
     if [[ "${quite_mode}" != "true" ]] ; then
-        # echo "          [ ${template_data_disk_usage}B transferred ]"
+        # echo "          [ ${template_data_disk_usage_human}B transferred ]"
         echo "        Synchronizing filesystem..."
     fi
     sync --file-system ${use_template_dir_absolute}
