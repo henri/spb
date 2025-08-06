@@ -19,6 +19,9 @@ Swim happily ; SPB [installs](https://github.com/henri/spb/?tab=readme-ov-file#f
   <a href="https://curl.se/"><img src="https://img.shields.io/badge/curl-%23121011.svg?logo=curl&logoColor=white"></a>
   <img src="https://img.shields.io/badge/%2B-%23121011?logoColor=white">
   <a href="https://brave.com/"><img src="https://img.shields.io/badge/Brave-%23121011.svg?logo=Brave&logoColor=white"></a>
+  <img src="https://img.shields.io/badge/%2B-%23121011?logoColor=white">
+  <a href="https://www.gnu.org/software/screen/"><img src="https://img.shields.io/badge/GNU-screen-%23121011.svg?logo=terminal&logoColor=white"></a>
+  
   
   
 </p>
