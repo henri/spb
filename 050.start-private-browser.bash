@@ -75,7 +75,7 @@
 # version 6.3 - bug fix relating to experimental firefox and palemoon support
 # version 6.4 - added template copy progress bar using gcp if it is installed on the system
 # version 6.5 - added template copy progress bar using pv and tar if they are available on the system and gcp is not available
-# version 6.6 - bug fix resolved du arguments so they work on macOS and provide apparent size of templates on disk
+# version 6.6 - bug fix resolved du arguments for macOS and also added APFS template cloning support (it is faster)
 
 ##
 ## Configuration of Variables
