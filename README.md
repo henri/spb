@@ -10,7 +10,7 @@ SPB presents the power to navigate the surging currents of our planets vast digi
 
 Swim happily ; SPB [installs](https://github.com/henri/spb/?tab=readme-ov-file#floppy_disk-installation) into your home directory (no need for sudo) and is [easily removed](https://github.com/henri/spb/?tab=readme-ov-file#bookmark_tabs-usage) in the event you don't make use of SPB each and every day. [This GitHub repository](https://github.com/henri/spb) has everything you need to [install and update](https://github.com/henri/spb/?tab=readme-ov-file#floppy_disk-installation) SPB on your systems.
 
-[Harness the power](https://github.com/henri/spb/?tab=readme-ov-file#raising_hand-why-is-spb-needed) of isolated web sessions with SPB. Every time you run SPB a new instance of [Brave](https://brave.com/) (a modern web browser) is spawned within a fresh [screen](https://www.gnu.org/software/screen/) session. When you close the browser, [SPB will delete all <b>web</b> data related to that browser session](https://github.com/henri/spb#spb-templating-support) from your computer. 
+[Harness the power](https://github.com/henri/spb/?tab=readme-ov-file#raising_hand-why-is-spb-needed) of isolated web sessions with SPB. Every time you run SPB a new instance of [Brave](https://brave.com/) (a modern web browser) is spawned within a fresh [screen](https://www.gnu.org/software/screen/) session. When you close the browser, [SPB will delete all <b>web</b> data related to that browser session](https://github.com/henri/spb#spb-templating-support) from your computer.
 
 <p align="center">
   <!-- <a href="https://https://www.gnu.org/licenses/gpl-3.0.en.html"><img src="http://img.shields.io/badge/License-GPLv3-red.svg"></a> -->
@@ -26,7 +26,7 @@ Swim happily ; SPB [installs](https://github.com/henri/spb/?tab=readme-ov-file#f
  
 </p>
 
-This project is still in a [seedling stage](https://github.com/henri/spb/?tab=readme-ov-file#warning-disclaimer). If you find a bug please [start a discussion](https://github.com/henri/spb/discussions) or open an issue. SPB is free software, if you enjoy using SPB then share a link with friends. This way you and your friends enjoy the [benifits](https://github.com/henri/spb/?tab=readme-ov-file#raising_hand-why-is-spb-needed) of SPB together!
+This project is still in a [seedling stage](https://github.com/henri/spb/?tab=readme-ov-file#warning-disclaimer). If you find a bug please [start a discussion](https://github.com/henri/spb/discussions) or open an issue. SPB is free software, if you enjoy using SPB then share a link with friends. This way you and your friends enjoy the [benifits](https://github.com/henri/spb/?tab=readme-ov-file#raising_hand-why-is-spb-needed) of SPB together! True friends protect their friends from data spills.
 
 ### :floppy_disk: Installation 
   1. [Confirm your operating system is supported and install dependicies](https://github.com/henri/spb/blob/main/README.md#triangular_flag_on_post-compatibility)
