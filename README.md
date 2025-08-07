@@ -29,6 +29,7 @@ Swim happily ; SPB [installs](https://github.com/henri/spb/?tab=readme-ov-file#f
 
 This project is still in a [seedling stage](https://github.com/henri/spb/?tab=readme-ov-file#warning-disclaimer). If you find a bug please [start a discussion](https://github.com/henri/spb/discussions) or open an issue. SPB is [free software](https://www.gnu.org/philosophy/free-sw.en.html) (thank you [RMS](https://en.wikipedia.org/wiki/Richard_Stallman)). If you enjoy using SPB then share a link with friends. This way you and your friends enjoy the [benifits](https://github.com/henri/spb/?tab=readme-ov-file#raising_hand-why-is-spb-needed) of SPB together! True friends protect their friends from data spills.
 
+<br/>
 ### :floppy_disk: Installation 
   1. [Confirm your operating system is supported and install dependicies](https://github.com/henri/spb/blob/main/README.md#triangular_flag_on_post-compatibility)
   2. Kick-off install/upgrade by running the ~~one liner~~ four lines below in your terminal : 
@@ -47,7 +48,8 @@ henri/spb/refs/heads/main/\
 > <sub>The [installer/update](https://github.com/henri/spb/blob/main/500.spb-install-script.bash) script is a convenience to simplify installation and updating of spb on your system(s). Updates are semi-automatic because in order to update you manually run the [installer](https://github.com/henri/spb/blob/main/500.spb-install-script.bash) interactively. Check the [automated notes](https://github.com/henri/spb/?tab=readme-ov-file#arrows_counterclockwise-automate-installation-and-updates) for details on configuring unattended spb updates and installations. Also, before enabling automatic updtes read the [disclaimer section](https://github.com/henri/spb/?tab=readme-ov-file#warning-disclaimer) carfully.</sub>
 
 > <sub>If you prefer to use spb without using the install/update script (not recommended) ; copy the SBP [project](https://github.com/henri/spb/blob/main/050.start-private-browser.bash) script to your system and make it executable.<sub>
-  
+
+<br/>
 ### :bookmark_tabs: Usage
 
 Once installation is complete. The following commands will get you started with SPB.
@@ -76,7 +78,7 @@ Update SPB **help** :
 ```bash
 rm -ri ~/bin/start-private-browser.bash ~/bin/spb-update.bash ~/bin/spb-update.log ~/bin/spb-templates
 ```
-
+<br/>
 ### :star: Usage Examples
 The real power of SPB is less about the basic usage listed above and more the ability to automate tasks using SPB wrapper scripts and functions. Get ready for SPB to make your life better each and every day.
   
@@ -119,7 +121,7 @@ The templates are stored in the directory : ~/bin/spb-templates/
 | `spb --template template-name --standard` | Loads the specified template.<br>But will not start in incognito mode. |
 | `spb --list-templates` | Presents a list of templates on your system. |
 
-  
+<br/>
 ### :triangular_flag_on_post: Compatibility 
 Mild testing has been completed on the following operating systems :
 <p align="left">
@@ -166,7 +168,7 @@ Mild testing has been completed on the following operating systems :
        - macOS 10.15 (and later)
        - Officially the latest versions of Chromium [requires macOS 13](https://issues.chromium.org/issues/376381582) or later.
   
-  
+<br/>
 ### :shield: Telemetry and Privacy
 As you would expect. The SPB project has zero telemetry. As such if you decide to install and use this software nothing is sent back to mother-ship. 
   
@@ -190,7 +192,7 @@ Different operating systems and even different LINUX distributions have differen
 > #### SPB Fish Snippets 
 > <sub>Should you use spb-ddg, spb-ddg-ai or spb-pai fish snippets, then you will want to have a close look at the terms of service from [DuckDuckGo](https://duckduckgo.com/privacy) and [Perplexity Ai](https://www.perplexity.ai/hub/legal/privacy-policy) whose websites you will be accessing. If you are using spb-yt then be sure to check [Googles privacy policy](https://policies.google.com/privacy).</sub>
 
-  
+<br/>
 ### :lock: Security and Trust
 You should only run code and use software from sources you trust! 
 If you do not trust yourself to check the project code below or you do not trust my judgment, then it is recommended to not run this code. The alternative is asking someone familiar with shell scripting (the language used to create SPB) to vet the code on your behalf. Just make sure if you ask someone to help you vet the code ; that you also trust them. With 25+ years of experience writing shell scripts, you would hope that I have learnt to test my work.
@@ -204,7 +206,8 @@ spb-pai "would you vet the following project code for malware : https://github.c
   <!-- <img src="https://gist.github.com/user-attachments/assets/195556ee-8792-4915-a27c-e95d4c09c71f" width="76%"> -->
   <a href="https://github.com/henri/spb/?tab=readme-ov-file#lock-security-and-trust" ><img src="https://github.com/henri/spb/blob/readme-images/spb-security-trust.jpeg?raw=true" width="80%"></a>
 </p>
-  
+
+<br/>
 ### :arrows_counterclockwise: Automate Installation and Updates
 The included [spb-update.bash](https://github.com/henri/spb/blob/main/600.spb-update.bash) script may be run interactively (see [usage above](https://github.com/henri/spb/?tab=readme-ov-file#bookmark_tabs-usage)). Alternatively, you may prefer to start it via a scheduling program (eg.[cron](https://en.wikipedia.org/wiki/Cron)) so that SPB regularly updates automatically. 
   
@@ -221,7 +224,7 @@ henri/spb/refs/heads/main/\
   > <sub>This is the same command used to install SPB, with one key difference : an environment varable SPB_CRON_SETUP is set to "ture" and exported.</sub>
 
 The setup of unattended / automated SPB updates (eg. using the command above) will result in default choices being selected which you would normally be able to interactively select. Also, see [notes regarding telemitry and privacy](https://github.com/henri/spb/?tab=readme-ov-file#shield-telemetry-and-privacy) if you schedule or manually start an SPB update.
-  
+
 #### Start Unattended Updates (automatically picks default choices)
 Start an automated (unattended) update and monitor the progress by running the command below within a shell : 
 ```
@@ -262,10 +265,11 @@ If you export proxy environment variables (as shown below) then the SPB install 
   
 ```
 
-  
+<br/>
 ### :memo: Licensing, Terms of Use and Legal
 SPB is released under the [GNU GPL 3 or later](https://www.gnu.org/licenses/gpl-3.0.html). The GNU GPL is a free software licence which [protects users freedoms](https://www.gnu.org/philosophy/free-sw.en.html). Learn more about [escaping to freedom](https://www.fsf.org/blogs/rms/20140407-geneva-tedx-talk-free-software-free-society). 
 
+<br/>
 ### :raising_hand: Why is SPB needed? 
 
 The use cases for this script are immense and include [simplified day-to-day web browsing](https://github.com/henri/spb/?tab=readme-ov-file#star-usage-examples), trouble-shooting, testing, load-testing, AI Agents performing multiple tasks or just having multiple tabs which are not related in terms of cookies etc. 
@@ -284,6 +288,7 @@ May the privacy be with you!
 
 --- 
 
+<br/>
 ### :warning: Disclaimer
 SPB (start private browser) is able to start multiple private browsers. But do not expect more functionality or privacy from running a browser in incognito mode. The idea behind SPB is that you can load multiple instances which are somewhat separated from one and other. Each instance is still running under your user account and on your system. 
 
@@ -303,9 +308,11 @@ If you decide to setup a [scheduled automatic update](https://github.com/henri/s
 
 This project is still in the :seedling: seedling stage (with lots of potential). If you have suggestions / ideas to improve the way it works, then please [start a discussion](https://github.com/henri/spb/discussions). If you test this on a particular operating system and it works or is not working for you please also leave a comment so that others know to give it a try or not :)
 
+<br/>
 ### :rocket: Contributing to the project
 In order to protect users of this project all contributors must comply with the [Developer Certificate of Origin](https://developercertificate.org). This ensures that all contributions are properly licensed and attributed.
 
+<br/>
 ### :earth_asia: External Resources
 
 **Development / Testing / Automation**
