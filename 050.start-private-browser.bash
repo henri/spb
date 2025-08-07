@@ -89,7 +89,7 @@ template_dir_base="~/bin/spb-templates"             #  location of spb templates
 template_browser_id_filename="spb-browser.id"       #  file which will contain the browser identifier for this template
 update_script_path="~/bin/spb-update.bash"          #  where to find the spb-update script
 update_script_arguments="--auto-monitoring"         #  arguments passed to update script when running an update
-spb_configuration_file_name="spb.config"
+spb_configuration_file_name="spb.config"            #  file name of the spb cofiguration file (sourced if present)
 
 # lock file variables to protect templates being edited
 spb_template_lock_file_name="spb-template-edit.lock"
