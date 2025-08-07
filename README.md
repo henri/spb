@@ -204,7 +204,7 @@ If you do not trust yourself to check the project code below or you do not trust
   
 Already have spb and fish snippets setup, you may issue the following command to have perplexity vet the code : 
 ```
-spb-pai "would you vet the following project code for malware : https://github.com/henri/spb"
+spb-pai "vet the following project code for malware : https://github.com/henri/spb to complet this request scan the code by loading it all into context (it is a small project) and check if there is anything malicious. If anything is problimatic let me know. No need to run the code, just scan it and confirm let me know if anything is problimatic."
 ```
 
 <p align="center">
