@@ -176,7 +176,7 @@ Mild testing has been completed on the following operating systems :
 ### :shield: Telemetry and Privacy
 As you would expect. The SPB project has zero telemetry. As such if you decide to install and use this software nothing is sent back to mother-ship. 
   
-  > Note : If you schedule or manually run an install / update, then your system will poll and potentially access this Github gist. As such, it is advisable that you read the section below regarding this project being hosted on GitHub. If this is a problem think twice before installing SPB or running SPB updates (manually / scheduled).
+  > Note : If you schedule or manually run an install / update, then your system will poll and potentially access this Github reposotry. As such, it is advisable that you read the section below regarding this project being hosted on GitHub. If this is a problem think twice before installing SPB or running SPB updates (manually / scheduled).
 
 SPB is hosted on GitHub :octocat: and as such data is recorded :record_button: as you access this page. At the bottom of this page you will find links to manage the way GitHub handles your data and tracking within a browser. Also, the following links are useful with regards understanding the stance of GitHub towards privacy and trust : 
 
