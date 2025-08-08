@@ -1,2 +1,2 @@
 THIS BRANCH IS SIMPLY USED TO STORE IMAGES FOR THE SPB PROJECT : 
-http://github.com/spb
+http://github.com/henri/spb
