@@ -5,7 +5,7 @@ Have you wished there was an easy way to interact with the web from your termina
 SPB presents the power to navigate the surging currents of our planets vast digital oceans right at your fingertips. SPB is a deceptivly simple shell [script](https://github.com/henri/spb/blob/main/050.start-private-browser.bash) which will rapidly spawn one or more isolated browser sessons. 
 
 <p align="center">
-  <a href="https://github.com/henri/spb/#lock-spb-start-private-browser"><img src="https://github.com/henri/spb/blob/readme-images/spb-fish.png?raw=true" width="90%"></a>
+  <a href="https://github.com/henri/spb/#lock-spb-start-private-browser"><img src="https://henri.github.io/spb/spb-fish.png" width="90%"></a>
 </p>
 
 Swim happily ; SPB [installs](https://github.com/henri/spb/?tab=readme-ov-file#floppy_disk-installation) into your home directory (no need for sudo) and is [easily removed](https://github.com/henri/spb/?tab=readme-ov-file#bookmark_tabs-usage) in the event you don't make use of SPB each and every day. [This GitHub repository](https://github.com/henri/spb) has everything you need to [install and update](https://github.com/henri/spb/?tab=readme-ov-file#floppy_disk-installation) SPB on your systems.
@@ -128,7 +128,7 @@ The templates are stored in the directory : ~/bin/spb-templates/
 ### :triangular_flag_on_post: Compatibility 
 Mild testing has been completed on the following operating systems :
 <p align="left">
-  <a href="https://github.com/henri/spb/?tab=readme-ov-file#triangular_flag_on_post-compatibility" ><img src="https://github.com/henri/spb/blob/readme-images/spb-compatability.png?raw=true" width="30%"></a>
+  <a href="https://github.com/henri/spb/?tab=readme-ov-file#triangular_flag_on_post-compatibility" ><img src="https://henri.github.io/spb/spb-compatability.png" width="30%"></a>
 </p>
 
   > Each operating system section listed below lists instructions for installing SPB dependencies onto the listed system using the terminal. At present the SPB installer will not automatically install dependiencies. That is left to you. SPB will not work correctly without the dependecies installed on your system. Either use the instructions below for your operating system or install dependcies using your prefered approach.
@@ -188,7 +188,7 @@ When automatically or manually running the install / update commands, data from 
 As the default browser option in SPB is [Brave](https://brave.com/) and that project is a telemetry sender ; it is advisable that you read the Brave [privacy policy](https://brave.com/privacy/browser/). Brave is an [open source project](https://github.com/brave/brave-browser). However, if having any kind of telemetry being sent out is a problem then you should opt to use a different browser. Also, follow and chime into [this issue on github](https://github.com/brave/brave-browser/issues/40799) with your opinion(s) regarding telemetry opt-out features within Brave. 
 
 <p align="center">
-  <a href="https://github.com/henri/spb/?tab=readme-ov-file#shield-telemetry-and-privacy" ><img src="https://github.com/henri/spb/blob/readme-images/spb-telemetry-privacy.png?raw=true" width="60%"></a>
+  <a href="https://github.com/henri/spb/?tab=readme-ov-file#shield-telemetry-and-privacy" ><img src="https://henri.github.io/spb/spb-telemetry-privacy.png" width="60%"></a>
 </p>
   
 Different operating systems and even different LINUX distributions have different stances on privacy and telemetry. As such it is advisable that you check these details for your specific operating system. This project works on a variety of operating systems each with their own particulars relating to privacy and telemetry.
@@ -291,7 +291,7 @@ May the privacy be with you!
 ---
 
 <p align="center">
-  <a href="https://github.com/henri/spb/?tab=readme-ov-file#raising_hand-why-is-spb-needed"><img src="https://github.com/henri/spb/blob/readme-images/spb-may-the-pricacy-be-with-you.png?raw=true"></a>
+  <a href="https://github.com/henri/spb/?tab=readme-ov-file#raising_hand-why-is-spb-needed"><img src="https://henri.github.io/spb/spb-may-the-pricacy-be-with-you.png"></a>
 </p>
 
 --- 
