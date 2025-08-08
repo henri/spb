@@ -77,6 +77,7 @@
 # version 6.5 - added template copy progress bar using pv and tar if they are available on the system and gcp is not available
 # version 6.6 - bug fix resolved relating to du options on macOS and also added APFS template cloning support (it is faster)
 # version 6.7 - bug fix we now correctly report when we are copying or cloning template data
+# version 6.8 - standard mode reporting improvements
 
 ##
 ## Configuration of Variables
@@ -89,7 +90,7 @@ template_dir_base="~/bin/spb-templates"             #  location of spb templates
 template_browser_id_filename="spb-browser.id"       #  file which will contain the browser identifier for this template
 update_script_path="~/bin/spb-update.bash"          #  where to find the spb-update script
 update_script_arguments="--auto-monitoring"         #  arguments passed to update script when running an update
-spb_configuration_file_name="spb.config"            #  file name of the spb cofiguration file (sourced if present)
+spb_configuration_file_name="spb.config"
 
 # lock file variables to protect templates being edited
 spb_template_lock_file_name="spb-template-edit.lock"
@@ -283,6 +284,7 @@ spb_list_templates="false"
 new_template_dir_name=""
 edit_template_dir_name=""
 use_template_dir_name=""
+use_template_dir_absolute=""
 template_show_progress_bar="true" # even this is set to true, the size of the template must be exceed the value set in template template_size_to_show_progress_bar before the progress bar is shown
 template_size_to_show_progress_bar="180" # mesured in MB (if the tempalte is greater than this size and gcp is installed, then a progress bar is displayed during the copy)
 help_wanted="no"
@@ -780,7 +782,12 @@ for arg in "$@" ; do
   if [[ "${arg}" == "--standard" ]] ; then
     # TODO : probably we also want a way to configure this from a configuration file... needs looking at :)
     if [[ "${quite_mode}" != "true" ]] ; then
-        echo "Standard Mode Enabled"
+        dot_dot_dot=""
+        if [[ "${use_template_dir_name}" != "" ]] ; then
+            echo -n "        " # add a space if we are doing template stuff to keep things looking pretty
+            dot_dot_dot="..."
+        fi
+        echo "Standard Mode Enabled${dot_dot_dot}"
     fi
     standard_mode="true"
     valid_argument_found="true"
@@ -1481,4 +1488,5 @@ done
 # start a screen session with the name based off the temp directory, then once browser exits delete the temporary directory
 screen -S "${screen_session_name}" -dm bash -c " \"${spb_browser_path}\" ${browser_options} ${url_list} ; sleep 1 ; sync ; rm -rf ${browser_tmp_directory} ${spb_etlfr_cmd} "
 exit 0
+
 
