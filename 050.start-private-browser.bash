@@ -1386,7 +1386,7 @@ if [[ "${use_template_dir_name}" != "" ]] ; then
         # echo "          [ ${template_data_disk_usage_human}B transferred ]"
         echo "        Synchronizing filesystem..."
     fi
-    sync --file-system ${use_template_dir_absolute}
+    sync --file-system ${browser_tmp_directory}
 fi
 
 # check if we are we using firefox or palemoon (experimental)
