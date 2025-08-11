@@ -78,6 +78,7 @@
 # version 6.6 - bug fix resolved relating to du options on macOS and also added APFS template cloning support (it is faster)
 # version 6.7 - bug fix we now correctly report when we are copying or cloning template data
 # version 6.8 - standard mode reporting improvements
+# version 6.9 - added support for custom spb-template path overide via the argument --template-path
 
 ##
 ## Configuration of Variables
@@ -100,7 +101,14 @@ spb_etlfr_cmd="" # spb edit template lock file remove command (leave this blank 
 args=("$@")
 index=0
 pre_index=0
+super_pre_index=0
 num_args=$#
+skip_arg="false"
+pre_skip_arg="false"
+super_pre_skip_arg="false"
+pre_arg_scan_proceed="true"
+
+template_dir_base_default_override=""
 spb_default_multi_browser_support="false"
 
 # os detection
@@ -185,6 +193,64 @@ if [[ ! -z ${BASH_VERSINFO} ]] ; then
     fi
 fi
 
+# super-pre argument scanning (special arguments for overiding settings) - yes we custom argument parsing in 2025
+for arg in "$@" ; do
+
+    # skip some parameters passed into script
+    if [[ "${super_pre_skip_arg}" == "true" ]] ; then
+        super_pre_skip_arg="false"
+        ((super_pre_index++))
+    continue
+    fi
+
+    # skip some parameters passed into script
+    if [[ "${super_pre_skip_arg}" == "true" ]] ; then
+        super_pre_skip_arg="false"
+        ((index++))
+    continue
+    fi
+
+    # look ahead for passed argument parameters
+    if (( super_pre_index + 1 < num_args )) ; then
+        next_arg="${args[super_pre_index + 1]}"
+    else
+        next_arg=""
+    fi
+
+    # check for template or template editing
+    if [[ "${arg}" == "--template-path" ]] ; then
+        # check they are not listed more than once
+        if [[ "${template_dir_base_default_override}" != "" ]] ; then
+            echo ""
+            echo "ERROR! : Using the ${arg} option is only allowed once"
+            echo ""
+            exit -75
+        fi
+        if [[ "${next_arg}" != "" ]] ; then
+            # configure the system to skip the next argument for processing 
+            # as it is the value for this one
+            super_pre_skip_arg="true"
+            valid_argument_found="true"
+            template_dir_base_default_override="${next_arg}"
+            template_dir_base="${template_dir_base_default_override}"
+        else
+            echo ""
+            echo "ERROR! : Using the ${arg} option requires specifying a valid spb-template path."
+            echo "         the spb-template directrory path by default is set to the following : "
+            echo ""
+            echo "             ${template_dir_base}"
+            echo ""
+            echo "         The template directory contains all the other templates not a single"
+            echo "         template."
+            exit -77
+        fi
+    fi
+
+  ((super_pre_index++))
+
+done
+
+
 
 # configure the default SPB browser name
 spb_browser_name_default="brave"
@@ -253,6 +319,9 @@ if [[ spb_external_count -eq 1 ]] ; then
 fi
 
 
+
+
+
 # List of currently supported configuration file options
 # set these as exported environment variables or place them
 # in the configuration file and they will automatically be
@@ -295,15 +364,13 @@ quite_mode="false"
 force_stop_mode="false"
 template_browser_id_absolute="" # when creating a new template this is set to the full absolute path to the template browser_id file
 
-# internal argument parsing variables
-skip_arg="false"
-pre_skip_arg="false"
-pre_arg_scan_proceed="true"
+
 
 
 ##
 ## Argument Processing
 ## 
+
 
 # pre argument scanning (arguments which will almost always end up exiting before we actually start a browser)
 for arg in "$@" ; do
@@ -518,6 +585,7 @@ if [[ "${help_wanted}" == "yes" ]] ; then
     echo "            $ start-private-browser --list-browsers"
     echo ""
     echo ""
+    echo ""
     echo "         Templates (Usage & Management) : "
     echo ""
     echo "             # create a new template"
@@ -531,6 +599,15 @@ if [[ "${help_wanted}" == "yes" ]] ; then
     echo ""
     echo "             # load an existing template"
     echo "             $ start-private-browser --template <template-name>"
+    echo ""
+    echo "             # specify a path to used to overide the default spb-tamplates path"
+    echo "             #"
+    echo "             #    note : the --template-path is ***NOT*** used for setting the use of an individual template."
+    echo "             #           rather it is the directrory which holds all templates for all browsers and which"
+    echo "             #           also stores the spb.config file. This configuration file also contains various"
+    echo "             #           customaizable spb related settings). Use this option with caution."
+    echo "             #"
+    echo "             $ start-private-browser --template-path <template-path>"
     echo ""
     echo ""
     echo "         Additional Resources : "
@@ -1471,12 +1548,12 @@ while [[ ${#} -ge 1 ]] ; do
             new_browser_argument="--${browser_option_name}=\"${browser_option_value}\""
             browser_options="${browser_options} ${new_browser_argument}"
         else
-            if [[ "${1}" != "--browser" ]] && [[ "${1}" != "--template" ]] && [[ "${1}" != "--new-template" ]] && [[ "${1}" != "--edit-template" ]] ; then
+            if [[ "${1}" != "--browser" ]] && [[ "${1}" != "--template" ]] && [[ "${1}" != "--new-template" ]] && [[ "${1}" != "--edit-template" ]] &&  [[ "${1}" != "${--template-path}" ]] ; then
                 browser_options="${1} ${browser_options}"
             fi
         fi
     else
-        if [[ "${1}" != "${spb_browser_name}" ]] && [[ "${1}" != "${use_template_dir_name}" ]] && [[ "${1}" != "${edit_template_dir_name}" ]] ; then
+        if [[ "${1}" != "${spb_browser_name}" ]] && [[ "${1}" != "${use_template_dir_name}" ]] && [[ "${1}" != "${edit_template_dir_name}" ]] && [[ "${1}" != "${template_dir_base_default_override}" ]] ; then
             # build the URL list (but exclude the spb_browser_name, template and edit-template data which may be have been provided)
             url_list="${url_list} \"${1}\""
         fi
