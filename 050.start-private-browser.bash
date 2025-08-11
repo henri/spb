@@ -600,7 +600,8 @@ if [[ "${help_wanted}" == "yes" ]] ; then
     echo "             # load an existing template"
     echo "             $ start-private-browser --template <template-name>"
     echo ""
-    echo "             # override the default spb-tamplates path : ${template_dir_base}"
+    echo "             # override the default spb-tamplates path : ~/bin/spb-tempaltes"
+    echo "             #"
     echo "             #    use with '--template-path' overide option with caution"
     echo "             #    carfully read the note below to understand implications"
     echo "             #"
@@ -1568,5 +1569,6 @@ done
 # start a screen session with the name based off the temp directory, then once browser exits delete the temporary directory
 screen -S "${screen_session_name}" -dm bash -c " \"${spb_browser_path}\" ${browser_options} ${url_list} ; sleep 1 ; sync ; rm -rf ${browser_tmp_directory} ${spb_etlfr_cmd} "
 exit 0
+
 
 
