@@ -78,7 +78,7 @@
 # version 6.6 - bug fix resolved relating to du options on macOS and also added APFS template cloning support (it is faster)
 # version 6.7 - bug fix we now correctly report when we are copying or cloning template data
 # version 6.8 - standard mode reporting improvements
-# version 6.9 - added support for custom spb-template path overide via the argument --template-path
+# version 6.9 - added support for custom spb-template path override via the option --template-path
 
 ##
 ## Configuration of Variables
