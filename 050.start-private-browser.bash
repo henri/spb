@@ -600,7 +600,7 @@ if [[ "${help_wanted}" == "yes" ]] ; then
     echo "             # load an existing template"
     echo "             $ start-private-browser --template <template-name>"
     echo ""
-    echo "             # override the default spb-tamplates path : ~/bin/spb-tempaltes"
+    echo "             # override the default spb-tamplates path : ~/bin/spb-templates"
     echo "             #"
     echo "             #    use with '--template-path' overide option with caution"
     echo "             #    carfully read the note below to understand implications"
