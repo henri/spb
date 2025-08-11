@@ -206,7 +206,7 @@ for arg in "$@" ; do
     # skip some parameters passed into script
     if [[ "${super_pre_skip_arg}" == "true" ]] ; then
         super_pre_skip_arg="false"
-        ((index++))
+        ((super_pre_index++))
     continue
     fi
 
