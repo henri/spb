@@ -79,6 +79,7 @@
 # version 6.7 - bug fix we now correctly report when we are copying or cloning template data
 # version 6.8 - standard mode reporting improvements
 # version 6.9 - added support for custom spb-template path override via the option --template-path
+# version 7.0 - experimental support for opera
 
 ##
 ## Configuration of Variables
@@ -121,6 +122,17 @@ if [[ ! -z ${BASH_VERSINFO} ]] ; then
         # remember if your operating system is not listed, it is possible to use environment variables or the configuration
         # file to specify the browser name and browser path for any browser / operating system pair
         declare -A spb_default_browser_data
+        # # # # # # # # # # # # #
+        spb_default_browser_data["opera:linux:mint"]="opera"
+        spb_default_browser_data["opera:linux:arch"]="opera"
+        spb_default_browser_data["opera:linux:ubuntu"]="opera"
+        spb_default_browser_data["opera:linux:debian"]="opera"
+        spb_default_browser_data["opera:linux:endeavouros"]="opera"
+        spb_default_browser_data["opera:linux:manjaro"]="opera"
+        spb_default_browser_data["opera:linux:centos"]="opera"
+        spb_default_browser_data["opera:linux:fredora"]="opera"
+        spb_default_browser_data["opera:darwin"]="/Applications/Opera.app/Contents/MacOS/Opera"
+        spb_default_browser_data["opera:freebsd"]="opera"
         # # # # # # # # # # # # #
         spb_default_browser_data["palemoon:linux:mint"]="palemoon"
         spb_default_browser_data["palemoon:linux:arch"]="palemoon"
@@ -1475,7 +1487,12 @@ fi
 if [[ "${spb_browser_name}" == "firefox" ]] || [[ "${spb_browser_name}" == "palemoon" ]] ; then 
     incognito_options="--private-window"
     spb_data_browser_specifc_options="--new-instance --no-remote --class CustomClass --profile "
+elif [[ "${spb_browser_name}" == "opera" ]] ; then
+    # check if we are using opera (experimental)
+    incognito_options="--private"
+    spb_data_browser_specifc_options="--no-first-run --disable-first-run-ui --user-data-dir="
 else
+    # anything else use the defaults from chromium based browsers
     incognito_options="--incognito"
     spb_data_browser_specifc_options="--user-data-dir="
 fi
@@ -1569,6 +1586,5 @@ done
 # start a screen session with the name based off the temp directory, then once browser exits delete the temporary directory
 screen -S "${screen_session_name}" -dm bash -c " \"${spb_browser_path}\" ${browser_options} ${url_list} ; sleep 1 ; sync ; rm -rf ${browser_tmp_directory} ${spb_etlfr_cmd} "
 exit 0
-
 
 
