@@ -126,7 +126,7 @@ The templates are stored in the directory : ~/bin/spb-templates/
 | `spb --list-templates` | Presents a list of templates on your system. |
 <br/>
 
-Templates are also able to be used to run browsers in a more standard mode but to have differnt instances of a browser running simultaniusly. To accomplish this simply create the teample (uinsg the --new-template option), then edit the template using the (--edit-template) option. Effectivly, you will be able to start seperate browser instances. However, keep in mind that when you exit the browser the data will not be deleted as you are editing the template.
+Templates are also able to be used to run browsers in a more standard mode but to have different instances of a browser running simultaneously. To accomplish this simply create the template (using the --new-template option), then edit the template using the (--edit-template) option. Effectively, you will be able to start separate browser instances. However, keep in mind that when you exit the browser the data will not be deleted as you are editing the template.
 
 ### :triangular_flag_on_post: Compatibility 
 Mild testing has been completed on the following operating systems :
