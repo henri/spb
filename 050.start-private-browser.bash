@@ -614,7 +614,7 @@ if [[ "${help_wanted}" == "yes" ]] ; then
     echo ""
     echo "             # override the default spb-tamplates path : ~/bin/spb-templates"
     echo "             #"
-    echo "             #    use with '--template-path' overide option with caution"
+    echo "             #    use the '--template-path' overide option with caution"
     echo "             #    carfully read the note below to understand implications"
     echo "             #"
     echo "             #    note : the --template-path is ***NOT*** used for setting the use of a specific template,"
