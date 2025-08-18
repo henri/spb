@@ -102,6 +102,7 @@ Handy wrapper scripts to facilitate SPB usage via the command line :
 | `spb-brave`     | [Brave Search](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-brave-fish) | start multiple Brave searches |
 | `spb-brave-ai`  | [Brave Browser Leo Summary](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-brave-ai-fish) | begin multiple Brave AI (Leo) summerisations |
 | `spb-yt`        |  [YouTube Search](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-yt-fish) | initiate simultaneous YouTube searches |
+| `spb-rum`        |  [Rumble Search](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-rum-fish) | initiate simultaneous Rumble searches |
 |  `spb-pai`      |  [Perplexity AI Chat](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-perlexity-ai-fish) | kick off conversations with Perplexity AI |
   
 > <sub>If your system has [fish](https://fishshell.com/) installed and you run the update system in an unattended mode, then these snippets will be installed / updated. This is because that is the default option. When running in unattended mode all default options are selected. If you do not want the above [snippets installed](https://github.com/henri/spb/?tab=readme-ov-file#file-spb-fish-function-installer-bash) please run the update script interactively and enter "no" when asked during the install process. Again the prompt for opting out is only available during interactive mode when using [spb-update.bash](https://github.com/henri/spb/blob/main/600.spb-update.bash) script or when manually running the [install/update](https://github.com/henri/spb/?tab=readme-ov-file#floppy_disk-installation) process.
@@ -124,6 +125,8 @@ The templates are stored in the directory : ~/bin/spb-templates/
 | `spb --template template-name --standard` | Loads the specified template.<br>But will not start in incognito mode. |
 | `spb --list-templates` | Presents a list of templates on your system. |
 <br/>
+
+Templates are also able to be used to run browsers in a more standard mode but to have differnt instances of a browser running simultaniusly. To accomplish this simply create the teample (uinsg the --new-template option), then edit the template using the (--edit-template) option. Effectivly, you will be able to start seperate browser instances. However, keep in mind that when you exit the browser the data will not be deleted as you are editing the template.
 
 ### :triangular_flag_on_post: Compatibility 
 Mild testing has been completed on the following operating systems :
