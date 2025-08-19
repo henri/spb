@@ -25,6 +25,8 @@ Swim happily ; SPB [installs](https://github.com/henri/spb/?tab=readme-ov-file#f
   <a href="https://www.gnu.org/software/screen/"><img src="https://img.shields.io/badge/GNU-screen-%23121011.svg?logo=terminal&logoColor=white"></a>
       <a href="https://github.com/henri/spb/blob/main/README.md"><img src="https://img.shields.io/badge/%2B-%23121011?logoColor=white"></a>
   <a href="https://kernel.org/"><img src="https://img.shields.io/badge/Linux-%23121011.svg?logo=linux&logoColor=white"></a>
+      <a href="https://github.com/henri/spb/blob/main/README.md"><img src="https://img.shields.io/badge/%2B-%23121011?logoColor=white"></a>
+   <a href="https://www.apple.com/macos"><img src="https://img.shields.io/badge/macOS-%23121011.svg"></a>
 </p>
 <br/>
 
