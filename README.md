@@ -190,7 +190,7 @@ SPB is hosted on GitHub :octocat: and as such data is recorded :record_button: a
 
 When automatically or manually running the install / update commands, data from your system is sent to GitHub infrastructure so that SPB is able to be installed / updated on your system. If this is a problem in your environment, it is suggested that you [roll your own](ttps://github.com/henri/spb/?tab=readme-ov-file#roll-your-own) update system.
 
-As the default browser option in SPB is [Brave](https://brave.com/) and that project is a telemetry sender ; it is advisable that you read the Brave [privacy policy](https://brave.com/privacy/browser/). Brave is an [open source project](https://github.com/brave/brave-browser). However, if having any kind of telemetry being sent out is a problem then you should opt to use a different browser. Also, follow and chime into [this issue on github](https://github.com/brave/brave-browser/issues/40799) with your opinion(s) regarding telemetry opt-out features within Brave. 
+As the default browser option in SPB is [Brave](https://brave.com/) and that project is a telemetry sender ; it is advisable that you read the Brave [privacy policy](https://brave.com/privacy/browser/). Brave is an [open source project](https://github.com/brave/brave-browser). However, if having any kind of telemetry being sent out is a problem then you should opt to use a different browser. Also, follow and chime into [this issue on github](https://github.com/brave/brave-browser/issues/48604) with your opinion(s) regarding telemetry opt-out features within Brave. 
 
 <p align="center">
   <a href="https://github.com/henri/spb/?tab=readme-ov-file#shield-telemetry-and-privacy" ><img src="https://henri.github.io/spb/spb-telemetry-privacy.png" width="60%"></a>
