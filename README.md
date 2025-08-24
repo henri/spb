@@ -2,7 +2,7 @@
 
 Have you wished there was an easy way to interact with the web from your terminal? Maybe like me you feel ready  to automate your web surfing from the tranquility of the shell? The bundled [SPB fish snippits](https://github.com/henri/spb/?tab=readme-ov-file#fish-shell-wrappers) makes searching for information from the fish shell easy-as! 
 
-SPB presents the power to navigate the surging currents of our planets vast digital oceans right at your fingertips. SPB is a deceptivly simple shell [script](https://github.com/henri/spb/blob/main/050.start-private-browser.bash) which will rapidly spawn one or more isolated browser sessons. 
+SPB presents the power to navigate the surging currents of our planets vast digital oceans right at your fingertips. SPB is a deceptivly simple shell [script](https://github.com/henri/spb/blob/main/050.start-private-browser.bash) which will rapidly spawn one or more isolated browser sessons. The [built-in SPB templating system](https://github.com/henri/spb/blob/main/README.md#spb-templating-support) allows isolation between different tasks.
 
 <p align="center">
   <a href="https://github.com/henri/spb/#lock-spb-start-private-browser"><img src="https://henri.github.io/spb/spb-fish.png" width="90%"></a>
