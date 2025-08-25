@@ -1573,7 +1573,7 @@ fi
 # report temporary directory information and screen session name in verbose mode
 if [[ "${quite_mode}" != "true" ]] ; then
     if [[ "${verbose_mode}" == "true" ]] ; then 
-        echo "Screen Session Name : ${screen_session_name}"
+        echo "Screen session name : ${screen_session_name}"
         echo "Temporary directory : ${browser_tmp_directory}"
     fi
 fi
