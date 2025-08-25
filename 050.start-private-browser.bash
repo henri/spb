@@ -80,6 +80,7 @@
 # version 6.8 - standard mode reporting improvements
 # version 6.9 - added support for custom spb-template path override via the option --template-path
 # version 7.0 - experimental support for opera
+# version 7.1 - initial support for verbose option currently providing reporting of the path to to user data for session
 
 ##
 ## Configuration of Variables
@@ -108,6 +109,7 @@ skip_arg="false"
 pre_skip_arg="false"
 super_pre_skip_arg="false"
 pre_arg_scan_proceed="true"
+dot_dot_dot=""
 
 template_dir_base_default_override=""
 spb_default_multi_browser_support="false"
@@ -372,6 +374,7 @@ help_wanted="no"
 update_wanted="no"
 valid_argument_found="false"
 standard_mode="false" # when set to true, we will not default to running incognito window
+verbose_mode="false" # when set to true additional information reported to standard out
 quite_mode="false"
 force_stop_mode="false"
 template_browser_id_absolute="" # when creating a new template this is set to the full absolute path to the template browser_id file
@@ -452,11 +455,18 @@ for arg in "$@" ; do
     force_stop_mode="true"
   fi
   
-  # check to see if quite mode should be enabled
+  # check if quite mode should be enabled
   if [[ "${arg}" == "--quite" ]] ; then
     quite_mode="true"
     valid_argument_found="true"
   fi
+
+  # check if verbose mode should be enabled
+  if [[ "${arg}" == "--verbose" ]] ; then
+    verbose_mode="true"
+    valid_argument_found="true"
+  fi
+
 
   # check to see if quite mode should be enabled
   if [[ "${arg}" == "--browser" ]] ; then
@@ -583,6 +593,9 @@ if [[ "${help_wanted}" == "yes" ]] ; then
     echo ""
     echo "            # suppress important notification output"
     echo "            $ start-private-browser --quite"
+    echo ""
+    echo "            # additional information output"
+    echo "            $ start-private-browser --verbose"
     echo ""
     echo "            # force-ably close a browser session if it has hung"
     echo "            $ start-private-browser --force-stop <instance-identifier>"
@@ -876,7 +889,6 @@ for arg in "$@" ; do
   if [[ "${arg}" == "--standard" ]] ; then
     # TODO : probably we also want a way to configure this from a configuration file... needs looking at :)
     if [[ "${quite_mode}" != "true" ]] ; then
-        dot_dot_dot=""
         if [[ "${use_template_dir_name}" != "" ]] ; then
             echo -n "        " # add a space if we are doing template stuff to keep things looking pretty
             dot_dot_dot="..."
@@ -1016,6 +1028,7 @@ if [[ "${edit_template_dir_name}" != "" ]] && [[ "${use_template_dir_name}" != "
       echo ""
       exit -166
 fi
+
 
 
 ##
@@ -1333,6 +1346,7 @@ if [[ $? != 0 ]] ; then
 fi
 
 
+
 # calculate the screen session name
 screen_session_name="${screen_session_prefix}-$(echo "${browser_tmp_directory}" | awk -F "${temp_path}-" '{print$2}')"
 
@@ -1556,6 +1570,13 @@ else
     user_data_directory_options="${spb_data_browser_specifc_options}${browser_tmp_directory}"
 fi
 
+# report temporary directory information and screen session name in verbose mode
+if [[ "${quite_mode}" != "true" ]] ; then
+    if [[ "${verbose_mode}" == "true" ]] ; then 
+        echo "Screen Session Name : ${screen_session_name}"
+        echo "Temporary directory : ${browser_tmp_directory}"
+    fi
+fi
 
 # parse the arguments for options and URL's to pass to brave.
 browser_options="${user_data_directory_options} ${incognito_options}"
@@ -1586,5 +1607,6 @@ done
 # start a screen session with the name based off the temp directory, then once browser exits delete the temporary directory
 screen -S "${screen_session_name}" -dm bash -c " \"${spb_browser_path}\" ${browser_options} ${url_list} ; sleep 1 ; sync ; rm -rf ${browser_tmp_directory} ${spb_etlfr_cmd} "
 exit 0
+
 
 
