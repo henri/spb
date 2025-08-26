@@ -81,6 +81,8 @@
 # version 6.9 - added support for custom spb-template path override via the option --template-path
 # version 7.0 - experimental support for opera
 # version 7.1 - initial support for verbose option currently providing reporting of the path to to user data for session
+# version 7.2 - bug fix relating to following template symlinks when using the --list-templates option
+
 
 ##
 ## Configuration of Variables
@@ -535,6 +537,10 @@ if [[ ${spb_list_templates} == "true" ]] ; then
     #   exit -79
     # fi
     # ls ${template_dir_parent/#\~/$HOME} | grep -v "available" | cat
+
+    # confirm template directory is accessable
+    check_template_directory_accessability
+
     if [[ "${quite_mode}" != "true" ]] ; then
         echo "" ; echo ""
         echo "SPB Template Notes : "
@@ -546,10 +552,11 @@ if [[ ${spb_list_templates} == "true" ]] ; then
     fi
     
     template_dir_parent_dirname=$(dirname ${template_dir_parent})
-    awk_cut_point=$(basename ${template_dir_parent_dirname})
+    # awk_cut_point=$(basename ${template_dir_parent_dirname})
+    awk_cut_point="."
 
     # this monstrosity outputs nicely formatted output when you list the templates
-    template_list=$(find ${template_dir_parent_dirname/#\~/$HOME} -maxdepth 2 -type d | grep -v "available" \
+    template_list=$(cd ${template_dir_parent_dirname/#\~/$HOME} && find ./ -maxdepth 2 -type d | grep -v "available" \
     | awk -F "$awk_cut_point" '{print $2}' | awk 'gsub("/", "&")!=1' | sed 's/^\///' \
     | awk '{gsub(/\//, "\t\t")}1' |  awk '{if($1!=last){if(NR>1)print""};last=$1;print}' \
     | awk 'NR>1' | cat)
@@ -825,6 +832,16 @@ function check_template_browser_identification() {
     return 0
 }
 
+function check_template_directory_accessability() {
+    if [[ "$(cd ${template_dir_parent/#\~/$HOME} > /dev/null 2>&1 && echo 'accessable')" != "accessable" ]] ; then
+        echo ""
+        echo "ERROR! : Unable to access template directory :"
+        echo "         ${template_dir_parent}"
+        echo ""
+        exit -67
+    fi
+    return 0
+}
 
 # process arguments using a for loop (yes it seems crazy but that is the way we are doing it)
 # this is a custom arg parser in 2025 :)
@@ -987,6 +1004,8 @@ for arg in "$@" ; do
                     echo ""
                     exit -78
                 fi
+                # check that the directory is accessable
+                check_template_directory_accessability
                 # used for storing and retrieving browser template identification
                 template_browser_id_absolute="${use_template_dir_absolute}/${template_browser_id_filename}"
             fi
@@ -1607,6 +1626,7 @@ done
 # start a screen session with the name based off the temp directory, then once browser exits delete the temporary directory
 screen -S "${screen_session_name}" -dm bash -c " \"${spb_browser_path}\" ${browser_options} ${url_list} ; sleep 1 ; sync ; rm -rf ${browser_tmp_directory} ${spb_etlfr_cmd} "
 exit 0
+
 
 
 
