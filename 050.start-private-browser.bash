@@ -822,6 +822,12 @@ if [[ ${spb_list_templates} == "true" ]] ; then
         echo "you must not specify the browser name!"
         echo "Specify only the template name."
         echo "" ; echo ""
+        if [[ "${verbose_mode}" == "true" ]] ; then
+            echo "The browser name may be set using the"
+            echo "--browser option. For more infomation"
+            echo "use the --help option."
+            echo ""
+        fi
         echo "SPB Templates List :" 
     fi
     
