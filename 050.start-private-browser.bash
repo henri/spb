@@ -527,49 +527,6 @@ for arg in "$@" ; do
 
 done
 
-# show available spb templates
-if [[ ${spb_list_templates} == "true" ]] ; then
-    # if [[ ${index} != 0 ]] || [[ ${num_args} -gt 1 ]]; then
-    #   echo ""
-    #   echo "ERROR! : Using the ${arg} option is not compatible with any other"
-    #   echo "         arguments / parameters."
-    #   echo ""
-    #   exit -79
-    # fi
-    # ls ${template_dir_parent/#\~/$HOME} | grep -v "available" | cat
-
-    # confirm template directory is accessable
-    check_template_directory_accessability
-
-    if [[ "${quite_mode}" != "true" ]] ; then
-        echo "" ; echo ""
-        echo "SPB Template Notes : "
-        echo "When loading, editing or creating templates,"
-        echo "you must not specify the browser name!"
-        echo "Specify only the template name."
-        echo "" ; echo ""
-        echo "SPB Templates List :" 
-    fi
-    
-    template_dir_parent_dirname=$(dirname ${template_dir_parent})
-    # awk_cut_point=$(basename ${template_dir_parent_dirname})
-    awk_cut_point="."
-
-    # this monstrosity outputs nicely formatted output when you list the templates
-    template_list=$(cd ${template_dir_parent_dirname/#\~/$HOME} && find ./ -maxdepth 2 -type d | grep -v "available" \
-    | awk -F "$awk_cut_point" '{print $2}' | awk 'gsub("/", "&")!=1' | sed 's/^\///' \
-    | awk '{gsub(/\//, "\t\t")}1' |  awk '{if($1!=last){if(NR>1)print""};last=$1;print}' \
-    | awk 'NR>1' | cat)
-
-    spb_template_listing_status=${?}
-    if [[ "${quite_mode}" == "true" ]] ; then 
-        echo "${template_list}" | awk 'NF'
-    else
-        echo "${template_list}" ; echo ""
-    fi
-    exit ${spb_template_listing_status}
-fi
-
 # show usage information
 if [[ "${help_wanted}" == "yes" ]] ; then
     echo ""
@@ -842,6 +799,50 @@ function check_template_directory_accessability() {
     fi
     return 0
 }
+
+
+# show available spb templates
+if [[ ${spb_list_templates} == "true" ]] ; then
+    # if [[ ${index} != 0 ]] || [[ ${num_args} -gt 1 ]]; then
+    #   echo ""
+    #   echo "ERROR! : Using the ${arg} option is not compatible with any other"
+    #   echo "         arguments / parameters."
+    #   echo ""
+    #   exit -79
+    # fi
+    # ls ${template_dir_parent/#\~/$HOME} | grep -v "available" | cat
+
+    # confirm template directory is accessable
+    check_template_directory_accessability
+
+    if [[ "${quite_mode}" != "true" ]] ; then
+        echo "" ; echo ""
+        echo "SPB Template Notes : "
+        echo "When loading, editing or creating templates,"
+        echo "you must not specify the browser name!"
+        echo "Specify only the template name."
+        echo "" ; echo ""
+        echo "SPB Templates List :" 
+    fi
+    
+    template_dir_parent_dirname=$(dirname ${template_dir_parent})
+    # awk_cut_point=$(basename ${template_dir_parent_dirname})
+    awk_cut_point="."
+
+    # this monstrosity outputs nicely formatted output when you list the templates
+    template_list=$(cd ${template_dir_parent_dirname/#\~/$HOME} && find ./ -maxdepth 2 -type d | grep -v "available" \
+    | awk -F "$awk_cut_point" '{print $2}' | awk 'gsub("/", "&")!=1' | sed 's/^\///' \
+    | awk '{gsub(/\//, "\t\t")}1' |  awk '{if($1!=last){if(NR>1)print""};last=$1;print}' \
+    | awk 'NR>1' | cat)
+
+    spb_template_listing_status=${?}
+    if [[ "${quite_mode}" == "true" ]] ; then 
+        echo "${template_list}" | awk 'NF'
+    else
+        echo "${template_list}" ; echo ""
+    fi
+    exit ${spb_template_listing_status}
+fi
 
 # process arguments using a for loop (yes it seems crazy but that is the way we are doing it)
 # this is a custom arg parser in 2025 :)
@@ -1626,7 +1627,6 @@ done
 # start a screen session with the name based off the temp directory, then once browser exits delete the temporary directory
 screen -S "${screen_session_name}" -dm bash -c " \"${spb_browser_path}\" ${browser_options} ${url_list} ; sleep 1 ; sync ; rm -rf ${browser_tmp_directory} ${spb_etlfr_cmd} "
 exit 0
-
 
 
 
