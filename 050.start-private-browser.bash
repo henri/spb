@@ -82,7 +82,7 @@
 # version 7.0 - experimental support for opera
 # version 7.1 - initial support for verbose option currently providing reporting of the path to to user data for session
 # version 7.2 - bug fix relating to following template symlinks when using the --list-templates option
-
+# version 7.3 - added option to overide the default /tmp/ directory used for storing temporary browser data via spb.config file
 
 ##
 ## Configuration of Variables
@@ -90,12 +90,13 @@
 
 # configuration variables
 screen_session_prefix="spb-session"                 #  prefix of the screen session name
-temp_path="/tmp/spb-browser"                        #  location of temporary browser data
+spb_temp_data_path="/tmp"                           #  temporary data stroage path
+temp_dir_name_prefix="spb-browser"                  #  prefix for spb temporary instance data storage
 template_dir_base="~/bin/spb-templates"             #  location of spb templates
 template_browser_id_filename="spb-browser.id"       #  file which will contain the browser identifier for this template
 update_script_path="~/bin/spb-update.bash"          #  where to find the spb-update script
 update_script_arguments="--auto-monitoring"         #  arguments passed to update script when running an update
-spb_configuration_file_name="spb.config"
+spb_configuration_file_name="spb.config"            #  default config file name
 
 # lock file variables to protect templates being edited
 spb_template_lock_file_name="spb-template-edit.lock"
@@ -112,6 +113,7 @@ pre_skip_arg="false"
 super_pre_skip_arg="false"
 pre_arg_scan_proceed="true"
 dot_dot_dot=""
+                      
 
 template_dir_base_default_override=""
 spb_default_multi_browser_support="false"
@@ -347,6 +349,7 @@ fi
 #
 # export spb_browser_name="brave"
 # export spb_browser_path="brave-browser"
+# export spb_temp_data_path="/tmp"
 #
 
 # configure the configuration file paths
@@ -361,6 +364,11 @@ fi
 
 # update the template directory parent so that it is browser specific
 template_dir_parent="${template_dir_base}/${spb_browser_name}"     
+
+# set the temp_path now we have sourced the configuration file
+temp_path="${spb_temp_data_path%/}/${temp_dir_name_prefix}"  
+
+
 
 # updated variables and the defaults
 creating_new_template="false"
@@ -1360,6 +1368,12 @@ fi
 ## 
 
 # create a temporary directory and setup the permissions so that only your user has access to the directory
+if ! [ -d ${spb_temp_data_path} ] ; then
+    echo "ERROR! : Unable to locate the temporary user data parent directory : "
+    echo "         ${spb_temp_data_path}"
+    exit -5
+fi
+
 browser_tmp_directory=$(mktemp ${mktemp_options} ${temp_path}-$(whoami)-XXXXX)
 if [[ $? != 0 ]] || [[ ! -d ${browser_tmp_directory} ]] ; then
     echo "ERROR! : Unable to create temporary user data directory"
