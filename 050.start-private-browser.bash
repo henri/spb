@@ -83,6 +83,7 @@
 # version 7.1 - initial support for verbose option currently providing reporting of the path to to user data for session
 # version 7.2 - bug fix relating to following template symlinks when using the --list-templates option
 # version 7.3 - added option to overide the default /tmp/ directory used for storing temporary browser data via spb.config file
+# version 7.4 - very experimental support for zen browser
 
 ##
 ## Configuration of Variables
@@ -128,6 +129,17 @@ if [[ ! -z ${BASH_VERSINFO} ]] ; then
         # remember if your operating system is not listed, it is possible to use environment variables or the configuration
         # file to specify the browser name and browser path for any browser / operating system pair
         declare -A spb_default_browser_data
+        # # # # # # # # # # # # #
+        spb_default_browser_data["zen:linux:mint"]="zen"
+        spb_default_browser_data["zen:linux:arch"]="zen"
+        spb_default_browser_data["zen:linux:ubuntu"]="zen"
+        spb_default_browser_data["zen:linux:debian"]="zen"
+        spb_default_browser_data["zen:linux:endeavouros"]="zen"
+        spb_default_browser_data["zen:linux:manjaro"]="zen"
+        spb_default_browser_data["zen:linux:centos"]="zen"
+        spb_default_browser_data["zen:linux:fredora"]="zen"
+        spb_default_browser_data["zen:darwin"]="/Applications/Zen.app/Contents/MacOS/zen"
+        spb_default_browser_data["zen:freebsd"]="zen"
         # # # # # # # # # # # # #
         spb_default_browser_data["opera:linux:mint"]="opera"
         spb_default_browser_data["opera:linux:arch"]="opera"
@@ -1537,10 +1549,13 @@ if [[ "${use_template_dir_name}" != "" ]] ; then
     sync --file-system ${browser_tmp_directory}
 fi
 
-# check if we are we using firefox or palemoon (experimental)
-if [[ "${spb_browser_name}" == "firefox" ]] || [[ "${spb_browser_name}" == "palemoon" ]] ; then 
+# check if we are we using firefox, palemoon or zen (experimental)
+if [[ "${spb_browser_name}" == "firefox" ]] || [[ "${spb_browser_name}" == "palemoon" ]] || [[ "${spb_browser_name}" == "zen" ]] ; then 
     incognito_options="--private-window"
     spb_data_browser_specifc_options="--new-instance --no-remote --class CustomClass --profile "
+    if [[ "${spb_browser_name}" == "zen" ]] ; then 
+         spb_data_browser_specifc_options="--new-instance --no-remote --profile "
+     fi
 elif [[ "${spb_browser_name}" == "opera" ]] ; then
     # check if we are using opera (experimental)
     incognito_options="--private"
@@ -1647,6 +1662,5 @@ done
 # start a screen session with the name based off the temp directory, then once browser exits delete the temporary directory
 screen -S "${screen_session_name}" -dm bash -c " \"${spb_browser_path}\" ${browser_options} ${url_list} ; sleep 1 ; sync ; rm -rf ${browser_tmp_directory} ${spb_etlfr_cmd} "
 exit 0
-
 
 
