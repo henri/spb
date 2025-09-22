@@ -85,6 +85,7 @@
 # version 7.3 - added option to overide the default /tmp/ directory used for storing temporary browser data via spb.config file
 # version 7.4 - very experimental support for zen browser
 # version 7.5 - updates to the help
+# version 7.6 - enabled post-browser script launching subsystem
 
 ##
 ## Configuration of Variables
@@ -103,6 +104,9 @@ spb_configuration_file_name="spb.config"            #  default config file name
 # lock file variables to protect templates being edited
 spb_template_lock_file_name="spb-template-edit.lock"
 spb_etlfr_cmd="" # spb edit template lock file remove command (leave this blank it is automatically updated when required)
+
+# post browser launch subsystem variables
+post_browser_cmd="" # executed once the browse has been launched (leave this blank it is automatically updated when required)
 
 # setup variables for processing arguments we ares specifically NOT using get opts 
 args=("$@")
@@ -1575,7 +1579,11 @@ if [[ "${spb_browser_name}" == "firefox" ]] || [[ "${spb_browser_name}" == "pale
     spb_data_browser_specifc_options="--new-instance --no-remote --class CustomClass --profile "
     if [[ "${spb_browser_name}" == "zen" ]] ; then 
          spb_data_browser_specifc_options="--new-instance --no-remote --profile "
-     fi
+         if [[ ${os_type} == "darwin" ]] ; then
+            # bring the zen to the front if running on macOS
+            post_browser_cmd="osascript -e 'tell application \"Zen\" to activate'"
+        fi
+    fi
 elif [[ "${spb_browser_name}" == "opera" ]] ; then
     # check if we are using opera (experimental)
     incognito_options="--private"
@@ -1681,6 +1689,20 @@ done
 
 # start a screen session with the name based off the temp directory, then once browser exits delete the temporary directory
 screen -S "${screen_session_name}" -dm bash -c " \"${spb_browser_path}\" ${browser_options} ${url_list} ; sleep 1 ; sync ; rm -rf ${browser_tmp_directory} ${spb_etlfr_cmd} "
+
+# run post browser commands
+if [[ "${post_browser_cmd}" != "" ]] ; then
+    sleep 1
+    bash -c "${post_browser_cmd}"
+    post_browser_cmd_status=$?
+    if [[ ${post_browser_cmd_status} != 0 ]] ; then
+        echo ""
+        echo "ERROR! : Post bowswer command failed with exit code : [${post_browser_cmd_status}]"
+        echo ""
+        exit ${post_browser_cmd_status}
+    fi
+fi
+
 exit 0
 
 
