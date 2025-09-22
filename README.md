@@ -344,6 +344,12 @@ This approach allows you to use try a browser which may not be officially suppor
 
 In addition, it is possible to overide and/or extend the mutli-browser support options on your system within the spb.config file. If the spb.cofnig file present, SPB will source this file and any values will be able to overide and/or extend the default multi-browser support which is currently offered by SPB.
 
+For additional information regarding SPB configuration files. Run the following command to open the SPB help page and jump to the approate section : 
+
+```
+spb --help | less -S -p "Configuration File"
+```
+
 SPB (Start Private Browser) was initially developed to only support and work with Brave. Because Brave is based on Chromium it was not a big ask to include add support for some other Chromium based browsers. Mozzila FireFox is also a popular browser and it seemed like a good idea to add experimenal support for FireFox. In addition, support for some specific FireFox forks have been added. At present SPB currently includes multi-browser support for PaleMoon and Zen. 
 
 Please note, that not all Chromium and FireFox based browsers are officially supported by SPB. Many broswers have significant variations from their upstream projects and in some cases it makes it impossible or difficult to get them working correctly with SPB. If you are a developer, then patches and pull requests are welcome if your faviorte browser is not yet supported and you would like to see support in an official SPB release. If you are not ready to make the changes yourself, then raise an issue or start a discussion.
