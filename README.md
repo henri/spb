@@ -36,7 +36,7 @@ This project is still in a [seedling stage](https://github.com/henri/spb/?tab=re
 
 ### :floppy_disk: Installation 
   1. [Confirm your operating system is supported and install dependicies](https://github.com/henri/spb/blob/main/README.md#triangular_flag_on_post-compatibility)
-  2. Kick-off install/upgrade by running the ~~one liner~~ four lines below in your terminal : 
+  2. Kick-off install/upgrade by running following inside a BASH shell : 
 ```bash
 /bin/bash -c "$(curl -fsSL \
 https://raw.githubusercontent.com/\
