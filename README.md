@@ -331,12 +331,13 @@ If you are using BASH 4 or later on your system, then SPB will enable multi-brow
 spb --browser chromium
 ```
 
-It is possible to set a default browser adding the following line into your SPB configuration file : 
+It is possible to set a default browser and custom path by adding the following lines into your SPB configuration file : 
 ```
 export spb_browser_name="chromium"
+export spb_browser_path="chromium"
 ```
 
-If your browser is installed in a custom path, it is possible to overide or extend the mutli-browser support by using your spb.config file. If present this will be sourced and any values will be able to overide the default multi-browser support offered by SPB.
+It is also possible to overide and/or extend the mutli-browser support by using your spb.config file. If present this will be sourced and any values will be able to overide and/or extend the default multi-browser support currently offered by SPB.
 
 SPB (Start Private Browser) was initially developed to only support and work with Brave. Because Brave is based on Chromium it was not a big ask to include add support for some other Chromium based browsers. Mozzila FireFox is also a popular browser and it seemed like a good idea to add experimenal support for FireFox. In addition, support for some specific FireFox forks have been added. At present SPB currently includes multi-browser support for PaleMoon and Zen. 
 
