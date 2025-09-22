@@ -333,16 +333,16 @@ The example command showen below instructs SPB to load the Chromium rather than 
 ```
 spb --browser chromium
 ```
-The path which will be used is configured within SPB for various operating systems with more linux distributions being added regularly. Pull requests are always welcome in this regard as there are so many different LINUX distributions with different apparoches to paths and naming for browsers.
+The path (or command) which will be used is launch the specified web browser is configured automatically within SPB for various operating systems. Pull requests are always welcome in this regard as there are so many different LINUX distributions with different apparoches to browser naming.
 
-It is also possible to set a default browser name and path by adding the following lines into your SPB configuration file : 
+It is also possible to configure a default browser name and path by adding the following lines into your SPB configuration file : 
 ```
 export spb_browser_name="chromium"
 export spb_browser_path="chromium"
 ```
-This approach allows you to use try a browser which may not be officially supported on your operating system yet by SPB.
+This approach allows you to use try a browser which may not be officially supported on your operating system yet by SPB. In the example above we are selecting Chromium as the default browser for SPB.
 
-In addition, it is possible to overide and/or extend the mutli-browser support options on your system within the spb.config file. If the spb.cofnig file present, SPB will source this file and any values will be able to overide and/or extend the default multi-browser support which is currently offered by SPB.
+In addition, it is possible to overide and/or extend the mutli-browser support options on your system within the spb.config file. If the spb.cofnig file present, SPB will source this file and many variables are able to overriden and/or extended beyond the default multi-browser support which is nativly provided by SPB.
 
 For additional information regarding SPB configuration files. Run the following command to open the SPB help page and jump to the appropriate section : 
 
@@ -350,10 +350,9 @@ For additional information regarding SPB configuration files. Run the following 
 spb --help | less -S -p "Configuration File"
 ```
 
-SPB (Start Private Browser) was initially developed to only support and work with Brave. Because Brave is based on Chromium it was not a big ask to include add support for some other Chromium based browsers. Mozzila FireFox is also a popular browser and it seemed like a good idea to add experimenal support for FireFox. In addition, support for some specific FireFox forks have been added. At present SPB currently includes multi-browser support for PaleMoon and Zen. 
+SPB (Start Private Browser) was initially developed to only support and work with Brave. Because Brave is based on Chromium it was not a big ask to include support for many other Chromium based browsers. Mozzila FireFox is also a popular browser and as such more recent versions of SPB add experimenal support for FireFox. In addition, support for specific FireFox forks have also been added to SPB. At present SPB includes multi-browser support for PaleMoon and Zen (both forks of FireFox). 
 
-Please note, that not all Chromium and FireFox based browsers are officially supported by SPB. Many broswers have significant variations from their upstream projects and in some cases it makes it impossible or difficult to get them working correctly with SPB. If you are a developer, then patches and pull requests are welcome if your faviorte browser is not yet supported and you would like to see support in an official SPB release. If you are not ready to make the changes yourself, then raise an issue or start a discussion.
-
+Please note, that not all Chromium and FireFox based browsers are officially supported by SPB. Many broswers have significant variations from their upstream projects and in some cases it makes it impossible or difficult to get them working correctly with SPB. If you are a developer, then patches and pull requests are welcome if your faviorte browser is not yet supported and you would like to see support in an official SPB release. If you are not ready to make the changes yourself, then open an issue or start a discussion.
 
 
 ### :rocket: Contributing to the project
