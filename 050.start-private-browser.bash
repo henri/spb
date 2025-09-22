@@ -843,6 +843,29 @@ function check_template_directory_accessability() {
     return 0
 }
 
+function run_post_browser_startup_commands() {
+    if [[ "${post_browser_cmd}" != "" ]] ; then
+        # try running the post script five times until it succees (if it fails after that many goes give up)
+        for post_script_attempt in {1..5} ; do
+            sleep 1
+            bash -c "${post_browser_cmd}" 2>>/dev/null >>/dev/null
+            post_browser_cmd_status=$?
+            if [[ ${post_browser_cmd_status} != 0 ]] ; then
+                continue
+            else
+                break
+            fi
+        done
+        if [[ ${post_browser_cmd_status} != 0 ]] ; then
+            echo ""
+            echo "ERROR! : Post bowswer command failed with exit code : [${post_browser_cmd_status}]"
+            echo ""
+            exit ${post_browser_cmd_status}
+        fi          
+    fi
+    return 0
+}
+
 
 # show available spb templates
 if [[ ${spb_list_templates} == "true" ]] ; then
@@ -1690,17 +1713,7 @@ done
 screen -S "${screen_session_name}" -dm bash -c " \"${spb_browser_path}\" ${browser_options} ${url_list} ; sleep 1 ; sync ; rm -rf ${browser_tmp_directory} ${spb_etlfr_cmd} "
 
 # run post browser commands
-if [[ "${post_browser_cmd}" != "" ]] ; then
-    sleep 1
-    bash -c "${post_browser_cmd}"
-    post_browser_cmd_status=$?
-    if [[ ${post_browser_cmd_status} != 0 ]] ; then
-        echo ""
-        echo "ERROR! : Post bowswer command failed with exit code : [${post_browser_cmd_status}]"
-        echo ""
-        exit ${post_browser_cmd_status}
-    fi
-fi
+run_post_browser_startup_commands
 
 exit 0
 
