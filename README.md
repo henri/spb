@@ -344,7 +344,7 @@ This approach allows you to use try a browser which may not be officially suppor
 
 In addition, it is possible to overide and/or extend the mutli-browser support options on your system within the spb.config file. If the spb.cofnig file present, SPB will source this file and any values will be able to overide and/or extend the default multi-browser support which is currently offered by SPB.
 
-For additional information regarding SPB configuration files. Run the following command to open the SPB help page and jump to the approate section : 
+For additional information regarding SPB configuration files. Run the following command to open the SPB help page and jump to the appropriate section : 
 
 ```
 spb --help | less -S -p "Configuration File"
