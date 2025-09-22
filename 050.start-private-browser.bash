@@ -858,7 +858,7 @@ function run_post_browser_startup_commands() {
         done
         if [[ ${post_browser_cmd_status} != 0 ]] ; then
             echo ""
-            echo "ERROR! : Post bowswer command failed with exit code : [${post_browser_cmd_status}]"
+            echo "ERROR! : Post Browser Command Failed (with exit code) : [${post_browser_cmd_status}]"
             echo ""
             exit ${post_browser_cmd_status}
         fi          
