@@ -84,6 +84,7 @@
 # version 7.2 - bug fix relating to following template symlinks when using the --list-templates option
 # version 7.3 - added option to overide the default /tmp/ directory used for storing temporary browser data via spb.config file
 # version 7.4 - very experimental support for zen browser
+# version 7.5 - updates to the help
 
 ##
 ## Configuration of Variables
@@ -564,6 +565,7 @@ if [[ "${help_wanted}" == "yes" ]] ; then
     echo "         If a configuration file is found, then it will sourced :"
     echo "         ${spb_configuration_file_path}"
     echo ""
+    echo ""
     echo "         Usage Summary : "
     echo ""
     echo "            # open a new private browser instance - optionally pass in a URL"
@@ -587,12 +589,14 @@ if [[ "${help_wanted}" == "yes" ]] ; then
     echo "            # update the spb system and associated fish snippets using default options"
     echo "            $ start-private-browser --update"
     echo ""
+    echo ""
+    echo "         Multi-Browser Suppport : "
+    echo ""
     echo "            # specify a browser name which will be loaded rather than the default"
     echo "            $ start-private-browser --browser <name-of-browser>"
     echo ""
     echo "            # show list of default browser names which may be selected"
     echo "            $ start-private-browser --list-browsers"
-    echo ""
     echo ""
     echo ""
     echo "         Templates (Usage & Management) : "
@@ -622,6 +626,23 @@ if [[ "${help_wanted}" == "yes" ]] ; then
     echo "             #           not being detected (unless you copy/link settings to your specified path)"
     echo "             #"
     echo "             $ start-private-browser --template-path <template-path>"
+    echo ""
+    echo ""
+    echo "         SPB Configuration File : "
+    echo ""
+    echo "            # SPB supports settings being stored within the SPB configuration file"
+    echo "            # when settings are stored in the configuration file this allows updating and"
+    echo "            # overwitting of various settings within SPB."
+    echo "            # "
+    echo "            # A full list of overwitable settings are showen with in the SPB soruce code"
+    echo "            # The spb file is currently sourced and this is important to be aware of if you"
+    echo "            # use configure the SPB configuration file."
+    echo "            #"
+    echo "            # If the file \"~/bin/spb-templates/spb.config\" is found, then it will be sourced"
+    echo "            # by SPB. The path shown above is the default path for this file. But remember, it is"
+    echo "            # possible to have multiple SPB configuration files and to switch between them by using"
+    echo "            # the SPB \"--template-path\" option to alter the template path. SPB will simply look"
+    echo "            # for a file with the name \"spb.config\" within the SPB template directory."
     echo ""
     echo ""
     echo "         Additional Resources : "
