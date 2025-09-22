@@ -324,6 +324,26 @@ This project is still in the :seedling: seedling stage (with lots of potential).
 
 <br/>
 
+### :sunrise_over_mountains: Browser Support
+If you are using BASH 4 or later on your system, then SPB will enable multi-browser support. This allows you to specify the name of the browser. The command below will instruct SPB to load Chromium rather than Brave (the default SPB browser) : 
+
+```
+spb --browser chromium
+```
+
+It is possible to set a default browser adding the following line into your SPB configuration file : 
+```
+export spb_browser_name="chromium"
+```
+
+If your browser is installed in a custom path, it is possible to overide or extend the mutli-browser support by using your spb.config file. If present this will be sourced and any values will be able to overide the default multi-browser support offered by SPB.
+
+SPB (Start Private Browser) was initially developed to only support and work with Brave. Because Brave is based on Chromium it was not a big ask to include add support for some other Chromium based browsers. Mozzila FireFox is also a popular browser and it seemed like a good idea to add experimenal support for FireFox. In addition, support for some specific FireFox forks have been added. At present SPB currently includes multi-browser support for PaleMoon and Zen. 
+
+Please note, that not all Chromium and FireFox based browsers are officially supported by SPB. Many broswers have significant variations from their upstream projects and in some cases it makes it impossible or difficult to get them working correctly with SPB. If you are a developer, then patches and pull requests are welcome if your faviorte browser is not yet supported and you would like to see support in an official SPB release. If you are not ready to make the changes yourself, then raise an issue or start a discussion.
+
+
+
 ### :rocket: Contributing to the project
 In order to protect users of this project all contributors must comply with the [Developer Certificate of Origin](https://developercertificate.org). This ensures that all contributions are properly licensed and attributed.
 
