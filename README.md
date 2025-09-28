@@ -246,8 +246,8 @@ Start an automated (unattended) update and monitor the progress by running the c
 #### Roll Your Own
 If you are looking to roll your own update system, then the notes below will assist you :
   - Pick a scheduling system (cron, launchd etc..) and add an entry
-    - ensure that you export the following environment variable (examples for fish and bash are below) :
-      - The example update script is written in bash and includes this environment variable export already.
+    - ensure that you export the following environment variables (examples for fish and bash are below) :
+      - The example [update script](https://github.com/henri/spb/blob/main/600.spb-update.bash) is written in bash and includes these exported environment varables already.
         - fish
           - ```set --export SPB_SKIP_OVERWRITE_CHECK "true"```
           - ```set --export SPB_UPDATE_SCRIPT_SKIP="true"```
@@ -350,10 +350,14 @@ For additional information regarding SPB configuration files. Run the following 
 spb --help | less -S -p "Configuration File"
 ```
 
-SPB (Start Private Browser) was initially developed to only support and work with Brave. Because Brave is based on Chromium it was not a big ask to include support for many other Chromium based browsers. Mozzila FireFox is also a popular browser and as such more recent versions of SPB add experimenal support for FireFox. In addition, support for specific FireFox forks have also been added to SPB. At present SPB includes multi-browser support for PaleMoon and Zen (both forks of FireFox). 
+#### SPB Browser Support History
 
-Please note, that not all Chromium and FireFox based browsers are officially supported by SPB. Many broswers have significant variations from their upstream projects and in some cases it makes it impossible or difficult to get them working correctly with SPB. If you are a developer, then patches and pull requests are welcome if your faviorte browser is not yet supported and you would like to see support in an official SPB release. If you are not ready to make the changes yourself, then open an issue or start a discussion.
+SPB (Start Private Browser) was initially developed to only support and work with Brave (back then it was a much simpler system of less than 100 lines of code). Due to Brave being based on [Chromium](https://www.chromium.org) it was not a big task to update SPB to include support for Chromium and many other Chromium based browsers. With [Mozzila FireFox](https://www.firefox.com) also being an extreamlly popular browser having decent command line support, the more recent versions of SPB have experimenal support for FireFox and some FireFox forks. Currently, SPB includes multi-browser support for the following FireFox forks : 
 
+  - [PaleMoon](https://www.palemoon.org/)
+  - [Zen](https://zen-browser.app/)
+
+Please note, that not all Chromium and FireFox based browsers are officially supported by SPB. Many broswers have significant variations from their upstream projects and in some cases these changes makes it impossible or at least difficult to get them working correctly with SPB ; without additional support from those projects. If you are a developer, then patches and pull requests are welcome if your faviorte browser is not yet supported and you would like to see support in an official SPB release. If you are not ready to make the changes yourself, then open an issue or start a discussion outlining your problem or request.
 
 ### :rocket: Contributing to the project
 In order to protect users of this project all contributors must comply with the [Developer Certificate of Origin](https://developercertificate.org). This ensures that all contributions are properly licensed and attributed.
