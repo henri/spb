@@ -352,7 +352,7 @@ spb --help | less -S -p "Configuration File"
 
 #### SPB Browser Support History
 
-SPB (Start Private Browser) was initially developed to only support and work with Brave (back then it was a much simpler system of less than 100 lines of code). Due to Brave being based on [Chromium](https://www.chromium.org) it was not a big task to update SPB to include support for Chromium and many other Chromium based browsers. With [Mozzila FireFox](https://www.firefox.com) also being an extreamlly popular browser having decent command line support, the more recent versions of SPB have experimenal support for FireFox and some FireFox forks. Currently, SPB includes multi-browser support for the following FireFox forks : 
+SPB (Start Private Browser) was initially developed to only support and work with Brave (back then SPB was a much simpler system totalling less than 100 lines of code). Due to Brave being based on [Chromium](https://www.chromium.org) it was not a big task to update SPB to include support for Chromium and many other Chromium based browsers. With [Mozzila FireFox](https://www.firefox.com) also being an extreamlly popular browser having decent command line support, the more recent versions of SPB have experimenal support for FireFox and some FireFox forks. Currently, SPB includes multi-browser support for the following FireFox forks : 
 
   - [PaleMoon](https://www.palemoon.org/)
   - [Zen](https://zen-browser.app/)
