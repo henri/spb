@@ -167,11 +167,11 @@ Mild testing has been completed on the following operating systems :
            - MacOS pacakge managers 
                - [Brew](https://brew.sh)
                  ```
-                   brew install git fish coreutils pv
+                   brew install git fish coreutils pv bash
                    brew install --cask brave-browser
                  ```
                - [MacPorts](https://www.macports.org/)
-                   - ``` sudo port install git fish coreutils pv```
+                   - ``` sudo port install git fish coreutils pv bash```
                    - Visit the [Brave website](https://brave.com/download/) and to manually install.
        - macOS 10.15 (and later)
        - Officially the latest versions of Chromium [requires macOS 13](https://issues.chromium.org/issues/376381582) or later.
