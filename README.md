@@ -180,7 +180,13 @@ Mild testing has been completed on the following operating systems :
 
 ### :shield: Telemetry and Privacy
 As you would expect. The SPB project has zero telemetry. As such if you decide to install and use this software nothing is sent back to mother-ship. 
-  
+
+Most shells are configured by default to save a history of commands. As such, if you are including URL's, search terms or other data as arguments to SPB, then be aware these will potentially be stored on your system. Removing hisotry data from a shell is often possible (but beyond the scope of this documentation). If you are using the fish shell, you may start a private fish session using the '--private' option (example below) and within these private fish sessions the history will not perisist on your system once you exit the shell. 
+```
+fish --private
+```
+If you require no trace left behind on your device as you browse the web, then [SPB is likely not the right tool](https://github.com/henri/spb/edit/main/README.md#warning-disclaimer). 
+
   > Note : If you schedule or manually run an install / update, then your system will poll and potentially access this Github reposotry. As such, it is advisable that you read the section below regarding this project being hosted on GitHub. If this is a problem think twice before installing SPB or running SPB updates (manually / scheduled).
 
 SPB is hosted on GitHub :octocat: and as such data is recorded :record_button: as you access this page. At the bottom of this page you will find links to manage the way GitHub handles your data and tracking within a browser. Also, the following links are useful with regards understanding the stance of GitHub towards privacy and trust : 
@@ -313,10 +319,8 @@ In the event additional privacy is required run SPB within a VM or within a cont
   * [Cubes OS](https://www.qubes-os.org/)
   * [Kasm Workspaces](https://kasmweb.com/)
 
-If you test it and it works on your operating system leave a comment :) or let me know it is not working.
+If you test SPB and it works on your operating system leave a comment :) or let me know it is not working.
 Currently there are no plans to make this work on Microsoft Windows. It may work within the WLS? Give it a try and let me know!
-
-At this stage the script is configured by direct editing. At some point perhaps a config file will be a thing? See the [road map](https://github.com/henri/spb/blob/main/900.roadmap.md) for details.
   
 If you decide to setup a [scheduled automatic update](https://github.com/henri/spb/blob/main/700.spb-add-to-user-crontab.bash), then you should trust that I am not going to add any malicious code into this system in the future and that the security of my systems are good enough to prevent someone else pushing malware into the code base. This applies to any software (not just SPB) which automatically updates (even if it is open source). You must alwasy trust the developers sufficiently if you enable auto-updates. This is why by design SPB will not automatically enable auto-updates. SPB expects that if you enable automatic updates you are intentionally placing trust in me to not mess with your system(s) deliberately and that I will secure my systems as the developer sufficiently to protect the SPB code base and build processes less, they break my security in order to take advantage of yours. Remember that any software system which automatically updates via the internet has these same risks.
 
