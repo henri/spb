@@ -89,7 +89,7 @@ The real power of SPB is less about the basic usage listed above and more the ab
   
 Automatons which leverage SPB may be simple operations such as performing a search or starting a chat. They may be also be complex operations controlled by scripts which will assist you with performing testing, bench-marking and other steps which you may need to be able to carry out repeatedly.
 
-Below are starter SPB examples for the fish shell to enhance every day web based tasks. More examples are on the horizon which will are examples for testing, bench-marking, more advanced automatons such as  leveraging AI agents. If you have created something which you feel may be useful to the SPB community, [start a discussion](https://github.com/henri/spb/discussions) and share your ideas.
+Below are starter SPB examples for the fish shell to enhance every day web based tasks. More examples are on the horizon for testing, bench-marking, advanced automatons such as leveraging AI agents. If you have created something which you feel may be useful to the SPB community, [start a discussion](https://github.com/henri/spb/discussions) and share your ideas.
 
 Handy wrapper scripts to facilitate SPB usage via the command line : 
 > <sub>During [installation](https://github.com/henri/spb/?tab=readme-ov-file#floppy_disk-installation) if fish is installed, you will be prompted to automatically install these fish snippets. If you install fish after SPB and would like to install these snippets, just run the [update command](https://github.com/henri/spb/?tab=readme-ov-file#bookmark_tabs-usage) or [re-install](https://github.com/henri/spb/?tab=readme-ov-file#floppy_disk-installation)</sub>
