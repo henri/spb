@@ -185,7 +185,7 @@ Most shells are configured by default to save a history of commands. As such, if
 ```
 fish --private
 ```
-If you require no trace left behind on your device as you browse the web, then [SPB is likely not the right tool](https://github.com/henri/spb/edit/main/README.md#warning-disclaimer). 
+If you require no trace left behind on your device as you browse the web, then [SPB is likely not the right tool](https://github.com/henri/spb/main/README.md#warning-disclaimer). 
 
   > Note : If you schedule or manually run an install / update, then your system will poll and potentially access this Github reposotry. As such, it is advisable that you read the section below regarding this project being hosted on GitHub. If this is a problem think twice before installing SPB or running SPB updates (manually / scheduled).
 
