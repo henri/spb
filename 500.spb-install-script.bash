@@ -110,6 +110,8 @@ echo ""
 function elevate_privildges () {
     # if running on macOS this is used to elevate permissions so that 
     # the file /etc/defaults/periodic.conf is able to be modified.
+    # this is only used on older version of macOS as newer versions
+    # seem to prevent this via enahnaced SIP (System Integrity Protection).
     sudo -k  # force password prompt
 }
 
