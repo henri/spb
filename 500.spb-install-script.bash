@@ -45,7 +45,7 @@
 # version 2.3 - Added enviroment varable support to setup updates via users crontab
 # version 2.4 - Bug fixes
 # version 2.5 - Updated the update URL
-# version 2.6 - Improved support modern macOS versions
+# version 2.6 - Improved support for modern macOS versions
 #
 
 # enviroment varibles setup
