@@ -1534,16 +1534,16 @@ if [[ "${use_template_dir_name}" != "" ]] ; then
     # check which programs are installed on this system for displaying progress bar while making a copy of the template
     if [[ "${quite_mode}" != "true" ]] && [[ "${template_copy_mac_clone_possible}" == "false" ]]; then
         if [[ "${template_show_progress_bar}" == "true" ]] ; then
-            which gcp 2>&1 >> /dev/null ; gcp_available=${?}
+            which gcp 2> /dev/null 1> /dev/null ; gcp_available=${?}
             if [[ ${gcp_available} == 0 ]] && [[ ${os_type} != "darwin" ]] ; then
                 gcp_available="true"
                 template_copy_progress_bar_possible="true"
             else
                 gcp_available="false"
-                which pv 2>&1 >> /dev/null ; pv_available=${?}
+                which pv 2> /dev/null 1> /dev/null ; pv_available=${?}
                 if [[ ${pv_available} == 0 ]] ; then
                     pv_available="true"
-                    which tar 2>&1 >> /dev/null ; tar_available=${?}
+                    which 2> /dev/null 1> /dev/null ; tar_available=${?}
                     if [[ ${tar_available} == 0 ]] ; then
                         tar_available="true"
                         template_copy_progress_bar_possible="true"
