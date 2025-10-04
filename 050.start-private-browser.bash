@@ -86,6 +86,7 @@
 # version 7.4 - very experimental support for zen browser
 # version 7.5 - updates to the help
 # version 7.6 - enabled post-browser script launching subsystem
+# version 7.7 - exerimental support for omarchy
 
 ##
 ## Configuration of Variables
@@ -137,6 +138,7 @@ if [[ ! -z ${BASH_VERSINFO} ]] ; then
         # # # # # # # # # # # # #
         spb_default_browser_data["zen:linux:mint"]="zen"
         spb_default_browser_data["zen:linux:arch"]="zen"
+        spb_default_browser_data["zen:linux:omarchy"]="zen"
         spb_default_browser_data["zen:linux:ubuntu"]="zen"
         spb_default_browser_data["zen:linux:debian"]="zen"
         spb_default_browser_data["zen:linux:endeavouros"]="zen"
@@ -148,6 +150,7 @@ if [[ ! -z ${BASH_VERSINFO} ]] ; then
         # # # # # # # # # # # # #
         spb_default_browser_data["opera:linux:mint"]="opera"
         spb_default_browser_data["opera:linux:arch"]="opera"
+        spb_default_browser_data["opera:linux:omarchy"]="opera"
         spb_default_browser_data["opera:linux:ubuntu"]="opera"
         spb_default_browser_data["opera:linux:debian"]="opera"
         spb_default_browser_data["opera:linux:endeavouros"]="opera"
@@ -159,6 +162,7 @@ if [[ ! -z ${BASH_VERSINFO} ]] ; then
         # # # # # # # # # # # # #
         spb_default_browser_data["palemoon:linux:mint"]="palemoon"
         spb_default_browser_data["palemoon:linux:arch"]="palemoon"
+        spb_default_browser_data["palemoon:linux:omarchy"]="palemoon"
         spb_default_browser_data["palemoon:linux:ubuntu"]="palemoon"
         spb_default_browser_data["palemoon:linux:debian"]="palemoon"
         spb_default_browser_data["palemoon:linux:endeavouros"]="palemoon"
@@ -170,6 +174,7 @@ if [[ ! -z ${BASH_VERSINFO} ]] ; then
         # # # # # # # # # # # # #
         spb_default_browser_data["firefox:linux:mint"]="firefox"
         spb_default_browser_data["firefox:linux:arch"]="firefox"
+        spb_default_browser_data["firefox:linux:omarchy"]="firefox"
         spb_default_browser_data["firefox:linux:ubuntu"]="firefox"
         spb_default_browser_data["firefox:linux:debian"]="firefox"
         spb_default_browser_data["firefox:linux:endeavouros"]="firefox"
@@ -183,6 +188,7 @@ if [[ ! -z ${BASH_VERSINFO} ]] ; then
         spb_default_browser_data["ungoogled-chromium:linux:ubuntu"]="ungoogled-chromium"
         spb_default_browser_data["ungoogled-chromium:linux:debian"]="ungoogled-chromium"
         spb_default_browser_data["ungoogled-chromium:linux:arch"]="ungoogled-chromium"
+        spb_default_browser_data["ungoogled-chromium:linux:omarchy"]="ungoogled-chromium"
         spb_default_browser_data["ungoogled-chromium:linux:endeavouros"]="ungoogled-chromium"
         spb_default_browser_data["ungoogled-chromium:linux:manjaro"]="ungoogled-chrome"
         spb_default_browser_data["ungoogled-chromium:linux:centos"]="ungoogled-chrome"
@@ -194,6 +200,7 @@ if [[ ! -z ${BASH_VERSINFO} ]] ; then
         spb_default_browser_data["vivaldi:linux:ubuntu"]="vivaldi"
         spb_default_browser_data["vivaldi:linux:debian"]="vivaldi"
         spb_default_browser_data["vivaldi:linux:arch"]="vivaldi"
+        spb_default_browser_data["vivaldi:linux:omarchy"]="vivaldi"
         spb_default_browser_data["vivaldi:linux:endeavouros"]="vivaldi"
         spb_default_browser_data["vivaldi:linux:manjaro"]="vivaldi"
         spb_default_browser_data["vivaldi:linux:centos"]="vivaldi"
@@ -205,6 +212,7 @@ if [[ ! -z ${BASH_VERSINFO} ]] ; then
         spb_default_browser_data["brave:linux:ubuntu"]="brave-browser"
         spb_default_browser_data["brave:linux:debian"]="brave-browser"
         spb_default_browser_data["brave:linux:arch"]="brave"
+        spb_default_browser_data["brave:linux:omarchy"]="brave"
         spb_default_browser_data["brave:linux:endeavouros"]="brave"
         spb_default_browser_data["brave:linux:manjaro"]="brave"
         spb_default_browser_data["brave:linux:centos"]="brave-browser"
@@ -216,6 +224,7 @@ if [[ ! -z ${BASH_VERSINFO} ]] ; then
         spb_default_browser_data["chromium:linux:ubuntu"]="chromium"
         spb_default_browser_data["chromium:linux:debian"]="chromium"
         spb_default_browser_data["chromium:linux:arch"]="chromium"
+        spb_default_browser_data["chromium:linux:omarchy"]="chromium"
         spb_default_browser_data["chromium:linux:endeavouros"]="chromium"
         spb_default_browser_data["chromium:linux:manjaro"]="chromium"
         spb_default_browser_data["chromium:linux:centos"]="chromium"
