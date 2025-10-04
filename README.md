@@ -151,16 +151,21 @@ Mild testing has been completed on the following operating systems :
           sudo pacman -Syu git fish coreutils grep screen 
           yay -S brave-bin
         ```
-      - [EndeavourOS](https://endeavouros.com/)
-        ```
-          sudo pacman -Syu git fish coreutils grep screen
-          yay -S brave-bin
-        ```
-      - [Manjearo](https://manjaro.org/)
-        ```
-          sudo pacman -Syu git fish coreutils grep screen
-          curl -fsS https://dl.brave.com/install.sh | sh
-        ```
+          - [EndeavourOS](https://endeavouros.com/)
+            ```
+              sudo pacman -Syu git fish coreutils grep screen
+              yay -S brave-bin
+            ```
+          - [Manjearo](https://manjaro.org/)
+            ```
+              sudo pacman -Syu git fish coreutils grep screen
+              curl -fsS https://dl.brave.com/install.sh | sh
+            ```
+          - [Omarchy](https://omarchy.org/)
+            ```
+              sudo pacman -Syu git fish coreutils grep screen
+              yay -S brave-bin
+            ```
   
    - <b>MacOS</b>
        - Brew or MacPorts are the recommend approaches to managing SPB dependencies on MacOS
