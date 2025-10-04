@@ -148,22 +148,22 @@ Mild testing has been completed on the following operating systems :
         ```
       - [Arch](https://archlinux.org/)
         ```
-          sudo pacman -Syu git fish coreutils grep screen 
+          sudo pacman -Syu git fish coreutils grep screen pv
           yay -S brave-bin
         ```
           - [EndeavourOS](https://endeavouros.com/)
             ```
-              sudo pacman -Syu git fish coreutils grep screen
+              sudo pacman -Syu git fish coreutils grep screen pv
               yay -S brave-bin
             ```
           - [Manjearo](https://manjaro.org/)
             ```
-              sudo pacman -Syu git fish coreutils grep screen
+              sudo pacman -Syu git fish coreutils grep screen pv
               curl -fsS https://dl.brave.com/install.sh | sh
             ```
           - [Omarchy](https://omarchy.org/)
             ```
-              sudo pacman -Syu git fish coreutils grep screen
+              sudo pacman -Syu git fish coreutils grep screen pv
               yay -S brave-bin
             ```
   
