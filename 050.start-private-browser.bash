@@ -87,6 +87,7 @@
 # version 7.5 - updates to the help
 # version 7.6 - enabled post-browser script launching subsystem
 # version 7.7 - exerimental support for omarchy
+# version 7.8 - added --browser-path option to allow the path to be set via the CLI rather than just via an envioment variable
 
 ##
 ## Configuration of Variables
@@ -120,10 +121,11 @@ pre_skip_arg="false"
 super_pre_skip_arg="false"
 pre_arg_scan_proceed="true"
 dot_dot_dot=""
-                      
+
 
 template_dir_base_default_override=""
 spb_default_multi_browser_support="false"
+spb_browser_path_externally_configured="false"
 
 # os detection
 os_type=$(uname -s | tr '[:upper:]' '[:lower:]')
@@ -290,10 +292,47 @@ for arg in "$@" ; do
         fi
     fi
 
+  # check to see if browser path specified as argument
+  if [[ "${arg}" == "--browser-path" ]] ; then
+
+    # check they are not listed more than once
+    if [[ "${spb_browser_path_externally_configured}" == "true" ]] ; then
+        echo ""
+        echo "ERROR! : Using the ${arg} option is only allowed once"
+        echo ""
+        exit -75
+    fi
+
+    # look ahead for passed argument parameters
+    if (( super_pre_index + 1 < num_args )) ; then
+        super_pre_next_arg="${args[super_pre_index + 1]}"
+    else
+        super_pre_next_arg=""
+    fi
+
+    # okay lets see whats what
+    if [[ "${super_pre_next_arg}" != "" ]] ; then
+        # configure the system to skip the next argument for processing 
+        # as it is the value for this one
+            super_pre_skip_arg="true"
+    else
+        echo ""
+        echo "ERROR! : When you specify --browser-path you must also"
+        echo "         supply a browser path which will be used"
+        echo "         instead of the default browser path."
+        echo ""
+        exit -164
+    fi
+
+    # update the browser path and other variables which depend on the browser path 
+    spb_browser_path="${super_pre_next_arg}"
+    spb_browser_path_externally_configured="true"
+    
+  fi
+
   ((super_pre_index++))
 
 done
-
 
 
 # configure the default SPB browser name
@@ -333,32 +372,35 @@ if [[ "${spb_browser_name_default}" != "${spb_browser_name}" ]] ; then
     # matches the specified browser
     spb_browser_is_default="false"
 fi
+
 spb_external_count=0
 [[ ! -z "${spb_browser_path}" ]] && spb_external_count=$((spb_external_count+1))
 [[ "${spb_browser_name_externally_configured}" == "true" ]] && spb_external_count=$((spb_external_count+1))
 if [[ spb_external_count -eq 1 ]] ; then
     if [[ "${spb_browser_name_externally_configured}" == "false" ]] || [[ "${spb_default_multi_browser_support}" == "false" ]]  ; then
-        echo "" ; echo "ERROR! : Unable to proceed environment variable problem!" ; echo ""
-        if [[ "${spb_default_multi_browser_support}" == "true" ]]  ; then
-            # multi-broser support enabled - report the situation relating to environment variables
-            echo "         When the 'spb_browser_path' enviroment varable is configured,"
-            echo "         the 'spb_browser_path' varable must also be set!"
-        else
-            # multi-browser support not enabled - explain one of these has been set but not both of them 
-            echo "         Automatic multi-browser support is unavailable due to the older version of BASH!"
-            echo "         Upgrade BASH or when configure either of the following environment variables :"
-            echo ""
-            echo "                         spb_browser_name or spb_browser_path"
-            echo ""
-            echo "         You must also configure the other. They either must both be set or alternatively"
-            echo "         neither variable should be externally configured."
+        if [[ "${spb_browser_path_externally_configured}" == "false" ]] ; then
+            echo "" ; echo "ERROR! : Unable to proceed environment variable problem!" ; echo ""
+            if [[ "${spb_default_multi_browser_support}" == "true" ]]  ; then
+                # multi-broser support enabled - report the situation relating to environment variables
+                echo "         When the 'spb_browser_path' enviroment varable is configured,"
+                echo "         the 'spb_browser_name' varable must also be set!"
+            else
+                # multi-browser support not enabled - explain one of these has been set but not both of them 
+                echo "         Automatic multi-browser support is unavailable due to the older version of BASH!"
+                echo "         Upgrade BASH or when configure either of the following environment variables :"
+                echo ""
+                echo "                         spb_browser_name or spb_browser_path"
+                echo ""
+                echo "         You must also configure the other. They either must both be set or alternatively"
+                echo "         neither variable should be externally configured."
 
+            fi
+            echo ""
+            echo "         This requirement is in relation to the template"
+            echo "         system directory organization."
+            echo ""
+            exit -176
         fi
-        echo ""
-        echo "         This requirement is in relation to the template"
-        echo "         system directory organization."
-        echo ""
-        exit -176
     fi
 fi
 
@@ -504,8 +546,18 @@ for arg in "$@" ; do
   fi
 
 
-  # check to see if quite mode should be enabled
+
+
+  # check to see if browser mode should be enabled
   if [[ "${arg}" == "--browser" ]] ; then
+
+    # check they are not listed more than once
+    if [[ "${spb_browser_name_externally_configured}" == "true" ]] ; then
+        echo ""
+        echo "ERROR! : Using the ${arg} option is only allowed once"
+        echo ""
+        exit -75
+    fi
 
     # look ahead for passed argument parameters
     if (( pre_index + 1 < num_args )) ; then
@@ -514,7 +566,7 @@ for arg in "$@" ; do
         pre_next_arg=""
     fi
 
-    if [[ "${spb_default_multi_browser_support}" == "false" ]] ; then
+    if [[ "${spb_default_multi_browser_support}" == "false" ]] && [[ "${spb_browser_path_externally_configured}" == "false" ]] ; then
         echo ""
         echo "ERROR! : SPB multi-browser Support is not available!"
         echo ""
@@ -529,6 +581,13 @@ for arg in "$@" ; do
         echo "         browser by setting environment variables."
         echo "         It is possible to set these in the SPB"
         echo "         configuration file or via your shell."
+        echo ""
+        echo "         Finally, it is also possible to use the "
+        echo "         --browser-path option to specify a path"
+        echo "         for your browser."
+        echo ""
+        echo "         For addiitonal help use the command : "
+        echo "         ${0} --help"
         echo ""
         exit -165
     fi
@@ -560,6 +619,19 @@ for arg in "$@" ; do
   ((pre_index++))
 
 done
+
+
+# ensure that if the browser path is configud via an option that the browser name is also configured
+if [[ "${spb_browser_path_externally_configured}" == "true" ]] && [[ "${spb_browser_name_externally_configured}" != "true" ]] ; then
+    echo ""
+    echo "ERROR! : Using the --browser-path option also requires using the --browser option."
+    echo ""
+    echo "         When the 'spb_browser_path' enviroment varable is configured,"
+    echo "         the 'spb_browser_name' varable must also be set!"
+    echo ""
+    exit -99
+fi
+
 
 # show usage information
 if [[ "${help_wanted}" == "yes" ]] ; then
@@ -608,6 +680,9 @@ if [[ "${help_wanted}" == "yes" ]] ; then
     echo ""
     echo "            # show list of default browser names which may be selected"
     echo "            $ start-private-browser --list-browsers"
+    echo ""
+    echo "            # specify a browser path to use rather than the default"
+    echo "            $ start-private-browser --browser-path <path-to-browser>"
     echo ""
     echo ""
     echo "         Templates (Usage & Management) : "
@@ -1705,12 +1780,12 @@ while [[ ${#} -ge 1 ]] ; do
             new_browser_argument="--${browser_option_name}=\"${browser_option_value}\""
             browser_options="${browser_options} ${new_browser_argument}"
         else
-            if [[ "${1}" != "--browser" ]] && [[ "${1}" != "--template" ]] && [[ "${1}" != "--new-template" ]] && [[ "${1}" != "--edit-template" ]] &&  [[ "${1}" != "${--template-path}" ]] ; then
+            if [[ "${1}" != "--browser" ]] && [[ "${1}" != "--browser-path" ]]  && [[ "${1}" != "--template" ]] && [[ "${1}" != "--new-template" ]] && [[ "${1}" != "--edit-template" ]] && [[ "${1}" != "${--template-path}" ]] ; then
                 browser_options="${1} ${browser_options}"
             fi
         fi
     else
-        if [[ "${1}" != "${spb_browser_name}" ]] && [[ "${1}" != "${use_template_dir_name}" ]] && [[ "${1}" != "${edit_template_dir_name}" ]] && [[ "${1}" != "${template_dir_base_default_override}" ]] ; then
+        if [[ "${1}" != "${spb_browser_name}" ]] && [[ "${1}" != "${spb_browser_path}" ]] && [[ "${1}" != "${use_template_dir_name}" ]] && [[ "${1}" != "${edit_template_dir_name}" ]] && [[ "${1}" != "${template_dir_base_default_override}" ]] ; then
             # build the URL list (but exclude the spb_browser_name, template and edit-template data which may be have been provided)
             url_list="${url_list} \"${1}\""
         fi
