@@ -358,7 +358,7 @@ export spb_browser_path="chromium"
 ```
 This approach allows you to use try a browser which may not be officially supported on your operating system yet by SPB. In the example above we are selecting Chromium as the default browser for SPB.
 
-In addition, it is possible to overide and/or extend the mutli-browser support options on your system within the spb.config file. If the spb.cofnig file present, SPB will source this file and many variables are able to overriden and/or extended beyond the defaults which SPB multi-browser support nativly offers.
+In addition, it is possible to overide and/or extend the mutli-browser support options on your system within the spb.config file. If the spb.cofnig file present, SPB will source this file and many variables are able to be overriden and/or extended beyond the defaults which SPB multi-browser support nativly offers.
 
 For additional information regarding SPB configuration files. Run the following command to open the SPB help page and jump to the appropriate section : 
 
