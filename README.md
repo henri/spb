@@ -375,6 +375,15 @@ SPB (Start Private Browser) was initially developed to only support and work wit
 
 Please note, that not all Chromium and FireFox based browsers are officially supported by SPB. Many broswers have significant variations from their upstream projects and in some cases these changes makes it impossible or at least difficult to get them working correctly with SPB ; without additional support from those projects. If you are a developer, then patches and pull requests are welcome if your faviorte browser is not yet supported and you would like to see support in an official SPB release. If you are not ready to make the changes yourself, then open an issue or start a discussion outlining your problem or request.
 
+#### :dart: SPB Summary
+
+SPB is a powerful tool on your computer. Below is a summary of the key features on offer : 
+  - Reliable templating system ; privding a simple way to isolate different tasks from one and other.
+  - Licensed under GNU GPL, ensuring your rights as a user of the softrware is respected.
+  - Easy installation and removal.
+  - Support for multiple web browsers.
+  - Compatabilty with many different operating systems.
+
 ### :rocket: Contributing to the project
 In order to protect users of this project all contributors must comply with the [Developer Certificate of Origin](https://developercertificate.org). This ensures that all contributions are properly licensed and attributed.
 
