@@ -1010,7 +1010,7 @@ if [[ ${spb_list_templates} == "true" ]] ; then
         echo "" ; echo ""
         echo "SPB Template Notes : "
         echo "When loading, editing or creating templates,"
-        echo "you must only the template name."
+        echo "you must only specify the template name."
         if [[ "${verbose_mode}" == "true" ]] ; then
             echo ""
             echo "The browser is selected using the"
