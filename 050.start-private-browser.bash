@@ -1025,6 +1025,7 @@ if [[ ${spb_list_templates} == "true" ]] ; then
         fi
         echo "" ; echo ""
         echo "SPB Templates List :" 
+        echo ""
     fi
     
     template_dir_parent_dirname=$(dirname ${template_dir_parent})
