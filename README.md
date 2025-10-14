@@ -166,7 +166,7 @@ Mild testing has been completed on the following operating systems :
               sudo pacman -Syu git fish coreutils grep screen pv
               yay -S brave-bin
             ```
-      - [Debian](https://www.debian.org/))
+      - [Debian](https://www.debian.org/)
         ```
           sudo apt update
           sudo apt install apt-transport-https curl git fish coreutils grep screen pv
