@@ -88,6 +88,7 @@
 # version 7.6 - enabled post-browser script launching subsystem
 # version 7.7 - exerimental support for omarchy
 # version 7.8 - added --browser-path option to allow the path to be set via the CLI rather than just via an envioment variable
+# version 7.9 - improved --list-browser option output to check if a browser is installed on the system
 
 ##
 ## Configuration of Variables
@@ -457,6 +458,8 @@ quite_mode="false"
 force_stop_mode="false"
 template_browser_id_absolute="" # when creating a new template this is set to the full absolute path to the template browser_id file
 
+# check mark
+tick_mark='\xE2\x9C\x94'
 
 
 
@@ -494,12 +497,49 @@ for arg in "$@" ; do
         echo ""
         exit -150
     fi
+    # build unique list of browsers
     for key in "${!spb_default_browser_data[@]}"; do
         if [[ $( echo "${key}" | awk -F ":" '{print $2}' | grep "${os_type}" ) ]] ; then
             spb_default_browser_list="${key%%:*}\n${spb_default_browser_list}"
         fi
     done
-    echo -e ${spb_default_browser_list} | awk 'NF' | sort -u
+    browser_list_unique=$(echo -e ${spb_default_browser_list} | awk 'NF' | sort -u)
+    # carry out some os detection checks and set defaults if running unsupported operating system
+    if [[ "${os_type}" == "linux" ]] ; then
+        distro=$(grep ^ID= /etc/os-release | awk -F "=" '{print $2}' )
+        if [[ "${distro}" == "linuxmint" ]] ; then distro="mint" ; fi
+        spb_browser_path="${spb_default_browser_data[brave:$os_type:$distro]}"
+    else
+        spb_browser_path="${spb_default_browser_data[brave:$os_type]}"
+    fi
+    if [[ "${spb_browser_path}" == "" ]] ; then
+        echo ""
+        echo " WARNING!  :  You have requested a list of browsers."
+        echo "              Unfortunately your operating system is"
+        echo "              not yet offically supported by SPB."
+        echo ""
+        echo "              The information displayed below may"
+        echo "              include inaccuracies."
+        echo ""
+        echo ""
+        os_type="linux" # we make a guess and go with linux.
+        distro="mint" # we make a guess and go with mint.
+    fi
+    echo " installed    browser"
+    echo ""
+    # list browsers and their installation status (indicated with a tick)
+    for spb_browser_name in $browser_list_unique ; do
+        installed=" "
+        if [[ "${os_type}" == "linux" ]] ; then
+            spb_browser_path="${spb_default_browser_data[$spb_browser_name:$os_type:$distro]}"
+        else
+            spb_browser_path="${spb_default_browser_data[$spb_browser_name:$os_type]}"
+        fi
+        # check if browser is installed and found in path
+        which $spb_browser_path 2>/dev/null >/dev/null ; if [[ ${?} == 0 ]] ; then installed="${tick_mark}" ; fi
+        echo -e "     ${installed}        ${spb_browser_name}"
+    done
+    echo ""
     exit 0
   fi
 
