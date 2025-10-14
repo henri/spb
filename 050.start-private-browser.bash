@@ -111,7 +111,7 @@ spb_etlfr_cmd="" # spb edit template lock file remove command (leave this blank 
 # post browser launch subsystem variables
 post_browser_cmd="" # executed once the browse has been launched (leave this blank it is automatically updated when required)
 
-# setup variables for processing arguments we ares specifically NOT using get opts 
+# setup variables for processing arguments we are specifically NOT using get opts 
 args=("$@")
 index=0
 pre_index=0
