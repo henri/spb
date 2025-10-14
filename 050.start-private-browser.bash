@@ -89,6 +89,7 @@
 # version 7.7 - exerimental support for omarchy
 # version 7.8 - added --browser-path option to allow the path to be set via the CLI rather than just via an envioment variable
 # version 7.9 - improved --list-browser option output to check if a browser is installed on the system
+# version 8.0 - slightly improved help message when listing templates with the --list-templates option
 
 ##
 ## Configuration of Variables
@@ -111,7 +112,7 @@ spb_etlfr_cmd="" # spb edit template lock file remove command (leave this blank 
 # post browser launch subsystem variables
 post_browser_cmd="" # executed once the browse has been launched (leave this blank it is automatically updated when required)
 
-# setup variables for processing arguments we are specifically NOT using get opts 
+# setup variables for processing arguments we ares specifically NOT using get opts 
 args=("$@")
 index=0
 pre_index=0
@@ -1009,12 +1010,17 @@ if [[ ${spb_list_templates} == "true" ]] ; then
         echo "" ; echo ""
         echo "SPB Template Notes : "
         echo "When loading, editing or creating templates,"
-        echo "you must not specify the browser name!"
-        echo "Specify only the template name."
+        echo "you must only the template name."
         if [[ "${verbose_mode}" == "true" ]] ; then
             echo ""
-            echo "The browser name may be set using the"
-            echo "--browser option. For more infomation"
+            echo "The browser is selected using the"
+            echo "--browser option."
+            echo ""
+            echo "Example to create a new brave template called 'my-brave' :"
+            echo ""
+            echo "  start-private-browser --browser brave --new-template my-brave"
+            echo ""
+            echo "For additional infomation"
             echo "use the --help option."
         fi
         echo "" ; echo ""
