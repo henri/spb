@@ -522,10 +522,10 @@ for arg in "$@" ; do
         echo "              The information displayed below may"
         echo "              include inaccuracies."
         echo ""
-        echo ""
         os_type="linux" # we make a guess and go with linux.
         distro="mint" # we make a guess and go with mint.
     fi
+    echo ""
     echo " installed    browser"
     echo ""
     # list browsers and their installation status (indicated with a tick)
