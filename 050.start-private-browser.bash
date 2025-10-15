@@ -526,7 +526,7 @@ for arg in "$@" ; do
         distro="mint" # we make a guess and go with mint.
     fi
     echo ""
-    echo " installed    browser"
+    echo " installed    name-of-browser"
     echo ""
     # list browsers and their installation status (indicated with a tick)
     for spb_browser_name in $browser_list_unique ; do
