@@ -237,7 +237,7 @@ spb-pai "vet the following project code for malware : https://github.com/henri/s
   <a href="https://github.com/henri/spb/?tab=readme-ov-file#lock-security-and-trust" ><img src="https://github.com/henri/spb/blob/readme-images/spb-security-trust.jpeg?raw=true" width="80%"></a>
 </p>
 
-SPB is hosted on GitHub :octocat: and as such the infrastructure sits (or will soon) on Microsoft's Azure cloud. They have a track record of having security issues. Always Keep this in mind when you pulling any code from GitHub.
+SPB is hosted on GitHub :octocat: and as such the infrastructure (will soon) sit on Microsoft's [Azure](azure.com). This platform has a track record of various security issues. Always Keep this in mind when pulling any code from GitHub.
 
 <br/>
 
