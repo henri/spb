@@ -237,7 +237,11 @@ spb-pai "vet the following project code for malware : https://github.com/henri/s
   <a href="https://github.com/henri/spb/?tab=readme-ov-file#lock-security-and-trust" ><img src="https://github.com/henri/spb/blob/readme-images/spb-security-trust.jpeg?raw=true" width="80%"></a>
 </p>
 
+SPB is hosted on GitHub :octocat: and as such the infrastructure sits (or will soon) on Microsoft's Azure cloud. They have a track record of having security issues. Always Keep this in mind when you pulling any code from GitHub.
+
 <br/>
+
+
 
 ### :arrows_counterclockwise: Automate Installation and Updates
 The included [spb-update.bash](https://github.com/henri/spb/blob/main/600.spb-update.bash) script may be run interactively (see [usage above](https://github.com/henri/spb/?tab=readme-ov-file#bookmark_tabs-usage)). Alternatively, you may prefer to start it via a scheduling program (eg.[cron](https://en.wikipedia.org/wiki/Cron)) so that SPB regularly updates automatically. 
