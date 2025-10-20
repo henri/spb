@@ -149,12 +149,12 @@ Mild testing has been completed on the following operating systems :
       - [Arch](https://archlinux.org/)
         ```
           sudo pacman -Syu git fish coreutils grep screen pv
-          paru -S brave-bin
+          yay -S brave-bin
         ```
           - [CachyOS](https://cachyos.org/)
             ```
               sudo pacman -Syu screen
-              yay -S brave-bin
+              paru -S brave-bin
             ```
           - [EndeavourOS](https://endeavouros.com/)
             ```
