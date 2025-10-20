@@ -149,7 +149,7 @@ Mild testing has been completed on the following operating systems :
       - [Arch](https://archlinux.org/)
         ```
           sudo pacman -Syu git fish coreutils grep screen pv
-          yay -S brave-bin
+          paru -S brave-bin
         ```
           - [CachyOS](https://cachyos.org/)
             ```
@@ -169,7 +169,7 @@ Mild testing has been completed on the following operating systems :
           - [Omarchy](https://omarchy.org/)
             ```
               sudo pacman -Syu git fish coreutils grep screen pv
-              paru -S brave-bin
+              yay -S brave-bin
             ```
       - [Debian](https://www.debian.org/) (x86)
         ```
