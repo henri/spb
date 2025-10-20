@@ -90,6 +90,7 @@
 # version 7.8 - added --browser-path option to allow the path to be set via the CLI rather than just via an envioment variable
 # version 7.9 - improved --list-browser option output to check if a browser is installed on the system
 # version 8.0 - slightly improved help message when listing templates with the --list-templates option
+# version 8.1 - added experimental support for cachyos
 
 ##
 ## Configuration of Variables
@@ -149,8 +150,9 @@ if [[ ! -z ${BASH_VERSINFO} ]] ; then
         spb_default_browser_data["zen:linux:manjaro"]="zen"
         spb_default_browser_data["zen:linux:centos"]="zen"
         spb_default_browser_data["zen:linux:fredora"]="zen"
-        spb_default_browser_data["zen:darwin"]="/Applications/Zen.app/Contents/MacOS/zen"
+        spb_default_browser_data["zen:linux:cachyos"]="zen"
         spb_default_browser_data["zen:freebsd"]="zen"
+        spb_default_browser_data["zen:darwin"]="/Applications/Zen.app/Contents/MacOS/zen"
         # # # # # # # # # # # # #
         spb_default_browser_data["opera:linux:mint"]="opera"
         spb_default_browser_data["opera:linux:arch"]="opera"
@@ -161,8 +163,9 @@ if [[ ! -z ${BASH_VERSINFO} ]] ; then
         spb_default_browser_data["opera:linux:manjaro"]="opera"
         spb_default_browser_data["opera:linux:centos"]="opera"
         spb_default_browser_data["opera:linux:fredora"]="opera"
-        spb_default_browser_data["opera:darwin"]="/Applications/Opera.app/Contents/MacOS/Opera"
+        spb_default_browser_data["opera:linux:cachyos"]="opera"
         spb_default_browser_data["opera:freebsd"]="opera"
+        spb_default_browser_data["opera:darwin"]="/Applications/Opera.app/Contents/MacOS/Opera"
         # # # # # # # # # # # # #
         spb_default_browser_data["palemoon:linux:mint"]="palemoon"
         spb_default_browser_data["palemoon:linux:arch"]="palemoon"
@@ -173,8 +176,9 @@ if [[ ! -z ${BASH_VERSINFO} ]] ; then
         spb_default_browser_data["palemoon:linux:manjaro"]="palemoon"
         spb_default_browser_data["palemoon:linux:centos"]="palemoon"
         spb_default_browser_data["palemoon:linux:fredora"]="palemoon"
-        spb_default_browser_data["palemoon:darwin"]="/Applications/Pale Moon.app/Contents/MacOS/palemoon"
+        spb_default_browser_data["palemoon:linux:cachyos"]="palemoon"
         spb_default_browser_data["palemoon:freebsd"]="palemoon"
+        spb_default_browser_data["palemoon:darwin"]="/Applications/Pale Moon.app/Contents/MacOS/palemoon"
         # # # # # # # # # # # # #
         spb_default_browser_data["firefox:linux:mint"]="firefox"
         spb_default_browser_data["firefox:linux:arch"]="firefox"
@@ -185,8 +189,9 @@ if [[ ! -z ${BASH_VERSINFO} ]] ; then
         spb_default_browser_data["firefox:linux:manjaro"]="firefox"
         spb_default_browser_data["firefox:linux:centos"]="firefox"
         spb_default_browser_data["firefox:linux:fredora"]="firefox"
-        spb_default_browser_data["firefox:darwin"]="/Applications/Firefox.app/Contents/MacOS/Firefox"
+        spb_default_browser_data["firefox:linux:cachyos"]="firefox"
         spb_default_browser_data["firefox:freebsd"]="firefox"
+        spb_default_browser_data["firefox:darwin"]="/Applications/Firefox.app/Contents/MacOS/Firefox"
         # # # # # # # # # # # # #
         spb_default_browser_data["ungoogled-chromium:linux:mint"]="ungoogled-chromium"
         spb_default_browser_data["ungoogled-chromium:linux:ubuntu"]="ungoogled-chromium"
@@ -197,6 +202,7 @@ if [[ ! -z ${BASH_VERSINFO} ]] ; then
         spb_default_browser_data["ungoogled-chromium:linux:manjaro"]="ungoogled-chrome"
         spb_default_browser_data["ungoogled-chromium:linux:centos"]="ungoogled-chrome"
         spb_default_browser_data["ungoogled-chromium:linux:fredora"]="ungoogled-chrome"
+        spb_default_browser_data["ungoogled-chromium:linux:cachyos"]="ungoogled-chrome"
         spb_default_browser_data["ungoogled-chromium:freebsd"]="ungoogled-chromium"
         spb_default_browser_data["ungoogled-chromium:darwin"]="/Applications/Chromium.app/Contents/MacOS/Chromium"
         # # # # # # # # # # # # #
@@ -209,6 +215,7 @@ if [[ ! -z ${BASH_VERSINFO} ]] ; then
         spb_default_browser_data["vivaldi:linux:manjaro"]="vivaldi"
         spb_default_browser_data["vivaldi:linux:centos"]="vivaldi"
         spb_default_browser_data["vivaldi:linux:fredora"]="vivaldi"
+        spb_default_browser_data["vivaldi:linux:cachyos"]="vivaldi"
         spb_default_browser_data["vivaldi:freebsd"]="vivaldi"
         spb_default_browser_data["vivaldi:darwin"]="/Applications/Vivaldi.app/Contents/MacOS/Vivaldi"
         # # # # # # # # # # # # #
@@ -221,6 +228,7 @@ if [[ ! -z ${BASH_VERSINFO} ]] ; then
         spb_default_browser_data["brave:linux:manjaro"]="brave"
         spb_default_browser_data["brave:linux:centos"]="brave-browser"
         spb_default_browser_data["brave:linux:fredora"]="brave-browser"
+        spb_default_browser_data["brave:linux:cachyos"]="brave"
         spb_default_browser_data["brave:freebsd"]="brave-browser"
         spb_default_browser_data["brave:darwin"]="/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"
         # # # # # # # # # # # # #
@@ -233,6 +241,7 @@ if [[ ! -z ${BASH_VERSINFO} ]] ; then
         spb_default_browser_data["chromium:linux:manjaro"]="chromium"
         spb_default_browser_data["chromium:linux:centos"]="chromium"
         spb_default_browser_data["chromium:linux:fredora"]="chromium"
+        spb_default_browser_data["chromium:linux:cachyos"]="chromium"
         spb_default_browser_data["chromium:freebsd"]="chromium"
         spb_default_browser_data["chromium:darwin"]="/Applications/Chromium.app/Contents/MacOS/Chromium"
         # # # # # # # # # # # # #
