@@ -34,7 +34,7 @@ This project is still in a [seedling stage](https://github.com/henri/spb/?tab=re
 
 <br/>
 
-SPB includes built-in support for a growing list of [operating systems]((https://github.com/henri/spb/blob/main/README.md#triangular_flag_on_post-compatibility)) and [browsers](https://github.com/henri/spb/blob/main/README.md#sunrise-browser-support).
+SPB features built-in support for a growing list of [operating systems]((https://github.com/henri/spb/blob/main/README.md#triangular_flag_on_post-compatibility)) and [browsers](https://github.com/henri/spb/blob/main/README.md#sunrise-browser-support).
 
 <br/>
 
