@@ -362,6 +362,12 @@ The example command showen below instructs SPB to load the Chromium rather than 
 ```
 spb --browser chromium
 ```
+
+This next example will show a list of browsers which SPB nativly supports
+```
+spb --list-browsers
+```
+
 The path (or command) which will be used is launch the specified web browser is configured automatically within SPB for various operating systems. Pull requests are always welcome in this regard as there are so many different LINUX distributions with different apparoches to browser naming.
 
 In the event you would like to try use a browser or operating system which is not officially supported, then you could try the following command to say launch chromium :
@@ -369,7 +375,7 @@ In the event you would like to try use a browser or operating system which is no
 ```
 spb --browser chromium --browser-path chromium
 ```
-Specifing the --browser and --browser-path command line arguments also allow you to reference non-standard paths or even setup browsers with custom icons for that session. These command line options allow you to quickly specify specific browses an adhoc basis.
+Specifing the --browser and --browser-path command line arguments also allow you to reference non-standard paths or even setup browsers with custom icons for that session. These command line options allow you to quickly specify specific browses on an adhoc basis.
 
 It is also possible to configure a default browser name and path by adding the following lines into your SPB configuration file : 
 ```
@@ -398,7 +404,7 @@ Please note, that not all Chromium and FireFox based browsers are officially sup
 #### :dart: SPB Summary
 
 SPB is a powerful tool on your computer. Below is a summary of the key features on offer : 
-  - Reliable templating system ; privding a simple way to isolate different tasks from one and other.
+  - Reliable templating system which provides task isolation.
   - Licensed under GNU GPL, ensuring your rights as a user of the softrware is respected.
   - Easy installation and removal.
   - Support for multiple web browsers.
