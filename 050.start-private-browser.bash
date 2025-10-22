@@ -93,6 +93,7 @@
 # version 8.1 - added experimental support for cachyos
 # version 8.2 - added option to allow for editing of the active spb configuration file using the --edit-configuration option
 # version 8.3 - improved template listing display for browsers with longer names (specifically chromium)
+# version 8.4 - improved verbose output when listing templates to include template directory
 
 
 ##
@@ -1035,6 +1036,9 @@ if [[ ${spb_list_templates} == "true" ]] ; then
     # confirm template directory is accessable
     check_template_directory_accessability
 
+    template_dir_parent_dirname=$(dirname ${template_dir_parent})
+    awk_cut_point="."
+
     if [[ "${quite_mode}" != "true" ]] ; then
         echo "" ; echo ""
         echo "SPB Template Notes : "
@@ -1049,17 +1053,16 @@ if [[ ${spb_list_templates} == "true" ]] ; then
             echo ""
             echo "  start-private-browser --browser brave --new-template my-brave"
             echo ""
-            echo "For additional infomation"
-            echo "use the --help option."
+            echo "For additional infomation use the --help option."
+            echo "" ; echo ""
+            echo "////////////////////////////////////////////////////////////////////" ; echo ""
+            echo "SPB Active Templates Directory : ${template_dir_parent_dirname}" ; echo ""
+            echo "////////////////////////////////////////////////////////////////////"
         fi
         echo "" ; echo ""
         echo "SPB Templates List :" 
         echo ""
     fi
-    
-    template_dir_parent_dirname=$(dirname ${template_dir_parent})
-    # awk_cut_point=$(basename ${template_dir_parent_dirname})
-    awk_cut_point="."
 
     # this monstrosity outputs nicely formatted output when you list the templates
     template_list=$(cd ${template_dir_parent_dirname/#\~/$HOME} && find ./ -maxdepth 2 -type d | grep -v "available" \
