@@ -1064,8 +1064,8 @@ if [[ ${spb_list_templates} == "true" ]] ; then
     # this monstrosity outputs nicely formatted output when you list the templates
     template_list=$(cd ${template_dir_parent_dirname/#\~/$HOME} && find ./ -maxdepth 2 -type d | grep -v "available" \
     | awk -F "$awk_cut_point" '{print $2}' | awk 'gsub("/", "&")!=1' | sed 's/^\///' \
-    | awk '{gsub(/\//, "\t\t")}1' |  awk '{if($1!=last){if(NR>1)print""};last=$1;print}' \
-    | awk 'NR>1' | awk '{printf "%s%s%s\n", $1, (length($1) > 7 ? "\t" : "\t\t"), $2}' \
+    | awk '{gsub(/\//, "\t\t")}1' | awk 'NF > 1' | awk '{if($1!=last){if(NR>1)print""};last=$1;print}' \
+    | awk '{printf "%s%s%s\n", $1, (length($1) > 7 ? "\t" : "\t\t"), $2}' \
     | sed 's/^/        /' | cat) 
 
     spb_template_listing_status=${?}
