@@ -93,8 +93,8 @@
 # version 8.1 - added experimental support for cachyos
 # version 8.2 - added option to allow for editing of the active spb configuration file using the --edit-configuration option
 # version 8.3 - improved template listing display for browsers with longer names (specifically chromium)
-# version 8.4 - improved verbose output when listing templates to include template directory
-
+# version 8.4 - improved verbose output when listing templates to include template directory with --list-templates --verbose options
+# version 8.5 - improved verbose output when listing sessions with the --list --verbose options
 
 ##
 ## Configuration of Variables
@@ -133,6 +133,14 @@ dot_dot_dot=""
 template_dir_base_default_override=""
 spb_default_multi_browser_support="false"
 spb_browser_path_externally_configured="false"
+
+
+# super pre argument varables (initial setup)
+#
+# related to output verbosity
+verbose_mode="false" # when set to true additional information reported to standard out
+quite_mode="false" # when set to true less information is reported to standard out
+
 
 # os detection
 os_type=$(uname -s | tr '[:upper:]' '[:lower:]')
@@ -319,6 +327,12 @@ for arg in "$@" ; do
         valid_argument_found="true"
     fi
 
+    # check if verbose mode should be enabled
+    if [[ "${arg}" == "--verbose" ]] ; then
+        verbose_mode="true"
+        valid_argument_found="true"
+    fi
+
     # check to see if browser path specified as argument
     if [[ "${arg}" == "--browser-path" ]] ; then
 
@@ -488,8 +502,6 @@ help_wanted="no"
 update_wanted="no"
 valid_argument_found="false"
 standard_mode="false" # when set to true, we will not default to running incognito window
-verbose_mode="false" # when set to true additional information reported to standard out
-quite_mode="false"
 force_stop_mode="false"
 edit_configuration_file_requested="false"
 template_browser_id_absolute="" # when creating a new template this is set to the full absolute path to the template browser_id file
@@ -589,12 +601,21 @@ for arg in "$@" ; do
   # check for listing sessions (if found we will exit)
   if [[ "${arg}" == "-ls" ]] || [[ "${arg}" == "-l" ]] || [[ "${arg}" == "--list" ]]; then
     output_list=$(screen -ls | grep .${screen_session_prefix}- | awk '{print $1}' | sort -n)
+    if [[ "${quite_mode}" != "true" ]] && [[ "${verbose_mode}" == "true" ]] ; then
+        echo ""
+        echo "////////////////////////////////////////////////////////////////////" ; echo ""
+        echo "SPB Temporary Browser Data Directory : ${temp_path}" ; echo ""
+        echo "////////////////////////////////////////////////////////////////////"
+        echo ""
+    fi
     if [[ "${output_list}" != "" ]] ; then
         # output_list is not empty - list the items
         echo "${output_list}"
+        if [[ "${quite_mode}" != "true" ]] && [[ "${verbose_mode}" == "true" ]] ; then echo "" ; fi
         exit 0
     else
         echo "SPB (start-private-browser) session was not detected."
+        if [[ "${quite_mode}" != "true" ]] && [[ "${verbose_mode}" == "true" ]] ; then echo "" ; fi
         exit -88
     fi
   fi
@@ -607,12 +628,6 @@ for arg in "$@" ; do
   # forcefully close a browser session via identifier
   if [[ "${arg}" == "--force-stop" ]] ; then
     force_stop_mode="true"
-  fi
-
-  # check if verbose mode should be enabled
-  if [[ "${arg}" == "--verbose" ]] ; then
-    verbose_mode="true"
-    valid_argument_found="true"
   fi
 
   # check to see if browser mode should be enabled
