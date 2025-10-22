@@ -91,6 +91,7 @@
 # version 7.9 - improved --list-browser option output to check if a browser is installed on the system
 # version 8.0 - slightly improved help message when listing templates with the --list-templates option
 # version 8.1 - added experimental support for cachyos
+# version 8.2 - added option to allow for editing of the active spb configuration file using the --edit-configuration option
 
 ##
 ## Configuration of Variables
@@ -303,45 +304,57 @@ for arg in "$@" ; do
         fi
     fi
 
-  # check to see if browser path specified as argument
-  if [[ "${arg}" == "--browser-path" ]] ; then
-
-    # check they are not listed more than once
-    if [[ "${spb_browser_path_externally_configured}" == "true" ]] ; then
-        echo ""
-        echo "ERROR! : Using the ${arg} option is only allowed once"
-        echo ""
-        exit -75
+    # check for edit configuration option
+    if [[ "${arg}" == "--edit-configuration" ]] ; then
+        edit_configuration_file_requested="true"
+        valid_argument_found="true"
     fi
 
-    # look ahead for passed argument parameters
-    if (( super_pre_index + 1 < num_args )) ; then
-        super_pre_next_arg="${args[super_pre_index + 1]}"
-    else
-        super_pre_next_arg=""
+    # check if quite mode should be enabled
+    if [[ "${arg}" == "--quite" ]] ; then
+        quite_mode="true"
+        valid_argument_found="true"
     fi
 
-    # okay lets see whats what
-    if [[ "${super_pre_next_arg}" != "" ]] ; then
-        # configure the system to skip the next argument for processing 
-        # as it is the value for this one
+    # check to see if browser path specified as argument
+    if [[ "${arg}" == "--browser-path" ]] ; then
+
+        # check they are not listed more than once
+        if [[ "${spb_browser_path_externally_configured}" == "true" ]] ; then
+            echo ""
+            echo "ERROR! : Using the ${arg} option is only allowed once"
+            echo ""
+            exit -75
+        fi
+
+        # look ahead for passed argument parameters
+        if (( super_pre_index + 1 < num_args )) ; then
+            super_pre_next_arg="${args[super_pre_index + 1]}"
+        else
+            super_pre_next_arg=""
+        fi
+
+        # okay lets see whats what
+        if [[ "${super_pre_next_arg}" != "" ]] ; then
+            # configure the system to skip the next argument for processing 
+            # as it is the value for this one
             super_pre_skip_arg="true"
-    else
-        echo ""
-        echo "ERROR! : When you specify --browser-path you must also"
-        echo "         supply a browser path which will be used"
-        echo "         instead of the default browser path."
-        echo ""
-        exit -164
+        else
+            echo ""
+            echo "ERROR! : When you specify --browser-path you must also"
+            echo "         supply a browser path which will be used"
+            echo "         instead of the default browser path."
+            echo ""
+            exit -164
+        fi
+
+        # update the browser path and other variables which depend on the browser path 
+        spb_browser_path="${super_pre_next_arg}"
+        spb_browser_path_externally_configured="true"
+    
     fi
 
-    # update the browser path and other variables which depend on the browser path 
-    spb_browser_path="${super_pre_next_arg}"
-    spb_browser_path_externally_configured="true"
-    
-  fi
-
-  ((super_pre_index++))
+    ((super_pre_index++))
 
 done
 
@@ -434,7 +447,16 @@ fi
 # configure the configuration file paths
 spb_configuration_file_path="${template_dir_base}/${spb_configuration_file_name}" # using the template directory to store the configuration file (TODO : needs to be altered to allow changing location of the template directory more easily)
 spb_configuration_file_absolute="${spb_configuration_file_path/#\~/$HOME}" # expand the home tild if needed
-#
+
+# edit configuration file (--edit-configuration)
+if [[ "${edit_configuration_file_requested}" == "true" ]] ; then
+    if [[ "${quite_mode}" != "true" ]] ; then
+        echo "Editing SPB Configuration File : ${spb_configuration_file_absolute}"
+    fi
+    ${VISUAL:-${EDITOR:-nano}} ${spb_configuration_file_absolute}
+    exit ${?}
+fi
+
 # configuration file loading
 if [ -r ${spb_configuration_file_absolute} ] ; then
     # lets start with sourcing, then we can move onto parsing
@@ -466,6 +488,7 @@ standard_mode="false" # when set to true, we will not default to running incogni
 verbose_mode="false" # when set to true additional information reported to standard out
 quite_mode="false"
 force_stop_mode="false"
+edit_configuration_file_requested="false"
 template_browser_id_absolute="" # when creating a new template this is set to the full absolute path to the template browser_id file
 
 # check mark
@@ -582,21 +605,12 @@ for arg in "$@" ; do
   if [[ "${arg}" == "--force-stop" ]] ; then
     force_stop_mode="true"
   fi
-  
-  # check if quite mode should be enabled
-  if [[ "${arg}" == "--quite" ]] ; then
-    quite_mode="true"
-    valid_argument_found="true"
-  fi
 
   # check if verbose mode should be enabled
   if [[ "${arg}" == "--verbose" ]] ; then
     verbose_mode="true"
     valid_argument_found="true"
   fi
-
-
-
 
   # check to see if browser mode should be enabled
   if [[ "${arg}" == "--browser" ]] ; then
@@ -774,11 +788,15 @@ if [[ "${help_wanted}" == "yes" ]] ; then
     echo ""
     echo "             ${spb_configuration_file_path}"
     echo ""
-    echo "             # A full list of configuration file settings which are able to be overidden is visiable by"
-    echo "             # inspecting the SPB soruce code."
+    echo "             # A full list of configuration file options which are able to be overidden is visiable by"
+    echo "             # inspecting the SPB soruce code. Example configuration files are avilable via"
+    echo "             # the project home page."
     echo ""
     echo "             # It is possible to have multiple SPB configuration files and template sets on your system"
     echo "             # and switch between them using the SPB \"--template-path\" option (see previous section)."
+    echo ""
+    echo "             # Edit the active configuration file (using VISUAL and then EDITOR enviroment varables)"
+    echo "             $ start-private-browser --edit-configuration"
     echo ""
     echo ""
     echo "         Additional Resources : "
