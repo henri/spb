@@ -92,6 +92,8 @@
 # version 8.0 - slightly improved help message when listing templates with the --list-templates option
 # version 8.1 - added experimental support for cachyos
 # version 8.2 - added option to allow for editing of the active spb configuration file using the --edit-configuration option
+# version 8.3 - improved template listing display for browsers with longer names (specifically chromium)
+
 
 ##
 ## Configuration of Variables
@@ -1063,7 +1065,8 @@ if [[ ${spb_list_templates} == "true" ]] ; then
     template_list=$(cd ${template_dir_parent_dirname/#\~/$HOME} && find ./ -maxdepth 2 -type d | grep -v "available" \
     | awk -F "$awk_cut_point" '{print $2}' | awk 'gsub("/", "&")!=1' | sed 's/^\///' \
     | awk '{gsub(/\//, "\t\t")}1' |  awk '{if($1!=last){if(NR>1)print""};last=$1;print}' \
-    | awk 'NR>1' | cat)
+    | awk 'NR>1' | awk '{printf "%s%s%s\n", $1, (length($1) > 7 ? "\t" : "\t\t"), $2}' \
+    | sed 's/^/        /' | cat) 
 
     spb_template_listing_status=${?}
     if [[ "${quite_mode}" == "true" ]] ; then 
@@ -1874,5 +1877,6 @@ screen -S "${screen_session_name}" -dm bash -c " \"${spb_browser_path}\" ${brows
 run_post_browser_startup_commands
 
 exit 0
+
 
 
