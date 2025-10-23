@@ -95,6 +95,7 @@
 # version 8.3 - improved template listing display for browsers with longer names (specifically chromium)
 # version 8.4 - improved verbose output when listing templates to include template directory with --list-templates --verbose options
 # version 8.5 - improved verbose output when listing sessions with the --list --verbose options
+# version 8.6 - various improvements to output formatting and error messages providing more information.
 
 ##
 ## Configuration of Variables
@@ -1121,18 +1122,27 @@ for arg in "$@" ; do
             force_stop_identifier_valid=$(echo "${next_arg}" | grep ${screen_session_prefix} > /dev/null && echo true)
             if [[ "${force_stop_identifier_valid}" == "true" ]] ; then
                 # force stop the instance provided
-                echo "Force Stop Mode"
-                echo "      Killing Session : ${next_arg}"
                 screen -S ${next_arg} -p 0 -X stuff $'\003'
                 exit ${?}
             else
+                echo "" ; echo ""
+                echo "ERROR! : The force stop argument provided is not valad : ${next_arg}"
                 echo ""
-                echo "ERROR! : The force stop argument provided is not valad."
+                echo "           Example of expected force stop instance : 2613913.spb-session-userid-bCJD4"
+                echo ""
                 echo ""
                 echo "         List currently running (valid) instances by running : "
                 echo ""
-                echo "                ~/bin/start-private-browser.bash --list"
+                echo "           ~/bin/start-private-browser.bash --list"
                 echo ""
+                echo ""
+                echo "         If you continue having problems it could be you are"
+                echo "         running an spb alias rather than spb directly. Try running"
+                echo "         the command as specified below and hopefully this will "
+                echo "         result in your success :"
+                echo ""
+                echo "           ~/bin/start-private-browser.bash --force-stop <instance>"
+                echo "" ; echo ""
                 exit -148
             fi
         else
