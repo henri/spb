@@ -604,7 +604,7 @@ for arg in "$@" ; do
     if [[ "${quite_mode}" != "true" ]] && [[ "${verbose_mode}" == "true" ]] ; then
         echo ""
         echo "////////////////////////////////////////////////////////////////////" ; echo ""
-        echo "SPB Temporary Browser Data Directory : ${temp_path}" ; echo ""
+        echo "SPB Temporary Browser Data Directory : ${spb_temp_data_path%/}/" ; echo ""
         echo "////////////////////////////////////////////////////////////////////"
         echo ""
     fi
@@ -1859,8 +1859,12 @@ if [[ "${quite_mode}" != "true" ]] ; then
     if [[ "${verbose_mode}" == "true" ]] ; then 
         echo "Screen session name : ${screen_session_name}"
         echo "Temporary directory : ${browser_tmp_directory}"
+        if [[ "${template_dir_base_default_override}" != "" ]] ; then
+            echo "Templates directory : ${template_dir_base_default_override}" 
+        fi
     fi
 fi
+
 
 # parse the arguments for options and URL's to pass to brave.
 browser_options="${user_data_directory_options} ${incognito_options}"
