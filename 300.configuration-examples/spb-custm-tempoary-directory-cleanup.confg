@@ -1,1 +1,39 @@
+# This file is an example spb.config file.
+#
+# This example shows a possible approach to setting a custom tmp path
+# on set to /tmp/spb-data-<your-username> directory for temporary user storage.
+#
+# This configuration also pruns tempoarary data directories which
+# have not been modified within the last day (stragglers)
+#
+# By default create this file : ~/bin/spb-templates/spb.config
+
+# reset to spb default (also removing this file will have the same outcome)
+# export spb_temp_data_path="/tmp"
+
+# set a custom spb_temp_data_path : /tmp/spb-data-$(whoami)
+custom_spb_tmp=/tmp
+if [ -d ${custom_spb_tmp} ] ; then
+    custom_spb_tmp=${custom_spb_tmp}/spb-data-$(whoami)
+    if ! [[ -d ${custom_spb_tmp} ]] ; then
+      mkdir ${custom_spb_tmp} || exit -101 
+      chmod 700 ${custom_spb_tmp} || exit -100
+    fi
+    export spb_temp_data_path="${custom_spb_tmp}"
+    if ! [[ -e /tmp/spb-$(whoami) ]] ; then
+        ln -s ${custom_spb_tmp} /tmp/spb-$(whoami)
+    fi
+else
+  echo "Unable to locate direcotry : ${/tmp/dir}"
+  exit -102
+fi
+
+# clean up script (this will remove any spb temp files which your user created which are more than one hour stale)
+cd ${custom_spb_tmp} 2>/dev/null || { echo "ERORR! : Unable to chnage directory to : ${custom_spb_tmp} " ; exit -99 ; }
+for old_data_dir in $( find ./spb*-$(whoami)-* -maxdepth 0 -type d -mmin +60 2>/dev/null ) ; do
+    rm -rf ${old_data_dir} 2>/dev/null || { echo "ERORR! : Unable to delete stale directory : ${old_data_dir}" ; exit -97 ; }
+done
+cd - >/dev/null 2>/dev/null || { echo "ERORR! : Unable to switch back to origional directory." ; exit -96 ; }
+
+
 
