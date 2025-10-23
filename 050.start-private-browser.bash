@@ -96,7 +96,7 @@
 # version 8.4 - improved verbose output when listing templates to include template directory with --list-templates --verbose options
 # version 8.5 - improved verbose output when listing sessions with the --list --verbose options
 # version 8.6 - various improvements to output formatting and error messages providing more information.
-# version 8.7 - added edge case for browser installed tick mark on macOS (bug fix) when using 
+# version 8.7 - added edge case for browser installed tick mark on macOS (bug fix) when using --list-browsers option
 
 ##
 ## Configuration of Variables
