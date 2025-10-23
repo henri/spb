@@ -1859,9 +1859,7 @@ if [[ "${quite_mode}" != "true" ]] ; then
     if [[ "${verbose_mode}" == "true" ]] ; then 
         echo "Screen session name : ${screen_session_name}"
         echo "Temporary directory : ${browser_tmp_directory}"
-        if [[ "${template_dir_base_default_override}" != "" ]] ; then
-            echo "Templates directory : ${template_dir_base_default_override}" 
-        fi
+        echo "Templates directory : $(realpath ${template_dir_base/#\~/$HOME})"
     fi
 fi
 
@@ -1899,6 +1897,8 @@ screen -S "${screen_session_name}" -dm bash -c " \"${spb_browser_path}\" ${brows
 run_post_browser_startup_commands
 
 exit 0
+
+
 
 
 
