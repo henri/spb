@@ -28,7 +28,14 @@ else
   exit -102
 fi
 
-# clean up script (this will remove any spb temp files which your user created which are more than one hour stale)
+##  atomated clean up of this custom spb temp directory (removes any spb temp files which your user created which are  than one hour stale - possible browser / system crash)
+#
+#       quick tips for altering the stale time :
+#           - morte than one day old : -mtime +1
+#           - more than one hour old : -mmin +60
+# 
+#       man find # for more details on setting the stale time
+##
 cd ${custom_spb_tmp} 2>/dev/null || { echo "ERORR! : Unable to chnage directory to : ${custom_spb_tmp} " ; exit -99 ; }
 for old_data_dir in $( find ./spb*-$(whoami)-* -maxdepth 0 -type d -mmin +60 2>/dev/null ) ; do
     rm -rf ${old_data_dir} 2>/dev/null || { echo "ERORR! : Unable to delete stale directory : ${old_data_dir}" ; exit -97 ; }
