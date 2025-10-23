@@ -1870,6 +1870,11 @@ if [[ "${quite_mode}" != "true" ]] ; then
         echo "Screen session name : ${screen_session_name}"
         echo "Temporary directory : ${browser_tmp_directory}"
         echo "Templates directory : $(realpath ${template_dir_base/#\~/$HOME})"
+        if [ -r ${spb_configuration_file_absolute} ] ; then
+        #echo "Config file sourced : ${spb_configuration_file_absolute}"
+        echo "Configuration found : ${spb_configuration_file_absolute}"
+        #echo "Configuration added : ${spb_configuration_file_absolute}"
+        fi
     fi
 fi
 
@@ -1907,7 +1912,6 @@ screen -S "${screen_session_name}" -dm bash -c " \"${spb_browser_path}\" ${brows
 run_post_browser_startup_commands
 
 exit 0
-
 
 
 
