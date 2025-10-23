@@ -96,6 +96,7 @@
 # version 8.4 - improved verbose output when listing templates to include template directory with --list-templates --verbose options
 # version 8.5 - improved verbose output when listing sessions with the --list --verbose options
 # version 8.6 - various improvements to output formatting and error messages providing more information.
+# version 8.7 - added edge case for browser installed tick mark on macOS (bug fix) when using 
 
 ##
 ## Configuration of Variables
@@ -583,6 +584,10 @@ for arg in "$@" ; do
             spb_browser_path="${spb_default_browser_data[$spb_browser_name:$os_type:$distro]}"
         else
             spb_browser_path="${spb_default_browser_data[$spb_browser_name:$os_type]}"
+            if [[ "${os_type}" == "darwin" ]] ; then
+                # unable to use which for checking the browser on macOS ( we need a special approach )
+                if [[ -x "${spb_browser_path}" ]] ; then installed="${tick_mark}" ; fi
+            fi
         fi
         # check if browser is installed and found in path
         which $spb_browser_path 2>/dev/null >/dev/null ; if [[ ${?} == 0 ]] ; then installed="${tick_mark}" ; fi
@@ -1912,6 +1917,7 @@ screen -S "${screen_session_name}" -dm bash -c " \"${spb_browser_path}\" ${brows
 run_post_browser_startup_commands
 
 exit 0
+
 
 
 
