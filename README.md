@@ -1,5 +1,6 @@
 
-# :lock: <a href="https://github.com/henri/spb/#lock-spb-start-private-browser"> SPB (start-private-browser) <img src="https://henri.github.io/spb/transparent_background_logo_fish.png" height="45" align="bottom"></a>
+# :lock: <a href="https://github.com/henri/spb/#lock-spb-start-private-browser"> SPB (start-private-browser) \
+<!-- <img src="https://henri.github.io/spb/transparent_background_logo_fish.png" height="45" align="bottom"></a> -->
 
 
 Have you wished there was an easy way to interact with the web from your terminal? Maybe like me you feel ready  to automate your web surfing from the tranquility of the shell? The bundled [SPB fish snippits](https://github.com/henri/spb/?tab=readme-ov-file#fish-shell-wrappers) makes searching for information from the fish shell easy-as! 
