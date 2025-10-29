@@ -4,7 +4,7 @@
 </p>
 
 
-# :anchor: SPB Readme Links
+# :anchor: SPB Readme : Table of Contents
 
 - [Introduction to SPB](https://github.com/henri/spb/blob/main/README.md#lock--spb-start-private-browser)
 - [Summary of the Project](https://github.com/henri/spb/blob/main/README.md#dart-spb-feature-summary)
