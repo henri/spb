@@ -311,8 +311,9 @@ If you are looking to roll your own update system, then the notes below will ass
     - Use the [kick off script](https://github.com/henri/spb/?tab=readme-ov-file#floppy_disk-installation) above to start the install / update. 
   
 All of the above and much more is handled for you if you use the included [update script](https://github.com/henri/spb/blob/main/600.spb-update.bash). 
-  
-If you export proxy environment variables (as shown below) then the SPB install / update scripts will respect these settings and perform network operations via the specified proxy. 
+
+#### Proxy Settings
+If you export proxy environment variables (as shown below) then the SPB install / update scripts will respect these settings and perform network operations via the specified proxy.
 
 ```
   # proxy settings for SPB install / update scripts
@@ -326,8 +327,8 @@ If you export proxy environment variables (as shown below) then the SPB install 
   set -x export https_proxy "https://proxy.server:port"
   
 ```
+If you would like to use a proxy when checking for updates, it is reccomded that you either add the enviroment varables to your crontab (or automation system of choice) or create a custom update wrapper script which adds the proxy varables to your enviroment so they are respected during the update process. Editing the update script to do this is not reccomedned as during the update proces any changes made to that file will be removed.
 
-If you would like to use a proxy when checking for updates, it is reccomded that you add the enviroment varables to your crontab or create a custom update wrapper script which adds the proxy varables to your enviroment to they are respected.
 
 <br/>
 
