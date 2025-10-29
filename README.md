@@ -48,7 +48,7 @@ Looking for something specific. Check out the helpful [SPB README INDEX](https:/
 <br/>
 
 
-### :dart: SPB Summary
+### :dart: SPB Feature Summary
 
 SPB is a powerful tool on your computer. Below is a summary of the key features on offer : 
   - Easily create multiple isolated web browser instances..
