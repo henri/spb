@@ -52,7 +52,7 @@ Looking for something specific. Check out the helpful [SPB README INDEX](https:/
 
 SPB is a powerful tool on your computer. Below is a summary of the key features on offer : 
   - Reliable templating system which provides task isolation.
-  - Licensed under GNU GPL, ensuring your rights as a user of the softrware is respected.
+  - Licensed under GNU GPL, ensuring your rights (as a user of this software) are respected.
   - Easy installation and removal.
   - Support for multiple web browsers.
   - Compatabilty with many different operating systems.
