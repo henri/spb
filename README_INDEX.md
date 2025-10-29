@@ -3,6 +3,8 @@
     <img src="https://henri.github.io/spb/SPB_logo_with_text_with_boarder_tranparent_v1.png" width="35%"></a>
 </p>
 
+# 🏖️ Welcome to SPB
+[Harness the power](https://github.com/henri/spb/?tab=readme-ov-file#raising_hand-why-is-spb-needed) of isolated web sessions with SPB. Every time you run SPB a new instance of [Brave](https://brave.com/) (a modern web browser) is spawned within a fresh [screen](https://www.gnu.org/software/screen/) session. When you close the browser, [SPB will delete all <b>web</b> data related to that browser session](https://github.com/henri/spb#spb-templating-support) from your computer.
 
 # :anchor: SPB Readme : Table of Contents
 
