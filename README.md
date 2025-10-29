@@ -276,7 +276,7 @@ The setup of unattended / automated SPB updates (eg. using the command above) wi
 
 The command above will setup an entry in your users crontab which will run the included [spb-update.bash](https://github.com/henri/spb/blob/main/600.spb-update.bash) script automatically. This will keep your copy of SPB upto date.
 
-The crontab entry which is setup using the command above will result in your system checking for SPB updates once per week (assuming your system is tuned on and has an active internet conenction) by running the [spb-update.bash](https://github.com/henri/spb/?tab=readme-ov-file#file-600-spb-update-bash) script. if you would like to disable automated updates, then edit your crontab and remove the lines added by the script.
+The crontab entry which is setup using the command above will result in your system checking for SPB updates once per week (assuming your system is turnedis setup using the command above will result in your system checking for SPB updates once per week (assuming your system is tuned on and has an active intern on and has an active internet conenction) by running the [spb-update.bash](https://github.com/henri/spb/?tab=readme-ov-file#file-600-spb-update-bash) script. if you would like to disable automated updates, then edit your crontab and remove the lines added by the script.
 
 To view your users crontab simply run the command below : 
 ```
