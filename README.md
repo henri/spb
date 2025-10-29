@@ -58,10 +58,14 @@ SPB is a powerful tool on your computer. Below is a summary of the key features 
      - isolated cookie storage
      - repeatable browser configuration
      - sharing of browser templates between systems
+  - Extensive customisation options
+     - conguration file
+     - command line switches
+     - enviroment varables 
   - Licensed under GNU GPL, ensuring your rights (as a user of this software) are respected.
-  - Easy installation and removal.
-  - Support for multiple web browsers.
-  - Compatabilty with many different operating systems.
+  - Easy installation and removal
+  - Support for multiple web browsers
+  - Compatabilty with many different operating systems
 
 <br>
 
