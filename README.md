@@ -301,7 +301,7 @@ The setup of unattended / automated SPB updates (eg. using the command above) wi
 
 The command above will setup an entry in your users crontab which will run the included [spb-update.bash](https://github.com/henri/spb/blob/main/600.spb-update.bash) script automatically. This will keep your copy of SPB upto date.
 
-The crontab entry which is setup using the command above will result in your system checking for SPB updates once per week (assuming your system is turned on and has an active internet conenction). Updates will be initated by running the [spb-update.bash](https://github.com/henri/spb/?tab=readme-ov-file#file-600-spb-update-bash) script without a connected tty. Use the command below for additional information : 
+The crontab entry which is setup using the command above will result in your system checking for SPB updates once per week (assuming your system is turned on and has an active internet conenction). Updates will be initated by running the [spb-update.bash](https://github.com/henri/spb/blob/main/600.spb-update.bash) script without a connected tty. Use the command below for additional information : 
 ```
 ~/bin/spb-update --help
 ```
