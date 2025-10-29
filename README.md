@@ -57,6 +57,7 @@ SPB is a powerful tool on your computer. Below is a summary of the key features 
   - Support for multiple web browsers.
   - Compatabilty with many different operating systems.
 
+<br>
 
 ### :floppy_disk: Installation 
   1. [Confirm your operating system is supported and install dependicies](https://github.com/henri/spb/blob/main/README.md#triangular_flag_on_post-compatibility)
