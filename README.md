@@ -260,10 +260,8 @@ SPB is hosted on GitHub :octocat: and as such the infrastructure (will soon) sit
 
 
 ### :arrows_counterclockwise: Automate Installation and Updates
-The included [spb-update.bash](https://github.com/henri/spb/blob/main/600.spb-update.bash) script may be run interactively (see [usage above](https://github.com/henri/spb/?tab=readme-ov-file#bookmark_tabs-usage)). Alternatively, you may prefer to start it via a scheduling program (eg.[cron](https://en.wikipedia.org/wiki/Cron)) so that SPB regularly updates automatically. 
-  
-#### Setup Automated Updates
-If you would like to have SPB update automatically, then the [spb-add-to-user-crontab.bash](https://github.com/henri/spb/blob/main/700.spb-add-to-user-crontab.bash) script will load a pre-defined crontab entry which will automatically update SPB each week using the [spb-update.bash](https://github.com/henri/spb/?tab=readme-ov-file#file-600-spb-update-bash) script. The step of running this auto-setup cron script is a manual. The setup of a cron job is not automated in any way beyond manually starting the [spb-add-to-user-crontab.bash](https://github.com/henri/spb/blob/main/700.spb-add-to-user-crontab.bash) script. The easiest way to setup the crontab entry is to run the command below from a bash shell :
+
+The easiest way to setup SPB automatic updates is to run the command below from the bash shell :
   
 ```bash
 export SPB_CRON_SETUP="true"
@@ -272,11 +270,24 @@ https://raw.githubusercontent.com/\
 henri/spb/refs/heads/main/\
 500.spb-install-script.bash)"
 ```
-  > <sub>This is the same command used to install SPB, with one key difference : an environment varable SPB_CRON_SETUP is set to "ture" and exported.</sub>
+  > <sub>This is the same command used to install SPB, with one key difference ; an environment varable SPB_CRON_SETUP is set to "ture" and exported.</sub>
 
 The setup of unattended / automated SPB updates (eg. using the command above) will result in default choices being selected which you would normally be able to interactively select. Also, see [notes regarding telemitry and privacy](https://github.com/henri/spb/?tab=readme-ov-file#shield-telemetry-and-privacy) if you schedule or manually start an SPB update.
 
-#### Start Unattended Updates (automatically picks default choices)
+The command above will setup an entry in your users crontab which will run the included [spb-update.bash](https://github.com/henri/spb/blob/main/600.spb-update.bash) script automatically. This will keep your copy of SPB upto date.
+
+The crontab entry which is setup using the command above will result in your system checking for SPB updates once per week (assuming your system is tuned on and has an active internet conenction) by running the [spb-update.bash](https://github.com/henri/spb/?tab=readme-ov-file#file-600-spb-update-bash) script. if you would like to disable automated updates, then edit your crontab and remove the lines added by the script.
+
+To view your users crontab simply run the command below : 
+```
+crontab -l
+```
+  
+#### Customised Setup Automated Updates
+
+Keep in mind that to keep SPB upto date, you do not need to setup any kind of automation. This update script may be run interactively (see [usage above](https://github.com/henri/spb/?tab=readme-ov-file#bookmark_tabs-usage)) at any time. You may also prefer to start it via a scheduling program of your choice so that SPB regularly updates automatically at times which you prefer.
+
+#### Start Unattended Updates (picks default choices)
 Start an automated (unattended) update and monitor the progress by running the command below within a shell : 
 ```
   ~/bin/spb-update.bash --auto-monitoring
@@ -301,7 +312,7 @@ If you are looking to roll your own update system, then the notes below will ass
   
 All of the above and much more is handled for you if you use the included [update script](https://github.com/henri/spb/blob/main/600.spb-update.bash). 
   
-If you export proxy environment variables (as shown below) then the SPB install / update scripts will respect these settings and perform network operations via the specified proxy.
+If you export proxy environment variables (as shown below) then the SPB install / update scripts will respect these settings and perform network operations via the specified proxy. 
 
 ```
   # proxy settings for SPB install / update scripts
@@ -315,6 +326,8 @@ If you export proxy environment variables (as shown below) then the SPB install 
   set -x export https_proxy "https://proxy.server:port"
   
 ```
+
+If you would like to use a proxy when checking for updates, it is reccomded that you add the enviroment varables to your crontab or create a custom update wrapper script which adds the proxy varables to your enviroment to they are respected.
 
 <br/>
 
