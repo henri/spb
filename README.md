@@ -404,7 +404,7 @@ This project is still in the :seedling: seedling stage (with lots of potential).
 ### :sunrise: Browser Support
 SPB supports various browsers accross a wide range of operating systems. 
 
-At startup SPB checks if BASH 4 or later is installed. If a modern version of BASH is detected, then multi-browser support is automatically be enabled. SPB multi-browser support makes it possible to specify the browser name you would like to use via a command line option or from within the SPB configuration file. 
+At startup SPB checks if BASH 4 or later is installed. If a modern version of BASH is detected, then multi-browser support is automatically enabled. SPB multi-browser support makes it possible to specify the browser name you would like to use via a command line option or from within the SPB configuration file. 
 
 The example command showen below instructs SPB to load the Chromium rather than the Brave (the default) : 
 ```
