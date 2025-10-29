@@ -1,4 +1,7 @@
-
+<p align="center">
+  <a href="https://github.com/henri/spb/#lock-spb-start-private-browser">
+    <img src="https://henri.github.io/spb/SPB_logo_with_text_with_boarder.png" width="90%"></a>
+</p>
 
 #### :anchor: SPB Readme Links
 
