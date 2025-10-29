@@ -126,6 +126,8 @@ Below are starter SPB examples for the fish shell to enhance every day web based
 Handy wrapper scripts to facilitate SPB usage via the command line : 
 > <sub>During [installation](https://github.com/henri/spb/?tab=readme-ov-file#floppy_disk-installation) if fish is installed, you will be prompted to automatically install these fish snippets. If you install fish after SPB and would like to install these snippets, just run the [update command](https://github.com/henri/spb/?tab=readme-ov-file#bookmark_tabs-usage) or [re-install](https://github.com/henri/spb/?tab=readme-ov-file#floppy_disk-installation)</sub>
 #### [fish shell wrappers](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8) 
+If you are using the fish shell, then these commands should be active and ready for you to run. These commands will facilitate your exploration of the worlds vast digital oceans using the fish shell.
+
 <sub> Click on the 'snippet name' links below in order to show usage information relating to a specific snippit</sub>
 | command         | snippet name          | explanation |
 | --------------- | --------------------- | ------------|
