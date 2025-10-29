@@ -51,8 +51,11 @@ Looking for something specific. Check out the helpful [SPB README INDEX](https:/
 ### :dart: SPB Summary
 
 SPB is a powerful tool on your computer. Below is a summary of the key features on offer : 
-  - Easily create isolated web browser instances.
-  - Reliable templating system which provides task isolation and customaisation and repeatable browser configurations.
+  - Easily create multiple isolated web browser instances..
+  - Reliable templating system
+     - providing task isolation
+     - browser customaisation
+     - repeatable browser configuration
   - Licensed under GNU GPL, ensuring your rights (as a user of this software) are respected.
   - Easy installation and removal.
   - Support for multiple web browsers.
