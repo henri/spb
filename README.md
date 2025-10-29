@@ -43,6 +43,11 @@ SPB features built-in support for a growing list of [operating systems](https://
 
 <br/>
 
+Looking for something specific. Check out the helpful [SPB README INDEX](https://github.com/henri/spb/blob/main/README_INDEX.md).
+
+<br/>
+
+
 #### :dart: SPB Summary
 
 SPB is a powerful tool on your computer. Below is a summary of the key features on offer : 
