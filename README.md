@@ -52,7 +52,7 @@ Looking for something specific. Check out the helpful [SPB Index](https://github
 
 SPB is a powerful tool on your computer. Below is a summary of the key features on offer : 
   - Easily create multiple isolated web browser instances.
-  - Reliable and robust browser templating system
+  - Reliable browser templating system
      - providing task isolation
      - browser customisation
      - isolated cookie storage
