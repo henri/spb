@@ -6,7 +6,8 @@
 
 # :anchor: SPB Readme Links
 
-- [Summary of the Project](https://github.com/henri/spb/blob/main/README.md#dart-spb-summary)
+- [Introduction to SPB](https://github.com/henri/spb/blob/main/README.md#lock--spb-start-private-browser)
+- [Summary of the Project](https://github.com/henri/spb/blob/main/README.md#dart-spb-feature-summary)
 - [Installation](https://github.com/henri/spb/blob/main/README.md#floppy_disk-installation)
 - [Usage](https://github.com/henri/spb/blob/main/README.md#bookmark_tabs-usage)
   - [Usage Examples](https://github.com/henri/spb/blob/main/README.md#star-usage-examples)
