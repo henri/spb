@@ -50,7 +50,7 @@ Looking for something specific. Check out the helpful [SPB Index](https://github
 
 ### :dart: SPB Feature Summary
 
-SPB is a powerful tool on your computer. Below is a summary of the key features on offer : 
+SPB is a powerful tool on your computer. Below is a summary of key features : 
   - [Easily](https://github.com/henri/spb#bookmark_tabs-usage) create multiple isolated web browser instances.
   - Reliable browser [templating](https://github.com/henri/spb#spb-templating-support) system
      - providing task isolation
