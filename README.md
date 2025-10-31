@@ -51,18 +51,18 @@ Looking for something specific. Check out the helpful [SPB Index](https://github
 ### :dart: SPB Feature Summary
 
 SPB is a powerful tool on your computer. Below is a summary of the key features on offer : 
-  - Easily create multiple isolated web browser instances.
-  - Reliable browser templating system
+  - [Easily](https://github.com/henri/spb#bookmark_tabs-usage) create multiple isolated web browser instances.
+  - Reliable browser [templating](https://github.com/henri/spb#spb-templating-support) system
      - providing task isolation
      - browser customisation
      - isolated cookie storage
      - repeatable browser configuration
      - sharing of browser templates between systems
   - Extensive customisation options via conguration file, command line switches and enviroment varables
-  - Licensed under GNU GPL, ensuring your rights (as a user of this software) are respected.
-  - Easy installation and removal
-  - Support for multiple web browsers
-  - Compatabilty with many different operating systems
+  - [Licensed](https://github.com/henri/spb#memo-licensing-terms-of-use-and-legal) under GNU GPL, ensuring your rights (as a user of this software) are respected.
+  - Easy [installation](https://github.com/henri/spb#floppy_disk-installation) and [removal](https://github.com/henri/spb#bookmark_tabs-usage)
+  - Support for [multiple web browsers](https://github.com/henri/spb#sunrise-browser-support)
+  - Compatabilty with [many different](https://github.com/henri/spb#triangular_flag_on_post-compatibility) operating systems
 
 <br>
 
@@ -392,7 +392,7 @@ May the privacy be with you!
 ### :warning: Disclaimer
 SPB (start private browser) is able to start multiple private browsers. But do not expect more functionality or privacy from running a browser in incognito mode. The idea behind SPB is that you can load multiple instances which are somewhat separated from one and other. Each instance is still running under your user account and on your system.
 
-SPB removes the data from disk. But SPB makes no effort to deal with things like data stored in memory such as file system caches or system memory which is written to swap.
+SPB [removes the web browser data from disk](https://github.com/henri/spb#spb-templating-support). However, SPB makes no effort to deal with data stored in memory such as file system caches or system memory which may have been written to swap.
 
 In the event additional privacy is required run SPB within a VM or within a container. If higher levels of privacy are needed, then consider these projects :
 
