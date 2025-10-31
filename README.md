@@ -52,17 +52,18 @@ Looking for something specific. Check out the helpful [SPB Index](https://github
 
 SPB is a powerful tool on your computer. Below is a summary of key features : 
   - [Easily](https://github.com/henri/spb#bookmark_tabs-usage) create multiple isolated web browser instances.
+  - Support for [multiple web browsers](https://github.com/henri/spb#sunrise-browser-support)
+  - Compatabilty with [many different](https://github.com/henri/spb#triangular_flag_on_post-compatibility) operating systems
   - Reliable browser [templating](https://github.com/henri/spb#spb-templating-support) system
      - providing task isolation
      - browser customisation
      - isolated cookie storage
      - repeatable browser configuration
      - sharing of browser templates between systems
+  - Stright forward [installation](https://github.com/henri/spb#floppy_disk-installation), [updates](https://github.com/henri/spb#bookmark_tabs-usage) and [removal](https://github.com/henri/spb#bookmark_tabs-usage)
   - Extensive customisation options via conguration file, command line switches, enviroment varables, shell wrapper functions and custom scripts.
   - [Licensed](https://github.com/henri/spb#memo-licensing-terms-of-use-and-legal) under GNU GPL, ensuring your rights (as a user of this software) are respected.
-  - Easy [installation](https://github.com/henri/spb#floppy_disk-installation) and [removal](https://github.com/henri/spb#bookmark_tabs-usage)
-  - Support for [multiple web browsers](https://github.com/henri/spb#sunrise-browser-support)
-  - Compatabilty with [many different](https://github.com/henri/spb#triangular_flag_on_post-compatibility) operating systems
+
 
 <br>
 
