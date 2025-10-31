@@ -59,7 +59,7 @@ SPB is a powerful tool on your computer. Below is a summary of key features :
      - repeatable browser configuration
      - sharing of browser templates between systems
   - Support for [multiple web browsers](https://github.com/henri/spb#sunrise-browser-support)
-  - Compatabilty with [many different](https://github.com/henri/spb#triangular_flag_on_post-compatibility) operating systems
+  - Compatabilty with [many](https://github.com/henri/spb#triangular_flag_on_post-compatibility) operating systems
   - Stright forward [installation](https://github.com/henri/spb#floppy_disk-installation), [updates](https://github.com/henri/spb#bookmark_tabs-usage) and [removal](https://github.com/henri/spb#bookmark_tabs-usage)
   - Extensive customisation options via conguration file, command line switches, enviroment varables, shell wrapper functions and custom scripts.
   - [Licensed](https://github.com/henri/spb#memo-licensing-terms-of-use-and-legal) under GNU GPL, ensuring your rights (as a user of this software) are respected.
