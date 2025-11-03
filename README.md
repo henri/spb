@@ -10,7 +10,7 @@ SPB presents the power to navigate the surging currents of our planets vast digi
 
 
 <p align="center">
-  <a href="https://github.com/henri/spb/#lock-spb-start-private-browser"><img src="https://henri.github.io/spb/spb-fish.png" width="90%"></a>
+  <a href="https://github.com/henri/spb/blob/main/README_INDEX.md"><img src="https://henri.github.io/spb/spb-fish.png" width="90%"></a>
 </p>
 
 Swim happily ; SPB [installs](https://github.com/henri/spb/?tab=readme-ov-file#floppy_disk-installation) into your home directory (no need for sudo) and is [easily removed](https://github.com/henri/spb/?tab=readme-ov-file#bookmark_tabs-usage) in the event you don't make use of SPB each and every day. [This GitHub repository](https://github.com/henri/spb) has everything you need to [install and update](https://github.com/henri/spb/?tab=readme-ov-file#floppy_disk-installation) SPB on your systems.
