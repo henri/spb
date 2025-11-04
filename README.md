@@ -205,7 +205,7 @@ The links below will assist you with forming a deeper understanding of SPB as a 
 
   - [Telemetry and Privacy](https://github.com/henri/spb/blob/main/README.md#shield-telemetry-and-privacy)
   - [Disclaimer](https://github.com/henri/spb#warning-disclaimer)
-  - [Templating](https://github.com/henri/spb##spb-templating-support)
+  - [Templating](https://github.com/henri/spb#spb-templating-support)
   - [Brave Telemetry Issues](https://github.com/brave/brave-browser/issues/48604)
   - [Security and Trust](https://github.com/henri/spb#lock-security-and-trust)
 
