@@ -119,7 +119,7 @@ Update SPB **help** :
 
 **Uninstall** SPB from your system : 
 ```bash
-# uninstalls the software and the update logs (easily put back)
+# uninstalls the spb software and update logs
 rm -ri ~/bin/start-private-browser.bash ~/bin/spb-update.bash ~/bin/spb-update.log
 
 # remove your custom templates and configruation file ; assuming you have not saved to a custom location
