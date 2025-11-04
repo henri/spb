@@ -169,12 +169,22 @@ If you are using the fish shell, then these commands should be active and ready 
 | `spb-twitch`    |  [Twitch Search](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-twitch-fish) | initiate simultaneous [Twitch](https://twitch.tv) searches |
 |  `spb-pai`      |  [Perplexity AI Chat](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-perlexity-ai-fish) | kick off conversations with Perplexity AI |
   
-> <sub>If your system has [fish](https://fishshell.com/) installed and you run the update system in an unattended mode, then these snippets will be installed / updated. This is because that is the default option. When running in unattended mode all default options are selected. If you do not want the above [snippets installed](https://github.com/henri/spb/?tab=readme-ov-file#file-spb-fish-function-installer-bash) please run the update script interactively and enter "no" when asked during the install process. Again the prompt for opting out is only available during interactive mode when using [spb-update.bash](https://github.com/henri/spb/blob/main/600.spb-update.bash) script or when manually running the [install/update](https://github.com/henri/spb/?tab=readme-ov-file#floppy_disk-installation) process.
+> <sub>If your system has [fish](https://fishshell.com/) installed and you run the update system in an unattended mode, then these snippets will be installed / updated. This is because that is the default option. When running in unattended mode all default options are selected. If you do not want the above [snippets installed](https://github.com/henri/spb/?tab=readme-ov-file#file-spb-fish-function-installer-bash) please run the update script interactivehttps://github.com/henri/spbly and enter "no" when asked during the install process. Again the prompt for opting out is only available during interactive mode when using [spb-update.bash](https://github.com/henri/spb/blob/main/600.spb-update.bash) script or when manually running the [install/update](https://github.com/henri/spb/?tab=readme-ov-file#floppy_disk-installation) process.
 
 
 <sub>The SPB project is <b>not</b> affiliated with any of the companies or the services listed above. Before using third party web services as listed above (eg Ai, Search, etc) it is recommended that you first consult the services usage and privacy policy. Many of these web based services offer a service in exchange for gathering and storing supplied information). Additional, examples like this are welcomed. If you put together something and would like, share a link to your work then comment below or [start a discussion](https://github.com/henri/spb/discussions)</sub>
 
 #### SPB Templating Support
+
+SPB is a useful tool which is able to assist you with privacy. Below are links which are worth considering in terms of your privacy and using SPB.
+---
+  - SPB [Telemetry and Privacy](https://github.com/henri/spb/blob/main/README.md#shield-telemetry-and-privacy)
+  - SPB [Disclaimer](https://github.com/henri/spb#warning-disclaimer)
+  - SPB [Templating](https://github.com/henri/spb/blob/main/README.md#spb-templating-support)
+  - Brave [Telemetry](https://github.com/brave/brave-browser/issues/48604)
+  - SPB [Security and Trust0](https://github.com/henri/spb#lock-security-and-trust)
+---
+
 The built-in templating sub-system allows you to list, create, edit and load browser data templates. Essentially, this allows you to configure a browser just as you like and then load this template as needed for future browsing sessions. When you load an existing template a copy of the template is created for your session and then when you quit that copy is deleted. However, you still have the template and may start as many separate browser instances as you like form that template.
 
 The templates are stored in the directory : ~/bin/spb-templates/
