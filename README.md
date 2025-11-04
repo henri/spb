@@ -196,7 +196,7 @@ Templates allow you to run browsers in a more standard browser mode but to still
 <br>
 <br>
 
-# :shield: Privacy
+### :shield: Privacy
 SPB is a useful tool which is able to assist you in your privacy journey. Below are important links to various sections of this documentationa nd some external resources regarding SPB and your privacy. It is a good idea to read these to understand how SPB is able to assist you and in which ways it will not be any help at all.
 
   - [Telemetry and Privacy](https://github.com/henri/spb/blob/main/README.md#shield-telemetry-and-privacy)
