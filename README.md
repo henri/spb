@@ -199,11 +199,11 @@ Templates allow you to run browsers in a more standard browser mode but to still
 # :shield: Privacy
 SPB is a useful tool which is able to assist you in your privacy journey. Below are important links to various sections of this documentationa nd some external resources regarding SPB and your privacy. It is a good idea to read these to understand how SPB is able to assist you and in which ways it will not be any help at all.
 
-  - SPB [Telemetry and Privacy](https://github.com/henri/spb/blob/main/README.md#shield-telemetry-and-privacy)
-  - SPB [Disclaimer](https://github.com/henri/spb#warning-disclaimer)
-  - SPB [Templating](https://github.com/henri/spb/blob/main/README.md#spb-templating-support)
-  - Brave [Telemetry](https://github.com/brave/brave-browser/issues/48604)
-  - SPB [Security and Trust0](https://github.com/henri/spb#lock-security-and-trust)
+  - [Telemetry and Privacy](https://github.com/henri/spb/blob/main/README.md#shield-telemetry-and-privacy)
+  - [Disclaimer](https://github.com/henri/spb#warning-disclaimer)
+  - [Templating](https://github.com/henri/spb/blob/main/README.md#spb-templating-support)
+  - [Brave Telemetry Issues](https://github.com/brave/brave-browser/issues/48604)
+  - [Security and Trust0](https://github.com/henri/spb#lock-security-and-trust)
 
 <br>
 <br>
