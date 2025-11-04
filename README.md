@@ -97,6 +97,8 @@ henri/spb/refs/heads/main/\
 
 Once installation is complete. The following commands will get you started with SPB.
 
+---
+
 Start a **new private browser** session : 
 ```bash
 ~/bin/start-private-browser.bash
@@ -117,7 +119,12 @@ Update SPB **help** :
 ~/bin/spb-update.bash --help | less -S
 ```
 
-**Uninstall** SPB from your system : 
+---
+
+**Uninstall** SPB from your system :  
+
+If you decide it is time to remove SPB and assosiated data
+
 ```bash
 # removes spb software and any update logs
 rm -ri ~/bin/start-private-browser.bash ~/bin/spb-update.bash ~/bin/spb-update.log
@@ -130,6 +137,7 @@ rm -ri ~/bin/spb-templates
 # carful you may not want to delete this data - CAUTION ADVISED!
 rm -ri ~/.config/fish/functions/spb*.fish ~/.config/fish/functions/start-private-browser.fish
 ```
+--- 
 <br/>
 
 ### :star: Usage Examples
@@ -183,6 +191,9 @@ The templates are stored in the directory : ~/bin/spb-templates/
 <br/>
 
 Templates are also able to be used to run browsers in a more standard mode but to have different instances of a browser running simultaneously. To accomplish this simply create the new template, then edit the template. Effectively, you will be able to start separate browser instances. However, keep in mind that when you exit the browser the data will not be deleted as you are editing the template.
+
+<br>
+<br>
 
 ### :triangular_flag_on_post: Compatibility 
 Mild testing has been completed on the following operating systems :
