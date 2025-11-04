@@ -17,6 +17,7 @@
   - [Fish Shell Wrappers](https://github.com/henri/spb/blob/main/README.md#fish-shell-wrappers)
   - [Template Sub-System](https://github.com/henri/spb/blob/main/README.md#spb-templating-support)
 - [Operating System Compatability](https://github.com/henri/spb/blob/main/README.md#triangular_flag_on_post-compatibility)
+- [Privacy Overview](https://github.com/henri/spb?tab=readme-ov-file#shield-privacy)
 - [Telemtry and Privacy](https://github.com/henri/spb/blob/main/README.md#shield-telemetry-and-privacy)
 - [Seucity and Trust](https://github.com/henri/spb/blob/main/README.md#lock-security-and-trust)
 - [Update Automation](https://github.com/henri/spb/blob/main/README.md#arrows_counterclockwise-automate-installation-and-updates)
