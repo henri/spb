@@ -119,7 +119,14 @@ Update SPB **help** :
 
 **Uninstall** SPB from your system : 
 ```bash
-rm -ri ~/bin/start-private-browser.bash ~/bin/spb-update.bash ~/bin/spb-update.log ~/bin/spb-templates
+# uninstalls the software and the update logs (easily put back)
+rm -ri ~/bin/start-private-browser.bash ~/bin/spb-update.bash ~/bin/spb-update.log
+
+# remove your custom templates and configruation file ; assuming you have not saved to a custom location (carful you may not want to delete this - caution advised)
+rm -ri ~/bin/spb-templates
+
+# remove spb fish functions ; including your any custom spb functions (you may not want to delete this - caution advised)
+rm -ri ~/.config/fish/functions/spb*.fish ~/.config/fish/functions/start-private-browser.fish
 ```
 <br/>
 
