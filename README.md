@@ -95,7 +95,7 @@ henri/spb/refs/heads/main/\
 
 ### :bookmark_tabs: Usage
 
-Once installation is complete. The following commands will get you started with SPB.
+Once [installation](https://github.com/henri/spb/?tab=readme-ov-fil/#floppy_disk-installation) is complete. The following commands will get you started with SPB.
 
 ---
 
