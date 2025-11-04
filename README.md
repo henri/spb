@@ -176,15 +176,6 @@ If you are using the fish shell, then these commands should be active and ready 
 
 #### SPB Templating Support
 
-SPB is a useful tool which is able to assist you with privacy. Below are links which are worth considering in terms of your privacy and using SPB.
----
-  - SPB [Telemetry and Privacy](https://github.com/henri/spb/blob/main/README.md#shield-telemetry-and-privacy)
-  - SPB [Disclaimer](https://github.com/henri/spb#warning-disclaimer)
-  - SPB [Templating](https://github.com/henri/spb/blob/main/README.md#spb-templating-support)
-  - Brave [Telemetry](https://github.com/brave/brave-browser/issues/48604)
-  - SPB [Security and Trust0](https://github.com/henri/spb#lock-security-and-trust)
----
-
 The built-in templating sub-system allows you to list, create, edit and load browser data templates. Essentially, this allows you to configure a browser just as you like and then load this template as needed for future browsing sessions. When you load an existing template a copy of the template is created for your session and then when you quit that copy is deleted. However, you still have the template and may start as many separate browser instances as you like form that template.
 
 The templates are stored in the directory : ~/bin/spb-templates/
@@ -204,6 +195,19 @@ Templates allow you to run browsers in a more standard browser mode but to still
 
 <br>
 <br>
+
+# :shield: Privacy
+SPB is a useful tool which is able to assist you in your privacy journey. Below are important links to various sections of this documentationa nd some external resources regarding SPB and your privacy. It is a good idea to read these to understand how SPB is able to assist you and in which ways it will not be any help at all.
+
+  - SPB [Telemetry and Privacy](https://github.com/henri/spb/blob/main/README.md#shield-telemetry-and-privacy)
+  - SPB [Disclaimer](https://github.com/henri/spb#warning-disclaimer)
+  - SPB [Templating](https://github.com/henri/spb/blob/main/README.md#spb-templating-support)
+  - Brave [Telemetry](https://github.com/brave/brave-browser/issues/48604)
+  - SPB [Security and Trust0](https://github.com/henri/spb#lock-security-and-trust)
+
+<br>
+<br>
+
 
 ### :triangular_flag_on_post: Compatibility 
 Mild testing has been completed on the following operating systems :
