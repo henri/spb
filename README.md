@@ -205,7 +205,7 @@ SPB is a useful tool which is able to assist you in your privacy journey. Below 
   - [Disclaimer](https://github.com/henri/spb#warning-disclaimer)
   - [Templating](https://github.com/henri/spb/blob/main/README.md#spb-templating-support)
   - [Brave Telemetry Issues](https://github.com/brave/brave-browser/issues/48604)
-  - [Security and Trust0](https://github.com/henri/spb#lock-security-and-trust)
+  - [Security and Trust](https://github.com/henri/spb#lock-security-and-trust)
 
 <br>
 <br>
