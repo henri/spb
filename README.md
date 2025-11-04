@@ -335,7 +335,7 @@ The command above will setup an entry in your users crontab which will run the i
 
 The crontab entry which is setup using the command above will result in your system checking for SPB updates once per week (assuming your system is turned on and has an active internet conenction). Updates will be initated by running the [spb-update.bash](https://github.com/henri/spb/blob/main/600.spb-update.bash) script without a connected tty (non-interactive mode). The command below provides additional information : 
 ```
-~/bin/spb-update --help
+~/bin/spb-update.bash --help
 ```
 Disable automated updates once they are setup by editing your crontab and commenting out or removing approriate entries.
 
