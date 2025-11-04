@@ -122,11 +122,11 @@ Update SPB **help** :
 # removes spb software and any update logs
 rm -ri ~/bin/start-private-browser.bash ~/bin/spb-update.bash ~/bin/spb-update.log
 
-# remove your custom templates and configruation file ; assuming you have not saved to a custom location
+# remove your spb custom templates and configruation file ; assuming you have not saved to a custom location
 # carful you may not want to delete this data - CAUTION ADVISED!
 rm -ri ~/bin/spb-templates
 
-# remove spb fish functions ; including any custom spb functions
+# remove your spb fish functions ; including any custom spb functions
 # carful you may not want to delete this data - CAUTION ADVISED!
 rm -ri ~/.config/fish/functions/spb*.fish ~/.config/fish/functions/start-private-browser.fish
 ```
