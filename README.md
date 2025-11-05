@@ -90,7 +90,7 @@ henri/spb/refs/heads/main/\
 
 > <sub>The [installer/update](https://github.com/henri/spb/blob/main/500.spb-install-script.bash) script is a convenience to simplify installation and updating of spb on your system(s). Updates are semi-automatic because in order to update you manually run the [installer](https://github.com/henri/spb/blob/main/500.spb-install-script.bash) interactively. Check the [automated notes](https://github.com/henri/spb/?tab=readme-ov-file#arrows_counterclockwise-automate-installation-and-updates) for details on configuring unattended spb updates and installations. Also, before enabling automatic updtes read the [disclaimer section](https://github.com/henri/spb/?tab=readme-ov-file#warning-disclaimer) carfully. When installing SPB (using the above command), automatic updates are not enabled. If you want automatic updates, you must [deliberatly select](https://github.com/henri/spb/?tab=readme-ov-file#arrows_counterclockwise-automate-installation-and-updates) that as an option.</sub>
 
-> <sub>If you prefer to use spb without using the install/update script (not recommended) ; copy the SBP [project](https://github.com/henri/spb/blob/main/050.start-private-browser.bash) script to your system and make it executable.<sub>
+> <sub>If you prefer to use spb without using the install/update script (not recommended) ; just copy the SBP [project](https://github.com/henri/spb/blob/main/050.start-private-browser.bash) script to your system and make it executable.<sub>
 <br/>
 
 ### :bookmark_tabs: Usage
