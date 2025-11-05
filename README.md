@@ -207,7 +207,7 @@ The links below will assist you with forming a deeper understanding of SPB as a 
   - [Telemetry and Privacy](https://github.com/henri/spb/blob/main/READE.md#shield-telemetry-and-privacy)
   - [Templating Sub-System](https://github.com/henri/spb#spb-templating-support) <sub>:floppy_disk: web data is preserved in certian template modes</sub>
   - [Security and Trust](https://github.com/henri/spb#lock-security-and-trust)
-  - [Brave Telemetry Issues](https://github.com/brave/brave-browser/issues/48604)
+  - [Brave Telemetry Issues](https://github.com/brave/brave-browser/issues/48604) <sub>:telephone: data sent to mothership by brave</sub>
 
 <br>
 <br>
