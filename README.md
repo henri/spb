@@ -201,7 +201,7 @@ Templates allow you to run browsers in a more standard browser mode but to still
 
 SPB is a useful tool which is able to assist you in your privacy journey. Below are important links to sections of this documentation and external resources regarding SPB and your privacy. Like any tool, it is important to spend time learning the basics so you understand when and how it will assist you with your privacy, as well as the tools limitations.
 
-The links below will assist you with forming a deeper understanding of SPB as a tool so you will know when it is the right tool : 
+The links below will assist you with forming a deeper understanding of SPB as a tool so you will know when to weild : 
 
   - [Disclaimer](https://github.com/henri/spb#warning-disclaimer) <sub>:star2: important things to understand</sub>
   - [Telemetry and Privacy](https://github.com/henri/spb#shield-telemetry-and-privacy)
