@@ -201,13 +201,13 @@ Templates allow you to run browsers in a more standard browser mode but to still
 
 SPB is a useful tool which is able to assist you in your privacy journey. Below are important links to sections of this documentation and external resources regarding SPB and your privacy. Like any tool, it is important to spend time learning the basics so you understand when and how it will assist you with your privacy, as well as the tools limitations.
 
-The links below will assist you with forming a deeper understanding of SPB as a tool so you will know when it is the right tool for you : 
+The links below will assist you with forming a deeper understanding of SPB as a tool so you will know when it is the right tool : 
 
-  - [Telemetry and Privacy](https://github.com/henri/spb/blob/main/README.md#shield-telemetry-and-privacy)
-  - [Disclaimer](https://github.com/henri/spb#warning-disclaimer)
-  - [Templating Sub-System](https://github.com/henri/spb#spb-templating-support)
-  - [Brave Telemetry Issues](https://github.com/brave/brave-browser/issues/48604)
+  - [Disclaimer](https://github.com/henri/spb#warning-disclaimer) <sub>:star2: important things to understand</sub>
+  - [Telemetry and Privacy](https://github.com/henri/spb/blob/main/READE.md#shield-telemetry-and-privacy)
+  - [Templating Sub-System](https://github.com/henri/spb#spb-templating-support) <sub>:floppy_disk: web data is preserved in certian template modes</sub>
   - [Security and Trust](https://github.com/henri/spb#lock-security-and-trust)
+  - [Brave Telemetry Issues](https://github.com/brave/brave-browser/issues/48604)
 
 <br>
 <br>
