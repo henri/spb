@@ -204,7 +204,7 @@ SPB is a useful tool which is able to assist you in your privacy journey. Below 
 The links below will assist you with forming a deeper understanding of SPB as a tool so you will know when it is the right tool : 
 
   - [Disclaimer](https://github.com/henri/spb#warning-disclaimer) <sub>:star2: important things to understand</sub>
-  - [Telemetry and Privacy](https://github.com/henri/spb/blob/main/READE.md#shield-telemetry-and-privacy)
+  - [Telemetry and Privacy](https://github.com/henri/spb##shield-telemetry-and-privacy)
   - [Templating Sub-System](https://github.com/henri/spb#spb-templating-support) <sub>:floppy_disk: web data is preserved in certian template modes</sub>
   - [Security and Trust](https://github.com/henri/spb#lock-security-and-trust)
   - [Brave Telemetry Issues](https://github.com/brave/brave-browser/issues/48604) <sub>:telephone: data sent to mothership by brave</sub>
