@@ -307,7 +307,7 @@ As the default browser option in SPB is [Brave](https://brave.com/) and that pro
   <a href="https://github.com/henri/spb/?tab=readme-ov-file#shield-telemetry-and-privacy" ><img src="https://henri.github.io/spb/spb-telemetry-privacy.png" width="60%"></a>
 </p>
   
-Different operating systems and even different LINUX distributions have different stances on privacy and telemetry. As such it is advisable that you check these details for your specific operating system. This project works on a variety of operating systems each with their own particulars relating to privacy and telemetry.
+Different operating systems and even different LINUX distributions have different stances on privacy and telemetry. As such it is advisable that you check these details for your specific operating system. This project works on a variety of operating systems each with their own particulars relating to privacy and telemetry. Learn more about [SPB privacy](https://github.com/henri/spb?tab=readme-ov-file#shield-privacy).
 
 > #### SPB Fish Snippets 
 > <sub>Should you use spb-ddg, spb-ddg-ai or spb-pai fish snippets, then you will want to have a close look at the terms of service from [DuckDuckGo](https://duckduckgo.com/privacy) and [Perplexity Ai](https://www.perplexity.ai/hub/legal/privacy-policy) whose websites you will be accessing. If you are using spb-yt then be sure to check [Googles privacy policy](https://policies.google.com/privacy). The same applies to using other fish snippits not specifcially mentioned.</sub>
@@ -328,7 +328,7 @@ spb-pai "vet the following project code for malware : https://github.com/henri/s
   <a href="https://github.com/henri/spb/?tab=readme-ov-file#lock-security-and-trust" ><img src="https://github.com/henri/spb/blob/readme-images/spb-security-trust.jpeg?raw=true" width="80%"></a>
 </p>
 
-SPB is hosted on GitHub :octocat: and as such the infrastructure (will soon) sit on Microsoft's [Azure](azure.com). This platform has a track record of various security issues. Always Keep this in mind when pulling any code from GitHub.
+SPB is hosted on GitHub :octocat: and as such the infrastructure (will soon) sit on Microsoft's [Azure](azure.com). This platform has a track record of various security issues. Always Keep this in mind when pulling any code from GitHub. Learn more about [SPB privacy](https://github.com/henri/spb?tab=readme-ov-file#shield-privacy).
 
 <br/>
 
@@ -456,6 +456,8 @@ Currently there are no plans to make this work on Microsoft Windows. It may work
 If you decide to setup a [scheduled automatic update](https://github.com/henri/spb#arrows_counterclockwise-automate-installation-and-updates), then you should trust that I am not going to add any malicious code into this system in the future and that the security of my systems are good enough to prevent someone else pushing malware into the code base. This applies to any software (not just SPB) which automatically updates (even if it is open source). You must alwasy trust the developers sufficiently if you enable auto-updates. This is why by design SPB will not automatically enable auto-updates. SPB expects that if you enable automatic updates you are intentionally placing trust in me to not mess with your system(s) deliberately and that I will secure my systems as the developer sufficiently to protect the SPB code base and build processes less, someone breaks my security in order to take advantage of yours. Remember that any software system which automatically updates via the internet has these same risks.
 
 This project is still in the :seedling: seedling stage (with lots of potential). If you have suggestions / ideas to improve the way it works, then please [start a discussion](https://github.com/henri/spb/discussions). If you test this on a particular operating system and it works or is not working for you please also leave a comment so that others know to give it a try or not :)
+
+Learn more about [SPB privacy](https://github.com/henri/spb?tab=readme-ov-file#shield-privacy).
 
 <br/>
 
