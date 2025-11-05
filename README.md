@@ -310,7 +310,7 @@ As the default browser option in SPB is [Brave](https://brave.com/) and that pro
 Different operating systems and even different LINUX distributions have different stances on privacy and telemetry. As such it is advisable that you check these details for your specific operating system. This project works on a variety of operating systems each with their own particulars relating to privacy and telemetry.
 
 > #### SPB Fish Snippets 
-> <sub>Should you use spb-ddg, spb-ddg-ai or spb-pai fish snippets, then you will want to have a close look at the terms of service from [DuckDuckGo](https://duckduckgo.com/privacy) and [Perplexity Ai](https://www.perplexity.ai/hub/legal/privacy-policy) whose websites you will be accessing. If you are using spb-yt then be sure to check [Googles privacy policy](https://policies.google.com/privacy).</sub>
+> <sub>Should you use spb-ddg, spb-ddg-ai or spb-pai fish snippets, then you will want to have a close look at the terms of service from [DuckDuckGo](https://duckduckgo.com/privacy) and [Perplexity Ai](https://www.perplexity.ai/hub/legal/privacy-policy) whose websites you will be accessing. If you are using spb-yt then be sure to check [Googles privacy policy](https://policies.google.com/privacy). The same applies to using other fish snippits not specifcially mentioned.</sub>
 
 <br/>
 
@@ -448,7 +448,9 @@ In the event additional privacy is required run SPB within a VM or within a cont
   * [Cubes OS](https://www.qubes-os.org/)
   * [Kasm Workspaces](https://kasmweb.com/)
 
-If you test SPB and it works on your operating system leave a comment :) or let me know it is not working.
+Is this list incomplte? If you know of a privacy focused system missing from this list [let me know](https://github.com/henri/spb/discussions).
+
+If you test SPB and it works on your operating system [leave a comment](https://github.com/henri/spb/discussions) :) or let me know it is not working.
 Currently there are no plans to make this work on Microsoft Windows. It may work within the WLS? Give it a try and let me know!
   
 If you decide to setup a [scheduled automatic update](https://github.com/henri/spb#arrows_counterclockwise-automate-installation-and-updates), then you should trust that I am not going to add any malicious code into this system in the future and that the security of my systems are good enough to prevent someone else pushing malware into the code base. This applies to any software (not just SPB) which automatically updates (even if it is open source). You must alwasy trust the developers sufficiently if you enable auto-updates. This is why by design SPB will not automatically enable auto-updates. SPB expects that if you enable automatic updates you are intentionally placing trust in me to not mess with your system(s) deliberately and that I will secure my systems as the developer sufficiently to protect the SPB code base and build processes less, someone breaks my security in order to take advantage of yours. Remember that any software system which automatically updates via the internet has these same risks.
