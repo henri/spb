@@ -210,10 +210,11 @@ Information availble via the links below will assist you with forming a deeper u
   - [Brave Telemetry Issues](https://github.com/brave/brave-browser/issues/48604) <sub>:telephone: data sent to mothership by brave</sub>
 
 <br>
+
+Keep in mind that different browsers will potentially have different [options](https://github.com/henri/spb/blob/main/901.notes_browser_specific.md) which may alter the way the program works in terms of your privacy.
+
 <br>
-Keep in mind that different browsers will also have different [options](https://github.com/henri/spb/blob/main/901.notes_browser_specific.md) which may alter the way the program works in terms of your privacy.
 <br>
-<br<
 
 
 ### :triangular_flag_on_post: Compatibility 
