@@ -28,7 +28,7 @@ else
   exit -102
 fi
 
-##  atomated clean up of this custom spb temp directory (removes any spb temp files which your user created which are  than one hour stale - possible browser / system crash)
+##  atomated clean up of this custom spb temp directory (removes any spb temp files which your user created which are greater than one hour stale - possible browser / system crash)
 #
 #       quick tips for altering the stale time :
 #           - morte than one day old : -mtime +1
