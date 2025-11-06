@@ -298,6 +298,9 @@ Most shells are configured by default to save a history of commands. As such, if
 ```
 fish --private
 ```
+
+Some terminals / operating systems / kernel modules / system extensions / shell extensions / may send data from your machine to remote systems! It is important to understand the layers of the software stack and what is being sent and also what may be anylysed localloy on your systems. 
+
 If you require no trace left behind on your device as you browse the web, then [SPB is likely not the right tool](https://github.com/henri/spb/blob/main/README.md#warning-disclaimer). 
 
   > Note : If you schedule or manually run an install / update, then your system will poll and potentially access this Github reposotry. As such, it is advisable that you read the section below regarding this project being hosted on GitHub. If this is a problem think twice before installing SPB or running SPB updates (manually / scheduled).
