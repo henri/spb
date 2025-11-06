@@ -43,6 +43,10 @@ SPB features built-in support for a growing list of [operating systems](https://
 
 <br/>
 
+More than just software. This project also attempts to be a collrabative and extensive reference for people interested in learning more about web browser basics ; in particular the focus of documentaiton found in this project is regarding privacy and web browseers.
+
+<br/>
+
 Looking for something specific. Check out the helpful [SPB Index](https://github.com/henri/spb/blob/main/README_INDEX.md).
 
 <br/>
