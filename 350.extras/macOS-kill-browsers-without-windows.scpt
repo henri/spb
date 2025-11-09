@@ -5,6 +5,9 @@
 -- automated way.
 --
 -- Suggestions on improving this monstrosorty are very welcome.
+--
+-- Would be good if it is able to put things back into the dock / re-hide
+-- applications that were hidden at the start
 -- 
 -- Show dialog for any browsers which is detected to not have windows
 -- This is a very complext script for what should be simple.
