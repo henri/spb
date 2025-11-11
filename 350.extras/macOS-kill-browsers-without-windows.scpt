@@ -1,8 +1,6 @@
 -- 
 -- This script is part of the SPB Project : http://github.com/henri/spb/
--- It is useful as when you close a window, the program will be left running
--- It would be great if this is reliable to simply have it clean up things in an
--- automated way.
+-- It is useful if you close a windows and the program remains running
 -- 
 --   _____ _____  ____  
 --  / ____|  __ \|  _ \ 
@@ -18,7 +16,7 @@
 -- a different appraoch which will work faster
 -- and which could possibly cause less interferance
 -- allowing it to be run in the background at regular
--- intervals.
+-- intervals autmatically.
 --
 -- Would be good if it is able to put things back into the dock / re-hide
 -- applications that were hidden at the start
