@@ -30,6 +30,9 @@
 -- create an spb fish alias : 
 -- alias -s spb-kill-sessions-without-windows "osascript ~/bin/kill-apps-without-windows.scpt"
 --
+-- (C)Copyright 2025 Henri Shustak
+-- Released Under the GNU GPL v3 or later
+--
 -- Show dialog for any browsers which is detected to not have windows
 -- This is a very complext script for what should be simple.
 -- Finding programs which are full screen on other spaces on macOS presents challanges
