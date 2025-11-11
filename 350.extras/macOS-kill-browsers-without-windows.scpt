@@ -1,7 +1,9 @@
 -- 
+-- This script is for use on macOS systems.
+--
 -- This script is part of the SPB Project : http://github.com/henri/spb/
 -- It is useful if you close a windows and the program remains running
--- 
+--
 --   _____ _____  ____  
 --  / ____|  __ \|  _ \ 
 -- | (___ | |__) | |_) |
@@ -20,7 +22,7 @@
 --
 -- Would be good if it is able to put things back into the dock / re-hide
 -- applications that were hidden at the start
--- 
+--
 -- If you place this script into ~/bin/ directory, then it is possible to 
 -- run this script from a command prompt :
 -- osascript ~/bin/kill-apps-without-windows.scpt
