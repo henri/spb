@@ -3,8 +3,22 @@
 -- It is useful as when you close a window, the program will be left running
 -- It would be great if this is reliable to simply have it clean up things in an
 -- automated way.
---
+-- 
+--   _____ _____  ____  
+--  / ____|  __ \|  _ \ 
+-- | (___ | |__) | |_) |
+--  \___ \|  ___/|  _ < 
+--  ____) | |    | |_) |
+-- |_____/|_|    |____/ 
+-- START PRIVATE BROWSER                     
+--                      
 -- Suggestions on improving this monstrosorty are very welcome.
+-- As it stands, this script is very heavy on permissions.
+-- Ideally, it would be great if someone comes up with
+-- a different appraoch which will work faster
+-- and which could possibly cause less interferance
+-- allowing it to be run in the background at regular
+-- intervals.
 --
 -- Would be good if it is able to put things back into the dock / re-hide
 -- applications that were hidden at the start
