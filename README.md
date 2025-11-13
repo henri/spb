@@ -41,6 +41,8 @@ This project is still in a [seedling stage](https://github.com/henri/spb/?tab=re
 
 SPB features built-in support for a growing list of [operating systems](https://github.com/henri/spb/blob/main/README.md#triangular_flag_on_post-compatibility) and [browsers](https://github.com/henri/spb/blob/main/README.md#sunrise-browser-support).
 
+SPB works from most interactive shells. However, keep in mind that development is focused on the fish shell.
+
 <br/>
 
 More than just software. This project also attempts to be an extensive reference for anyone interested in learning more about web browser basics ; in particular the focus of this projects documentaiton is related to privacy as it relates to web browsers.
