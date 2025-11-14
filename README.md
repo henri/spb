@@ -54,7 +54,7 @@ Looking for something specific. Check out the helpful [SPB Index](https://github
 
 ### :dart: SPB Feature Summary
 
-  - [Easily](https://github.com/henri/spb#bookmark_tabs-usage) create multiple isolated web browser instances.
+  - [Create](https://github.com/henri/spb#bookmark_tabs-usage) multiple isolated web browser instances.
   - Reliable browser [templating](https://github.com/henri/spb#spb-templating-support) system
      - providing task isolation
      - browser customisation
