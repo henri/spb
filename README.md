@@ -355,7 +355,7 @@ https://raw.githubusercontent.com/\
 henri/spb/refs/heads/main/\
 500.spb-install-script.bash)"
 ```
-  > <sub>This is the same command used to install SPB, with one key difference ; an environment varable SPB_CRON_SETUP is set to "ture" and exported.</sub>
+  > <sub>This is the same command used to install SPB, with one key difference ; an environment varable SPB_CRON_SETUP is set to "true" and exported.</sub>
 
 The setup of unattended / automated SPB updates (eg. using the command above) will result in default choices being selected which you would normally be able to interactively select. Also, see [notes regarding telemitry and privacy](https://github.com/henri/spb/?tab=readme-ov-file#shield-telemetry-and-privacy) if you schedule or manually start an SPB update.
 
