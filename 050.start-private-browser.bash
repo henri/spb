@@ -97,6 +97,7 @@
 # version 8.5 - improved verbose output when listing sessions with the --list --verbose options
 # version 8.6 - various improvements to output formatting and error messages providing more information.
 # version 8.7 - added edge case for browser installed tick mark on macOS (bug fix) when using --list-browsers option
+# version 8.8 - improved error output when editing a template which has not been created
 
 ##
 ## Configuration of Variables
@@ -1595,6 +1596,19 @@ if [[ "${edit_template_dir_name}" != "" ]] ; then
         fi
         exit -56
     fi
+    # confirm the template directory exits prior to lock file creation
+    if ! [[ -d $(dirname ${template_lock_file_absolute}) ]] ; then
+        echo ""
+        echo "ERROR! : Specified SPB template directory was not found :"
+        echo "         $(dirname ${template_lock_file_absolute})"
+        echo ""
+        echo "         Check that you have correctly specified the template name."
+        echo ""
+        echo "         List available tempaltes with the command below :"
+        echo "         start-private-browser --list-templates"
+        echo ""
+        exit -53
+    fi
     # create the lock file to prevent others from editing
     if [[ "${quite_mode}" != "true" ]] ; then
         echo "        Creating template editing lock..."
@@ -1917,7 +1931,6 @@ screen -S "${screen_session_name}" -dm bash -c " \"${spb_browser_path}\" ${brows
 run_post_browser_startup_commands
 
 exit 0
-
 
 
 
