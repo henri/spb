@@ -202,7 +202,7 @@ Templates allow you to run browsers in a more standard browser mode but to still
 
 ### :shield: Privacy
 
-SPB is a useful tool which is able to assist you in your privacy journey. Below are important links to sections of this documentation and external resources regarding SPB and your privacy. Like any tool, it is important to spend time learning the basics so you understand when and how it will assist you with your privacy, as well as the tools limitations.
+SPB is a useful tool which is able to assist you in your privacy journey. Below are important links to sections of this documentation and external resources regarding SPB and your privacy. Like any tool, it is important to spend time learning the basics so you understand when and how it will assist you with your privacy, as well as the limitations.
 
 Information availble via the links below will assist you with forming a deeper understanding of SPB as a tool so you will know when to weild : 
 
