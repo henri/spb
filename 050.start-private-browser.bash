@@ -97,7 +97,7 @@
 # version 8.5 - improved verbose output when listing sessions with the --list --verbose options
 # version 8.6 - various improvements to output formatting and error messages providing more information.
 # version 8.7 - added edge case for browser installed tick mark on macOS (bug fix) when using --list-browsers option
-# version 8.8 - improved error output when editing a template which has not been created
+# version 8.8 - improved error output when editing a template which has not yet to been created
 
 ##
 ## Configuration of Variables
