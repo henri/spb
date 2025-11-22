@@ -1,7 +1,7 @@
 # This file is an example spb.config file.
 #
 # This example shows a possible approach to setting a custom tmp path
-# on set to /tmp/spb-data-<your-username> directory for temporary user storage.
+# set to /tmp/spb-data-<your-username> directory for temporary user storage.
 #
 # This configuration also pruns tempoarary data directories which
 # have not been modified within the last day (stragglers)
@@ -31,7 +31,7 @@ fi
 ##  atomated clean up of this custom spb temp directory (removes any spb temp files which your user created which are greater than one hour stale - possible browser / system crash)
 #
 #       quick tips for altering the stale time :
-#           - morte than one day old : -mtime +1
+#           - more than one day old : -mtime +1
 #           - more than one hour old : -mmin +60
 # 
 #       man find # for more details on setting the stale time
