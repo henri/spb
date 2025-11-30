@@ -171,6 +171,8 @@ If you are using the fish shell, then these commands should be active and ready 
 | `spb-ody`       |  [Odysee Search](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-ody-fish) | initiate simultaneous [Odysee](https://odysee.com) searches |
 | `spb-twitch`    |  [Twitch Search](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-twitch-fish) | initiate simultaneous [Twitch](https://twitch.tv) searches |
 |  `spb-pai`      |  [Perplexity AI Chat](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-perlexity-ai-fish) | kick off conversations with Perplexity AI |
+|  `spb-mist`     |  [Mistral AI Chat](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-mistral-ai-fish) | kick off conversations with Mistral AI |
+
   
 > <sub>If your system has [fish](https://fishshell.com/) installed and you run the update system in an unattended mode, then these snippets will be installed / updated. This is because that is the default option. When running in unattended mode all default options are selected. If you do not want the above [snippets installed](https://github.com/henri/spb/?tab=readme-ov-file#file-spb-fish-function-installer-bash) please run the update script interactively and enter "no" when asked during the install process. Again the prompt for opting out is only available during interactive mode when using [spb-update.bash](https://github.com/henri/spb/blob/main/600.spb-update.bash) script or when manually running the [install/update](https://github.com/henri/spb/?tab=readme-ov-file#floppy_disk-installation) process.
 
