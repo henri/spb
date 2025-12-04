@@ -4,7 +4,7 @@
 </p>
 
 # 🏖️ Welcome to SPB
-[Harness the power](https://github.com/henri/spb/?tab=readme-ov-file#raising_hand-why-is-spb-needed) of isolated web sessions with SPB. Every time you run SPB a new browser instance ([Brave](https://brave.com/) a modern web browser is the default) is spawned within a fresh [screen](https://www.gnu.org/software/screen/) session. When you close the browser, [SPB will delete all <b>web</b> data](https://github.com/henri/spb?tab=readme-ov-file#shield-privacy) related to that browser session.
+[Harness the power](https://github.com/henri/spb/?tab=readme-ov-file#raising_hand-why-is-spb-needed) of isolated web sessions with SPB. Every time you run SPB a new browser instance ([Brave](https://brave.com/) is the default) is spawned within a fresh [screen](https://www.gnu.org/software/screen/) session. When you close the browser, [SPB will delete all <b>web</b> data](https://github.com/henri/spb?tab=readme-ov-file#shield-privacy) related to that browser session.
 
 
 # :anchor: SPB Readme : Table of Contents
