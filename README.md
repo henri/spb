@@ -460,7 +460,7 @@ In the event additional privacy is required run SPB within a VM or within a cont
   * [Cubes OS](https://www.qubes-os.org/)
   * [Kasm Workspaces](https://kasmweb.com/)
 
-Is this list incomplte? If you know of a privacy focused system missing from this list [let me know](https://github.com/henri/spb/discussions).
+Is this list incomplete? If you know of a privacy focused system missing from this list [let me know](https://github.com/henri/spb/discussions).
 
 If you test SPB and it works on your operating system [leave a comment](https://github.com/henri/spb/discussions) :) or let me know it is not working.
 Currently there are no plans to make this work on Microsoft Windows. It may work within the WLS? Give it a try and let me know!
