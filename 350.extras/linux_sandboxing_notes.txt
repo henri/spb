@@ -43,7 +43,7 @@ bwrap \
   /bin/bash -c "mkdir -p /tmp/brave-data && exec /usr/bin/brave-browser --user-data-dir=/tmp/brave-data"
 
 
-# if you install brave via a flat pack then sand boxing is taking palce
+# if you install brave via a flatpack then some sandboxing is already taking palce when you start it up. Flatpack uses bwrap under the hood.
 
 
 
