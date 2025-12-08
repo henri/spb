@@ -1,0 +1,49 @@
+# below is a bwrap example to start brave (not using spb) - note that without /run/user/ dconf will not work correctly
+
+export HOME=/tmp
+bwrap --ro-bind /
+    --dev-bind /dev /dev \
+    --proc /proc --tmpfs /tmp \
+    --unshare-pid \
+    --setenv DISPLAY "$DISPLAY" \
+    --setenv XAUTHORITY "$XAUTHORITY" \
+    /bin/bash -c "mkdir -p /tmp/brave-data && exec /usr/bin/brave-browser --user-data-dir=/tmp/brave-data"
+
+# more restrictive example 
+
+mkdir -p "/tmp/bwrap-home"
+mkdir -p "/tmp/bwrap-etc"
+echo "sandbox:x:200000:" > "/tmp/bwrap-etc/group"
+echo "sandbox:x:200000:200000::/home/sandbox:/bin/bash" > "/tmp/bwrap-etc/passwd"
+bwrap \
+  --unshare-all \
+  --share-net \
+  --uid 200000 \
+  --gid 200000 \
+  --ro-bind /usr /usr \
+  --ro-bind /bin /bin \
+  --ro-bind /lib /lib \
+  --ro-bind /lib64 /lib64 \
+  --ro-bind /sbin /sbin \
+  --ro-bind /etc /etc \
+  --ro-bind /opt/brave.com /opt/brave.com \
+  --ro-bind /run/dbus /run/dbus \
+  --dev /dev \
+  --proc /proc \
+  --tmpfs /tmp \
+  --bind "/tmp/bwrap-etc/group" /etc/group \
+  --bind "/tmp/bwrap-etc/passwd" /etc/passwd \
+  --bind "/tmp/bwrap-home" /home/sandbox \
+  --setenv HOME /home/sandbox \
+  --setenv USER sandbox \
+  --setenv SHELL /bin/bash \
+  --setenv DISPLAY "$DISPLAY" \
+  --chdir /home/sandbox \
+  --hostname sandy \
+  /bin/bash -c "mkdir -p /tmp/brave-data && exec /usr/bin/brave-browser --user-data-dir=/tmp/brave-data"
+
+
+# if you install brave via a flat pack then sand boxing is taking palce
+
+
+
