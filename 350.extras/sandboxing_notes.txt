@@ -1,5 +1,6 @@
-# below is a bwrap example to start brave (not using spb)
+# below is a bwrap example to start brave (not using spb) - note that without /run/user/ dconf will not work correctly
 
+export HOME=/tmp
 bwrap --ro-bind /
     --dev-bind /dev /dev \
     --proc /proc --tmpfs /tmp \
