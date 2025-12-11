@@ -85,7 +85,7 @@ https://raw.githubusercontent.com/\
 henri/spb/refs/heads/main/\
 500.spb-install-script.bash)"
 ```
-> <sub>Detailed install instructions : Copy and paste the lines above into a terminal and press enter. [View source code](https://github.com/loft-sh/devpod)</sub>
+> <sub>Detailed install instructions : Copy and paste the lines above into a terminal and press enter. [View source code](https://github.com/henri/spb/blob/main/500.spb-install-script.bash)</sub>
 
 > <sub>**Operating system specific installation instructions for SPB dependencies is [available below](https://github.com/henri/spb/blob/main/README.md#triangular_flag_on_post-compatibility).**</sub>
 
