@@ -423,7 +423,7 @@ If you export proxy environment variables (as shown below) then the SPB install 
   set -x export https_proxy "https://proxy.server:port"
   
 ```
-If you would like to use a proxy when checking for updates, it is reccomded that you either add the enviroment varables to your crontab (or automation system of choice) or create a custom update wrapper script which adds the proxy varables to your enviroment so they are respected during the update process. Editing the update script to do this is not reccomedned as during the update proces any changes made to that file will be removed.
+If you would like to use a proxy when checking for updates, it is reccomded that you either add the enviroment varables to your crontab (or automation system of choice) or create a custom update wrapper script which adds the proxy varables to your enviroment so they are respected during the update process. Editing the included update script should be avoided because during the update proces any changes made to that file will be removed.
 
 
 <br/>
