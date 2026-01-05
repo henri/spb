@@ -364,7 +364,7 @@ henri/spb/refs/heads/main/\
 ```
   > <sub>This is the same command used to install SPB, with one key difference ; an environment varable SPB_CRON_SETUP is set to "true" and exported.</sub>
 
-The setup of unattended / automated SPB updates (eg. using the command above) will result in default choices being selected which you would normally be able to interactively select. Also, see [notes regarding telemitry and privacy](https://github.com/henri/spb/?tab=readme-ov-file#shield-telemetry-and-privacy) if you schedule or manually start an SPB update.
+The setup of unattended / automated SPB updates (eg. using the command above) will result in default choices being selected which you would normally be able to interactively select. Also, see [notes regarding telemitry and privacy](https://github.com/henri/spb/?tab=readme-ov-file#shield-telemetry-and-privacy) if you schedule or manually start an SPB update. Also, see [notes regarding configuring of proxies for updates](https://github.com/henri/spb/blob/main/README.md#proxy-settings).
 
 The command above will setup an entry in your users crontab which will run the included [spb-update.bash](https://github.com/henri/spb/blob/main/600.spb-update.bash) script automatically. This will keep your copy of SPB upto date.
 
