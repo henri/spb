@@ -333,7 +333,7 @@ Different operating systems and even different LINUX distributions have differen
 
 ### :lock: Security and Trust
 You should only run code and use software from sources you trust! 
-If you do not trust yourself to check the project code below or you do not trust my judgment, then it is recommended to not run this code. The alternative is asking someone familiar with shell scripting (the language used to create SPB) to vet the code on your behalf. Just make sure if you ask someone to help you vet the code ; that you also trust them. With 25+ years of experience writing shell scripts, you would hope that I have learnt to test my work.
+If you do not trust yourself to check the project code below or you do not trust my judgment, then it is recommended to not run this code. The alternative is asking someone familiar with shell scripting ([BASH](https://bash.com/) and [FISH](https://fishshell.com/) are the shell scripting languages used to create SPB) to vet the code on your behalf. Just make sure if you ask someone to help you vet the code ; that you also trust them. With 25+ years of experience writing shell scripts, you would hope that I have learnt to test my work.
   
 Already have spb and fish snippets setup, you may issue the following command to have perplexity vet the code : 
 ```
