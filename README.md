@@ -475,7 +475,9 @@ In the event additional privacy is required run SPB within a VM or within a cont
   * [Cubes OS](https://www.qubes-os.org/)
   * [Kasm Workspaces](https://kasmweb.com/)
   * [Tor Project](https://www.torproject.org/)
-    * [Brave Browser](https://brave.com/) features a built in [Tor](https://github.com/henri/spb?tab=readme-ov-file#fish-shell-wrappers) client and [Snowflake](https://support.brave.app/hc/en-us/articles/9059440641421-What-is-the-Snowflake-extension) extension
+    * [Brave Browser](https://brave.com/)
+      * built in [Tor](https://github.com/henri/spb?tab=readme-ov-file#fish-shell-wrappers) client
+      * built in [Snowflake](https://support.brave.app/hc/en-us/articles/9059440641421-What-is-the-Snowflake-extension) extension (contribute to the tor network)
 
 Is this list incomplete? If you know of a privacy focused system missing from this list [let me know](https://github.com/henri/spb/discussions).
 
