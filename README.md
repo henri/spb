@@ -214,8 +214,8 @@ Information availble via the links below will assist with forming a deeper under
   - [DRM](https://github.com/henri/spb/#drm-and-privacy) (Digital Rights Management) and Privacy
   - [Templating Sub-System](https://github.com/henri/spb#spb-templating-support) <sub>:floppy_disk: web data is preserved in certian template modes</sub>
   - [Security and Trust](https://github.com/henri/spb#lock-security-and-trust)
-  - [Proxies](https://github.com/henri/spb?tab=readme-ov-file#proxy-settings)
-  - [Tor Network Access](https://github.com/henri/spb?tab=readme-ov-file#tor-network-access)
+  - [Proxies](https://github.com/henri/spb?tab=readme-ov-file#proxy-settings) :arrow_right: :left_right_arrow: :arrow_left: (server in the middle)
+  - [Tor Network Access](https://github.com/henri/spb?tab=readme-ov-file#tor-network-access) :melon: (Onion Routing)
   - [Brave Telemetry Issues](https://github.com/brave/brave-browser/issues/48604) <sub>:telephone: data sent to mothership by brave</sub>
 
 <br>
