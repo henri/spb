@@ -160,7 +160,7 @@ If you are using the fish shell, then these commands should be active and ready 
 | command         | snippet name          | explanation |
 | --------------- | --------------------- | ------------|
 |  `spb`          |  [spb](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-fish) | an alias to start-private-browser<br>but shortedned to spb<br>overide with your favorite extras|
-|  `spb-tor`      |  [spb-tor](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-tor-fishh) | start SPB with [Tor](https://www.torproject.org) network enabled ;<br>equivalent to spb --tor|
+|  `spb-tor`      |  [spb-tor](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-tor-fishh) | start SPB with [Tor](https://github.com/henri/spb/#tor-network-access) network enabled ;<br>equivalent to spb --tor|
 | `spb-smart`     |  [spb-smart](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-smart-fish) | experimental brave search / direct URL access |
 | `spb-ddg`       |  [DuckDuckGo Search](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-ddg-fish)  |  start multiple DuckDuckGo searches |
 | `spb-ddg-ai`    | [DuckDuckGo Chat](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-ddg-ai-fish) | have multiple DuckDuckGo AI (LLM) chats  |
