@@ -211,10 +211,11 @@ Information availble via the links below will assist with forming a deeper under
 
   - [Disclaimer](https://github.com/henri/spb#warning-disclaimer) <sub>:star2: important things to understand</sub>
   - [Telemetry and Privacy](https://github.com/henri/spb#shield-telemetry-and-privacy)
-  - [DRM](https://github.com/henri/spb/blob/main/README.md#drm-and-privacy) (Digital Rights Management) and Privacy
+  - [DRM](https://github.com/henri/spb/#drm-and-privacy) (Digital Rights Management) and Privacy
   - [Templating Sub-System](https://github.com/henri/spb#spb-templating-support) <sub>:floppy_disk: web data is preserved in certian template modes</sub>
   - [Security and Trust](https://github.com/henri/spb#lock-security-and-trust)
   - [Proxies](https://github.com/henri/spb?tab=readme-ov-file#proxy-settings)
+  - [Tor Network Access](https://github.com/henri/spb/#Tor Network Access)
   - [Brave Telemetry Issues](https://github.com/brave/brave-browser/issues/48604) <sub>:telephone: data sent to mothership by brave</sub>
 
 <br>
@@ -334,10 +335,19 @@ Different operating systems and even different LINUX distributions have differen
 
 <br/>
 
-#### DRM and Privacy
-[DRM](https://en.wikipedia.org/wiki/Digital_rights_management) modules such as [Widevine](https://www.widevine.com/) typically result in device or installation‑specific identifiers (sometimes key pairs). Such identifiers are designed to persist between sessions and unlike cookies, this identity is not cleared when you wipe browser cookies or cache. Keep in mind that many web [browsers are bundled with Widevine by default](https://www.reddit.com/r/brave_browser/comments/1fqdr71/what_is_this_google_widevine_i_just_noticed_that/). [Brave](https://brave.com/) (SPB default browser) is one of the few web browsers whcih (at the time writing) has opted to not bundled Widevine into the browser. Although, keep in mind it is possible to install the Widevine extension into Brave and you will be pompted to do this if you try to access data protected by Widevine. If you install Widevine into an SPB template, keep in mind that this may result in additional tracking that takes place when using that template. For enhanced privacy protection you may want to consider a [differnt tool](https://github.com/henri/spb/blob/main/README.md#warning-disclaimer) or combine SPB with other [tools](https://github.com/henri/spb/blob/main/README.md#warning-disclaimer) to further enhance your protection. Learn more about [SPB privacy](https://github.com/henri/spb?tab=readme-ov-file#shield-privacy).
+#### Tor Network Access
+The [Tor Project](https://www.torproject.org/) is one of the [tools](https://github.com/henri/spb#warning-disclaimer) which are worth being arware of in regards to SPB [web-browser privacy](https://github.com/henri/spb/#shield-privacy). 
+By default SPB will launch an isolated private browser session within a new instance of Brave. When SPB is installed and if you are running the fish shell you will also have the ability to start a [Tor browser session right from the command line](https://github.com/henri/spb/#fish-shell-wrappers). The Tor project is a powerful privacy tool which is also used by [Tails](https://github.com/henri/spb/#warning-disclaimer) project when you open a web browser (both projects are interelated). 
+
+Brave also makes contributing to the Tor network stright forward with the built in [Snowflake](https://snowflake.torproject.org/) extension. To enable the SnowFlake extension use [this link within Brave](brave://settings/privacy).
+
+Learn more about [SPB privacy](https://github.com/henri/spb#shield-privacy).
+
 <br/>
 
+#### DRM and Privacy
+[DRM](https://en.wikipedia.org/wiki/Digital_rights_management) modules such as [Widevine](https://www.widevine.com/) typically result in device or installation‑specific identifiers (sometimes key pairs). Such identifiers are designed to persist between sessions and unlike cookies, this identity is not cleared when you wipe browser cookies or cache. Keep in mind that many web [browsers are bundled with Widevine by default](https://www.reddit.com/r/brave_browser/comments/1fqdr71/what_is_this_google_widevine_i_just_noticed_that/). [Brave](https://brave.com/) (SPB default browser) is one of the few web browsers whcih (at the time writing) has opted to not bundled Widevine into the browser. Although, keep in mind it is possible to install the Widevine extension into Brave and you will be pompted to do this if you try to access data protected by Widevine. If you install Widevine into an SPB template, keep in mind that this may result in additional tracking that takes place when using that template. For enhanced privacy protection you may want to consider a [differnt tool](https://github.com/henri/spb/#warning-disclaimer) or combine SPB with other [tools](https://github.com/henri/spb/#warning-disclaimer) to further enhance your protection. Learn more about [SPB privacy](https://github.com/henri/spb#shield-privacy).
+<br/>
 
 ### :lock: Security and Trust
 You should only run code and use software from sources you trust! 
