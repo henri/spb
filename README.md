@@ -339,9 +339,7 @@ Different operating systems and even different LINUX distributions have differen
 The [Tor Project](https://www.torproject.org/) is one of the [tools](https://github.com/henri/spb#warning-disclaimer) which are worth being arware of in regards to SPB [web-browser privacy](https://github.com/henri/spb/#shield-privacy). 
 By default SPB will launch an isolated private browser session within a new instance of Brave. When SPB is installed and if you are running the fish shell you will also have the ability to start a [Tor browser session right from the command line](https://github.com/henri/spb/#fish-shell-wrappers). The Tor project is a powerful privacy tool which is also used by [Tails](https://github.com/henri/spb/#warning-disclaimer) project when you open a web browser (both projects are interelated). 
 
-Brave also makes contributing to the Tor network stright forward with the built in [Snowflake](https://snowflake.torproject.org/) extension. To enable the SnowFlake extension use [this link within Brave](brave://settings/privacy).
-
-Learn more about [SPB privacy](https://github.com/henri/spb#shield-privacy).
+Brave also makes contributing to the Tor network stright forward with the built in [Snowflake](https://snowflake.torproject.org/) extension. To enable the SnowFlake extension use [this link within Brave](brave://settings/privacy). Learn more about [SPB privacy](https://github.com/henri/spb#shield-privacy).
 
 <br/>
 
