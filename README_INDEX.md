@@ -19,6 +19,7 @@
 - [Operating System Compatability](https://github.com/henri/spb/blob/main/README.md#triangular_flag_on_post-compatibility)
 - [Privacy Overview](https://github.com/henri/spb?tab=readme-ov-file#shield-privacy)
 - [Telemtry and Privacy](https://github.com/henri/spb/blob/main/README.md#shield-telemetry-and-privacy)
+- [DRM and Privacy](https://github.com/henri/spb/blob/main/README.md#drm-and-privacy)
 - [Seucity and Trust](https://github.com/henri/spb/blob/main/README.md#lock-security-and-trust)
 - [Update Automation](https://github.com/henri/spb/blob/main/README.md#arrows_counterclockwise-automate-installation-and-updates)
 - [Proxy Settings](https://github.com/henri/spb/blob/main/README.md#proxy-settings)
