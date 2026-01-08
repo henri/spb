@@ -70,6 +70,7 @@ Looking for something specific. Check out the helpful [SPB Index](https://github
       - command line switches
       - enviroment varables
       - shell wrapper functions
+        - support for starting [Tor](https://github.com/henri/spb?tab=readme-ov-file#fish-shell-wrappers) session
       - custom scripts
   - [Licensed](https://github.com/henri/spb#memo-licensing-terms-of-use-and-legal) under GNU GPL, ensuring your rights (as a user of this software) are respected.
 
@@ -415,6 +416,8 @@ If you are looking to roll your own update system, then the notes below will ass
 All of the above and much more is handled for you if you use the included [update script](https://github.com/henri/spb/blob/main/600.spb-update.bash). 
 
 #### Proxy Settings
+Using a single proxy, multiple proxies or even proxy chains allow you to have one or more intermediate systems between the site you access with your browser and that server providing the data or service.
+
 If you export proxy environment variables (as shown below) then the SPB install / update scripts will respect these settings and perform network operations via the specified proxy.
 
 ```
@@ -470,6 +473,8 @@ In the event additional privacy is required run SPB within a VM or within a cont
   * [Whonix](https://www.whonix.org/)
   * [Cubes OS](https://www.qubes-os.org/)
   * [Kasm Workspaces](https://kasmweb.com/)
+  * [Tor](https://www.torproject.org/)
+    * [Brave Browser](https://brave.com/) features a built in Tor client and [Snowflake](https://support.brave.app/hc/en-us/articles/9059440641421-What-is-the-Snowflake-extension) extension
 
 Is this list incomplete? If you know of a privacy focused system missing from this list [let me know](https://github.com/henri/spb/discussions).
 
