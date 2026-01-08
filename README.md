@@ -60,7 +60,7 @@ Looking for something specific. Check out the helpful [SPB Index](https://github
      - browser customisation
      - isolated cookie storage
      - repeatable browser configuration
-     - sharing of browser templates between systems
+     - sharing of browser [templates](https://github.com/henri/spb#spb-templating-support) between systems
   - Support for [multiple web browsers](https://github.com/henri/spb#sunrise-browser-support)
   - Compatabilty with [many](https://github.com/henri/spb#triangular_flag_on_post-compatibility) operating systems
   - Stright forward [install](https://github.com/henri/spb#floppy_disk-installation), [update](https://github.com/henri/spb#bookmark_tabs-usage) and [removal](https://github.com/henri/spb#bookmark_tabs-usage) process
@@ -474,8 +474,8 @@ In the event additional privacy is required run SPB within a VM or within a cont
   * [Whonix](https://www.whonix.org/)
   * [Cubes OS](https://www.qubes-os.org/)
   * [Kasm Workspaces](https://kasmweb.com/)
-  * [Tor](https://www.torproject.org/)
-    * [Brave Browser](https://brave.com/) features a built in Tor client and [Snowflake](https://support.brave.app/hc/en-us/articles/9059440641421-What-is-the-Snowflake-extension) extension
+  * [Tor Project](https://www.torproject.org/)
+    * [Brave Browser](https://brave.com/) features a built in [Tor](https://github.com/henri/spb?tab=readme-ov-file#fish-shell-wrappers) client and [Snowflake](https://support.brave.app/hc/en-us/articles/9059440641421-What-is-the-Snowflake-extension) extension
 
 Is this list incomplete? If you know of a privacy focused system missing from this list [let me know](https://github.com/henri/spb/discussions).
 
