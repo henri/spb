@@ -211,7 +211,7 @@ Information availble via the links below will assist with forming a deeper under
 
   - [Disclaimer](https://github.com/henri/spb#warning-disclaimer) <sub>:star2: important things to understand</sub>
   - [Telemetry and Privacy](https://github.com/henri/spb#shield-telemetry-and-privacy)
-  - [DRM](https://github.com/henri/spb/#drm-and-privacy) (Digital Rights Management) and Privacy
+  - [DRM](https://github.com/henri/spb/#drm-and-privacy) (Digital Rights Management) and Privacy <sub>:eyeglasses: who has control</sub>
   - [Templating Sub-System](https://github.com/henri/spb#spb-templating-support) <sub>:floppy_disk: web data is preserved in certian template modes</sub>
   - [Security and Trust](https://github.com/henri/spb#lock-security-and-trust)
   - [Proxies](https://github.com/henri/spb?tab=readme-ov-file#proxy-settings) <sub>:arrow_right: :arrows_counterclockwise: :arrow_left: server(s) in the middle</sub>
