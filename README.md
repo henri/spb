@@ -331,6 +331,12 @@ Different operating systems and even different LINUX distributions have differen
 
 <br/>
 
+#### DRM and Privacy
+DRM module such as [Widevine](https://www.widevine.com/) typically result in device or installation‑specific identity (or key pair). Such identifiers are designed to persist between sessions and unlike cookies, this identity is not cleared when you wipe browser cookies or cache. Keep in mind that many web browsers are bundled with Widevine. Brave is one such browser which at the time of writing has not bundled Widevine into the browser. Although, it is possible to install the Widevine plugin into brave. If you do this using the SPB templating system, keep in mind that this may result in additional tracking that takes place. For enhanced privacy protection you may want to consider a [differnt tool](https://github.com/henri/spb/blob/main/README.md#warning-disclaimer) or combine SPB with other [tools](https://github.com/henri/spb/blob/main/README.md#warning-disclaimer).
+
+<br/>
+
+
 ### :lock: Security and Trust
 You should only run code and use software from sources you trust! 
 If you do not trust yourself to check the project code below or you do not trust my judgment, then it is recommended to not run this code. The alternative is asking someone familiar with shell scripting ([BASH](https://bash.com/) and [FISH](https://fishshell.com/) are the shell scripting languages used to create SPB) to vet the code on your behalf. Just make sure if you ask someone to help you vet the code ; that you also trust them. With 25+ years of experience writing shell scripts, you would hope that I have learnt to test my work.
