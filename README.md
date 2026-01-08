@@ -211,8 +211,10 @@ Information availble via the links below will assist with forming a deeper under
 
   - [Disclaimer](https://github.com/henri/spb#warning-disclaimer) <sub>:star2: important things to understand</sub>
   - [Telemetry and Privacy](https://github.com/henri/spb#shield-telemetry-and-privacy)
+  - [DRM](https://github.com/henri/spb/blob/main/README.md#drm-and-privacy) (Digital Rights Management) and Privacy
   - [Templating Sub-System](https://github.com/henri/spb#spb-templating-support) <sub>:floppy_disk: web data is preserved in certian template modes</sub>
   - [Security and Trust](https://github.com/henri/spb#lock-security-and-trust)
+  - [Proxies](https://github.com/henri/spb?tab=readme-ov-file#proxy-settings)
   - [Brave Telemetry Issues](https://github.com/brave/brave-browser/issues/48604) <sub>:telephone: data sent to mothership by brave</sub>
 
 <br>
