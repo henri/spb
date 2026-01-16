@@ -543,6 +543,42 @@ For additional information regarding SPB configuration files. Run the following 
 spb --help | less -S -p "Configuration File"
 ```
 
+#### Why Brave As Default Browser
+
+Brave was slected as the deafult browser for he following reasons
+    - Released under open source licence (Mozilla Public License 2.0)
+    - Attempts to offer the following protection by default
+        - Tracker Blocking
+        - Cookie Tracking
+        - **Fingerprinting Prevention***
+        - Attempts DeAmping (no Accelerated Mobile Pages)
+        - Granular control to hardware (microphone, webcam, etc...)
+        - Bounce tracking prevention
+        - Built in Tor client
+
+The most important of these is the built in Fingerpinrting prevention. This feature is something which would be great to see offered by default by other web browsers.
+
+
+#### Why not FireFox as the default
+
+There are excellent projects such as [Arkenfox](https://github.com/arkenfox/user.js/) or [LibreWolf](https://librewolf.net/) which would offer great privacy features. At this point in time. Brave out of the offers great out of the box configuration. At some point the default browser could be switched to FireFox or something else. Suggestions and comments around this are very welcome. There are many privacy focused projects and resources which I am not aware of and it would be great to include links to such projects within the SPB documentation.
+
+At present FireFox has some really execlelent features but often they are not accesable directly via a command line switch and instead rely upon settings or files being loaded into the profile. Setting this up is all possible and you can even setup an spb config file to have Firefox work as the default browser via the spb command.
+
+```
+alias -s spb "start-private-browser --browser firefox"
+```
+
+However, the approach showen above will not play well with all fish snippits. The better approah is to set firefox as the default browser within the SPB configuration file.
+
+Adding the following into your SPB configuration file is the reccomended approach to setting firefox as the default browser.
+```
+export spb_browser_name="firefox"
+export spb_browser_path="firefox"
+```
+
+Again, [[disccusion]](https://github.com/henri/spb/discussions) on this is very apprecated.
+
 #### SPB Browser Support History
 
 SPB (Start Private Browser) was initially developed to only support and work with Brave (back then SPB was a much simpler system totaling less than 100 lines of code). Due to Brave being based on [Chromium](https://www.chromium.org) it was not a big task to update SPB to include support for Chromium and many other Chromium based browsers. With [Mozzila FireFox](https://www.firefox.com) also being an extreamlly popular browser having decent command line support, the more recent versions of SPB have experimenal support for FireFox and some FireFox forks. Currently, SPB includes multi-browser support for the following FireFox forks : 
