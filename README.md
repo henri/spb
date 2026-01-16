@@ -551,7 +551,7 @@ Brave was slected as the deafult browser for he following reasons
   - Attempts to offer the following protection by default
     - Tracker Blocking
     - Cookie Tracking
-    - **Fingerprinting Prevention***
+    - **Fingerprinting Prevention**
     - Attempts DeAmping (no Accelerated Mobile Pages)
     - Granular control to hardware (microphone, webcam, etc...)
     - Bounce tracking prevention
