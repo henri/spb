@@ -545,7 +545,7 @@ spb --help | less -S -p "Configuration File"
 
 #### Why Brave As Default Browser
 
-Brave was slected as the deafult browser for he following reasons
+Brave was slected as the deafult browser for the following reasons :
 
   - Released under open source licence (Mozilla Public License 2.0)
   - Attempts to offer the following protection by default
@@ -557,7 +557,7 @@ Brave was slected as the deafult browser for he following reasons
     - Bounce tracking prevention
     - Built in Tor client
 
-The most important of these is the built in Fingerpinrting prevention. This feature is something which would be great to see offered by default by other web browsers.
+The most important of these is the built in [Fingerpinrting prevention](https://brave.com/privacy-features/). It would be great to see more web browsers offering a similar feature.
 
 
 #### Why not FireFox as the default
