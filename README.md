@@ -180,6 +180,8 @@ If you are using the fish shell, then these commands should be active and ready 
 
 <sub>The SPB project is <b>not</b> affiliated with any of the companies or the services listed above. Before using third party web services as listed above (eg Ai, Search, etc) it is recommended that you first consult the services usage and privacy policy. Many of these web based services offer a service in exchange for gathering and storing supplied information). Additional, examples like this are welcomed. If you put together something and would like to share a link to your work, [start a discussion](https://github.com/henri/spb/discussions) until, the pull request system for fish snippits is imporved.</sub>
 
+<br>
+
 #### SPB Templating Support
 
 The built-in templating sub-system allows you to list, create, edit and load browser data templates. Essentially, this allows you to configure a browser just as you like and then load this template as needed for future browsing sessions. When you load an existing template a copy of the template is created for your session and then when you quit that copy is deleted. However, you still have the template and may start as many separate browser instances as you like form that template.
@@ -199,7 +201,6 @@ The templates are stored in the directory : ~/bin/spb-templates/
 
 Templates allow you to run browsers in a more standard browser mode but to still have isolated instances of a browser running simultaneously. To accomplish this simply create the new templates, then edit those templats. Effectively, you will be able to start separate browser instances but all data will be saved to that template (provided you use the --standard mode option combined with the --edit-tempalte option). When you exit the browser the data will *not* be deleted ; instead (like a typical browser session) data wil be saved :floppy_disk: because you are editing the template in standard mode.
 
-<br>
 <br>
 
 #### SPB Configuration File
