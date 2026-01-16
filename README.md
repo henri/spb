@@ -145,7 +145,7 @@ rm -ri ~/.config/fish/functions/spb*.fish ~/.config/fish/functions/start-private
 <br/>
 
 ### :star: Usage Examples
-The real power of SPB is less about the basic usage listed above and more the ability to automate tasks using SPB wrapper scripts and functions. Get ready for SPB to make your life better each and every day.
+The real power of SPB is less about the basic usage listed above and more the ability to automate tasks using SPB wrapper scripts and functions. Get SPB and make your life better.
   
 Automatons which leverage SPB may be simple operations such as performing a search or starting a chat. They may be also be complex operations controlled by scripts which will assist you with performing testing, bench-marking and other steps which you may need to be able to carry out repeatedly.
 
