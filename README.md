@@ -239,7 +239,7 @@ Mild testing has been completed on the following operating systems :
   - <b>GNU/LINUX</b>
       - [Linux Mint](https://www.linuxmint.com/)
         ```
-          sudo apt-get update && apt-get install git fish coreutils gcp
+          sudo apt-get update && apt-get install git fish coreutils gcp screen
           curl -fsS https://dl.brave.com/install.sh | sh
         ```
       - [Pop!_OS](https://system76.com/pop/)
