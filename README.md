@@ -555,7 +555,9 @@ Brave was slected as the deafult browser for the following reasons :
     - Attempts DeAmping (no Accelerated Mobile Pages)
     - Granular control to hardware (microphone, webcam, etc...)
     - Bounce tracking prevention
-    - Built in Tor client
+  - Cookie Partitioning
+  - Built in Tor client
+  - Ability to [easily disable or change the current level of sheilding](https://brave.com/privacy-updates/9-web-compat-blocking/#differences-between-standard-and-aggressive-blocking/)
 
 The most important of these is the built in [Fingerpinrting prevention](https://brave.com/privacy-features/). It would be great to see more web browsers offering a similar feature.
 
