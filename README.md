@@ -205,9 +205,9 @@ Templates allow you to run browsers in a more standard browser mode but to still
 
 #### SPB Configuration File
 
-The SPB configuration file is a way to store frequently used settings and also to confgure [pre and post scripts](https://github.com/henri/spb/tree/main/300.configuration-examples) to run when you start and stop SPB.
+The SPB configuration allows is a way to store frequently used settings and also to confgure [pre and post scripts](https://github.com/henri/spb/tree/main/300.configuration-examples) to run when you start and stop SPB.
 
-Editing the configuration file is easy simply run the command below to edit with your default editor.
+Editing the configuration file is easy ; run the command below to edit with your default editor.
 
 ```
 start-private-browser --edit-configuration
@@ -219,8 +219,10 @@ It is possible to have multiple SPB configuration files and template sets on you
 start-private-browser --template-path bin/spb-templates
 ```
 
-The SPB template file always has the same name in the spb-templates directory "spb.config" and the default template path is "~/bin/spb-templates/".
-Various options may be set via the spb.config file. If there is an option you wish to modifiy but it is not yet supported [raise an issue](https://github.com/henri/spb/issues) or submit a [pull request](https://github.com/henri/spb/blob/main/README.md#rocket-contributing-to-the-project).
+The SPB template file always has the same name in the spb-templates directory ```spb.config``` and the default template path is ```~/bin/spb-templates```. Various options may be set via the spb.config file. The value specified  using the ```--template-path``` option is also the path in which browser templates are read and written.
+
+If there is an option you wish to modifiy but it is not yet supported [raise an issue](https://github.com/henri/spb/issues) or submit a [pull request](https://github.com/henri/spb/blob/main/README.md#rocket-contributing-to-the-project).
+
 
 <br>
 <br>
