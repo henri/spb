@@ -67,7 +67,7 @@ Looking for something specific. Check out the helpful [SPB Index](https://github
   - [Privacy](https://github.com/henri/spb#shield-telemetry-and-privacy) respecting
   - Extensive customisation options
       - [conguration file](https://github.com/henri/spb?tab=readme-ov-file#spb-configuration-file)
-      - command line switches
+      - [command line switches](https://github.com/henri/spb/#bookmark_tabs-usage)
       - enviroment varables
       - shell wrapper functions
         - support for starting [Tor](https://github.com/henri/spb?tab=readme-ov-file#fish-shell-wrappers) session
@@ -186,7 +186,7 @@ If you are using the fish shell, then these commands should be active and ready 
 
 The built-in templating sub-system allows you to list, create, edit and load browser data templates. Essentially, this allows you to configure a browser just as you like and then load this template as needed for future browsing sessions. When you load an existing template a copy of the template is created for your session and then when you quit that copy is deleted. However, you still have the template and may start as many separate browser instances as you like form that template.
 
-The templates are stored in the directory : ~/bin/spb-templates/
+By default templates are stored in the directory : ~/bin/spb-templates/
 
 > **IMPORTANT NOTE** : <br>Using either "--new-template" or "--edit-template" options will result in data from<br>your websession being saved to your computer. This stored data enables access and<br>loading of the tempalte at a later time.
   
