@@ -588,7 +588,7 @@ The most important of these is the built in [Fingerpinrting prevention](https://
 
 #### Why not FireFox as the default
 
-There are excellent projects such as [Arkenfox](https://github.com/arkenfox/user.js/) or [LibreWolf](https://librewolf.net/) which would offer great privacy features. At this point in time. Brave out of the offers great out of the box configuration. At some point the default browser could be switched to FireFox or something else. Suggestions and comments around this are very welcome. There are many privacy focused projects and resources which I am not aware of and it would be great to include links to such projects within the SPB documentation.
+There are excellent projects such as [Arkenfox](https://github.com/arkenfox/user.js/) and [LibreWolf](https://librewolf.net/) which offer excellent privacy features. At this point in time, Brave offers great out of the box configuration. At some point the default browser could be switched to FireFox or another browser. Suggestions and comments around this are very welcome. There are many privacy focused projects and resources which I am not aware of and it would be great to include links to such projects within the SPB documentation.
 
 At present FireFox has some really execlelent features but often they are not accesable directly via a command line switch and instead rely upon settings or files being loaded into the profile. Setting this up is all possible and you can even setup an spb config file to have Firefox work as the default browser via the spb command.
 
