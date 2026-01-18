@@ -99,6 +99,7 @@
 # version 8.7 - added edge case for browser installed tick mark on macOS (bug fix) when using --list-browsers option
 # version 8.8 - improved error output when editing a template which has not yet to been created
 # version 8.9 - experimental support for pop!_os introduced
+# version 9.0 - experimental support for librewolf introduced
 
 ##
 ## Configuration of Variables
@@ -184,6 +185,20 @@ if [[ ! -z ${BASH_VERSINFO} ]] ; then
         spb_default_browser_data["opera:linux:pop"]="opera"
         spb_default_browser_data["opera:freebsd"]="opera"
         spb_default_browser_data["opera:darwin"]="/Applications/Opera.app/Contents/MacOS/Opera"
+        # # # # # # # # # # # # #
+        spb_default_browser_data["librewolf:linux:mint"]="librewolf"
+        spb_default_browser_data["librewolf:linux:arch"]="librewolf"
+        spb_default_browser_data["librewolf:linux:omarchy"]="librewolf"
+        spb_default_browser_data["librewolf:linux:ubuntu"]="librewolf"
+        spb_default_browser_data["librewolf:linux:debian"]="librewolf"
+        spb_default_browser_data["librewolf:linux:endeavouros"]="librewolf"
+        spb_default_browser_data["librewolf:linux:manjaro"]="librewolf"
+        spb_default_browser_data["librewolf:linux:centos"]="librewolf"
+        spb_default_browser_data["librewolf:linux:fredora"]="librewolf"
+        spb_default_browser_data["librewolf:linux:cachyos"]="librewolf"
+        spb_default_browser_data["librewolf:linux:pop"]="librewolf"
+        spb_default_browser_data["librewolf:freebsd"]="librewolf"
+        spb_default_browser_data["librewolf:darwin"]="/Applications/LibreWolf.app/Contents/MacOS/librewolf"
         # # # # # # # # # # # # #
         spb_default_browser_data["palemoon:linux:mint"]="palemoon"
         spb_default_browser_data["palemoon:linux:arch"]="palemoon"
@@ -1940,6 +1955,7 @@ screen -S "${screen_session_name}" -dm bash -c " \"${spb_browser_path}\" ${brows
 run_post_browser_startup_commands
 
 exit 0
+
 
 
 
