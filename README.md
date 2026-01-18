@@ -629,6 +629,7 @@ In order to protect users of this project all contributors must comply with the 
 **General**
   - [Brave : Using Command Line Switches](https://support.brave.com/hc/en-us/articles/360044860011-How-Do-I-Use-Command-Line-Flags-in-Brave)
   - [Brave : Cheatsheet](https://gist.github.com/henri/a454bb27edb3d3a567c5a695f0582aa7) (my gist)
+  - [Browser Compartmentalization](https://secureblitz.com/browser-compartmentalization/)
 
 <br/>
 <br/>
