@@ -1827,7 +1827,7 @@ if [[ "${use_template_dir_name}" != "" ]] ; then
     sync --file-system ${browser_tmp_directory}
 fi
 
-# check if we are we using firefox, palemoon or zen (experimental)
+# check if we are we using firefox, palemoon, librewolf or zen (experimental)
 if [[ "${spb_browser_name}" == "firefox" ]] || [[ "${spb_browser_name}" == "palemoon" ]] || [[ "${spb_browser_name}" == "zen" ]] || [[ "${spb_browser_name}" == "librewolf" ]]; then 
     incognito_options="--private-window"
     spb_data_browser_specifc_options="--new-instance --no-remote --class CustomClass --profile "
