@@ -295,7 +295,6 @@ Mild testing has been completed on the following operating systems :
           sudo apt update
           sudo apt install brave-browser 
         ```
-
         - [Linux Mint](https://www.linuxmint.com/)
           ```
             sudo apt-get update && apt-get install git fish coreutils gcp screen
