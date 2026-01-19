@@ -261,16 +261,6 @@ Mild testing has been completed on the following operating systems :
 <sub>Once the SPB dependencies have been installed, [proceed with the installation of SPB](https://github.com/henri/spb/blob/main/README.md#floppy_disk-installation)</sub>
 
   - <b>GNU/LINUX</b>
-      - [Linux Mint](https://www.linuxmint.com/)
-        ```
-          sudo apt-get update && apt-get install git fish coreutils gcp screen
-          curl -fsS https://dl.brave.com/install.sh | sh
-        ```
-      - [Pop!_OS](https://system76.com/pop/)
-        ```
-          sudo apt-get update && apt-get install git fish coreutils gcp screen
-          curl -fsS https://dl.brave.com/install.sh | sh
-        ```
       - [Arch](https://archlinux.org/)
         ```
           sudo pacman -Syu git fish coreutils grep screen pv
@@ -304,7 +294,18 @@ Mild testing has been completed on the following operating systems :
           echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
           sudo apt update
           sudo apt install brave-browser 
-        ```  
+        ```
+
+        - [Linux Mint](https://www.linuxmint.com/)
+          ```
+          sudo apt-get update && apt-get install git fish coreutils gcp screen
+          curl -fsS https://dl.brave.com/install.sh | sh
+          ```
+        - [Pop!_OS](https://system76.com/pop/)
+          ```
+          sudo apt-get update && apt-get install git fish coreutils gcp screen
+          curl -fsS https://dl.brave.com/install.sh | sh
+          ```
   
    - <b>MacOS</b>
        - Brew or MacPorts are the recommend approaches to managing SPB dependencies on MacOS
