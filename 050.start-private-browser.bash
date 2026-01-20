@@ -24,7 +24,7 @@
 # version 1.3 - added basic support for FreeBSD and MacOS
 # version 1.4 - added support for listing the running sessions (just list them via screen - nothing internal keeping track)
 # version 1.5 - initial support for passing additional options to brave implemented (note : zero checking of option validity)
-# version 1.6 - updates to the help output\
+# version 1.6 - updates to the help output
 # version 1.7 - added url to download brave if it is not installed
 # version 1.8 - added user-agent usage example
 # version 1.9 - added additional sanity check
