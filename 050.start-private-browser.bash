@@ -24,7 +24,7 @@
 # version 1.3 - added basic support for FreeBSD and MacOS
 # version 1.4 - added support for listing the running sessions (just list them via screen - nothing internal keeping track)
 # version 1.5 - initial support for passing additional options to brave implemented (note : zero checking of option validity)
-# version 1.6 - updates to the help output
+# version 1.6 - updates to the help output\
 # version 1.7 - added url to download brave if it is not installed
 # version 1.8 - added user-agent usage example
 # version 1.9 - added additional sanity check
@@ -100,6 +100,7 @@
 # version 8.8 - improved error output when editing a template which has not yet to been created
 # version 8.9 - experimental support for pop!_os introduced
 # version 9.0 - experimental support for librewolf introduced
+# version 9.1 - added ability to disable filesystem syncs
 
 ##
 ## Configuration of Variables
@@ -486,6 +487,7 @@ fi
 # export spb_browser_name="brave"
 # export spb_browser_path="brave-browser"
 # export spb_temp_data_path="/tmp"
+# export spb_filesystem_sync="true"
 #
 
 # configure the configuration file paths
@@ -513,7 +515,22 @@ template_dir_parent="${template_dir_base}/${spb_browser_name}"
 # set the temp_path now we have sourced the configuration file
 temp_path="${spb_temp_data_path%/}/${temp_dir_name_prefix}"  
 
-
+# set default values for options which are not defined within the configuration file
+if [ -z "${spb_filesystem_sync}" ] ; then
+    spb_filesystem_sync="true"
+else
+    if [[ "${spb_filesystem_sync}" != "true" ]] && [[ "${spb_filesystem_sync}" != "false" ]] ; then
+        # no valid value is configured so exit with error
+        echo ""
+        echo "ERROR! : Invalid option set for enviroment variable : spb_filesystem_sync"
+        echo ""
+        echo "         Valid configurations options:"
+        echo ""
+        echo "             export spb_filesystem_sync=\"true\""
+        echo "             export spb_filesystem_sync=\"false\""
+        echo ""
+    fi
+fi
 
 # updated variables and the defaults
 creating_new_template="false"
@@ -1126,6 +1143,13 @@ if [[ ${spb_list_templates} == "true" ]] ; then
     exit ${spb_template_listing_status}
 fi
 
+# check for and report if file system sync has been disabled
+if [[ "${spb_filesystem_sync}" == "false" ]] ; then
+    if [[ "${quite_mode}" != "true" ]] ; then
+        echo "Filesystem Syncronization Disabled"
+    fi
+fi
+
 # process arguments using a for loop (yes it seems crazy but that is the way we are doing it)
 # this is a custom arg parser in 2025 :)
 for arg in "$@" ; do
@@ -1193,6 +1217,7 @@ for arg in "$@" ; do
         continue
     fi
   fi
+
 
   # check for standard mode (not incognito)
   if [[ "${arg}" == "--standard" ]] ; then
@@ -1341,7 +1366,6 @@ if [[ "${edit_template_dir_name}" != "" ]] && [[ "${use_template_dir_name}" != "
 fi
 
 
-
 ##
 ## Pre flight checks
 ## 
@@ -1353,6 +1377,13 @@ function report_no_display_detected() {
     echo ""
     exit -77
 }
+
+# set pre filesystem cleanup sync command - command run before removing browser_tmp_directory path
+if [[ "${spb_filesystem_sync}" != "false" ]] ; then
+    pre_remove_tmp_directory_cmd="sync"
+else
+    pre_remove_tmp_directory_cmd="sleep 10"
+fi
 
 # check the operating system ; also check on brave and screen availability on system
 if [[ "${os_type}" == "darwin" ]] ; then
@@ -1820,11 +1851,13 @@ if [[ "${use_template_dir_name}" != "" ]] ; then
     fi
 
     # sync the file system at the required paths (macos will sync everything)
-    if [[ "${quite_mode}" != "true" ]] ; then
-        # echo "          [ ${template_data_disk_usage_human}B transferred ]"
-        echo "        Synchronizing filesystem..."
+    if [[ "${spb_filesystem_sync}" != "false" ]] ; then
+        if [[ "${quite_mode}" != "true" ]] ; then
+            # echo "          [ ${template_data_disk_usage_human}B transferred ]"
+            echo "        Synchronizing filesystem..."
+        fi
+        sync --file-system ${browser_tmp_directory}
     fi
-    sync --file-system ${browser_tmp_directory}
 fi
 
 # check if we are we using firefox, palemoon, librewolf or zen (experimental)
@@ -1896,11 +1929,13 @@ if [[ "${edit_template_dir_name}" != "" ]] ; then
     fi
 
     # sync the file system at the required paths (macos will sync everything)
-    if [[ "${quite_mode}" != "true" ]] ; then
-        echo "        Synchronizing filesystems..."
+    if [[ "${spb_filesystem_sync}" != "false" ]] ; then
+        if [[ "${quite_mode}" != "true" ]] ; then
+            echo "        Synchronizing filesystems..."
+        fi
+        sync --file-system ${browser_tmp_directory}
+        sync --file-system ${edit_template_dir_absolute}
     fi
-    sync --file-system ${browser_tmp_directory}
-    sync --file-system ${edit_template_dir_absolute}
 
 else
     # standard usage # using the temp directory (delete when browser closes)
@@ -1948,13 +1983,15 @@ while [[ ${#} -ge 1 ]] ; do
     shift
 done
 
+
 # start a screen session with the name based off the temp directory, then once browser exits delete the temporary directory
-screen -S "${screen_session_name}" -dm bash -c " \"${spb_browser_path}\" ${browser_options} ${url_list} ; sleep 1 ; sync ; rm -rf ${browser_tmp_directory} ${spb_etlfr_cmd} "
+screen -S "${screen_session_name}" -dm bash -c " \"${spb_browser_path}\" ${browser_options} ${url_list} ; sleep 1 ; ${pre_remove_tmp_directory_cmd} ; rm -rf ${browser_tmp_directory} ${spb_etlfr_cmd} "
 
 # run post browser commands
 run_post_browser_startup_commands
 
 exit 0
+
 
 
 
