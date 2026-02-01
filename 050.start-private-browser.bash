@@ -101,6 +101,7 @@
 # version 8.9 - experimental support for pop!_os introduced
 # version 9.0 - experimental support for librewolf introduced
 # version 9.1 - added ability to disable filesystem syncs
+# version 9.2 - requesting to edit the SPB configuration file will automatically setup the template directory if not present
 
 ##
 ## Configuration of Variables
@@ -496,6 +497,15 @@ spb_configuration_file_absolute="${spb_configuration_file_path/#\~/$HOME}" # exp
 
 # edit configuration file (--edit-configuration)
 if [[ "${edit_configuration_file_requested}" == "true" ]] ; then
+    spb_configuration_file_parent_directory_absolute=$(dirname ${spb_configuration_file_absolute})
+    if ! [ -d ${spb_configuration_file_parent_directory_absolute} ] ; then
+        mkdir -p ${spb_configuration_file_parent_directory_absolute}
+        if [[ $? !0 ]] ; then
+            echo "ERROR! : Unable to create the parent directory for the configuration file!"
+            exit -10
+        fi
+        echo "Generated SPB Template Directory : ${spb_configuration_file_parent_directory_absolute}"
+    fi
     if [[ "${quite_mode}" != "true" ]] ; then
         echo "Editing SPB Configuration File : ${spb_configuration_file_absolute}"
     fi
