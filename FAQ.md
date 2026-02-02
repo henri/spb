@@ -2,15 +2,9 @@
 
 This document aims to provide clear ansers to some of the SPB frequently asked questions.
 
-<br>
-<br>
-
 <p align="left">
   <a href="https://github.com/henri/spb/edit/main/FAQ.md"><img src="https://github.com/henri/spb/blob/gh-pages/SPB_logo_with_text_with_boarder_tranparent_faq_v1.png" width="50%"></a>
 </p>
-
-<br>
-<br>
 
 ### Will SPB work with browsers other than Brave
 Yes, SPB works fine with various web browsers. 
