@@ -23,7 +23,7 @@ Yes, SPB works fine with various web browsers.
        ```
    - Add the following into that file to set FireFox as the default browser on macOS.
      
-     Alter as required for your prefered browser and operating system preferneces.
+     Alter as required for your prefered browser and operating system preference.
        ```
        export spb_browser_name="firefox"
        export spb_browser_path=/"Applications/Firefox.app/Contents/MacOS/firefox"
