@@ -576,6 +576,9 @@ For additional information regarding SPB configuration files. Run the following 
 spb --help | less -S -p "Configuration File"
 ```
 
+Also, see the [SPB FAQ](https://github.com/henri/spb/blob/main/FAQ.md#will-spb-work-with-browsers-other-than-brave)
+
+
 #### Why Brave As Default Browser
 
 Brave was slected as the deafult browser for the following reasons :
@@ -594,6 +597,7 @@ Brave was slected as the deafult browser for the following reasons :
 
 The most important of these is the built in [Fingerpinrting prevention](https://brave.com/privacy-features/). It would be great to see more web browsers offering a similar feature.
 
+If you would like to configure SPB to always use a specific browser, then [these instructions](https://github.com/henri/spb/blob/main/FAQ.md#will-spb-work-with-browsers-other-than-brave) will help.
 
 #### Why not FireFox as the default
 
@@ -623,6 +627,14 @@ SPB (Start Private Browser) was initially developed to only support and work wit
   - [Zen](https://zen-browser.app/)
 
 Please note, that not all Chromium and FireFox based browsers are officially supported by SPB. Many broswers have significant variations from their upstream projects and in some cases these changes makes it impossible or at least difficult to get them working correctly with SPB ; without additional support from those projects. If you are a developer, then patches and pull requests are welcome if your faviorte browser is not yet supported and you would like to see support in an official SPB release. If you are not ready to make the changes yourself, then open an issue or start a discussion outlining your problem or request.
+
+<br/>
+
+### Frequenty Asked Questions
+
+Use this link to access the [SPB FAQ](https://github.com/henri/spb/blob/main/FAQ.md).
+
+<br/>
 
 ### :rocket: Contributing to the project
 In order to protect users of this project all contributors must comply with the [Developer Certificate of Origin](https://developercertificate.org). This ensures that all contributions are properly licensed and attributed.
