@@ -12,6 +12,7 @@ SPB is tightly connected with the [FISH](https://fishshell.com/) shell (hence al
 
 - [Introduction to SPB](https://github.com/henri/spb/blob/main/README.md#lock--spb-start-private-browser)
 - [Summary of the Project](https://github.com/henri/spb/blob/main/README.md#dart-spb-feature-summary)
+- [Why SPB](https://github.com/henri/spb/blob/main/README.md#raising_hand-why-is-spb-needed)
 - [Installation](https://github.com/henri/spb/blob/main/README.md#floppy_disk-installation) :floppy_disk: 
 - [Usage](https://github.com/henri/spb/blob/main/README.md#bookmark_tabs-usage)
   - [Usage Examples](https://github.com/henri/spb/blob/main/README.md#star-usage-examples)
@@ -25,7 +26,6 @@ SPB is tightly connected with the [FISH](https://fishshell.com/) shell (hence al
     - [Update Automation](https://github.com/henri/spb/blob/main/README.md#arrows_counterclockwise-automate-installation-and-updates)
     - [Proxy Settings](https://github.com/henri/spb/blob/main/README.md#proxy-settings)
 - [Licencing and Terms of Use](https://github.com/henri/spb/blob/main/README.md#memo-licensing-terms-of-use-and-legal)
-- [Why SPB](https://github.com/henri/spb/blob/main/README.md#raising_hand-why-is-spb-needed)
 - [Disclaimers](https://github.com/henri/spb/blob/main/README.md#warning-disclaimer)
 - [Supported Browsers](https://github.com/henri/spb/blob/main/README.md#sunrise-browser-support)
 - [Project History](https://github.com/henri/spb/blob/main/README.md#spb-browser-support-history)
