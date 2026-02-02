@@ -500,7 +500,7 @@ if [[ "${edit_configuration_file_requested}" == "true" ]] ; then
     spb_configuration_file_parent_directory_absolute=$(dirname ${spb_configuration_file_absolute})
     if ! [ -d ${spb_configuration_file_parent_directory_absolute} ] ; then
         mkdir -p ${spb_configuration_file_parent_directory_absolute}
-        if [[ $? !0 ]] ; then
+        if [[ ${?} != 0 ]] ; then
             echo "ERROR! : Unable to create the parent directory for the configuration file!"
             exit -10
         fi
