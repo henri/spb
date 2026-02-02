@@ -16,5 +16,7 @@ Yes, SPB works fine with various web browsers.
            export spb_browser_name="firefox"
            export spb_browser_path=/"Applications/Firefox.app/Contents/MacOS/firefox"
        ```
-More information about the SPB configuration file is available in the [README.md](https://github.com/henri/spb#spb-configuration-file) file.
+
+  - More information about the SPB configuration file is available in the [README.md](https://github.com/henri/spb#spb-configuration-file) file.
+  - Additional information regarding [SPB browser support](https://github.com/henri/spb/#sunrise-browser-support).
 
