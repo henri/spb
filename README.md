@@ -490,7 +490,7 @@ SPB is released under the [GNU GPL 3 or later](https://www.gnu.org/licenses/gpl-
 
 ### :raising_hand: Why is SPB needed? 
 
-The use cases for this script are immense and include [simplified day-to-day web browsing](https://github.com/henri/spb/?tab=readme-ov-file#star-usage-examples), trouble-shooting, testing, load-testing, AI Agents performing multiple tasks or just having multiple tabs which are not related in terms of cookies etc.
+The use cases for this SPB are immense and include [simplified day-to-day web browsing](https://github.com/henri/spb/?tab=readme-ov-file#star-usage-examples), trouble-shooting, testing, load-testing, AI Agents performing multiple tasks or just having multiple tabs which are not related in terms of cookies etc.
 
 Make yourself aware of how insidious malware within browser extensions has become. There is a very well funded effort to get malware into your browsers. :panda_face: [ShadyPanda](https://youtu.be/HDuBI0Pc1HE?si=Aa98KzJ5CzUIAtlQ) is just one example. Thanks to [KOI](https://www.koi.ai/) for uncovering this issue. Sandboxes for the software on a system and isolating browser instances is able to assist to minimiise the blast radius of such tools.
 
