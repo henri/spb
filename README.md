@@ -494,7 +494,7 @@ The use cases for this script are immense and include [simplified day-to-day web
 
 When starting a private session within the [Safari WebBrowser](https://en.wikipedia.org/wiki/Safari_(web_browser)) on [MacOS](https://en.wikipedia.org/wiki/MacOS) each tab is seperate (the cookies are not shared between tabs). However, most other browsers share the private cookies with all private tabs. One approach is not better or worse. But if you would like to have multiple instances of a browser but not have them sharing all those dirty cookies, then this script allows you to start up as many private (and separate) sessions as you need (as long as your system will cope with the additional system resources being used). Have fun loading some private browsers.
 
-You also need to be aware of malware within browser extensions. There is a well funded effort to get malware into your browser. [ShadyPanda](https://youtu.be/HDuBI0Pc1HE?si=Aa98KzJ5CzUIAtlQ) is just one example.
+You also need to be aware of malware within browser extensions. There is a well funded effort to get malware into your browser. [ShadyPanda](https://youtu.be/HDuBI0Pc1HE?si=Aa98KzJ5CzUIAtlQ) is just one example. Thanks to [KOI](https://www.koi.ai/) for uncovering this issue.
 
 May the privacy be with you!
 
