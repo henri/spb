@@ -10,7 +10,8 @@ Yes, SPB works fine with various web browsers.
        ```
            start-private-browser --edit-configuration
        ```
-   - Add the following into that file to set FireFox as the default browser on macOS (alter as needed for your prefered browser and operating system)
+   - Add the following into that file to set FireFox as the default browser on macOS.
+     Alter as required for your prefered browser and operating system preferneces.
        ```
            export spb_browser_name="firefox"
            export spb_browser_path=/"Applications/Firefox.app/Contents/MacOS/firefox"
