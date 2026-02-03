@@ -49,7 +49,7 @@ More than just software. This project also attempts to be an extensive reference
 
 Looking for something specific. Check out the helpful [SPB Index](https://github.com/henri/spb/blob/main/README_INDEX.md).
 
-Wondering why SPB is important? Check out [the "Why SPB is needed?" section](https://github.com/henri/spb/blob/main/README.md#raising_hand-why-is-spb-needed) further down this page.
+Wondering why SPB is important? Check out out the "[Why SPB is needed?](https://github.com/henri/spb/blob/main/README.md#raising_hand-why-is-spb-needed)" section below.
 
 <br/>
 
