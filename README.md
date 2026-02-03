@@ -388,7 +388,7 @@ Brave also makes contributing to the Tor network stright forward with the built 
 
 ### :lock: Security and Trust
 You should only run code and use software from sources you trust! 
-If you do not trust yourself to check the project code below or you do not trust my judgment, then it is recommended to not run this code. The alternative is asking someone familiar with shell scripting ([BASH](https://bash.com/) and [FISH](https://fishshell.com/) are the shell scripting languages used to create SPB) to vet the code on your behalf. Just make sure if you ask someone to help you vet the code ; that you also trust them. With 25+ years of experience writing shell scripts, you would hope that I have learnt to test my work.
+If you do not trust yourself to check the project code below or you do not trust my judgment, then it is recommended to not run this code. The alternative is asking someone familiar with shell scripting ([BASH](https://bash.com/) and [FISH](https://fishshell.com/) are the shell scripting languages used to create SPB) to vet the code on your behalf. The code base of SPB is small and so it should not take long for someone to vet the SPB code base ; backlinks to public vetting write ups are welcome and we have a [special place](https://github.com/henri/spb/code_vetting.md) for these within the project. Just make sure if you ask someone to help you vet the code ; that you also trust them. With 25+ years of experience writing shell scripts, you would hope that I have learnt to test my work.
   
 Already have spb and fish snippets setup, you may issue the following command to have perplexity vet the code : 
 ```
