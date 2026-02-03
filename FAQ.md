@@ -3,7 +3,7 @@
 This document aims to provide clear ansers to some of the SPB frequently asked questions.
 
 <p align="left">
-  <a href="https://github.com/henri/spb/"><img src="https://github.com/henri/spb/blob/gh-pages/SPB_logo_with_text_with_boarder_tranparent_faq_v1.png" width="50%"></a>
+  <a href="https://github.com/henri/spb/blob/main/README_INDEX.md"><img src="https://github.com/henri/spb/blob/gh-pages/SPB_logo_with_text_with_boarder_tranparent_faq_v1.png" width="50%"></a>
 </p>
 
 ### Will SPB work with browsers other than Brave
