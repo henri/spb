@@ -16,6 +16,20 @@ Yes, SPB works fine with various web browsers.
 
 <hr>
 
+#### List Browsers Which SPB Nativly Supports
+```
+start-private-browser --list-browsers
+```
+
+<hr>
+
+#### Start SPB Isolated Session using FireFox
+```
+start-private-browser --browser firefox
+```
+
+<hr>
+
 #### Configure default browser as FireFox on MacOS within the SPB Configuration file
 
    - Run this command to start editing the SPB configuration file
