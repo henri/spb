@@ -8,3 +8,5 @@ Wanting to learn BASH scripting ; check out the links below.
 
 ## Links to People Who Know Bash
 Maybe you trust some of these people more than me?
+
+  - [Dave Eddie's](https://www.daveeddy.com/) [Complete Bash Scripting Course](https://course.ysap.sh/)
