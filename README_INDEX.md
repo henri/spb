@@ -4,7 +4,7 @@
 </p>
 
 # 🏖️ Welcome to SPB
-[Harness the power](https://github.com/henri/spb/?tab=readme-ov-file#raising_hand-why-is-spb-needed) of isolated web sessions with SPB. Every time you run SPB a new browser instance ([Brave](https://brave.com/) is the default) will be spawned within a [screen](https://www.gnu.org/software/screen/) session. When you close the browser, [SPB will delete all <b>web</b> data](https://github.com/henri/spb?tab=readme-ov-file#shield-privacy) related to that browser session.
+[Harness the power](https://github.com/henri/spb/blob/main/README.md#raising_hand-why-is-spb-needed) of isolated web sessions with SPB. Every time you run SPB a new browser instance ([Brave](https://brave.com/) is the default) will be spawned within a [screen](https://www.gnu.org/software/screen/) session. When you close the browser, [SPB will delete all <b>web</b> data](https://github.com/henri/spb/blob/main/README.md#shield-privacy) related to that browser session.
 
 SPB is tightly connected with the [FISH](https://fishshell.com/) shell (hence all the ocean references). When you install SPB a number of fish functions will be automatically configurted to help with diving into the web from the comfort of your terminal.
 
@@ -19,7 +19,7 @@ SPB is tightly connected with the [FISH](https://fishshell.com/) shell (hence al
   - [Fish Shell Wrappers](https://github.com/henri/spb/blob/main/README.md#fish-shell-wrappers)
   - [Template Sub-System](https://github.com/henri/spb/blob/main/README.md#spb-templating-support)
 - [Operating System Compatability](https://github.com/henri/spb/blob/main/README.md#triangular_flag_on_post-compatibility)
-- [Privacy Overview](https://github.com/henri/spb?tab=readme-ov-file#shield-privacy)
+- [Privacy Overview](https://github.com/henri/spb/blob/main/README.md#shield-privacy)
     - [Telemtry and Privacy](https://github.com/henri/spb/blob/main/README.md#shield-telemetry-and-privacy)
     - [DRM and Privacy](https://github.com/henri/spb/blob/main/README.md#drm-and-privacy)
     - [Seucity and Trust](https://github.com/henri/spb/blob/main/README.md#lock-security-and-trust)
