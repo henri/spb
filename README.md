@@ -13,9 +13,9 @@ SPB presents the power to navigate the surging currents of our planets vast digi
   <a href="https://github.com/henri/spb/blob/main/README_INDEX.md"><img src="https://henri.github.io/spb/spb-fish.png" width="90%"></a>
 </p>
 
-Swim happily ; SPB [installs](https://github.com/henri/spb/?tab=readme-ov-file#floppy_disk-installation) into your home directory (no need for sudo) and is [easily removed](https://github.com/henri/spb/?tab=readme-ov-file#bookmark_tabs-usage) in the event you don't make use of SPB each and every day. [This GitHub repository](https://github.com/henri/spb) has everything you need to [install and update](https://github.com/henri/spb/?tab=readme-ov-file#floppy_disk-installation) SPB on your systems.
+Swim happily ; SPB [installs](https://github.com/henri/spb/?tab=readme-ov-file#floppy_disk-installation) into your home directory (no need for sudo) and is [easily removed](https://github.com/henri/spb/blob/main/README.md#bookmark_tabs-usage) in the event you don't make use of SPB each and every day. [This GitHub repository](https://github.com/henri/spb) has everything you need to [install and update](https://github.com/henri/spb/?tab=readme-ov-file#floppy_disk-installation) SPB on your systems.
 
-[Harness the power](https://github.com/henri/spb/?tab=readme-ov-file#raising_hand-why-is-spb-needed) of isolated web sessions with SPB. Every time you run SPB a new instance of [Brave](https://brave.com/) (a modern web browser) or another browser (which you [specify](https://github.com/henri/spb/?tab=readme-ov-file#sunrise-browser-support)) is spawned within a fresh [screen](https://www.gnu.org/software/screen/) session. When you close the browser, [SPB will delete all <b>web</b> data related to that browser session](https://github.com/henri/spb?tab=readme-ov-file#shield-privacy) from your computer.
+[Harness the power](https://github.com/henri/spb/blob/main/README.md#raising_hand-why-is-spb-needed) of isolated web sessions with SPB. Every time you run SPB a new instance of [Brave](https://brave.com/) (a modern web browser) or another browser (which you [specify](https://github.com/henri/spb/blob/main/README.md#sunrise-browser-support)) is spawned within a fresh [screen](https://www.gnu.org/software/screen/) session. When you close the browser, [SPB will delete all <b>web</b> data related to that browser session](https://github.com/henri/spb/blob/main/README.md#shield-privacy) from your computer.
 
 <br/>
 
@@ -35,7 +35,7 @@ Swim happily ; SPB [installs](https://github.com/henri/spb/?tab=readme-ov-file#f
 </p>
 <br/>
 
-This project is still in a [seedling stage](https://github.com/henri/spb/?tab=readme-ov-file#warning-disclaimer). If you find a bug please [start a discussion](https://github.com/henri/spb/discussions) or [open an issue](https://github.com/henri/spb/issues). SPB is [free software](https://www.gnu.org/philosophy/free-sw.en.html) (thank you [RMS](https://en.wikipedia.org/wiki/Richard_Stallman)) [released under the GNU GPL v3 or later](https://github.com/henri/spb#memo-licensing-terms-of-use-and-legal). If you enjoy using SPB, then share a link with your friends! This way you and your friends enjoy the [benifits](https://github.com/henri/spb/?tab=readme-ov-file#raising_hand-why-is-spb-needed) of SPB together! True friends protect their friends from data spills.
+This project is still in a [seedling stage](https://github.com/henri/spb/blob/main/README.md#warning-disclaimer). If you find a bug please [start a discussion](https://github.com/henri/spb/discussions) or [open an issue](https://github.com/henri/spb/issues). SPB is [free software](https://www.gnu.org/philosophy/free-sw.en.html) (thank you [RMS](https://en.wikipedia.org/wiki/Richard_Stallman)) [released under the GNU GPL v3 or later](https://github.com/henri/spb/blob/main/README.md#memo-licensing-terms-of-use-and-legal). If you enjoy using SPB, then share a link with your friends! This way you and your friends enjoy the [benifits](https://github.com/henri/spb/blob/main/README.md#raising_hand-why-is-spb-needed) of SPB together! True friends protect their friends from data spills.
 
 <br/>
 
@@ -56,25 +56,25 @@ Wondering why SPB is important? Check out out the "[Why SPB is needed?](https://
 
 ### :dart: SPB Feature Summary
 
-  - [Create](https://github.com/henri/spb#bookmark_tabs-usage) multiple isolated web browser instances.
-  - Reliable browser [templating](https://github.com/henri/spb#spb-templating-support) system
+  - [Create](https://github.com/henri/spb/blob/main/README.md#bookmark_tabs-usage) multiple isolated web browser instances.
+  - Reliable browser [templating](https://github.com/henri/spb/blob/main/README.md#spb-templating-support) system
      - providing task isolation
      - browser customisation
      - isolated cookie storage
      - repeatable browser configuration
-     - sharing of browser [templates](https://github.com/henri/spb#spb-templating-support) between systems
-  - Support for [multiple web browsers](https://github.com/henri/spb#sunrise-browser-support)
-  - Compatabilty with [many](https://github.com/henri/spb#triangular_flag_on_post-compatibility) operating systems
-  - Stright forward [install](https://github.com/henri/spb#floppy_disk-installation), [update](https://github.com/henri/spb#bookmark_tabs-usage) and [removal](https://github.com/henri/spb#bookmark_tabs-usage) process
-  - [Privacy](https://github.com/henri/spb#shield-telemetry-and-privacy) respecting
+     - sharing of browser [templates](https://github.com/henri/spb/blob/main/README.md#spb-templating-support) between systems
+  - Support for [multiple web browsers](https://github.com/henri/spb/blob/main/README.md#sunrise-browser-support)
+  - Compatabilty with [many](https://github.com/henri/spb/blob/main/README.md#triangular_flag_on_post-compatibility) operating systems
+  - Stright forward [install](https://github.com/henri/spb/blob/main/README.md#floppy_disk-installation), [update](https://github.com/henri/spb/blob/main/README.md#bookmark_tabs-usage) and [removal](https://github.com/henri/spb/blob/main/README.md#bookmark_tabs-usage) process
+  - [Privacy](https://github.com/henri/spb/blob/main/README.md#shield-telemetry-and-privacy) respecting
   - Extensive customisation options
-      - [conguration file](https://github.com/henri/spb?tab=readme-ov-file#spb-configuration-file)
-      - [command line switches](https://github.com/henri/spb/#bookmark_tabs-usage)
+      - [conguration file](https://github.com/henri/spb/blob/main/README.md#spb-configuration-file)
+      - [command line switches](https://github.com/henri/spb/blob/main/README.md#bookmark_tabs-usage)
       - enviroment varables
       - shell wrapper functions
-        - support for starting [Tor](https://github.com/henri/spb?tab=readme-ov-file#fish-shell-wrappers) session
+        - support for starting [Tor](https://github.com/henri/spb/blob/main/README.md#fish-shell-wrappers) session
       - custom scripts
-  - [Licensed](https://github.com/henri/spb#memo-licensing-terms-of-use-and-legal) under GNU GPL, ensuring your rights (as a user of this software) are respected.
+  - [Licensed](https://github.com/henri/spb/blob/main/README.md#memo-licensing-terms-of-use-and-legal) under GNU GPL, ensuring your rights (as a user of this software) are respected.
 
 
 <br>
@@ -101,7 +101,7 @@ henri/spb/refs/heads/main/\
 
 ### :bookmark_tabs: Usage
 
-Once [installation](https://github.com/henri/spb/?tab=readme-ov-fil/#floppy_disk-installation) is complete. The following commands will get you started with SPB.
+Once [installation](https://github.com/henri/spb/blob/main/README.md#floppy_disk-installation) is complete. The following commands will get you started with SPB.
 
 ---
 
@@ -154,7 +154,7 @@ Automatons which leverage SPB may be simple operations such as performing a sear
 Below are starter SPB examples for the fish shell to enhance every day web based tasks. More examples are on the horizon for testing, bench-marking, advanced automatons such as leveraging AI agents. If you have created something which you feel may be useful to the SPB community, [start a discussion](https://github.com/henri/spb/discussions) and share your ideas.
 
 Handy wrapper scripts to facilitate SPB usage via the command line : 
-> <sub>During [installation](https://github.com/henri/spb/?tab=readme-ov-file#floppy_disk-installation) if fish is installed, you will be prompted to automatically install these fish snippets. If you install fish after SPB and would like to install these snippets, just run the [update command](https://github.com/henri/spb/?tab=readme-ov-file#bookmark_tabs-usage) or [re-install](https://github.com/henri/spb/?tab=readme-ov-file#floppy_disk-installation)</sub>
+> <sub>During [installation](https://github.com/henri/spb/blob/main/README.md#floppy_disk-installation) if fish is installed, you will be prompted to automatically install these fish snippets. If you install fish after SPB and would like to install these snippets, just run the [update command](https://github.com/henri/spb/blob/main/README.md#bookmark_tabs-usage) or [re-install](https://github.com/henri/spb/blob/main/README.mde#floppy_disk-installation)</sub>
 #### [fish shell wrappers](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8) 
 If you are using the fish shell, then these commands should be active and ready for you to run. These commands will facilitate your exploration of the worlds vast digital oceans using the fish shell.
 
@@ -162,7 +162,7 @@ If you are using the fish shell, then these commands should be active and ready 
 | command         | snippet name          | explanation |
 | --------------- | --------------------- | ------------|
 |  `spb`          |  [spb](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-fish) | an alias to start-private-browser<br>but shortedned to spb<br>overide with your favorite extras|
-|  `spb-tor`      |  [spb-tor](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-tor-fishh) | start SPB with [Tor](https://github.com/henri/spb/#tor-network-access) network enabled ;<br>equivalent to spb --tor|
+|  `spb-tor`      |  [spb-tor](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-tor-fishh) | start SPB with [Tor](https://github.com/henri/spb/blob/main/README.md#tor-network-access) network enabled ;<br>equivalent to spb --tor|
 | `spb-smart`     |  [spb-smart](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-smart-fish) | experimental brave search / direct URL access |
 | `spb-ddg`       |  [DuckDuckGo Search](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-ddg-fish)  |  start multiple DuckDuckGo searches |
 | `spb-ddg-ai`    | [DuckDuckGo Chat](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-ddg-ai-fish) | have multiple DuckDuckGo AI (LLM) chats  |
@@ -177,7 +177,7 @@ If you are using the fish shell, then these commands should be active and ready 
 |  `spb-mist`     |  [Mistral AI Chat](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-mistral-ai-fish) | kick off conversations with Mistral AI |
 
   
-> <sub>If your system has [fish](https://fishshell.com/) installed and you run the update system in an unattended mode, then these snippets will be installed / updated. This is because that is the default option. When running in unattended mode all default options are selected. If you do not want the above [snippets installed](https://github.com/henri/spb/?tab=readme-ov-file#file-spb-fish-function-installer-bash) please run the update script interactively and enter "no" when asked during the install process. Again the prompt for opting out is only available during interactive mode when using [spb-update.bash](https://github.com/henri/spb/blob/main/600.spb-update.bash) script or when manually running the [install/update](https://github.com/henri/spb/?tab=readme-ov-file#floppy_disk-installation) process.
+> <sub>If your system has [fish](https://fishshell.com/) installed and you run the update system in an unattended mode, then these snippets will be installed / updated. This is because that is the default option. When running in unattended mode all default options are selected. If you do not want the above [snippets installed](https://github.com/henri/spb/blob/main/README.md#file-spb-fish-function-installer-bash) please run the update script interactively and enter "no" when asked during the install process. Again the prompt for opting out is only available during interactive mode when using [spb-update.bash](https://github.com/henri/spb/blob/main/600.spb-update.bash) script or when manually running the [install/update](https://github.com/henri/spb/blob/main/README.md#floppy_disk-installation) process.
 
 
 <sub>The SPB project is <b>not</b> affiliated with any of the companies or the services listed above. Before using third party web services as listed above (eg Ai, Search, etc) it is recommended that you first consult the services usage and privacy policy. Many of these web based services offer a service in exchange for gathering and storing supplied information). Additional, examples like this are welcomed. If you put together something and would like to share a link to your work, [start a discussion](https://github.com/henri/spb/discussions) until, the pull request system for fish snippits is imporved.</sub>
@@ -235,13 +235,13 @@ SPB is a useful tool which is able to assist you in your privacy journey. Below 
 
 Information availble via the links below will assist with forming a deeper understanding of SPB as a tool so you will know when to weild : 
 
-  - [Disclaimer](https://github.com/henri/spb#warning-disclaimer) <sub>:star2: important things to understand</sub>
-  - [Telemetry and Privacy](https://github.com/henri/spb#shield-telemetry-and-privacy) <sub>:signal_strength:</sub>
-  - [DRM](https://github.com/henri/spb/#drm-and-privacy) (Digital Rights Management) and Privacy <sub>:oncoming_automobile: trust is a two way street</sub>
-  - [Templating Sub-System](https://github.com/henri/spb#spb-templating-support) <sub>:floppy_disk: web data is preserved in certian template modes</sub>
-  - [Security and Trust](https://github.com/henri/spb#lock-security-and-trust) <sub>:lock:</sub>
-  - [Proxies](https://github.com/henri/spb?tab=readme-ov-file#proxy-settings) <sub>:arrow_right: :arrows_counterclockwise: :arrow_left: server(s) in the middle</sub>
-  - [Tor Network Access](https://github.com/henri/spb?tab=readme-ov-file#tor-network-access) <sub>:melon: onion routing</sub>
+  - [Disclaimer](https://github.com/henri/spb/blob/main/README.md#warning-disclaimer) <sub>:star2: important things to understand</sub>
+  - [Telemetry and Privacy](https://github.com/henri/spb/blob/main/README.md#shield-telemetry-and-privacy) <sub>:signal_strength:</sub>
+  - [DRM](https://github.com/henri/spb/blob/main/README.md#drm-and-privacy) (Digital Rights Management) and Privacy <sub>:oncoming_automobile: trust is a two way street</sub>
+  - [Templating Sub-System](https://github.com/henri/spb/blob/main/README.md#spb-templating-support) <sub>:floppy_disk: web data is preserved in certian template modes</sub>
+  - [Security and Trust](https://github.com/henri/spb/blob/main/README.md#lock-security-and-trust) <sub>:lock:</sub>
+  - [Proxies](https://github.com/henri/spb/blob/main/README.md#proxy-settings) <sub>:arrow_right: :arrows_counterclockwise: :arrow_left: server(s) in the middle</sub>
+  - [Tor Network Access](https://github.com/henri/spb/blob/main/README.mde#tor-network-access) <sub>:melon: onion routing</sub>
   - [Brave Telemetry Issues](https://github.com/brave/brave-browser/issues/48604) <sub>:telephone: data sent to mothership by brave</sub>
 
 <br>
@@ -255,7 +255,7 @@ Keep in mind that different browsers will potentially have different [options](h
 ### :triangular_flag_on_post: Compatibility 
 Mild testing has been completed on the following operating systems :
 <p align="left">
-  <a href="https://github.com/henri/spb/?tab=readme-ov-file#triangular_flag_on_post-compatibility" ><img src="https://henri.github.io/spb/spb-compatability.png" width="30%"></a>
+  <a href="https://github.com/henri/spb/blob/main/README.md#triangular_flag_on_post-compatibility" ><img src="https://henri.github.io/spb/spb-compatability.png" width="30%"></a>
 </p>
 
   > Each operating system section listed below provides instructions for installing SPB dependencies using the terminal. At present the SPB installer will not automatically install dependiencies. That is left to you. SPB will not work correctly without the dependecies installed on your system. Either use the instructions below for your operating system or install dependcies using your own prefered approach. If you have an operating system which is not listed below as long as you are able to install the dependcies then SPB will likely work just fine.
@@ -355,15 +355,15 @@ SPB is hosted on GitHub :octocat: and as such data is recorded :record_button: a
   - [GitHub Trust Center : Privacy](https://github.com/trust-center/privacy)
   - [GitHub Site Policy : Privacy](https://docs.github.com/en/site-policy/privacy-policies)
 
-When automatically or manually running the install / update commands, data from your system is sent to GitHub infrastructure so that SPB is able to be installed / updated on your system. If this is a problem in your environment, it is suggested that you [roll your own](ttps://github.com/henri/spb/?tab=readme-ov-file#roll-your-own) update system.
+When automatically or manually running the install / update commands, data from your system is sent to GitHub infrastructure so that SPB is able to be installed / updated on your system. If this is a problem in your environment, it is suggested that you [roll your own](ttps://github.com/henri/spb/blob/main/README.md#roll-your-own) update system.
 
 As the default browser option in SPB is [Brave](https://brave.com/) and that project is a telemetry sender ; it is advisable that you read the Brave [privacy policy](https://brave.com/privacy/browser/). Brave is an [open source project](https://github.com/brave/brave-browser). However, if having any kind of telemetry being sent out is a problem then you should opt to use a different browser. Also, follow and chime into [this issue on github](https://github.com/brave/brave-browser/issues/48604) with your opinion(s) regarding telemetry opt-out features within Brave. 
 
 <p align="center">
-  <a href="https://github.com/henri/spb/?tab=readme-ov-file#shield-telemetry-and-privacy" ><img src="https://henri.github.io/spb/spb-telemetry-privacy.png" width="60%"></a>
+  <a href="https://github.com/henri/spb/blob/main/README.md#shield-telemetry-and-privacy" ><img src="https://henri.github.io/spb/spb-telemetry-privacy.png" width="60%"></a>
 </p>
   
-Different operating systems and even different LINUX distributions have different stances on privacy and telemetry. As such it is advisable that you check these details for your specific operating system. This project works on a variety of operating systems each with their own particulars relating to privacy and telemetry. Learn more about [SPB privacy](https://github.com/henri/spb?tab=readme-ov-file#shield-privacy).
+Different operating systems and even different LINUX distributions have different stances on privacy and telemetry. As such it is advisable that you check these details for your specific operating system. This project works on a variety of operating systems each with their own particulars relating to privacy and telemetry. Learn more about [SPB privacy](https://github.com/henri/spb/blob/main/README.md#shield-privacy).
 
 > #### SPB Fish Snippets 
 > <sub>Should you use spb-ddg, spb-ddg-ai or spb-pai fish snippets, then you will want to have a close look at the terms of service from [DuckDuckGo](https://duckduckgo.com/privacy) and [Perplexity Ai](https://www.perplexity.ai/hub/legal/privacy-policy) whose websites you will be accessing. If you are using spb-yt then be sure to check [Googles privacy policy](https://policies.google.com/privacy). The same applies to using other fish snippits not specifcially mentioned.</sub>
@@ -371,11 +371,11 @@ Different operating systems and even different LINUX distributions have differen
 <br/>
 
 #### Tor Network Access
-The [Tor Project](https://www.torproject.org/) is powerful [tools](https://github.com/henri/spb#warning-disclaimer) to arm yourself with in terms of protecting your privacy.
+The [Tor Project](https://www.torproject.org/) is powerful [tools](https://github.com/henri/spb/blob/main/README.md#warning-disclaimer) to arm yourself with in terms of protecting your privacy.
 
 By default SPB will launch an private browser session within a new isolated instance of Brave. Turning on Tor is possible from within the Brave session. 
 
-With SPB installed it is possible to quickly start an isolated Tor session within the Brave Browser right from the [command line](https://github.com/henri/spb/#fish-shell-wrappers). This is a great way to quickly access the web via the Tor network, when the protection of [Tails](https://github.com/henri/spb/#warning-disclaimer) is not required. The Tor project is a powerful privacy tool which is an intregal part of the [Tails](https://github.com/henri/spb/#warning-disclaimer) project. 
+With SPB installed it is possible to quickly start an isolated Tor session within the Brave Browser right from the [command line](https://github.com/henri/spb/blob/main/README.md#fish-shell-wrappers). This is a great way to quickly access the web via the Tor network, when the protection of [Tails](https://github.com/henri/spb/blob/main/README.md#warning-disclaimer) is not required. The Tor project is a powerful privacy tool which is an intregal part of the [Tails](https://github.com/henri/spb/blob/main/README.md#warning-disclaimer) project. 
 
 
 Brave also makes contributing to the Tor network stright forward with the built in [Snowflake](https://snowflake.torproject.org/) extension. To enable the SnowFlake extension use [this link within Brave](brave://settings/privacy). Learn more about [SPB privacy](https://github.com/henri/spb#shield-privacy).
@@ -383,7 +383,7 @@ Brave also makes contributing to the Tor network stright forward with the built 
 <br/>
 
 #### DRM and Privacy
-[DRM](https://en.wikipedia.org/wiki/Digital_rights_management) modules such as [Widevine](https://www.widevine.com/) typically result in device or installation‑specific identifiers (sometimes key pairs). Such identifiers are designed to persist between sessions and unlike cookies, this identity is not cleared when you wipe browser cookies or cache. Keep in mind that many web [browsers are bundled with Widevine by default](https://www.reddit.com/r/brave_browser/comments/1fqdr71/what_is_this_google_widevine_i_just_noticed_that/). [Brave](https://brave.com/) (SPB default browser) is one of the few web browsers whcih (at the time writing) has opted to not bundled Widevine into the browser. Although, keep in mind it is possible to install the Widevine extension into Brave and you will be pompted to do this if you try to access data protected by Widevine. If you install Widevine into an SPB template, keep in mind that this may result in additional tracking that takes place when using that template. For enhanced privacy protection you may want to consider a [differnt tool](https://github.com/henri/spb/#warning-disclaimer) or combine SPB with other [tools](https://github.com/henri/spb/#warning-disclaimer) to further enhance your protection. Learn more about [SPB privacy](https://github.com/henri/spb#shield-privacy).
+[DRM](https://en.wikipedia.org/wiki/Digital_rights_management) modules such as [Widevine](https://www.widevine.com/) typically result in device or installation‑specific identifiers (sometimes key pairs). Such identifiers are designed to persist between sessions and unlike cookies, this identity is not cleared when you wipe browser cookies or cache. Keep in mind that many web [browsers are bundled with Widevine by default](https://www.reddit.com/r/brave_browser/comments/1fqdr71/what_is_this_google_widevine_i_just_noticed_that/). [Brave](https://brave.com/) (SPB default browser) is one of the few web browsers whcih (at the time writing) has opted to not bundled Widevine into the browser. Although, keep in mind it is possible to install the Widevine extension into Brave and you will be pompted to do this if you try to access data protected by Widevine. If you install Widevine into an SPB template, keep in mind that this may result in additional tracking that takes place when using that template. For enhanced privacy protection you may want to consider a [differnt tool](https://github.com/henri/spb/blob/main/README.md#warning-disclaimer) or combine SPB with other [tools](https://github.com/henri/spb/blob/main/README.md#warning-disclaimer) to further enhance your protection. Learn more about [SPB privacy](https://github.com/henri/spb/blob/main/README.md#shield-privacy).
 <br/>
 
 ### :lock: Security and Trust
@@ -397,10 +397,10 @@ spb-pai "vet the following project code for malware : https://github.com/henri/s
 
 <p align="center">
   <!-- <img src="https://gist.github.com/user-attachments/assets/195556ee-8792-4915-a27c-e95d4c09c71f" width="76%"> -->
-  <a href="https://github.com/henri/spb/?tab=readme-ov-file#lock-security-and-trust" ><img src="https://github.com/henri/spb/blob/readme-images/spb-security-trust.jpeg?raw=true" width="80%"></a>
+  <a href="https://github.com/henri/spb/blob/main/README.md#lock-security-and-trust" ><img src="https://github.com/henri/spb/blob/readme-images/spb-security-trust.jpeg?raw=true" width="80%"></a>
 </p>
 
-SPB is hosted on GitHub :octocat: and as such the infrastructure (will soon) sit on Microsoft's [Azure](azure.com). This platform has a track record of various security issues. Always Keep this in mind when pulling any code from GitHub. Learn more about [SPB privacy](https://github.com/henri/spb?tab=readme-ov-file#shield-privacy).
+SPB is hosted on GitHub :octocat: and as such the infrastructure (will soon) sit on Microsoft's [Azure](azure.com). This platform has a track record of various security issues. Always Keep this in mind when pulling any code from GitHub. Learn more about [SPB privacy](https://github.com/henri/spb/blob/main/README.md#shield-privacy).
 
 <br/>
 
@@ -408,7 +408,7 @@ SPB is hosted on GitHub :octocat: and as such the infrastructure (will soon) sit
 
 ### :arrows_counterclockwise: Automate Installation and Updates
 
-Only configure auomated updates if you are confident and understand the risks outlined below. [Sticking with the manual updates](https://github.com/henri/spb#floppy_disk-installation) is reccomended for most users. If you are sure you want to setup automated SPB updates, the easiest approach  is to run the command below from the bash shell :
+Only configure auomated updates if you are confident and understand the risks outlined below. [Sticking with the manual updates](https://github.com/henri/spb/blob/main/README.md#floppy_disk-installation) is reccomended for most users. If you are sure you want to setup automated SPB updates, the easiest approach  is to run the command below from the bash shell :
   
 ```bash
 export SPB_CRON_SETUP="true"
@@ -419,7 +419,7 @@ henri/spb/refs/heads/main/\
 ```
   > <sub>This is the same command used to install SPB, with one key difference ; an environment varable SPB_CRON_SETUP is set to "true" and exported.</sub>
 
-The setup of unattended / automated SPB updates (eg. using the command above) will result in default choices being selected which you would normally be able to interactively select. Also, see [notes regarding telemitry and privacy](https://github.com/henri/spb/?tab=readme-ov-file#shield-telemetry-and-privacy) if you schedule or manually start an SPB update. Also, see [notes regarding configuring of proxies for updates](https://github.com/henri/spb/blob/main/README.md#proxy-settings).
+The setup of unattended / automated SPB updates (eg. using the command above) will result in default choices being selected which you would normally be able to interactively select. Also, see [notes regarding telemitry and privacy](https://github.com/henri/spb/blob/main/README.md#shield-telemetry-and-privacy) if you schedule or manually start an SPB update. Also, see [notes regarding configuring of proxies for updates](https://github.com/henri/spb/blob/main/README.md#proxy-settings).
 
 The command above will setup an entry in your users crontab which will run the included [spb-update.bash](https://github.com/henri/spb/blob/main/600.spb-update.bash) script automatically. This will keep your copy of SPB upto date.
 
@@ -436,7 +436,7 @@ crontab -l
   
 #### Customised Setup Automated Updates
 
-Keep in mind that to keep SPB upto date, you do not need to setup any kind of automation. This update script may be run interactively (see [usage above](https://github.com/henri/spb/?tab=readme-ov-file#bookmark_tabs-usage)) at any time. You may also prefer to start it via a scheduling program of your choice so that SPB regularly updates automatically at times which you prefer.
+Keep in mind that to keep SPB upto date, you do not need to setup any kind of automation. This update script may be run interactively (see [usage above](https://github.com/henri/spb/blob/main/README.md#bookmark_tabs-usage)) at any time. You may also prefer to start it via a scheduling program of your choice so that SPB regularly updates automatically at times which you prefer.
 
 #### Start Unattended Updates (picks default choices)
 Start an automated (unattended) update and monitor the progress by running the command below within a shell : 
@@ -459,7 +459,7 @@ If you are looking to roll your own update system, then the notes below will ass
         - You should also use a lock file to avoid more than one update running simultaneously
           - The lock file which is used by the update script is : 
             ```/tmp/spb-update-$(hostname)-$(whoami).lock```
-    - Use the [kick off script](https://github.com/henri/spb/?tab=readme-ov-file#floppy_disk-installation) above to start the install / update. 
+    - Use the [kick off script](https://github.com/henri/spb/blob/main/README.md#floppy_disk-installation) above to start the install / update. 
   
 All of the above and much more is handled for you if you use the included [update script](https://github.com/henri/spb/blob/main/600.spb-update.bash). 
 
@@ -492,7 +492,7 @@ SPB is released under the [GNU GPL 3 or later](https://www.gnu.org/licenses/gpl-
 
 ### :raising_hand: Why is SPB needed? 
 
-The use cases for this SPB are immense and include [simplified day-to-day web browsing](https://github.com/henri/spb/?tab=readme-ov-file#star-usage-examples), trouble-shooting, testing, load-testing, AI Agents performing multiple tasks or just having multiple tabs which are not related in terms of cookies etc.
+The use cases for this SPB are immense and include [simplified day-to-day web browsing](https://github.com/henri/spb/blob/main/README.md#star-usage-examples), trouble-shooting, testing, load-testing, AI Agents performing multiple tasks or just having multiple tabs which are not related in terms of cookies etc.
 
 Make yourself aware of how insidious malware within browser extensions has become. There is a very well funded effort to get malware into your browsers. :panda_face: [ShadyPanda](https://youtu.be/HDuBI0Pc1HE?si=Aa98KzJ5CzUIAtlQ) is just one example. Thanks to [KOI](https://www.koi.ai/) for uncovering this issue. Sandboxes for the software on a system and isolating browser instances is able to assist to minimiise the blast radius of such tools. In addition, SPB is also able to assist security researchers to learn more about browser based attack vectors.
 
@@ -506,7 +506,7 @@ May the privacy be with you!
 ---
 
 <p align="center">
-  <a href="https://github.com/henri/spb/?tab=readme-ov-file#raising_hand-why-is-spb-needed"><img src="https://henri.github.io/spb/spb-may-the-pricacy-be-with-you.png"></a>
+  <a href="https://github.com/henri/spb/blob/main/README.md#raising_hand-why-is-spb-needed"><img src="https://henri.github.io/spb/spb-may-the-pricacy-be-with-you.png"></a>
 </p>
 
 --- 
@@ -516,7 +516,7 @@ May the privacy be with you!
 ### :warning: Disclaimer
 SPB (start private browser) is able to start multiple private browsers. But do not expect more functionality or privacy from running a browser in incognito mode. The idea behind SPB is that you can load multiple instances which are somewhat separated from one and other. Each instance is still running under your user account and on your system.
 
-SPB [removes the web browser data from disk](https://github.com/henri/spb#spb-templating-support). However, SPB makes no effort to deal with data stored in memory such as file system caches or system memory which may have been [written to swap](https://en.wikipedia.org/wiki/Memory_paging).
+SPB [removes the web browser data from disk](https://github.com/henri/spb/blob/main/README.md#spb-templating-support). However, SPB makes no effort to deal with data stored in memory such as file system caches or system memory which may have been [written to swap](https://en.wikipedia.org/wiki/Memory_paging).
 
 In the event additional privacy is required run SPB within a VM or within a container. If higher levels of privacy are needed, then consider these projects :
 
@@ -526,7 +526,7 @@ In the event additional privacy is required run SPB within a VM or within a cont
   * [Kasm Workspaces](https://kasmweb.com/)
   * [Tor Project](https://www.torproject.org/)
     * [Brave Browser](https://brave.com/)
-      * built in [Tor](https://github.com/henri/spb?tab=readme-ov-file#fish-shell-wrappers) client
+      * built in [Tor](https://github.com/henri/spb/blob/main/README.md#fish-shell-wrappers) client
       * built in [Snowflake](https://support.brave.app/hc/en-us/articles/9059440641421-What-is-the-Snowflake-extension) extension (contribute to the Tor network)
 
 Is this list incomplete? If you know of a privacy focused system missing from this list [let me know](https://github.com/henri/spb/discussions).
@@ -534,11 +534,11 @@ Is this list incomplete? If you know of a privacy focused system missing from th
 If you test SPB and it works on your operating system [leave a comment](https://github.com/henri/spb/discussions) :) or let me know it is not working.
 Currently there are no plans to make this work on Microsoft Windows. It may work within the WLS? Give it a try and let me know!
   
-If you decide to setup a [scheduled automatic update](https://github.com/henri/spb#arrows_counterclockwise-automate-installation-and-updates), then you should trust that I am not going to add any malicious code into this system in the future and that the security of my systems are good enough to prevent someone else pushing malware into the code base. This applies to any software (not just SPB) which automatically updates (even if it is open source). You must alwasy trust the developers sufficiently if you enable auto-updates. This is why by design SPB will not automatically enable auto-updates. SPB expects that if you enable automatic updates you are intentionally placing trust in me to not mess with your system(s) deliberately and that I will secure my systems as the developer sufficiently to protect the SPB code base and build processes less, someone breaks my security in order to take advantage of yours. Remember that any software system which automatically updates via the internet has these same risks.
+If you decide to setup a [scheduled automatic update](https://github.com/henri/spb/blob/main/README.md#arrows_counterclockwise-automate-installation-and-updates), then you should trust that I am not going to add any malicious code into this system in the future and that the security of my systems are good enough to prevent someone else pushing malware into the code base. This applies to any software (not just SPB) which automatically updates (even if it is open source). You must alwasy trust the developers sufficiently if you enable auto-updates. This is why by design SPB will not automatically enable auto-updates. SPB expects that if you enable automatic updates you are intentionally placing trust in me to not mess with your system(s) deliberately and that I will secure my systems as the developer sufficiently to protect the SPB code base and build processes less, someone breaks my security in order to take advantage of yours. Remember that any software system which automatically updates via the internet has these same risks.
 
 This project is still in the :seedling: seedling stage (with lots of potential). If you have suggestions / ideas to improve the way it works, then please [start a discussion](https://github.com/henri/spb/discussions). If you test this on a particular operating system and it works or is not working for you please also leave a comment so that others know to give it a try or not :)
 
-Learn more about [SPB privacy](https://github.com/henri/spb?tab=readme-ov-file#shield-privacy).
+Learn more about [SPB privacy](https://github.com/henri/spb/blob/main/README.md#shield-privacy).
 
 <br/>
 
