@@ -6,7 +6,7 @@
 # 🏖️ Welcome to SPB
 [Harness the power](https://github.com/henri/spb/blob/main/README.md#raising_hand-why-is-spb-needed) of isolated web sessions with SPB. Every time you run SPB a new browser instance ([Brave](https://brave.com/) is the default) will be spawned within a [screen](https://www.gnu.org/software/screen/) session. When you close the browser, [SPB will delete all <b>web</b> data](https://github.com/henri/spb/blob/main/README.md#shield-privacy) related to that browser session.
 
-SPB is tightly connected with the [FISH](https://fishshell.com/) shell (hence all the ocean references). When you install SPB a number of fish functions will be automatically configurted to help with diving into the web from the comfort of your terminal.
+SPB is tightly connected with the [FISH](https://fishshell.com/) shell (hence all the ocean references). When you install SPB a number of fish functions will be automatically setup to assist you with diving into the web from the comfort of your terminal.
 
 # :anchor: SPB Readme : Table of Contents
 
