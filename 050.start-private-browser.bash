@@ -102,6 +102,7 @@
 # version 9.0 - experimental support for librewolf introduced
 # version 9.1 - added ability to disable filesystem syncs
 # version 9.2 - requesting to edit the SPB configuration file will automatically setup the template directory if not present
+# version 9.3 - improved quite output for listing installed browsers
 
 ##
 ## Configuration of Variables
@@ -626,9 +627,11 @@ for arg in "$@" ; do
         os_type="linux" # we make a guess and go with linux.
         distro="mint" # we make a guess and go with mint.
     fi
-    echo ""
-    echo " installed    name-of-browser"
-    echo ""
+    if [[ "${quite_mode}" != "true" ]] ; then
+        echo ""
+        echo " installed    name-of-browser"
+        echo ""
+    fi
     # list browsers and their installation status (indicated with a tick)
     for spb_browser_name in $browser_list_unique ; do
         installed=" "
@@ -643,9 +646,15 @@ for arg in "$@" ; do
         fi
         # check if browser is installed and found in path
         which $spb_browser_path 2>/dev/null >/dev/null ; if [[ ${?} == 0 ]] ; then installed="${tick_mark}" ; fi
-        echo -e "     ${installed}        ${spb_browser_name}"
+        if [[ "${quite_mode}" != "true" ]] ; then
+            echo -e "     ${installed}        ${spb_browser_name}"
+        elif [[ ${installed} != " " ]] ; then
+            echo "${spb_browser_name}"
+        fi
     done
-    echo ""
+    if [[ "${quite_mode}" != "true" ]] ; then
+        echo ""
+    fi
     exit 0
   fi
 
