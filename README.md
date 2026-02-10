@@ -142,6 +142,9 @@ rm -ri ~/bin/spb-templates
 # remove your spb fish functions ; including any custom spb functions
 # carful you may not want to delete this data - CAUTION ADVISED!
 rm -ri ~/.config/fish/functions/spb*.fish ~/.config/fish/functions/start-private-browser.fish
+
+# remove spb fish completions
+rm -ri ~/.config/fish/completions/start-private-browser.fish
 ```
 --- 
 <br/>
