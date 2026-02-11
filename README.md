@@ -261,7 +261,9 @@ Mild testing has been completed on the following operating systems :
   <a href="https://github.com/henri/spb/blob/main/README.md#triangular_flag_on_post-compatibility" ><img src="https://henri.github.io/spb/spb-compatability.png" width="30%"></a>
 </p>
 
-  > Each operating system section listed below provides instructions for installing SPB dependencies using the terminal. At present the SPB installer will not automatically install dependiencies. That is left to you. SPB will not work correctly without the dependecies installed on your system. Either use the instructions below for your operating system or install dependcies using your own prefered approach. If you have an operating system which is not listed below as long as you are able to install the dependcies then SPB will likely work just fine.
+  > Each operating system section listed below provides instructions for installing SPB dependencies using the terminal. At present the SPB installer will not automatically install dependiencies. That is left to you. SPB will not work correctly without the dependecies installed on your system. Either use the instructions below for your operating system or install dependcies using your own prefered approach.
+
+  > <b>If you have an operating system which is not listed below as long as you are able to install the dependcies then SPB will likely work just fine</b>.
 
 <sub>Once the SPB dependencies have been installed, [proceed with the installation of SPB](https://github.com/henri/spb/blob/main/README.md#floppy_disk-installation)</sub>
 
