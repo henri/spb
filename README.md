@@ -53,6 +53,20 @@ Wondering why SPB is important? Check out out the "[Why SPB is needed?](https://
 
 <br/>
 
+### :mag: About SPB
+With SPB installed you may for example run the following command to start a private isolated brave browser session and ask Perplexity to provide information about the SPB project.
+
+```spb-pai "tell me about spb the private script wrapper"```
+
+> SPB (Start Private Browser) is a small shell-script-based “wrapper” that quickly launches one or more completely isolated private browser sessions, each with its own profile directory and options.
+> What SPB actually does
+> Creates a fresh browser profile directory per session (or per template), so cookies, logins, and history are isolated between runs.
+> Spawns one or many browser windows/tabs in one command, using a simple CLI interface and optional templates.
+> Works as a generic wrapper script around your installed browser (e.g., Brave, Firefox, Chromium), passing in flags like private/incognito mode, profile dir, and more.
+> ```<snip>```
+
+
+<br/>
 
 ### :dart: SPB Feature Summary
 
