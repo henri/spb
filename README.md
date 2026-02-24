@@ -444,7 +444,7 @@ SPB is hosted on GitHub :octocat: and as such the infrastructure (will soon) sit
 
 ### :arrows_counterclockwise: Automate Installation and Updates
 
-Only configure auomated updates if you are confident and understand the risks outlined below. [Sticking with the manual updates](https://github.com/henri/spb/blob/main/README.md#floppy_disk-installation) is reccomended for most users. If you are sure you want to setup automated SPB updates, the easiest approach  is to run the command below from the bash shell :
+Only configure auomated updates if you are confident and understand the risks outlined below. [Sticking with the manual updates](https://github.com/henri/spb/blob/main/README.md#floppy_disk-installation) is reccomended for most users. If you are sure you want to setup automated SPB updates, the easiest approach  is to run the command below from within the bash shell :
   
 ```bash
 export SPB_CRON_SETUP="true"
