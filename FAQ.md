@@ -44,3 +44,20 @@ start-private-browser --browser firefox
        export spb_browser_path=/"Applications/Firefox.app/Contents/MacOS/firefox"
        ```
 
+#### What is 'easy-as'?
+This is one of many classic kiwi expressions 
+>"Sweet as" and the use of "as"
+>
+>Perhaps the most iconic New Zealand phrase, "sweet as" is a versatile expression meaning "excellent" or "no problem."
+>The "as" doesn't refer to anything specific ; it's just a grammatical quirk that Kiwis love that basically means "really" or "very".
+>For example, "Everything's sweet as!" means everything is going great.
+>
+> Example:
+> ````
+>    Hey mate, I'll pop over around 2 pm. –  Sweet as!
+>    I'm hungry as, I haven't eaten all day.
+>    I'm tired as = I'm really tired
+>    He's slow as = he's really slow
+>  ````
+Quoted from [learn to language](https://learntolanguage.com/new-zealand-slang-101-your-guide-to-kiwi-expressions/)
+
