@@ -60,5 +60,5 @@ puts it better than I ever could so there is a helpful quote of his wonderful wr
 >    I'm hungry as, I haven't eaten all day.
 >    I'm tired as = I'm really tired
 >  ````
-Quoted from [learn to language](https://learntolanguage.com/new-zealand-slang-101-your-guide-to-kiwi-expressions/). Visit their site to learn more New Zealand slang.
+Quoted from [learn to language](https://learntolanguage.com/new-zealand-slang-101-your-guide-to-kiwi-expressions/). Visit their site to learn more New Zealand slang. Reccomended if you want to hit the ground running when visiting New Zealand.
 
