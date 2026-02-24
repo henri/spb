@@ -54,7 +54,7 @@ Wondering why SPB is important? Check out out the "[Why SPB is needed?](https://
 <br/>
 
 ### :mag: About SPB
-With SPB installed you may run the following command (more precisly an [spb-fish-snippit](https://github.com/henri/spb#fish-shell-wrappers)) to start a private isolated brave browser session and ask Perplexity to provide information about the SPB project.
+With SPB installed you may run the following command (or more precisly an [spb-fish-snippit](https://github.com/henri/spb#fish-shell-wrappers)) to start a private isolated brave browser session and ask Perplexity to provide information about the SPB project.
 
 ```spb-pai "tell me about spb the private script wrapper"```
 
