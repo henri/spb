@@ -115,6 +115,18 @@ henri/spb/refs/heads/main/\
 
 ### :bookmark_tabs: Usage
 
+#### :blowfish: Fish Autocompletions
+
+SPB supports fish auto-completion. This feature is very helpful if you need quick help with understanding command line option or simply need to remember the template name which you were planning to load.
+
+```
+spb --<tab> # displays a list of possible spb options
+
+spb --standard --edit-template <tab> # this will show a list of available templates 
+```
+
+<br>
+
 Once [installation](https://github.com/henri/spb/blob/main/README.md#floppy_disk-installation) is complete. The following commands will get you started with SPB.
 
 ---
@@ -164,17 +176,7 @@ rm -ri ~/.config/fish/completions/start-private-browser.fish
 
 <br/>
 
-#### :blowfish: Fish Autocompletions
 
-SPB supports fish auto-completion. This feature is very helpful if you need quick help with understanding command line option or simply need to remember the template name which you were planning to load.
-
-```
-spb --<tab> # displays a list of possible spb options
-
-spb --standard --edit-template <tab> # this will show a list of available templates 
-```
-
-<br>
 
 ### :star: Usage Examples
 The real power of SPB is less about the basic usage listed above and more the ability to automate tasks using SPB wrapper scripts and functions. Get SPB and make your life better.
