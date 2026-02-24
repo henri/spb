@@ -127,6 +127,8 @@ spb --standard --edit-template <tab> # this will show a list of available templa
 
 <br>
 
+#### :baby_chick: Getting Started
+
 Once [installation](https://github.com/henri/spb/blob/main/README.md#floppy_disk-installation) is complete. The following commands will get you started with SPB.
 
 ---
