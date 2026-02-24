@@ -57,7 +57,6 @@ This is one of many classic kiwi expressions
 >    Hey mate, I'll pop over around 2 pm. –  Sweet as!
 >    I'm hungry as, I haven't eaten all day.
 >    I'm tired as = I'm really tired
->    He's slow as = he's really slow
 >  ````
 Quoted from [learn to language](https://learntolanguage.com/new-zealand-slang-101-your-guide-to-kiwi-expressions/). Visit their site to learn more New Zealand slang.
 
