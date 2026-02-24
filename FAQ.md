@@ -44,7 +44,7 @@ start-private-browser --browser firefox
        export spb_browser_path=/"Applications/Firefox.app/Contents/MacOS/firefox"
        ```
 
-#### What is 'easy-as'?
+#### What is '[easy-as](https://github.com/henri/spb/blob/main/README.md#lock--spb-start-private-browser)'?
 This is one of many classic kiwi expressions 
 >"Sweet as" and the use of "as"
 >
