@@ -45,7 +45,9 @@ start-private-browser --browser firefox
        ```
 
 #### What is '[easy-as](https://github.com/henri/spb/blob/main/README.md#lock--spb-start-private-browser)'?
-Easy-as is one of many classic kiwi expressions. Kent from learn to language puts it better than I ever could with his terrific writing skills.
+Easy-as is one of many classic kiwi expressions. Kent from [learn to language](https://learntolanguage.com/new-zealand-slang-101-your-guide-to-kiwi-expressions/)
+puts it better than I ever could so there is a helpful quote of his wonderful writing skills below : 
+
 >"Sweet as" and the use of "as"
 >
 >Perhaps the most iconic New Zealand phrase, "sweet as" is a versatile expression meaning "excellent" or "no problem."
