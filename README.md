@@ -54,7 +54,7 @@ Wondering why SPB is important? Check out out the "[Why SPB is needed?](https://
 <br/>
 
 ### :mag: About SPB
-With SPB installed you may for example run the following command to start a private isolated brave browser session and ask Perplexity to provide information about the SPB project.
+With SPB installed you may run the following command (more precisly an [spb-fish-snippit](https://github.com/henri/spb#fish-shell-wrappers)) to start a private isolated brave browser session and ask Perplexity to provide information about the SPB project.
 
 ```spb-pai "tell me about spb the private script wrapper"```
 
@@ -161,7 +161,20 @@ rm -ri ~/.config/fish/functions/spb*.fish ~/.config/fish/functions/start-private
 rm -ri ~/.config/fish/completions/start-private-browser.fish
 ```
 --- 
+
 <br/>
+
+#### :blowfish: Fish Autocompletions
+
+SPB supports fish auto-completion. This feature is very helpful if you need quick help with understanding command line option or simply need to remember the template name which you were planning to load.
+
+```
+spb --<tab> # displays a list of possible spb options
+
+spb --standard --edit-template <tab> # this will show a list of available templates 
+```
+
+<br>
 
 ### :star: Usage Examples
 The real power of SPB is less about the basic usage listed above and more the ability to automate tasks using SPB wrapper scripts and functions. Get SPB and make your life better.
