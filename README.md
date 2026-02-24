@@ -178,7 +178,27 @@ rm -ri ~/.config/fish/completions/start-private-browser.fish
 
 <br/>
 
+### :shield: Privacy
 
+SPB is a useful tool which is able to assist you in your privacy journey. Below are important links to sections of this documentation and external resources regarding SPB and your privacy. Like any tool, it is important to spend time learning the basics so you understand when and how it will assist you with your privacy, as well as the limitations.
+
+Information availble via the links below will assist with forming a deeper understanding of SPB as a tool so you will know when to weild : 
+
+  - [Disclaimer](https://github.com/henri/spb/blob/main/README.md#warning-disclaimer) <sub>:star2: important things to understand</sub>
+  - [Telemetry and Privacy](https://github.com/henri/spb/blob/main/README.md#shield-telemetry-and-privacy) <sub>:signal_strength:</sub>
+  - [DRM](https://github.com/henri/spb/blob/main/README.md#drm-and-privacy) (Digital Rights Management) and Privacy <sub>:oncoming_automobile: trust is a two way street</sub>
+  - [Templating Sub-System](https://github.com/henri/spb/blob/main/README.md#spb-templating-support) <sub>:floppy_disk: web data is preserved in certian template modes</sub>
+  - [Security and Trust](https://github.com/henri/spb/blob/main/README.md#lock-security-and-trust) <sub>:lock:</sub>
+  - [Proxies](https://github.com/henri/spb/blob/main/README.md#proxy-settings) <sub>:arrow_right: :arrows_counterclockwise: :arrow_left: server(s) in the middle</sub>
+  - [Tor Network Access](https://github.com/henri/spb/blob/main/README.mde#tor-network-access) <sub>:melon: onion routing</sub>
+  - [Brave Telemetry Issues](https://github.com/brave/brave-browser/issues/48604) <sub>:telephone: data sent to mothership by brave</sub>
+
+<br>
+
+Keep in mind that different browsers will potentially have different [options](https://github.com/henri/spb/blob/main/901.notes_browser_specific.md) which may alter the way the program works in terms of your privacy.
+
+<br>
+<br>
 
 ### :star: Usage Examples
 The real power of SPB is less about the basic usage listed above and more the ability to automate tasks using SPB wrapper scripts and functions. Get SPB and make your life better.
@@ -259,28 +279,6 @@ The SPB template file always has the same name in the spb-templates directory ``
 
 If there is an option you wish to modifiy but it is not yet supported [raise an issue](https://github.com/henri/spb/issues) or submit a [pull request](https://github.com/henri/spb/blob/main/README.md#rocket-contributing-to-the-project).
 
-
-<br>
-<br>
-
-### :shield: Privacy
-
-SPB is a useful tool which is able to assist you in your privacy journey. Below are important links to sections of this documentation and external resources regarding SPB and your privacy. Like any tool, it is important to spend time learning the basics so you understand when and how it will assist you with your privacy, as well as the limitations.
-
-Information availble via the links below will assist with forming a deeper understanding of SPB as a tool so you will know when to weild : 
-
-  - [Disclaimer](https://github.com/henri/spb/blob/main/README.md#warning-disclaimer) <sub>:star2: important things to understand</sub>
-  - [Telemetry and Privacy](https://github.com/henri/spb/blob/main/README.md#shield-telemetry-and-privacy) <sub>:signal_strength:</sub>
-  - [DRM](https://github.com/henri/spb/blob/main/README.md#drm-and-privacy) (Digital Rights Management) and Privacy <sub>:oncoming_automobile: trust is a two way street</sub>
-  - [Templating Sub-System](https://github.com/henri/spb/blob/main/README.md#spb-templating-support) <sub>:floppy_disk: web data is preserved in certian template modes</sub>
-  - [Security and Trust](https://github.com/henri/spb/blob/main/README.md#lock-security-and-trust) <sub>:lock:</sub>
-  - [Proxies](https://github.com/henri/spb/blob/main/README.md#proxy-settings) <sub>:arrow_right: :arrows_counterclockwise: :arrow_left: server(s) in the middle</sub>
-  - [Tor Network Access](https://github.com/henri/spb/blob/main/README.mde#tor-network-access) <sub>:melon: onion routing</sub>
-  - [Brave Telemetry Issues](https://github.com/brave/brave-browser/issues/48604) <sub>:telephone: data sent to mothership by brave</sub>
-
-<br>
-
-Keep in mind that different browsers will potentially have different [options](https://github.com/henri/spb/blob/main/901.notes_browser_specific.md) which may alter the way the program works in terms of your privacy.
 
 <br>
 <br>
