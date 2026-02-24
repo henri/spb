@@ -48,7 +48,7 @@ start-private-browser --browser firefox
 Easy-as is one of many classic kiwi expressions. 
 
 <sub>[Kent](https://learntolanguage.com/about/) from [learn to language](https://learntolanguage.com/new-zealand-slang-101-your-guide-to-kiwi-expressions/)
-puts it better than I ever could so there is a helpful quote of his wonderful writing skills showing examples of how Kiwis will add 'as' to words.</sub> 
+puts it better than I ever could so there is a helpful quote of his wonderful writing skills showing examples of how Kiwis will add 'as' to words / incorporate into sentances</sub> 
 
 <br>
 
