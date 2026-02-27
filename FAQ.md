@@ -45,7 +45,7 @@ start-private-browser --browser firefox
        ```
 
 #### What is '[easy-as](https://github.com/henri/spb/blob/main/README.md#lock--spb-start-private-browser)'?
-Easy-as is one of many classic kiwi expressions. 
+Easy-as is one of many classic kiwi expressions. Private-as is the SPB motto!
 
 <sub>[Kent](https://learntolanguage.com/about/) from [learn to language](https://learntolanguage.com/new-zealand-slang-101-your-guide-to-kiwi-expressions/)
 puts it better than I ever could so there is a helpful quote of his wonderful writing skills showing examples of how Kiwis will add 'as' to words / incorporate into sentances. Learn more about being [private as](http://github.com/henri/spb) with your web browsing.</sub>
