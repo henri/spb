@@ -267,7 +267,7 @@ Templates allow you to run browsers in a more standard browser mode but to still
 
 #### SPB Configuration File
 
-The SPB configuration allows is a way to store frequently used settings and also to confgure [pre and post scripts](https://github.com/henri/spb/tree/main/300.configuration-examples) to run when you start and stop SPB.
+The SPB configuration file allows a way to store frequently used settings and also to confgure [pre and post scripts](https://github.com/henri/spb/tree/main/300.configuration-examples) to run when you start and stop SPB.
 
 Editing the configuration file is easy ; run the command below to edit with your default editor.
 
