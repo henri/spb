@@ -30,6 +30,7 @@ SPB is tightly connected with the [FISH](https://fishshell.com/) shell (hence al
 - [Disclaimers](https://github.com/henri/spb/blob/main/README.md#warning-disclaimer)
 - [Supported Browsers](https://github.com/henri/spb/blob/main/README.md#sunrise-browser-support)
 - [Project History](https://github.com/henri/spb/blob/main/README.md#spb-browser-support-history)
+- [Frequently Asked Questions](https://github.com/henri/spb/blob/main/FAQ.md)
 - [Get Involved](https://github.com/henri/spb/blob/main/README.md#rocket-contributing-to-the-project)
 - [Links and External Resources](https://github.com/henri/spb/blob/main/README.md#earth_asia-external-resources)
 
