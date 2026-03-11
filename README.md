@@ -7,7 +7,7 @@
 Have you wished there was an easy way to interact with the web from your terminal? Maybe like me you feel ready  to automate your web surfing from the tranquility of the shell? Bundled [SPB fish snippits](https://github.com/henri/spb/?tab=readme-ov-file#fish-shell-wrappers) makes searching for information from the fish shell [easy-as](https://github.com/henri/spb/blob/main/FAQ.md#what-is-easy-as)! 
 
 
-SPB presents the power to navigate the surging currents of our planets vast digital oceans right at your fingertips. SPB is a deceptivly simple shell [script](https://github.com/henri/spb/blob/main/050.start-private-browser.bash) which will rapidly spawn one or more isolated browser sessons. The [built-in SPB templating system](https://github.com/henri/spb/blob/main/README.md#spb-templating-support) allows isolation between different tasks.
+SPB presents the power to navigate the surging currents of our planets vast digital oceans right at your fingertips. SPB is a deceptivly simple shell [script](https://github.com/henri/spb/blob/main/050.start-private-browser.bash) which will rapidly spawn one or more [isolated browser sessons](https://github.com/henri/spb/blob/main/README.md#sailboat-what-are-isolated-web-sessions). The [built-in SPB templating system](https://github.com/henri/spb/blob/main/README.md#spb-templating-support) allows isolation between different tasks.
 
 
 
@@ -17,7 +17,7 @@ SPB presents the power to navigate the surging currents of our planets vast digi
 
 Swim happily ; SPB [installs](https://github.com/henri/spb/?tab=readme-ov-file#floppy_disk-installation) into your home directory (no need for sudo) and is [easily removed](https://github.com/henri/spb/blob/main/README.md#bookmark_tabs-usage) in the event you don't make use of SPB each and every day. [This GitHub repository](https://github.com/henri/spb) has everything you need to [install and update](https://github.com/henri/spb/?tab=readme-ov-file#floppy_disk-installation) SPB on your systems.
 
-[Harness the power](https://github.com/henri/spb/blob/main/README.md#raising_hand-why-is-spb-needed) of isolated web sessions with SPB. Every time you run SPB a new instance of [Brave](https://brave.com/) (a modern web browser) or another browser (which you [specify](https://github.com/henri/spb/blob/main/README.md#sunrise-browser-support)) is spawned within a fresh [screen](https://www.gnu.org/software/screen/) session. When you close the browser, [SPB will delete all <b>web</b> data related to that browser session](https://github.com/henri/spb/blob/main/README.md#shield-privacy) from your computer.
+[Harness the power](https://github.com/henri/spb/blob/main/README.md#raising_hand-why-is-spb-needed) of [isolated web sessions](https://github.com/henri/spb/blob/main/README.md#sailboat-what-are-isolated-web-sessions) with SPB. Every time you run SPB a new instance of [Brave](https://brave.com/) (a modern web browser) or another browser (which you [specify](https://github.com/henri/spb/blob/main/README.md#sunrise-browser-support)) is spawned within a fresh [screen](https://www.gnu.org/software/screen/) session. When you close the browser, [SPB will delete all <b>web</b> data related to that browser session](https://github.com/henri/spb/blob/main/README.md#shield-privacy) from your computer.
 
 <br/>
 
@@ -64,7 +64,7 @@ With SPB installed you may run the following command (or more precisly an [spb-f
 
 ```spb-pai "tell me about spb the private script wrapper"```
 
-> SPB (Start Private Browser) is a small shell-script-based “wrapper” that quickly launches one or more completely isolated private browser sessions, each with its own profile directory and options.
+> SPB (Start Private Browser) is a small shell-script-based “wrapper” that quickly launches one or more completely [isolated private browser sessions](https://github.com/henri/spb/blob/main/README.md#sailboat-what-are-isolated-web-sessions), each with its own profile directory and options.
 > What SPB actually does
 > Creates a fresh browser profile directory per session (or per template), so cookies, logins, and history are isolated between runs.
 > Spawns one or many browser windows/tabs in one command, using a simple CLI interface and optional templates.
@@ -77,7 +77,7 @@ With SPB installed you may run the following command (or more precisly an [spb-f
 
 ### :dart: SPB Feature Summary
 
-  - [Create](https://github.com/henri/spb/blob/main/README.md#bookmark_tabs-usage) multiple isolated web browser instances.
+  - [Create](https://github.com/henri/spb/blob/main/README.md#bookmark_tabs-usage) multiple [isolated web browser instances](https://github.com/henri/spb/blob/main/README.md#sailboat-what-are-isolated-web-sessions).
   - Reliable browser [templating](https://github.com/henri/spb/blob/main/README.md#spb-templating-support) system
      - providing task isolation
      - browser customisation
@@ -535,7 +535,7 @@ SPB is released under the [GNU GPL 3 or later](https://www.gnu.org/licenses/gpl-
 
 The use cases for this SPB are immense and include [simplified day-to-day web browsing](https://github.com/henri/spb/blob/main/README.md#star-usage-examples), trouble-shooting, testing, load-testing, AI Agents performing multiple tasks or just having multiple tabs which are not related in terms of cookies etc.
 
-Make yourself aware of how insidious malware within browser extensions has become. There is a very well funded effort to get malware into your browsers. :panda_face: [ShadyPanda](https://youtu.be/HDuBI0Pc1HE?si=Aa98KzJ5CzUIAtlQ) is just one example. Thanks to [KOI](https://www.koi.ai/) for uncovering this issue. Sandboxes for software and isolating browser instances is helpful in minimising the blast radius of such malware. In addition, SPB is also able to assist security researchers to learn more about browser based attack vectors.
+Make yourself aware of how insidious malware within browser extensions has become. There is a very well funded effort to get malware into your browsers. :panda_face: [ShadyPanda](https://youtu.be/HDuBI0Pc1HE?si=Aa98KzJ5CzUIAtlQ) is just one example. Thanks to [KOI](https://www.koi.ai/) for uncovering this issue. Sandboxes for software and [isolating browser instances](https://github.com/henri/spb/blob/main/README.md#sailboat-what-are-isolated-web-sessions) is helpful in minimising the blast radius of such malware. In addition, SPB is also able to assist security researchers to learn more about browser based attack vectors.
 
 When starting a private session within the [Safari WebBrowser](https://en.wikipedia.org/wiki/Safari_(web_browser)) on [MacOS](https://en.wikipedia.org/wiki/MacOS) each tab is seperate (the cookies are not shared between tabs). However, most other browsers share the private cookies with all private tabs. One approach is not better or worse. But if you would like to have multiple instances of a browser but not have them sharing all those dirty cookies, then this script allows you to start up as many private (and separate) sessions as you need (as long as your system will cope with the additional system resources being used). Have fun loading some private browsers.
 
@@ -678,16 +678,22 @@ Please note, that not all Chromium and FireFox based browsers are officially sup
 
 ### :sailboat: What are Isolated Web Sessions?
 
-One way to think about what an isolated web seesion is to imagine you have two or more computeres. If you start a web browser on each computer then assuming you have not logged into anything within the browser these web sessions are somewhat isolated. It is possible to run isolated web browser sessions on a machine by starting multiple web browsers on the same machine. SPB gives you the ability to start multiple instances of the same web browser. The way SPB accomplishes this is by storing the data directory which the browser uses in seperate parts of the file system to each other. However, it is also possible to further isolate these sessions from one and other and from your local machine by running SPB on a remote machine, within a virtual machine or a seperate name space (depending on your operating system).
+One way to think about an isolated web seesion is to imagine you have two (or more) computeres. If you start a web browser on each computer then assuming you have not logged into anything within the browser or the operating system ; these web sessions are somewhat isolated (running on two sperate computeres). 
 
-Advatanges include :
+It is possible to run isolated web browser sessions on a single machine by starting multiple different web browsers. For example you could run FireFox and Brave on the computer and these two browsers are somewhat isolated. SPB gives you the ability to start multiple instances of the same web browser. For example you could start three seperate instances of the Brave browser using SPB.
 
-   - Log into two or more web based accounts from the same provider simultaniusly on the same machine
-     - login many google / gmail accounts at the same time
+The way SPB accomplishes this is by storing the data directory which the browser uses in seperate parts of the computers file system. However, it is also possible to further isolate these sessions from one and other and from your local machine by running SPB on a remote machine, within a virtual machine or a seperate name space (depending on your operating system).
+
+Advatanges of using isolated web browser sessions include :
+
+   - Ability to log into two or more web based accounts from the same provider simultaniusly on the same machine using your prefered browser.
+     - Login many google / gmail accounts at the same time
      - Login multiple Amazon / AWS accounts simultanusly
+     - Using SPB you can even configure each instance with a different icon so that you are able to identify the browser more easily.
+     - Linux Mint includes a graphical tool called WebApps (installed via ```sudo apt install webapp-manager```) and this also offers a similar functionality but it is not able to be controlled from the command line (at the time of writing).
    - Reduce tracking between providers and web sessions
-     - Keep each task within a dedicated browser
-     - Unlike swithing between browser profiles you can run two or more sessions simultanusly
+     - Keep different task seperate within a dedicated browser instance
+     - Unlike swithing between browser profiles SPB makes running run two or more sessions simultanusly easy
 
 <br/>
 
