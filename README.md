@@ -74,18 +74,6 @@ With SPB installed you may run the following command (or more precisly an [spb-f
 
 <br/>
 
-### :sailboat: What are Isolated Web Sessions?
-
-One way to think about what an isolated web seesion is to imagine you have two or more computeres. If you start a web browser on each computer then assuming you have not logged into anything within the browser these web sessions are somewhat isolated. It is possible to run isolated web browser sessions on a machine by starting multiple web browsers on the same machine. SPB gives you the ability to start multiple instances of the same web browser. The way SPB accomplishes this is by storing the data directory which the browser uses in seperate parts of the file system to each other. However, it is also possible to further isolate these sessions from one and other and from your local machine by running SPB on a remote machine, within a virtual machine or a seperate name space (depending on your operating system).
-
-Advatanges include :
-
-   - Log into two or more web based accounts from the same provider simultaniusly on the same machine
-     - login many google / gmail accounts at the same time
-     - Login multiple Amazon / AWS accounts simultanusly
-   - Reduce tracking between providers and web sessions
-     - Keep each task within a dedicated browser
-     - Unlike swithing between browser profiles you can run two or more sessions simultanusly
 
 ### :dart: SPB Feature Summary
 
@@ -685,6 +673,21 @@ SPB (Start Private Browser) was initially developed to only support and work wit
   - [Zen](https://zen-browser.app/)
 
 Please note, that not all Chromium and FireFox based browsers are officially supported by SPB. Many broswers have significant variations from their upstream projects and in some cases these changes makes it impossible or at least difficult to get them working correctly with SPB ; without additional support from those projects. If you are a developer, then patches and pull requests are welcome if your faviorte browser is not yet supported and you would like to see support in an official SPB release. If you are not ready to make the changes yourself, then open an issue or start a discussion outlining your problem or request.
+
+<br/>
+
+### :sailboat: What are Isolated Web Sessions?
+
+One way to think about what an isolated web seesion is to imagine you have two or more computeres. If you start a web browser on each computer then assuming you have not logged into anything within the browser these web sessions are somewhat isolated. It is possible to run isolated web browser sessions on a machine by starting multiple web browsers on the same machine. SPB gives you the ability to start multiple instances of the same web browser. The way SPB accomplishes this is by storing the data directory which the browser uses in seperate parts of the file system to each other. However, it is also possible to further isolate these sessions from one and other and from your local machine by running SPB on a remote machine, within a virtual machine or a seperate name space (depending on your operating system).
+
+Advatanges include :
+
+   - Log into two or more web based accounts from the same provider simultaniusly on the same machine
+     - login many google / gmail accounts at the same time
+     - Login multiple Amazon / AWS accounts simultanusly
+   - Reduce tracking between providers and web sessions
+     - Keep each task within a dedicated browser
+     - Unlike swithing between browser profiles you can run two or more sessions simultanusly
 
 <br/>
 
