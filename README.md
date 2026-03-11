@@ -539,6 +539,7 @@ Make yourself aware of how insidious malware within browser extensions has becom
 
 When starting a private session within the [Safari WebBrowser](https://en.wikipedia.org/wiki/Safari_(web_browser)) on [MacOS](https://en.wikipedia.org/wiki/MacOS) each tab is seperate (the cookies are not shared between tabs). However, most other browsers share the private cookies with all private tabs. One approach is not better or worse. But if you would like to have multiple instances of a browser but not have them sharing all those dirty cookies, then this script allows you to start up as many private (and separate) sessions as you need (as long as your system will cope with the additional system resources being used). Have fun loading some private browsers.
 
+[Wondering what an isolated web session is](https://github.com/henri/spb/blob/main/README.md#sailboat-what-are-isolated-web-sessions)?
 
 May the privacy be with you!
 
