@@ -131,6 +131,7 @@ spb --<tab> # displays a list of possible spb options
 
 spb --standard --edit-template <tab> # this will show a list of available templates 
 ```
+If you are using the fish shell then you are all set... just ```<tab><tab>```
 
 <br>
 
