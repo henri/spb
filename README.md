@@ -696,7 +696,7 @@ Advatanges of using isolated web browser sessions include :
      - Linux Mint includes a graphical tool called WebApps (installed via ```sudo apt install webapp-manager```) and this also offers a similar functionality but it is not able to be controlled from the command line (at the time of writing).
    - Reduce tracking between providers and web sessions
      - Keep different task seperate within a dedicated browser instance
-     - Unlike swithing between browser profiles SPB makes running run two or more sessions simultanusly easy
+     - Unlike switching between browser profiles SPB makes running run two or more sessions simultanusly easy
 
 <br/>
 
