@@ -2018,7 +2018,7 @@ while [[ ${#} -ge 1 ]] ; do
 done
 
 # add spb_show_about_url to url list if --about option detected
-if [[ "${spb_show_about}" == "true" ]] ; then url_list="${url_list} \"${spb_show_about_url}\"" ; fi
+if [[ "${spb_show_about}" == "true" ]] ; then url_list="\"${spb_show_about_url}\" ${url_list}" ; fi
 
 
 # start a screen session with the name based off the temp directory, then once browser exits delete the temporary directory
