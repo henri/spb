@@ -815,7 +815,7 @@ if [[ "${help_wanted}" == "yes" ]] ; then
     echo "            # show SPB help"
     echo "            $ start-private-browser --help | less -S"
     echo ""
-    echo "            # start SPB web session showing the SPB project index"
+    echo "            # start SPB web session showing the SPB project index web page"
     echo "            $ start-private-browser --about"
     echo ""
     echo "            # show list of private browser instances"
