@@ -104,6 +104,7 @@
 # version 9.2 - requesting to edit the SPB configuration file will automatically setup the template directory if not present
 # version 9.3 - improved quite output for listing installed browsers
 # version 9.4 - implimented --about option which will start an SPB web session showing information about the SPB project
+# version 9.5 - updates for FireFox launching (removed -class falg)
 
 ##
 ## Configuration of Variables
@@ -1897,7 +1898,8 @@ fi
 # check if we are we using firefox, palemoon, librewolf or zen (experimental)
 if [[ "${spb_browser_name}" == "firefox" ]] || [[ "${spb_browser_name}" == "palemoon" ]] || [[ "${spb_browser_name}" == "zen" ]] || [[ "${spb_browser_name}" == "librewolf" ]]; then 
     incognito_options="--private-window"
-    spb_data_browser_specifc_options="--new-instance --no-remote --class CustomClass --profile "
+    # spb_data_browser_specifc_options="--new-instance --no-remote --class CustomClass --profile "
+    spb_data_browser_specifc_options="--new-instance --no-remote --profile "
     if [[ "${spb_browser_name}" == "zen" ]] ; then 
          spb_data_browser_specifc_options="--new-instance --no-remote --profile "
          if [[ ${os_type} == "darwin" ]] ; then
@@ -2028,7 +2030,6 @@ screen -S "${screen_session_name}" -dm bash -c " \"${spb_browser_path}\" ${brows
 run_post_browser_startup_commands
 
 exit 0
-
 
 
 
