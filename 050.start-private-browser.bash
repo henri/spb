@@ -103,6 +103,7 @@
 # version 9.1 - added ability to disable filesystem syncs
 # version 9.2 - requesting to edit the SPB configuration file will automatically setup the template directory if not present
 # version 9.3 - improved quite output for listing installed browsers
+# version 9.4 - implimented --about option which will start an SPB web session showing information about the SPB project
 
 ##
 ## Configuration of Variables
@@ -547,6 +548,9 @@ fi
 creating_new_template="false"
 spb_list_templates="false"
 
+spb_show_about="false"
+spb_show_about_url="https://github.com/henri/spb/blob/main/README_INDEX.md"
+
 new_template_dir_name=""
 edit_template_dir_name=""
 use_template_dir_name=""
@@ -687,6 +691,11 @@ for arg in "$@" ; do
     fi
   fi
 
+  # show about information
+  if [[ "${arg}" == "--about" ]] ; then
+    spb_show_about="true"
+  fi
+
   # list templates
   if [[ "${arg}" == "--list-templates" ]] ; then
     spb_list_templates="true"
@@ -802,6 +811,12 @@ if [[ "${help_wanted}" == "yes" ]] ; then
     echo ""
     echo "            # open a new private browser instance - optionally pass in a URL"
     echo "            $ start-private-browser [URL-TO-OPEN]"
+    echo ""
+    echo "            # show SPB help"
+    echo "            $ start-private-browser --help | less -S"
+    echo ""
+    echo "            # start SPB web session showing the SPB project index"
+    echo "            $ start-private-browser --about"
     echo ""
     echo "            # show list of private browser instances"
     echo "            $ start-private-browser --list"
@@ -2002,6 +2017,9 @@ while [[ ${#} -ge 1 ]] ; do
     shift
 done
 
+# add spb_show_about_url to url list if --about option detected
+if [[ "${spb_show_about}" == "true" ]] ; then url_list="${url_list} \"${spb_show_about_url}\"" ; fi
+
 
 # start a screen session with the name based off the temp directory, then once browser exits delete the temporary directory
 screen -S "${screen_session_name}" -dm bash -c " \"${spb_browser_path}\" ${browser_options} ${url_list} ; sleep 1 ; ${pre_remove_tmp_directory_cmd} ; rm -rf ${browser_tmp_directory} ${spb_etlfr_cmd} "
@@ -2010,8 +2028,6 @@ screen -S "${screen_session_name}" -dm bash -c " \"${spb_browser_path}\" ${brows
 run_post_browser_startup_commands
 
 exit 0
-
-
 
 
 
