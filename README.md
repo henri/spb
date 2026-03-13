@@ -95,6 +95,7 @@ With SPB installed you may run the following command (or more precisly an [spb-f
       - shell wrapper functions
         - support for starting [Tor](https://github.com/henri/spb/blob/main/README.md#fish-shell-wrappers) session
       - custom scripts
+  - Supports running on a remote or isolated machine for increased sandbox protection
   - [Licensed](https://github.com/henri/spb/blob/main/README.md#memo-licensing-terms-of-use-and-legal) under GNU GPL, ensuring your rights (as a user of this software) are respected.
 
 
