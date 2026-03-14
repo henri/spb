@@ -46,6 +46,7 @@
 # version 2.4 - Bug fixes
 # version 2.5 - Updated the update URL
 # version 2.6 - Improved support for modern macOS versions
+# version 2.7 - Updated fish snippits pull repository
 #
 
 # enviroment varibles setup
@@ -412,7 +413,7 @@ if $(which fish 1>/dev/null 2>/dev/null) ; then
     fi
     if [[ "${auto_install_fish_snippits}" == "yes" ]] ; then 
         # kick off the automated fish spb snippits installer
-        /bin/bash -c "$(curl -fsSL https://gist.githubusercontent.com/henri/4f034f04b35c01e089e98350c902bda8/raw/spb-fish-function-installer.bash)"
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/henri/spb-fish-snippits/refs/heads/main/spb-fish-function-installer.bash)"
         if [[ $? == 0 ]] ; then
             spb_fish_snippits_install_status="success"
         else
