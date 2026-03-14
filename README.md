@@ -114,7 +114,7 @@ henri/spb/refs/heads/main/\
 
 > <sub>**Operating system specific installation instructions for SPB dependencies is [available below](https://github.com/henri/spb/blob/main/README.md#triangular_flag_on_post-compatibility).**</sub>
 
-> <sub>Only run code from sources whom you [trust](https://github.com/henri/spb/?tab=readme-ov-file#lock-security-and-trust). Inspect SPB source-code [ [installer](https://github.com/henri/spb/blob/main/500.spb-install-script.bash), [project](https://github.com/henri/spb/blob/main/050.start-private-browser.bash) and [fish snippets](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8) ] below.</sub>
+> <sub>Only run code from sources whom you [trust](https://github.com/henri/spb/?tab=readme-ov-file#lock-security-and-trust). Inspect SPB source-code [ [installer](https://github.com/henri/spb/blob/main/500.spb-install-script.bash), [project](https://github.com/henri/spb/blob/main/050.start-private-browser.bash) and [fish snippets](https://github.com/henri/spb-fish-snippits) ] below.</sub>
 
 > <sub>The [installer/update](https://github.com/henri/spb/blob/main/500.spb-install-script.bash) script is a convenience to simplify installation and updating of spb on your system(s). Updates are semi-automatic because in order to update you manually run the [installer](https://github.com/henri/spb/blob/main/500.spb-install-script.bash) interactively. Check the [automated notes](https://github.com/henri/spb/?tab=readme-ov-file#arrows_counterclockwise-automate-installation-and-updates) for details on configuring unattended spb updates and installations. Also, before enabling automatic updtes read the [disclaimer section](https://github.com/henri/spb/?tab=readme-ov-file#warning-disclaimer) carfully. When installing SPB (using the above command), automatic updates are not enabled. If you want automatic updates, you must [deliberatly select](https://github.com/henri/spb/?tab=readme-ov-file#arrows_counterclockwise-automate-installation-and-updates) that as an option.</sub>
 
@@ -218,26 +218,26 @@ Below are starter SPB examples for the fish shell to enhance every day web based
 
 Handy wrapper scripts to facilitate SPB usage via the command line : 
 > <sub>During [installation](https://github.com/henri/spb/blob/main/README.md#floppy_disk-installation) if fish is installed, you will be prompted to automatically install these fish snippets. If you install fish after SPB and would like to install these snippets, just run the [update command](https://github.com/henri/spb/blob/main/README.md#bookmark_tabs-usage) or [re-install](https://github.com/henri/spb/blob/main/README.mde#floppy_disk-installation)</sub>
-#### [fish shell wrappers](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8) 
+#### [fish shell wrappers](https://github.com/henri/spb-fish-snippits) 
 If you are using the fish shell, then these commands should be active and ready for you to run. These commands will facilitate your exploration of the worlds vast digital oceans using the fish shell.
 
 <sub> Click on the 'snippet name' links below in order to show usage information relating to a specific snippit</sub>
 | command         | snippet name          | explanation |
 | --------------- | --------------------- | ------------|
-|  `spb`          |  [spb](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-fish) | an alias to start-private-browser<br>but shortedned to spb<br>overide with your favorite extras|
-|  `spb-tor`      |  [spb-tor](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-tor-fishh) | start SPB with [Tor](https://github.com/henri/spb/blob/main/README.md#tor-network-access) network enabled ;<br>equivalent to spb --tor|
-| `spb-smart`     |  [spb-smart](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-smart-fish) | experimental brave search / direct URL access |
-| `spb-ddg`       |  [DuckDuckGo Search](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-ddg-fish)  |  start multiple DuckDuckGo searches |
-| `spb-ddg-ai`    | [DuckDuckGo Chat](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-ddg-ai-fish) | have multiple DuckDuckGo AI (LLM) chats  |
-| `spb-brave`     | [Brave Search](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-brave-fish) | start multiple Brave searches |
-| `spb-brave-ai`  | [Brave Browser Leo Summary](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-brave-ai-fish) | begin multiple Brave AI (Leo) summerisations |
-| `spb-yt`        |  [YouTube Search](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-yt-fish) | initiate simultaneous [YouTube](https://youtube.com) searches |
-| `spb-rum`       |  [Rumble Search](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-rum-fish) | initiate simultaneous [Rumble](https://rumble.com) searches |
-| `spb-bit`       |  [BitChute Search](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-bit-fish) | initiate simultaneous [BitChute](https://bitchute.com) searches |
-| `spb-ody`       |  [Odysee Search](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-ody-fish) | initiate simultaneous [Odysee](https://odysee.com) searches |
-| `spb-twitch`    |  [Twitch Search](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-twitch-fish) | initiate simultaneous [Twitch](https://twitch.tv) searches |
-|  `spb-pai`      |  [Perplexity AI Chat](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-perlexity-ai-fish) | kick off conversations with Perplexity AI |
-|  `spb-mist`     |  [Mistral AI Chat](https://gist.github.com/henri/4f034f04b35c01e089e98350c902bda8#file-spb-mistral-ai-fish) | kick off conversations with Mistral AI |
+|  `spb`          |  [spb](https://github.com/henri/spb-fish-snippits/blob/main/spb.fish) | an alias to start-private-browser<br>but shortedned to spb<br>overide with your favorite extras|
+|  `spb-tor`      |  [spb-tor](https://github.com/henri/spb-fish-snippits/blob/main/spb-tor.fish) | start SPB with [Tor](https://github.com/henri/spb/blob/main/README.md#tor-network-access) network enabled ;<br>equivalent to spb --tor|
+| `spb-smart`     |  [spb-smart](https://github.com/henri/spb-fish-snippits/blob/main/spb-smart.fish) | experimental brave search / direct URL access |
+| `spb-ddg`       |  [DuckDuckGo Search](https://github.com/henri/spb-fish-snippits/blob/main/spb-ddg.fish)  |  start multiple DuckDuckGo searches |
+| `spb-ddg-ai`    | [DuckDuckGo Chat](https://github.com/henri/spb-fish-snippits/blob/main/spb-ddg-ai.fish) | have multiple DuckDuckGo AI (LLM) chats  |
+| `spb-brave`     | [Brave Search](https://github.com/henri/spb-fish-snippits/blob/main/spb-brave.fish) | start multiple Brave searches |
+| `spb-brave-ai`  | [Brave Browser Leo Summary](https://github.com/henri/spb-fish-snippits/blob/main/brave-ai.fish) | begin multiple Brave AI (Leo) summerisations |
+| `spb-yt`        |  [YouTube Search](https://github.com/henri/spb-fish-snippits/blob/main/spb-yt.fish) | initiate simultaneous [YouTube](https://youtube.com) searches |
+| `spb-rum`       |  [Rumble Search](https://github.com/henri/spb-fish-snippits/blob/main/spb-rum.fish) | initiate simultaneous [Rumble](https://rumble.com) searches |
+| `spb-bit`       |  [BitChute Search](https://github.com/henri/spb-fish-snippits/blob/main/spb-bit.fish) | initiate simultaneous [BitChute](https://bitchute.com) searches |
+| `spb-ody`       |  [Odysee Search](https://github.com/henri/spb-fish-snippits/blob/main/spb-ody.fish) | initiate simultaneous [Odysee](https://odysee.com) searches |
+| `spb-twitch`    |  [Twitch Search](https://github.com/henri/spb-fish-snippits/blob/main/spb-twitch.fish) | initiate simultaneous [Twitch](https://twitch.tv) searches |
+|  `spb-pai`      |  [Perplexity AI Chat](https://github.com/henri/spb-fish-snippits/blob/main/spb-perlexity-ai.fish) | kick off conversations with Perplexity AI |
+|  `spb-mist`     |  [Mistral AI Chat](https://github.com/henri/spb-fish-snippits/blob/main/spb-mistral-ai.fish) | kick off conversations with Mistral AI |
 
   
 > <sub>If your system has [fish](https://fishshell.com/) installed and you run the update system in an unattended mode, then these snippets will be installed / updated. This is because that is the default option. When running in unattended mode all default options are selected. If you do not want the above [snippets installed](https://github.com/henri/spb/blob/main/README.md#file-spb-fish-function-installer-bash) please run the update script interactively and enter "no" when asked during the install process. Again the prompt for opting out is only available during interactive mode when using [spb-update.bash](https://github.com/henri/spb/blob/main/600.spb-update.bash) script or when manually running the [install/update](https://github.com/henri/spb/blob/main/README.md#floppy_disk-installation) process.
