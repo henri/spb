@@ -230,7 +230,7 @@ If you are using the fish shell, then these commands should be active and ready 
 | `spb-ddg`       |  [DuckDuckGo Search](https://github.com/henri/spb-fish-snippits/blob/main/spb-ddg.fish)  |  start multiple DuckDuckGo searches |
 | `spb-ddg-ai`    | [DuckDuckGo Chat](https://github.com/henri/spb-fish-snippits/blob/main/spb-ddg-ai.fish) | have multiple DuckDuckGo AI (LLM) chats  |
 | `spb-brave`     | [Brave Search](https://github.com/henri/spb-fish-snippits/blob/main/spb-brave.fish) | start multiple Brave searches |
-| `spb-brave-ai`  | [Brave Browser Leo Summary](https://github.com/henri/spb-fish-snippits/blob/main/brave-ai.fish) | begin multiple Brave AI (Leo) summerisations |
+| `spb-brave-ai`  | [Brave Browser Leo Summary](https://github.com/henri/spb-fish-snippits/blob/main/spb-brave-ai.fish) | begin multiple Brave AI (Leo) summerisations |
 | `spb-yt`        |  [YouTube Search](https://github.com/henri/spb-fish-snippits/blob/main/spb-yt.fish) | initiate simultaneous [YouTube](https://youtube.com) searches |
 | `spb-rum`       |  [Rumble Search](https://github.com/henri/spb-fish-snippits/blob/main/spb-rum.fish) | initiate simultaneous [Rumble](https://rumble.com) searches |
 | `spb-bit`       |  [BitChute Search](https://github.com/henri/spb-fish-snippits/blob/main/spb-bit.fish) | initiate simultaneous [BitChute](https://bitchute.com) searches |
