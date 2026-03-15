@@ -550,7 +550,7 @@ creating_new_template="false"
 spb_list_templates="false"
 
 spb_show_about="false"
-spb_show_about_url="https://github.com/henri/spb/blob/main/README_INDEX.md"
+spb_show_about_url="http://github.com/henri/spb/blob/main/README_INDEX.md"
 
 new_template_dir_name=""
 edit_template_dir_name=""
