@@ -13,7 +13,7 @@ SPB is tightly connected with the [FISH](https://fishshell.com/) shell (hence al
 - [Introduction to SPB](https://github.com/henri/spb/blob/main/README.md#lock--spb-start-private-browser)
 - [Summary of the Project](https://github.com/henri/spb/blob/main/README.md#dart-spb-feature-summary)
 - [Features](https://github.com/henri/spb/blob/main/README.md#dart-spb-feature-summary)
-- [Why SPB](https://github.com/henri/spb/blob/main/README.md#raising_hand-why-is-spb-needed)
+- [Why SPB?](https://github.com/henri/spb/blob/main/README.md#raising_hand-why-is-spb-needed)
 - [Installation](https://github.com/henri/spb/blob/main/README.md#floppy_disk-installation) :floppy_disk: 
 - [Usage](https://github.com/henri/spb/blob/main/README.md#bookmark_tabs-usage)
   - [What are Isolated Web Browser Sessions?](https://github.com/henri/spb/blob/main/README.md#sailboat-what-are-isolated-web-sessions)
