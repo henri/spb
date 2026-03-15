@@ -194,7 +194,7 @@ SPB is a useful tool which is able to assist you in your privacy journey. Below 
 Information availble via the links below will assist with forming a deeper understanding of SPB as a tool so you will know when to weild : 
 
   - [Why SPB](https://github.com/henri/spb/blob/main/README.md#raising_hand-why-is-spb-needed)
-  - [Isolated Browser Sessions](https://github.com/henri/spb/blob/main/README.mdsailboat-what-are-isolated-web-sessions)
+  - [Isolated Browser Sessions](https://github.com/henri/spb/blob/main/README.md#sailboat-what-are-isolated-web-sessions)
   - [Disclaimer](https://github.com/henri/spb/blob/main/README.md#warning-disclaimer) <sub>:star2: important things to understand</sub>
   - [Telemetry and Privacy](https://github.com/henri/spb/blob/main/README.md#shield-telemetry-and-privacy) <sub>:signal_strength:</sub>
   - [DRM](https://github.com/henri/spb/blob/main/README.md#drm-and-privacy) (Digital Rights Management) and Privacy <sub>:oncoming_automobile: trust is a two way street</sub>
