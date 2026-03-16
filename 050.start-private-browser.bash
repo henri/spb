@@ -727,7 +727,7 @@ for arg in "$@" ; do
 
     if [[ "${spb_default_multi_browser_support}" == "false" ]] && [[ "${spb_browser_path_externally_configured}" == "false" ]] ; then
         echo ""
-        echo "ERROR! : SPB multi-browser Support is not available!"
+        echo "ERROR! : SPB multi-browser support is not available!"
         echo ""
         echo "         This is due to you running an older version"
         echo "         of BASH on your system, please update to"
