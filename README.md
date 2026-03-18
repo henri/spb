@@ -416,7 +416,7 @@ Different operating systems and even different LINUX distributions have differen
 <br/>
 
 #### Tor Network Access
-The [Tor Project](https://www.torproject.org/) is powerful [tools](https://github.com/henri/spb/blob/main/README.md#warning-disclaimer) to arm yourself with in terms of protecting your privacy.
+The [Tor Project](https://www.torproject.org/) has many powerful [tools](https://github.com/henri/spb/blob/main/README.md#warning-disclaimer) to arm yourself in the fight for your privacy.
 
 By default SPB will launch an private browser session within a new isolated instance of Brave. Turning on Tor is possible from within the Brave session. 
 
