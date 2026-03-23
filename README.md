@@ -537,7 +537,16 @@ SPB is released under the [GNU GPL 3 or later](https://www.gnu.org/licenses/gpl-
 
 ### :raising_hand: Why is SPB needed? 
 
-The use cases for this SPB are immense and include [simplified day-to-day web browsing](https://github.com/henri/spb/blob/main/README.md#star-usage-examples), trouble-shooting, testing, load-testing, AI Agents performing multiple tasks or just having multiple tabs which are not related in terms of cookies etc.
+The use cases for this SPB are immense and include :
+
+  - [Task isolated day-to-day web browsing](https://github.com/henri/spb/blob/main/README.md#star-usage-examples)
+  - Trouble-shooting
+  - Testing
+  - Development
+  - Load-testing
+  - Dedicated agent tasks isolation
+  - Privacy ; or just having multiple tabs which are not related in terms of cookies etc.
+  - Simplified remote browser isolation
 
 Make yourself aware of how insidious malware within browser extensions has become. There is a very well funded effort to get malware into your browsers. :panda_face: [ShadyPanda](https://youtu.be/HDuBI0Pc1HE?si=Aa98KzJ5CzUIAtlQ) is just one example. Thanks to [KOI](https://www.koi.ai/) for uncovering this issue. Sandboxes for software and [isolating browser instances](https://github.com/henri/spb/blob/main/README.md#sailboat-what-are-isolated-web-sessions) is helpful in minimising the blast radius of such malware. In addition, SPB is also able to assist security researchers to learn more about browser based attack vectors.
 
