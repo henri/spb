@@ -695,7 +695,17 @@ Please note, that not all Chromium and FireFox based browsers are officially sup
 
 One way to think about an isolated web seesion is to imagine you have two (or more) computeres. If you start a web browser on each computer then assuming you have not logged into anything within the browser or the operating system ; these web sessions are somewhat isolated (running on two sperate computeres). 
 
-It is possible to run isolated web browser sessions on a single machine by starting multiple different web browsers. For example you could run FireFox and Brave on the computer and these two browsers are somewhat isolated. SPB gives you the ability to start multiple instances of the same web browser. For example you could start three seperate instances of the Brave browser using SPB.
+It is possible to run isolated web browser sessions on a single machine by starting multiple different web browsers. For example you could run FireFox and Brave on the computer and these two browsers are somewhat isolated. SPB gives you the ability to start multiple instances of the same web browser. For example you start up seperate instances of the Brave browser using SPB :
+
+```
+
+# Start three indpeneded instances of the Brave
+spb ; spb ; spb
+
+# Start ten instances (assumes FISH shell)
+for i in (seq 1 10) ; spb ; end
+
+```
 
 The way SPB accomplishes this is by storing the data directory which the browser uses in seperate parts of the computers file system. However, it is also possible to further isolate these sessions from one and other and from your local machine by running SPB on a remote machine, within a virtual machine or a seperate name space (depending on your operating system).
 
