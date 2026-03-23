@@ -722,17 +722,16 @@ Advatanges of using isolated web browser sessions include :
      - Keep different task seperate within a dedicated browser instance
      - Unlike switching between browser profiles SPB makes running run two or more sessions simultanusly easy
     
-By using the SPB templating system it is possible to have the data preserved between sessions. As an example you may create a template for a specific tasks :
+Using the [SPB templating system](https://github.com/henri/spb/blob/main/README.md#spb-templating-support) it is possible to have the data preserved between sessions. As an example you may create a template for a specific tasks :
 
 ```
-
 # create a template for using Anthopic
 spb --standard --new-template anthopic
 
 # reopen and edit this template
 spb --standard --edit-template anthopic
-
 ```
+By only using that template for a spcific task you keep the potential for data to leakage between systems to a minimum.
 
 <br>
 
