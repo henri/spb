@@ -539,7 +539,7 @@ SPB is released under the [GNU GPL 3 or later](https://www.gnu.org/licenses/gpl-
 
 The use cases for this SPB are immense and include :
 
-  - [Task isolated day-to-day web browsing](https://github.com/henri/spb/blob/main/README.md#star-usage-examples)
+  - [Fast day-to-day web browsing](https://github.com/henri/spb/blob/main/README.md#star-usage-examples) accessed via terminal
   - Trouble-shooting
   - Testing
   - Development
