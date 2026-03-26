@@ -544,7 +544,7 @@ The use cases for this SPB are immense and include :
   - Testing
   - Development
   - Load-testing
-  - Dedicated agent tasks isolation
+  - Dedicated agent task isolation
   - Privacy ; or just having multiple tabs which are not related in terms of cookies etc.
   - Simplified remote browser isolation
   - Research
