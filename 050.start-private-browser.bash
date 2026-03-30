@@ -531,8 +531,8 @@ function list_defaut_configuration_enviroment_variables() {
         echo ""
         if [[ "${verbose_mode}" == "true" ]] ; then
             echo "These variables may be set in your enviroment or within your spb.config file"
-            echo "Any enviroment variables set within your configuration file will overide the"
-            echo "enviroment variables which may have been set."
+            echo "Any enviroment variables set within your configuration file will override any"
+            echo "spb enviroment variables which may have been set."
             echo ""
         fi
     fi
