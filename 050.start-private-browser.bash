@@ -534,9 +534,6 @@ function list_defaut_configuration_enviroment_variables() {
             echo "Any enviroment variables set within your configuration file will overide the"
             echo "enviroment variables which may have been set."
             echo ""
-            echo "Currently configured SPB configuration file : "
-            echo "${spb_configuration_file_absolute}"
-            echo ""
         fi
     fi
     grep "# export spb_" $0 | grep -v "grep"
@@ -545,6 +542,20 @@ function list_defaut_configuration_enviroment_variables() {
         echo "/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/"
     fi
     echo ""
+    if [[ "${verbose_mode}" == "true" ]] ; then
+        echo "Currently configured SPB enviroment variables"
+        echo ""
+        echo "spb_browser_name : ${spb_browser_name}"
+        echo "spb_browser_path : ${spb_browser_path}"
+        echo "spb_temp_data_path : ${spb_temp_data_path}"
+        echo "spb_filesystem_sync : ${spb_filesystem_sync}"
+        echo "spb_edit_template_standard_mode : ${spb_edit_template_standard_mode}"
+        echo ""
+        echo "/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/"
+        echo ""
+    fi
+    ${spb_etlfr_cmd}
+    rm -rf ${browser_tmp_directory}
     exit 0
 }
 
@@ -2118,5 +2129,6 @@ screen -S "${screen_session_name}" -dm bash -c " \"${spb_browser_path}\" ${brows
 run_post_browser_startup_commands
 
 exit 0
+
 
 
