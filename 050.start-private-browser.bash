@@ -105,7 +105,7 @@
 # version 9.3 - improved quiet output for listing installed browsers
 # version 9.4 - implimented --about option which will start an SPB web session showing information about the SPB project
 # version 9.5 - updates for FireFox launching (removed -class falg)
-# version 9.6 - introduced configuration and enviroment varable to set --standard by default when editing a template and resolved mispelling of --quiet option
+# version 9.6 - spb_edit_template_standard_mode added for automatic standard mode when editing a template and resolved mispelling of --quiet
 
 ##
 ## Configuration of Variables
