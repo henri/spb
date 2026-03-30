@@ -288,6 +288,14 @@ start-private-browser --template-path bin/spb-templates
 
 The SPB template file always has the same name in the spb-templates directory ```spb.config``` and the default template path is ```~/bin/spb-templates```. Various options may be set via the spb.config file. The value specified  using the ```--template-path``` option is also the path in which browser templates are read and written.
 
+Run the command below to view available [```spb```](https://github.com/henri/spb) configuration eniroment varibales which may be set via the spb.config or from your within your shell enviroment : 
+
+```
+spb --configuration-variables
+```
+
+Find additional information regarding [configuring your browser](https://github.com/henri/spb/blob/main/README.md#sunrise-browser-support) via the spb.config.
+
 If there is an option you wish to modifiy but it is not yet supported [raise an issue](https://github.com/henri/spb/issues) or submit a [pull request](https://github.com/henri/spb/blob/main/README.md#rocket-contributing-to-the-project).
 
 
