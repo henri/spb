@@ -1,2 +1,4 @@
+
+# automatically switch on standard (non-incognito) mode when editing templates
 export spb_edit_template_standard_mode="true"
 
