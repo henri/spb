@@ -520,9 +520,13 @@ fi
 #
 # 
 
-function list_defaut_configuration_enviroment_variables (){
+function list_defaut_configuration_enviroment_variables() {
     echo ""
     if [[ "${quiet_mode}" == "false" ]] ; then
+        if [[ "${verbose_mode}" == "true" ]] ; then
+            echo "/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/"
+            echo ""
+        fi
         echo "Default values for SPB enviroment variables"
         echo ""
         if [[ "${verbose_mode}" == "true" ]] ; then
@@ -530,9 +534,16 @@ function list_defaut_configuration_enviroment_variables (){
             echo "Any enviroment variables set within your configuration file will overide the"
             echo "enviroment variables which may have been set."
             echo ""
+            echo "Currently configured SPB configuration file : "
+            echo "${spb_configuration_file_absolute}"
+            echo ""
         fi
     fi
     grep "# export spb_" $0 | grep -v "grep"
+    if [[ "${verbose_mode}" == "true" ]] ; then
+        echo ""
+        echo "/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/"
+    fi
     echo ""
     exit 0
 }
@@ -656,7 +667,6 @@ for arg in "$@" ; do
   if [[ "${arg}" == "--configuration-variables" ]] ; then
     config_variables_wanted="yes"
     valid_argument_found="true"
-    break
   fi
 
   # list browsers
@@ -1021,11 +1031,6 @@ if [[ "${help_wanted}" == "yes" ]] ; then
     echo ""
     echo ""
     exit 0
-fi
-
-# check if we are listing default enviroment variables
-if [[ "${config_variables_wanted}" == "yes" ]] ; then
-    list_defaut_configuration_enviroment_variables
 fi
 
 # setup tail runtime timeout value for --auto-monitoring option
@@ -2066,13 +2071,15 @@ if [[ "${quiet_mode}" != "true" ]] ; then
         echo "Temporary directory : ${browser_tmp_directory}"
         echo "Templates directory : $(realpath ${template_dir_base/#\~/$HOME})"
         if [ -r ${spb_configuration_file_absolute} ] ; then
-        #echo "Config file sourced : ${spb_configuration_file_absolute}"
         echo "Configuration found : ${spb_configuration_file_absolute}"
-        #echo "Configuration added : ${spb_configuration_file_absolute}"
         fi
     fi
 fi
 
+# check if we are listing default enviroment variables
+if [[ "${config_variables_wanted}" == "yes" ]] ; then
+    list_defaut_configuration_enviroment_variables
+fi
 
 # parse the arguments for options and URL's to pass to brave.
 browser_options="${user_data_directory_options} ${incognito_options}"
