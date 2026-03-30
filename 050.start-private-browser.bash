@@ -106,6 +106,7 @@
 # version 9.4 - implimented --about option which will start an SPB web session showing information about the SPB project
 # version 9.5 - updates for FireFox launching (removed -class falg)
 # version 9.6 - spb_edit_template_standard_mode added for automatic standard mode when editing a template and resolved mispelling of --quiet
+# version 9.7 - added --configuration-variables parameter to show a list of the possible spb enviroment variables
 
 ##
 ## Configuration of Variables
@@ -517,6 +518,24 @@ fi
 # export spb_filesystem_sync="true"
 # export spb_edit_template_standard_mode="false"
 #
+# 
+
+function list_defaut_configuration_enviroment_variables (){
+    echo ""
+    if [[ "${quiet_mode}" == "false" ]] ; then
+        echo "Default values for SPB enviroment variables"
+        echo ""
+        if [[ "${verbose_mode}" == "true" ]] ; then
+            echo "These variables may be set in your enviroment or within your spb.config file"
+            echo "Any enviroment variables set within your configuration file will overide the"
+            echo "enviroment variables which may have been set."
+            echo ""
+        fi
+    fi
+    grep "# export spb_" $0 | grep -v "grep"
+    echo ""
+    exit 0
+}
 
 # configure the configuration file paths
 spb_configuration_file_path="${template_dir_base}/${spb_configuration_file_name}" # using the template directory to store the configuration file (TODO : needs to be altered to allow changing location of the template directory more easily)
@@ -598,6 +617,7 @@ use_template_dir_absolute=""
 template_show_progress_bar="true" # even this is set to true, the size of the template must be exceed the value set in template template_size_to_show_progress_bar before the progress bar is shown
 template_size_to_show_progress_bar="180" # mesured in MB (if the tempalte is greater than this size and gcp is installed, then a progress bar is displayed during the copy)
 help_wanted="no"
+config_variables_wanted="no"
 update_wanted="no"
 valid_argument_found="false"
 standard_mode="false" # when set to true, we will not default to running incognito window
@@ -628,6 +648,13 @@ for arg in "$@" ; do
   # check for help wanted
   if [[ "${arg}" == "-h" ]] || [[ "${arg}" == "--help" ]] ; then
     help_wanted="yes"
+    valid_argument_found="true"
+    break
+  fi
+
+# check for configuration variables wanted
+  if [[ "${arg}" == "--configuration-variables" ]] ; then
+    config_variables_wanted="yes"
     valid_argument_found="true"
     break
   fi
@@ -928,9 +955,10 @@ if [[ "${help_wanted}" == "yes" ]] ; then
     echo ""
     echo "             ${spb_configuration_file_path}"
     echo ""
-    echo "             # A full list of configuration file options which are able to be overidden is visiable by"
-    echo "             # inspecting the SPB soruce code. Example configuration files are avilable via"
-    echo "             # the project home page."
+    echo "             # Example configuration files are avilable via the project home page."
+    echo ""
+    echo "             # Show full list of configuration file options which are able to be overidden"
+    echo "             $ start-private-browser --configuration-variables"
     echo ""
     echo "             # It is possible to have multiple SPB configuration files and template sets on your system"
     echo "             # and switch between them using the SPB \"--template-path\" option (see previous section)."
@@ -993,6 +1021,11 @@ if [[ "${help_wanted}" == "yes" ]] ; then
     echo ""
     echo ""
     exit 0
+fi
+
+# check if we are listing default enviroment variables
+if [[ "${config_variables_wanted}" == "yes" ]] ; then
+    list_defaut_configuration_enviroment_variables
 fi
 
 # setup tail runtime timeout value for --auto-monitoring option
