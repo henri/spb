@@ -20,6 +20,7 @@ SPB is tightly connected with the [FISH](https://fishshell.com/) shell (hence al
   - [Usage Examples](https://github.com/henri/spb/blob/main/README.md#star-usage-examples)
   - [Fish Shell Wrappers](https://github.com/henri/spb/blob/main/README.md#fish-shell-wrappers)
   - [Template Sub-System](https://github.com/henri/spb/blob/main/README.md#spb-templating-support)
+  - [Configuration File](https://github.com/henri/spb/blob/main/README.md#spb-configuration-file)
 - [Operating System Compatability](https://github.com/henri/spb/blob/main/README.md#triangular_flag_on_post-compatibility)
 - [Privacy Overview](https://github.com/henri/spb/blob/main/README.md#shield-privacy)
     - [Telemtry and Privacy](https://github.com/henri/spb/blob/main/README.md#shield-telemetry-and-privacy)
