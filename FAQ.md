@@ -16,7 +16,7 @@ Yes, SPB works fine with various web browsers.
 
 <hr>
 
-#### List Browsers Which SPB Nativly Supports
+#### List Browsers SPB Nativly Supports
 ```
 start-private-browser --list-browsers
 ```
