@@ -527,7 +527,7 @@ function list_defaut_configuration_enviroment_variables() {
             echo "/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/"
             echo ""
         fi
-        echo "Default values for SPB enviroment variables"
+        echo "Default SPB enviroment variables : "
         echo ""
         if [[ "${verbose_mode}" == "true" ]] ; then
             echo "These variables may be set in your enviroment or within your spb.config file"
@@ -543,7 +543,7 @@ function list_defaut_configuration_enviroment_variables() {
     fi
     echo ""
     if [[ "${verbose_mode}" == "true" ]] ; then
-        echo "Currently configured SPB enviroment variables"
+        echo "Configured SPB enviroment variables :"
         echo ""
         echo "spb_browser_name : ${spb_browser_name}"
         echo "spb_browser_path : ${spb_browser_path}"
