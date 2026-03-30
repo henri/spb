@@ -39,7 +39,7 @@
 # version 2.8 - increased verbosity of output while loading template data
 # version 2.9 - added locking to the templates and squashed bugs
 # version 3.0 - added standard option to not start incognito mode
-# version 3.1 - added a quite mode option for less verbose output
+# version 3.1 - added a quiet mode option for less verbose output
 # version 3.2 - prevent copying a template while it is being edited
 # version 3.3 - improved template lock file session support, improved template support and squashed bugs
 # version 3.4 - reporting and error handling relating to lock files improved
@@ -102,9 +102,10 @@
 # version 9.0 - experimental support for librewolf introduced
 # version 9.1 - added ability to disable filesystem syncs
 # version 9.2 - requesting to edit the SPB configuration file will automatically setup the template directory if not present
-# version 9.3 - improved quite output for listing installed browsers
+# version 9.3 - improved quiet output for listing installed browsers
 # version 9.4 - implimented --about option which will start an SPB web session showing information about the SPB project
 # version 9.5 - updates for FireFox launching (removed -class falg)
+# version 9.6 - introduced configuration and enviroment varable to set --standard by default when editing a template and resolved mispelling of --quiet option
 
 ##
 ## Configuration of Variables
@@ -138,6 +139,9 @@ pre_skip_arg="false"
 super_pre_skip_arg="false"
 pre_arg_scan_proceed="true"
 dot_dot_dot=""
+edit_tempalte_via_cli_falg="false"
+stadard_mode_via_cli_flag="false"
+stadard_mode_via_variable_text=""
 
 
 template_dir_base_default_override=""
@@ -149,7 +153,7 @@ spb_browser_path_externally_configured="false"
 #
 # related to output verbosity
 verbose_mode="false" # when set to true additional information reported to standard out
-quite_mode="false" # when set to true less information is reported to standard out
+quiet_mode="false" # when set to true less information is reported to standard out
 
 
 # os detection
@@ -294,7 +298,7 @@ if [[ ! -z ${BASH_VERSINFO} ]] ; then
     fi
 fi
 
-# super-pre argument scanning (special arguments for overiding settings) - yes we custom argument parsing in 2025
+# super-pre argument scanning (special arguments for overiding settings and configuring varables correctly) - yes we custom argument parsing in 2025
 for arg in "$@" ; do
 
     # skip some parameters passed into script
@@ -303,6 +307,7 @@ for arg in "$@" ; do
         ((super_pre_index++))
     continue
     fi
+
 
     # skip some parameters passed into script
     if [[ "${super_pre_skip_arg}" == "true" ]] ; then
@@ -316,6 +321,22 @@ for arg in "$@" ; do
         next_arg="${args[super_pre_index + 1]}"
     else
         next_arg=""
+    fi
+
+    if [[ "${arg}" == "--standard" ]] ; then
+        stadard_mode_via_cli_flag="true"
+    fi
+
+    # check if we are editing the template (pre super check)
+    if [[ "${arg}" == "--edit-template" ]] ; then
+        # we will know later in that the --edit-template argument was passed in via the cli
+        edit_tempalte_via_cli_falg="true"
+        if [[ "${next_arg}" != "" ]] ; then
+            # configure the system to skip the next argument for processing 
+            # as it is the value for this one
+            super_pre_skip_arg="true"
+            valid_argument_found="true"
+        fi
     fi
 
     # check for template or template editing
@@ -353,9 +374,11 @@ for arg in "$@" ; do
         valid_argument_found="true"
     fi
 
-    # check if quite mode should be enabled
-    if [[ "${arg}" == "--quite" ]] ; then
-        quite_mode="true"
+    # check if quiet mode should be enabled
+    if [[ "${arg}" == "--quiet" ]] || [[ "${arg}" == "--quite" ]]; then
+        # there is a mis-spelt option also which will be allowed for legacy scripts
+        # which may exist using the incorrect spelling and also for recursive calls
+        quiet_mode="true"
         valid_argument_found="true"
     fi
 
@@ -492,6 +515,7 @@ fi
 # export spb_browser_path="brave-browser"
 # export spb_temp_data_path="/tmp"
 # export spb_filesystem_sync="true"
+# export spb_edit_template_standard_mode="false"
 #
 
 # configure the configuration file paths
@@ -509,7 +533,7 @@ if [[ "${edit_configuration_file_requested}" == "true" ]] ; then
         fi
         echo "Generated SPB Template Directory : ${spb_configuration_file_parent_directory_absolute}"
     fi
-    if [[ "${quite_mode}" != "true" ]] ; then
+    if [[ "${quiet_mode}" != "true" ]] ; then
         echo "Editing SPB Configuration File : ${spb_configuration_file_absolute}"
     fi
     ${VISUAL:-${EDITOR:-nano}} ${spb_configuration_file_absolute}
@@ -541,6 +565,21 @@ else
         echo ""
         echo "             export spb_filesystem_sync=\"true\""
         echo "             export spb_filesystem_sync=\"false\""
+        echo ""
+    fi
+fi
+if [ -z "${spb_edit_template_standard_mode}" ] ; then
+    spb_edit_template_standard_mode="false"
+else
+    if [[ "${spb_edit_template_standard_mode}" != "true" ]] && [[ "${spb_edit_template_standard_mode}" != "false" ]] ; then
+        # no valid value is configured so exit with error
+        echo ""
+        echo "ERROR! : Invalid option set for enviroment variable : spb_edit_template_standard_mode"
+        echo ""
+        echo "         Valid configurations options:"
+        echo ""
+        echo "             export spb_edit_template_standard_mode=\"true\""
+        echo "             export spb_edit_template_standard_mode=\"false\""
         echo ""
     fi
 fi
@@ -632,7 +671,7 @@ for arg in "$@" ; do
         os_type="linux" # we make a guess and go with linux.
         distro="mint" # we make a guess and go with mint.
     fi
-    if [[ "${quite_mode}" != "true" ]] ; then
+    if [[ "${quiet_mode}" != "true" ]] ; then
         echo ""
         echo " installed    name-of-browser"
         echo ""
@@ -651,13 +690,13 @@ for arg in "$@" ; do
         fi
         # check if browser is installed and found in path
         which $spb_browser_path 2>/dev/null >/dev/null ; if [[ ${?} == 0 ]] ; then installed="${tick_mark}" ; fi
-        if [[ "${quite_mode}" != "true" ]] ; then
+        if [[ "${quiet_mode}" != "true" ]] ; then
             echo -e "     ${installed}        ${spb_browser_name}"
         elif [[ ${installed} != " " ]] ; then
             echo "${spb_browser_name}"
         fi
     done
-    if [[ "${quite_mode}" != "true" ]] ; then
+    if [[ "${quiet_mode}" != "true" ]] ; then
         echo ""
     fi
     exit 0
@@ -673,7 +712,7 @@ for arg in "$@" ; do
   # check for listing sessions (if found we will exit)
   if [[ "${arg}" == "-ls" ]] || [[ "${arg}" == "-l" ]] || [[ "${arg}" == "--list" ]]; then
     output_list=$(screen -ls | grep .${screen_session_prefix}- | awk '{print $1}' | sort -n)
-    if [[ "${quite_mode}" != "true" ]] && [[ "${verbose_mode}" == "true" ]] ; then
+    if [[ "${quiet_mode}" != "true" ]] && [[ "${verbose_mode}" == "true" ]] ; then
         echo ""
         echo "////////////////////////////////////////////////////////////////////" ; echo ""
         echo "SPB Temporary Browser Data Directory : ${spb_temp_data_path%/}/" ; echo ""
@@ -683,11 +722,11 @@ for arg in "$@" ; do
     if [[ "${output_list}" != "" ]] ; then
         # output_list is not empty - list the items
         echo "${output_list}"
-        if [[ "${quite_mode}" != "true" ]] && [[ "${verbose_mode}" == "true" ]] ; then echo "" ; fi
+        if [[ "${quiet_mode}" != "true" ]] && [[ "${verbose_mode}" == "true" ]] ; then echo "" ; fi
         exit 0
     else
         echo "SPB (start-private-browser) session was not detected."
-        if [[ "${quite_mode}" != "true" ]] && [[ "${verbose_mode}" == "true" ]] ; then echo "" ; fi
+        if [[ "${quiet_mode}" != "true" ]] && [[ "${verbose_mode}" == "true" ]] ; then echo "" ; fi
         exit -88
     fi
   fi
@@ -826,7 +865,7 @@ if [[ "${help_wanted}" == "yes" ]] ; then
     echo "            $ start-private-browser --standard [URL-TO-OPEN]"
     echo ""
     echo "            # suppress important notification output"
-    echo "            $ start-private-browser --quite"
+    echo "            $ start-private-browser --quiet"
     echo ""
     echo "            # additional information output"
     echo "            $ start-private-browser --verbose"
@@ -1039,7 +1078,7 @@ function clean_lock_file() {
 }
 
 function check_template_browser_identification() {
-    if [[ "${quite_mode}" != "true" ]] ; then
+    if [[ "${quiet_mode}" != "true" ]] ; then
             echo "        Browser compatability check..."
     fi
     if [[ ! -f ${template_browser_id_absolute} ]] || [[ ! -r ${template_browser_id_absolute} ]] ; then
@@ -1137,7 +1176,7 @@ if [[ ${spb_list_templates} == "true" ]] ; then
     template_dir_parent_dirname=$(dirname ${template_dir_parent})
     awk_cut_point="."
 
-    if [[ "${quite_mode}" != "true" ]] ; then
+    if [[ "${quiet_mode}" != "true" ]] ; then
         echo "" ; echo ""
         echo "SPB Template Notes : "
         echo "When loading, editing or creating templates,"
@@ -1170,7 +1209,7 @@ if [[ ${spb_list_templates} == "true" ]] ; then
     | sed 's/^/        /' | cat) 
 
     spb_template_listing_status=${?}
-    if [[ "${quite_mode}" == "true" ]] ; then 
+    if [[ "${quiet_mode}" == "true" ]] ; then 
         echo "${template_list}" | awk 'NF'
     else
         echo "${template_list}" ; echo ""
@@ -1180,7 +1219,7 @@ fi
 
 # check for and report if file system sync has been disabled
 if [[ "${spb_filesystem_sync}" == "false" ]] ; then
-    if [[ "${quite_mode}" != "true" ]] ; then
+    if [[ "${quiet_mode}" != "true" ]] ; then
         echo "Filesystem Syncronization Disabled"
     fi
 fi
@@ -1253,19 +1292,28 @@ for arg in "$@" ; do
     fi
   fi
 
-
   # check for standard mode (not incognito)
-  if [[ "${arg}" == "--standard" ]] ; then
-    # TODO : probably we also want a way to configure this from a configuration file... needs looking at :)
-    if [[ "${quite_mode}" != "true" ]] ; then
-        if [[ "${use_template_dir_name}" != "" ]] ; then
-            echo -n "        " # add a space if we are doing template stuff to keep things looking pretty
-            dot_dot_dot="..."
+  if [[ "${arg}" == "--standard" ]] || [[ "${spb_edit_template_standard_mode}" == "true" ]] ; then
+        if [[ "${standard_mode}" != "true" ]] ; then
+            if [[ "${stadard_mode_via_cli_flag}" == "true" ]] || [[ "${stadard_mode_via_variable_text}" == "" ]]; then
+                if [[ "${stadard_mode_via_cli_flag}" == "true" ]] || [[ "${edit_tempalte_via_cli_falg}" == "true" ]] ; then 
+                  # TODO : probably we also want a way to configure this from a configuration file... needs looking at :) - not just for template editing
+                  if [[ "${spb_edit_template_standard_mode}" == "true" ]] && [[ "${stadard_mode_via_cli_flag}" == "false" ]] ; then
+                      # note this text being set to anything other than "" is also used to reduce dropping into this logic path within the  loop
+                      stadard_mode_via_variable_text=" (auto enabled)" 
+                  fi
+                  if [[ "${quiet_mode}" != "true" ]] ; then
+                      if [[ "${use_template_dir_name}" != "" ]] ; then
+                          echo -n "        " # add a space if we are doing template stuff to keep things looking pretty
+                          dot_dot_dot="..."
+                      fi
+                      echo "Standard Mode Enabled${stadard_mode_via_variable_text}${dot_dot_dot}"
+                  fi
+                  standard_mode="true"
+                  valid_argument_found="true"
+                fi
+            fi
         fi
-        echo "Standard Mode Enabled${dot_dot_dot}"
-    fi
-    standard_mode="true"
-    valid_argument_found="true"
   fi
 
   # check for template or template editing
@@ -1287,7 +1335,7 @@ for arg in "$@" ; do
             if [[ "${arg}" == "--edit-template" ]] ; then
                 edit_template_dir_name="${next_arg}"
                 edit_template_dir_absolute="$(echo ${template_dir_parent/#\~/$HOME}/${edit_template_dir_name})"
-                if [[ "${quite_mode}" != "true" ]] ; then
+                if [[ "${quiet_mode}" != "true" ]] ; then
                     echo "Editing existing SPB template : ${edit_template_dir_absolute}"
                 fi
                 # used for storing and retrieving browser template identification
@@ -1298,7 +1346,7 @@ for arg in "$@" ; do
                 if ! [ -d $(echo ${template_dir_parent/#\~/$HOME}) ] ; then
                     mkdir -p $(echo ${template_dir_parent/#\~/$HOME})
                     if [[ ${?} == 0 ]] ; then
-                        if [[ "${quite_mode}" != "true" ]] ; then
+                        if [[ "${quiet_mode}" != "true" ]] ; then
                             echo "Created SPB template direcotry : ${template_dir_parent/#\~/$HOME}"
                         fi
                     else
@@ -1319,7 +1367,7 @@ for arg in "$@" ; do
                     # create the new template directory
                     mkdir "${new_template_dir_absolute}"
                     if [[ ${?} == 0 ]] ; then
-                        if [[ "${quite_mode}" != "true" ]] ; then
+                        if [[ "${quiet_mode}" != "true" ]] ; then
                             echo "Created new SPB template : ${new_template_dir_absolute}"
                         fi
                     else
@@ -1339,7 +1387,7 @@ for arg in "$@" ; do
                 # TODO : probably we also want a way to configure this from a configuration file... needs looking at :)
                 use_template_dir_name="${next_arg}"
                 use_template_dir_absolute="$(echo ${template_dir_parent/#\~/$HOME}/${use_template_dir_name})"
-                if [[ "${quite_mode}" != "true" ]] ; then
+                if [[ "${quiet_mode}" != "true" ]] ; then
                     echo "Loading SPB template : ${use_template_dir_absolute}"
                 fi
                 # check that directory exists
@@ -1639,7 +1687,7 @@ function report_general_browser_lock_file_information() {
 function create_template_browser_identification() {
     # creating a new template
         if [[ "${template_browser_id_absolute}" != "" ]] ; then
-            if [[ "${quite_mode}" != "true" ]] ; then
+            if [[ "${quiet_mode}" != "true" ]] ; then
                 echo "        Storing browser information..."
             fi
             "${spb_browser_path}" --version > ${template_browser_id_absolute}
@@ -1700,7 +1748,7 @@ if [[ "${edit_template_dir_name}" != "" ]] ; then
         exit -53
     fi
     # create the lock file to prevent others from editing
-    if [[ "${quite_mode}" != "true" ]] ; then
+    if [[ "${quiet_mode}" != "true" ]] ; then
         echo "        Creating template editing lock..."
     fi
     touch ${template_lock_file_absolute}
@@ -1821,7 +1869,7 @@ if [[ "${use_template_dir_name}" != "" ]] ; then
     fi
 
     # check which programs are installed on this system for displaying progress bar while making a copy of the template
-    if [[ "${quite_mode}" != "true" ]] && [[ "${template_copy_mac_clone_possible}" == "false" ]]; then
+    if [[ "${quiet_mode}" != "true" ]] && [[ "${template_copy_mac_clone_possible}" == "false" ]]; then
         if [[ "${template_show_progress_bar}" == "true" ]] ; then
             which gcp 2> /dev/null 1> /dev/null ; gcp_available=${?}
             if [[ ${gcp_available} == 0 ]] && [[ ${os_type} != "darwin" ]] ; then
@@ -1849,8 +1897,8 @@ if [[ "${use_template_dir_name}" != "" ]] ; then
         fi
     fi
 
-    # report copying template data unless quite mode enabled
-    if [[ "${quite_mode}" != "true" ]] ; then
+    # report copying template data unless quiet mode enabled
+    if [[ "${quiet_mode}" != "true" ]] ; then
         template_data_disk_usage_human=$(du -hs ${du_apparent_size_option} ${use_template_dir_absolute} | awk '{print $1}')
         if [[ "${template_copy_mac_clone_possible}" == "true" ]] ; then
             template_copy_or_clone="Cloning"
@@ -1861,7 +1909,7 @@ if [[ "${use_template_dir_name}" != "" ]] ; then
     fi
 
     # copy the data (showing the progress or not depending on settings)
-    if [[ "${quite_mode}" != "true" ]] && [[ "${template_copy_progress_bar_possible}" == "true" ]] && [[ ${template_data_disk_usage_megabytes} -gt ${template_size_to_show_progress_bar} ]] ; then
+    if [[ "${quiet_mode}" != "true" ]] && [[ "${template_copy_progress_bar_possible}" == "true" ]] && [[ ${template_data_disk_usage_megabytes} -gt ${template_size_to_show_progress_bar} ]] ; then
         # copy template with progress bar
         if [[ "${gcp_available}" == "true" ]] ; then
             gcp -r ${use_template_dir_absolute}/* ${browser_tmp_directory}/
@@ -1887,7 +1935,7 @@ if [[ "${use_template_dir_name}" != "" ]] ; then
 
     # sync the file system at the required paths (macos will sync everything)
     if [[ "${spb_filesystem_sync}" != "false" ]] ; then
-        if [[ "${quite_mode}" != "true" ]] ; then
+        if [[ "${quiet_mode}" != "true" ]] ; then
             # echo "          [ ${template_data_disk_usage_human}B transferred ]"
             echo "        Synchronizing filesystem..."
         fi
@@ -1940,7 +1988,7 @@ if [[ "${edit_template_dir_name}" != "" ]] ; then
     user_data_directory_options="${spb_data_browser_specifc_options}${edit_template_dir_absolute}"
     
     # create a sym-link within that directory to the template for clarity
-    if [[ "${quite_mode}" != "true" ]] ; then
+    if [[ "${quiet_mode}" != "true" ]] ; then
         echo "        Linking to template data..."
     fi
     ln -s "${edit_template_dir_absolute}" ${browser_tmp_directory}/loaded_template.link 2>/dev/null
@@ -1966,7 +2014,7 @@ if [[ "${edit_template_dir_name}" != "" ]] ; then
 
     # sync the file system at the required paths (macos will sync everything)
     if [[ "${spb_filesystem_sync}" != "false" ]] ; then
-        if [[ "${quite_mode}" != "true" ]] ; then
+        if [[ "${quiet_mode}" != "true" ]] ; then
             echo "        Synchronizing filesystems..."
         fi
         sync --file-system ${browser_tmp_directory}
@@ -1979,7 +2027,7 @@ else
 fi
 
 # report temporary directory information and screen session name in verbose mode
-if [[ "${quite_mode}" != "true" ]] ; then
+if [[ "${quiet_mode}" != "true" ]] ; then
     if [[ "${verbose_mode}" == "true" ]] ; then 
         echo "Screen session name : ${screen_session_name}"
         echo "Temporary directory : ${browser_tmp_directory}"
