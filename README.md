@@ -288,7 +288,7 @@ start-private-browser --template-path bin/spb-templates
 
 The SPB template file always has the same name in the spb-templates directory ```spb.config``` and the default template path is ```~/bin/spb-templates```. Various options may be set via the spb.config file. The value specified  using the ```--template-path``` option is also the path in which browser templates are read and written.
 
-Run the following command to show available [```spb```](https://github.com/henri/spb) and currently configured enviroment varibales : 
+Run the following command to show available and also currently configured [```spb```](https://github.com/henri/spb) enviroment varibales : 
 
 ```
 spb --configuration-variables --verbose
