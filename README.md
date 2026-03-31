@@ -160,7 +160,10 @@ Manual SPB **Update** :
 ```bash
 ~/bin/spb-update.bash
 ```
-  
+
+#### :recycle: 
+No longer loving SPB? need to save 200KB of disk space? The following are removal instructions. If you decide to remove SPB ; remember that it is easy to install again later.
+
 Update SPB **help** : 
 ```bash
 ~/bin/spb-update.bash --help | less -S
