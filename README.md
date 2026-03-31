@@ -161,9 +161,6 @@ Manual SPB **Update** :
 ~/bin/spb-update.bash
 ```
 
-#### :recycle: 
-No longer loving SPB? need to save 200KB of disk space? The following are removal instructions. If you decide to remove SPB ; remember that it is easy to install again later.
-
 Update SPB **help** : 
 ```bash
 ~/bin/spb-update.bash --help | less -S
@@ -175,6 +172,9 @@ Update SPB (accept defaults)
 ```
 
 ---
+
+#### :recycle: 
+No longer loving SPB? Need to free up disk space? Removal instructions follow.
 
 **Uninstall** SPB from your system :  
 
