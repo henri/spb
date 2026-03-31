@@ -162,6 +162,11 @@ Update SPB **help** :
 ~/bin/spb-update.bash --help | less -S
 ```
 
+Update SPB (accept defaults)
+```bash
+~/bin/start-private-browser.bash --update
+```
+
 ---
 
 **Uninstall** SPB from your system :  
