@@ -173,7 +173,8 @@ Update SPB (accept defaults)
 
 ---
 
-#### :recycle: 
+#### :recycle: Remove SPB
+
 No longer loving SPB? Need to free up disk space? Removal instructions follow.
 
 **Uninstall** SPB from your system :  
