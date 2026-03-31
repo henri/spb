@@ -140,9 +140,9 @@ If you are using the fish shell then you are all set... just ```<tab><tab>```
 
 Once [installation](https://github.com/henri/spb/blob/main/README.md#floppy_disk-installation) is complete. The following commands will get you started with SPB.
 
-When using the fish shell use ```spb``` rather than ```~/bin/start-private-browser.bash``` to save your fingers :joy: 
+When using the fish shell run ```spb``` rather than ```~/bin/start-private-browser.bash``` to save your fingers :joy: 
 
-To start a fresh fish session run ```fish``` :shell:
+Start a fresh fish session by running ```fish``` :shell:
 
 ---
 
