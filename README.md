@@ -173,13 +173,11 @@ Update SPB (accept defaults)
 
 ---
 
-#### :recycle: Remove SPB
+#### :recycle: Remove / Uninstall
 
-No longer loving SPB? Need to free up disk space? Removal instructions follow.
+No longer loving SPB? Need to free up disk space? 
 
-**Uninstall** SPB from your system :  
-
-If you decide it is time to remove SPB and assosiated data
+If you decide it is time to remove SPB and assosiated data ; removal instructions follow.
 
 ```bash
 # removes spb software and any update logs
