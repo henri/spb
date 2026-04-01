@@ -302,7 +302,7 @@ Editing the configuration file is easy ; run the command below to edit with your
 start-private-browser --edit-configuration
 ```
 
-It is possible to have multiple SPB configuration files and template sets on your system and switch between these sets using the following command to specify the SPB Template path.
+It is possible to have multiple SPB configuration files and template sets on your system and switch between these sets using the following command to specify the SPB template path.
 
 ```
 start-private-browser --template-path bin/spb-templates
