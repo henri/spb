@@ -197,6 +197,7 @@ rm -ri ~/.config/fish/functions/spb*.fish ~/.config/fish/functions/start-private
 
 # remove spb fish completions
 rm -ri ~/.config/fish/completions/start-private-browser.fish
+rm -ri ~/.config/fish/completions/spb-update.bash.fish
 ```
 --- 
 
