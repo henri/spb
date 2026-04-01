@@ -761,7 +761,7 @@ spb --standard --new-template anthopic
 # reopen and edit this template
 spb --standard --edit-template anthopic
 ```
-Using that template for a spcific task minimum the potential for data to leakage between systems.
+Using templates for spcific tasks minimizes the potential for data leakage between tasks.
 
 <br>
 
