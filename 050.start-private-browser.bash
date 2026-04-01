@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+ echo "/\/\/\/\/\/\/#!/usr/bin/env bash
 #
 # Start many instances of Brave at the same time all within the same linux graphical login
 # The general idea behind this script to start a private instance of brave-browser
@@ -554,7 +554,7 @@ function list_defaut_configuration_enviroment_variables() {
         echo "/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/"
         echo ""
     fi
-    ${spb_etlfr_cmd}
+    sleep 0.001 ${spb_etlfr_cmd}
     rm -rf ${browser_tmp_directory}
     exit 0
 }
