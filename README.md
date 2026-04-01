@@ -123,6 +123,8 @@ henri/spb/refs/heads/main/\
 
 ### :bookmark_tabs: Usage
 
+---
+
 #### :blowfish: Fish Autocompletions
 
 SPB includes [fish auto-completions](https://github.com/henri/spb-fish-snippits/blob/main/spb-completions.fish). Auto-completion allows for quick reference and completion of command line options. In addition, auto completion helps with searching template names, session names and more. Basic auto completion usage is showen below to get you started.
@@ -134,9 +136,9 @@ spb --standard --edit-template <tab> # this will show a list of available templa
 ```
 If you are using the fish shell then you are all set... just ```<tab><tab>```
 
-<br>
+---
 
-#### :baby_chick: Getting Started
+#### :tophat: Tips and tricks
 
 Once [installation](https://github.com/henri/spb/blob/main/README.md#floppy_disk-installation) is complete. The following commands will get you started with SPB.
 
@@ -145,6 +147,8 @@ When using the fish shell run ```spb``` rather than ```~/bin/start-private-brows
 Start a fresh fish session by running ```fish``` :shell:
 
 ---
+
+#### :baby_chick: Getting Started
 
 Start a **new private browser** session : 
 ```bash
