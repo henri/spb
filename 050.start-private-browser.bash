@@ -1,4 +1,4 @@
- echo "/\/\/\/\/\/\/#!/usr/bin/env bash
+#!/usr/bin/env bash
 #
 # Start many instances of Brave at the same time all within the same linux graphical login
 # The general idea behind this script to start a private instance of brave-browser
