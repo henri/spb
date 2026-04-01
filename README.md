@@ -125,27 +125,6 @@ henri/spb/refs/heads/main/\
 
 ---
 
-#### :blowfish: Fish Autocompletions
-
-SPB includes [fish auto-completions](https://github.com/henri/spb-fish-snippits/blob/main/spb-completions.fish). Auto-completion allows for quick reference and completion of command line options. In addition, auto completion helps with searching template names, session names and more. Basic auto completion usage is showen below to get you started.
-
-```
-spb --<tab> # displays a list of possible spb options
-
-spb --standard --edit-template <tab> # this will show a list of available templates 
-```
-If you are using the fish shell then you are all set... just ```<tab><tab>```
-
----
-
-#### :tophat: Tips and tricks
-
-When using the fish shell run ```spb``` rather than ```~/bin/start-private-browser.bash``` to save your fingers :joy: 
-
-Start a fresh fish session by running ```fish``` :shell:
-
----
-
 #### :baby_chick: Getting Started
 
 Once [installation](https://github.com/henri/spb/blob/main/README.md#floppy_disk-installation) is complete. The following commands will get you started with SPB.
@@ -174,6 +153,27 @@ Update SPB (accept defaults)
 ```bash
 ~/bin/start-private-browser.bash --update
 ```
+
+---
+
+#### :blowfish: Fish Autocompletions
+
+SPB includes [fish auto-completions](https://github.com/henri/spb-fish-snippits/blob/main/spb-completions.fish). Auto-completion allows for quick reference and completion of command line options. In addition, auto completion helps with searching template names, session names and more. Basic auto completion usage is showen below to get you started.
+
+```
+spb --<tab> # displays a list of possible spb options
+
+spb --standard --edit-template <tab> # this will show a list of available templates 
+```
+If you are using the fish shell then you are all set... just ```<tab><tab>```
+
+---
+
+#### :tophat: Tips and tricks
+
+When using the fish shell run ```spb``` rather than ```~/bin/start-private-browser.bash``` to save your fingers :joy: 
+
+Start a fresh fish session by running ```fish``` :shell:
 
 ---
 
