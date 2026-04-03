@@ -325,7 +325,7 @@ Run the following command to show available and also currently configured [```sp
 spb --configuration-variables --verbose
 ```
 
-To show the current SPB configuration issue the following command : 
+To show only the the path of current SPB configuration ; issue the following command : 
 
 ```
 spb --configuration-variables --verbose | grep "Configuration found : " | awk '{print $4}'
