@@ -293,6 +293,12 @@ Set the approriate enviroment variable if you would like to have --standard mode
 export spb_edit_template_standard_mode="true"
 ```
 
+It is also possible to set this mode perminatly by adding this line into your spb.conig file. This is able to be accomplished with the following command :
+
+```
+echo 'export spb_edit_template_standard_mode="true"' >> ~/bin/spb-templates/spb.config
+```
+
 <br>
 
 #### SPB Configuration File
