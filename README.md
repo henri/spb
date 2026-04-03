@@ -275,7 +275,7 @@ By default templates are stored in the directory : ~/bin/spb-templates/
 
 > **IMPORTANT NOTE** : <br>Using either "--new-template" or "--edit-template" options will result in data from<br>your websession being saved to your computer. This stored data enables access and<br>loading of the tempalte at a later time.
 
-To use a template like a standard browser session use the ```--edit-template``` and ```--standard``` option and the template will act like a standard browser session saving the into the template.
+To use a template like a standard browser session use the ```--edit-template``` and ```--standard``` options together and the template will act like a standard browser session saving data directly into the template.
 
 | example command                      | explanation    |
 | ------------------------------| -------------- |
