@@ -269,12 +269,14 @@ If you are using the fish shell, then these commands should be active and ready 
 
 #### SPB Templating Support
 
-The built-in templating sub-system allows you to list, create, edit and load browser data templates. Essentially, this allows you to configure a browser just as you like and then load this template as needed for future browsing sessions. When you load an existing template a copy of the template is created for your session and then when you quit that copy is deleted. However, you still have the template and may start as many separate browser instances as you like form that template.
+The built-in templating sub-system allows you to list, create, edit and load browser data templates. Essentially, this allows you to configure a browser just as you like and then load this template as needed for future browsing sessions. When you load a template, spb creates a copy of the template for your requested session and then when you quit that copy is deleted. However, you still have the template and may start as many separate browser instances as you like form that template.
 
 By default templates are stored in the directory : ~/bin/spb-templates/
 
 > **IMPORTANT NOTE** : <br>Using either "--new-template" or "--edit-template" options will result in data from<br>your websession being saved to your computer. This stored data enables access and<br>loading of the tempalte at a later time.
-  
+
+To use a template like a standard browser session use the ```--edit-template``` and ```--standard``` option and the template will act like a standard browser session saving the into the template.
+
 | example command                      | explanation    |
 | ------------------------------| -------------- |
 | `spb --new-template template-name` | Creates a new template and loads a browser within which you<br>may edit this newly created template.<br><br>Upon quit the template will be saved :floppy_disk: | 
