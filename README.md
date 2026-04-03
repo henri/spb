@@ -325,6 +325,12 @@ Run the following command to show available and also currently configured [```sp
 spb --configuration-variables --verbose
 ```
 
+To show the current SPB configuration issue the following command : 
+
+```
+spb --configuration-variables --verbose | grep "Configuration found : " | awk '{print $4}'
+```
+
 Find additional information regarding [configuring your browser](https://github.com/henri/spb/blob/main/README.md#sunrise-browser-support) via the spb.config.
 
 If there is an option you wish to modifiy but it is not yet supported [raise an issue](https://github.com/henri/spb/issues) or submit a [pull request](https://github.com/henri/spb/blob/main/README.md#rocket-contributing-to-the-project).
