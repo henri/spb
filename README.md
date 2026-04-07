@@ -764,7 +764,7 @@ Advatanges of using isolated web browser sessions include :
      - Using SPB you can even configure each instance with a different icon so that you are able to identify the browser more easily.
      - Linux Mint includes a graphical tool called WebApps (installed via ```sudo apt install webapp-manager```) and this also offers a similar functionality but it is not able to be controlled from the command line (at the time of writing).
    - Reduce tracking between providers and web sessions
-     - Keep different task seperate within a dedicated browser instance
+     - Keep different tasks seperate within a dedicated browser instance
      - Unlike switching between browser profiles SPB makes running run two or more sessions simultanusly easy
     
 Using the [SPB templating system](https://github.com/henri/spb/blob/main/README.md#spb-templating-support) it is possible to have the data preserved between sessions. As an example you may create a template for a specific tasks :
