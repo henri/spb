@@ -240,24 +240,26 @@ Handy wrapper scripts to facilitate SPB usage via the command line :
 If you are using the fish shell, then these commands should be active and ready for you to run. These commands will facilitate your exploration of the worlds vast digital oceans using the fish shell.
 
 <sub> Click on the 'snippet name' links below in order to show usage information relating to a specific snippit</sub>
-| command         | snippet name          | explanation |
-| --------------- | --------------------- | ------------|
-|  `spb`          |  [spb](https://github.com/henri/spb-fish-snippits/blob/main/spb.fish) | an alias to start-private-browser<br>but shortedned to spb<br>overide with your favorite extras|
-|  `spb-tor`      |  [spb-tor](https://github.com/henri/spb-fish-snippits/blob/main/spb-tor.fish) | start SPB with [Tor](https://github.com/henri/spb/blob/main/README.md#tor-network-access) network enabled ;<br>equivalent to spb --tor|
-| `spb-smart`     |  [spb-smart](https://github.com/henri/spb-fish-snippits/blob/main/spb-smart.fish) | experimental brave search / direct URL access |
-| `spb-ddg`       |  [DuckDuckGo Search](https://github.com/henri/spb-fish-snippits/blob/main/spb-ddg.fish)  |  start multiple DuckDuckGo searches |
-| `spb-ddg-ai`    | [DuckDuckGo Chat](https://github.com/henri/spb-fish-snippits/blob/main/spb-ddg-ai.fish) | have multiple DuckDuckGo AI (LLM) chats  |
-| `spb-brave`     | [Brave Search](https://github.com/henri/spb-fish-snippits/blob/main/spb-brave.fish) | start multiple Brave searches |
-| `spb-brave-ai`  | [Brave Browser Leo Summary](https://github.com/henri/spb-fish-snippits/blob/main/spb-brave-ai.fish) | begin multiple Brave AI (Leo) summerisations |
-| `spb-yt`        |  [YouTube Search](https://github.com/henri/spb-fish-snippits/blob/main/spb-yt.fish) | initiate simultaneous [YouTube](https://youtube.com) searches |
-| `spb-rum`       |  [Rumble Search](https://github.com/henri/spb-fish-snippits/blob/main/spb-rum.fish) | initiate simultaneous [Rumble](https://rumble.com) searches |
-| `spb-bit`       |  [BitChute Search](https://github.com/henri/spb-fish-snippits/blob/main/spb-bit.fish) | initiate simultaneous [BitChute](https://bitchute.com) searches |
-| `spb-ody`       |  [Odysee Search](https://github.com/henri/spb-fish-snippits/blob/main/spb-ody.fish) | initiate simultaneous [Odysee](https://odysee.com) searches |
-| `spb-twitch`    |  [Twitch Search](https://github.com/henri/spb-fish-snippits/blob/main/spb-twitch.fish) | initiate simultaneous [Twitch](https://twitch.tv) searches |
-|  `spb-pai`      |  [Perplexity AI Chat](https://github.com/henri/spb-fish-snippits/blob/main/spb-perlexity-ai.fish) | kick off conversations with Perplexity AI |
-|  `spb-mist`     |  [Mistral AI Chat](https://github.com/henri/spb-fish-snippits/blob/main/spb-mistral-ai.fish) | kick off conversations with Mistral AI |
-|  `spb-claude`     |  [Claude AI Chat](https://github.com/henri/spb-fish-snippits/blob/main/spb-claude-ai.fish) | kick off conversations with Claude AI |
-|  `spb-chatgpt`     |  [Open AI Chat](https://github.com/henri/spb-fish-snippits/blob/main/spb-chatgpt.fish) | kick off conversations with ChatGPT |
+| command          | snippet name          | explanation |
+| ---------------- | --------------------- | ------------|
+|  `spb`           |  [spb](https://github.com/henri/spb-fish-snippits/blob/main/spb.fish) | an alias to start-private-browser<br>but shortedned to spb<br>overide with your favorite extras|
+|  `spb-tor`       |  [spb-tor](https://github.com/henri/spb-fish-snippits/blob/main/spb-tor.fish) | start SPB with [Tor](https://github.com/henri/spb/blob/main/README.md#tor-network-access) network enabled ;<br>equivalent to spb --tor|
+| `spb-smart`      |  [spb-smart](https://github.com/henri/spb-fish-snippits/blob/main/spb-smart.fish) | experimental brave search / direct URL access |
+| `spb-ddg`        |  [DuckDuckGo Search](https://github.com/henri/spb-fish-snippits/blob/main/spb-ddg.fish)  |  start multiple DuckDuckGo searches |
+| `spb-ddg-ai`     | [DuckDuckGo Chat](https://github.com/henri/spb-fish-snippits/blob/main/spb-ddg-ai.fish) | have multiple DuckDuckGo AI (LLM) chats  |
+| `spb-brave`      | [Brave Search](https://github.com/henri/spb-fish-snippits/blob/main/spb-brave.fish) | start multiple Brave searches |
+| `spb-brave-ai`   | [Brave Browser Leo Summary](https://github.com/henri/spb-fish-snippits/blob/main/spb-brave-ai.fish) | begin multiple Brave AI (Leo) summerisations |
+| `spb-yt`         |  [YouTube Search](https://github.com/henri/spb-fish-snippits/blob/main/spb-yt.fish) | initiate simultaneous [YouTube](https://youtube.com) searches |
+| `spb-rum`        |  [Rumble Search](https://github.com/henri/spb-fish-snippits/blob/main/spb-rum.fish) | initiate simultaneous [Rumble](https://rumble.com) searches |
+| `spb-bit`        |  [BitChute Search](https://github.com/henri/spb-fish-snippits/blob/main/spb-bit.fish) | initiate simultaneous [BitChute](https://bitchute.com) searches |
+| `spb-ody`        |  [Odysee Search](https://github.com/henri/spb-fish-snippits/blob/main/spb-ody.fish) | initiate simultaneous [Odysee](https://odysee.com) searches |
+| `spb-twitch`     |  [Twitch Search](https://github.com/henri/spb-fish-snippits/blob/main/spb-twitch.fish) | initiate simultaneous [Twitch](https://twitch.tv) searches |
+|  `spb-pai`       |  [Perplexity AI Chat](https://github.com/henri/spb-fish-snippits/blob/main/spb-perlexity-ai.fish) | kick off conversations with Perplexity AI |
+|  `spb-mist`      |  [Mistral AI Chat](https://github.com/henri/spb-fish-snippits/blob/main/spb-mistral-ai.fish) | kick off conversations with Mistral AI |
+|  `spb-claude`    |  [Claude AI Chat](https://github.com/henri/spb-fish-snippits/blob/main/spb-claude-ai.fish) | kick off conversations with Claude AI |
+|  `spb-chatgpt`   |  [Open AI Chat](https://github.com/henri/spb-fish-snippits/blob/main/spb-chatgpt.fish) | kick off conversations with ChatGPT |
+|  `spb-google-ai` |  [Google AI Search](https://github.com/henri/spb-fish-snippits/blob/main/spb-google-ai.fish) | Google search focused on AI results |
+
 
   
 > <sub>If your system has [fish](https://fishshell.com/) installed and you run the update system in an unattended mode, then these snippets will be installed / updated. This is because that is the default option. When running in unattended mode all default options are selected. If you do not want the above [snippets installed](https://github.com/henri/spb-fish-snippits/blob/main/spb-fish-function-installer.bash) please run the update script interactively and enter "no" when asked during the install process. Again the prompt for opting out is only available during interactive mode when using [spb-update.bash](https://github.com/henri/spb/blob/main/600.spb-update.bash) script or when manually running the [install/update](https://github.com/henri/spb/blob/main/README.md#floppy_disk-installation) process.
