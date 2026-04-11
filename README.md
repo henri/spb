@@ -290,6 +290,8 @@ To use a template like a standard browser session use the ```--edit-template``` 
 
 Templates allow you to run browsers in a more standard browser mode but to still have isolated instances of a browser running simultaneously. To accomplish this simply create the new templates, then edit those templates. Effectively, you will be able to start separate browser instances but all data will be saved to that template (provided you use the --standard mode option combined with the --edit-tempalte option). When you exit the browser the data will *not* be deleted ; instead (like a typical browser session) data wil be saved :floppy_disk: because you are editing the template in standard mode.
 
+##### SPB Auto Standard Mode
+
 Set the approriate enviroment variable if you would like to have --standard mode enabled (automatically) when editing spb templates :
 ```
 export spb_edit_template_standard_mode="true"
