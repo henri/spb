@@ -558,7 +558,7 @@ If you are looking to roll your own update system, then the notes below will ass
 All of the above and much more is handled for you if you use the included [update script](https://github.com/henri/spb/blob/main/600.spb-update.bash). 
 
 #### Proxy Settings
-Using a single [proxy](https://en.wikipedia.org/wiki/Proxy_server), multiple proxies or [proxy chains](https://medium.com/@Pranjal_y2j/what-are-proxychains-a42896a1079d) allow you to have one or more intermediate systems between the site you access with your browser and that server providing the data or service.
+Using a single [proxy](https://en.wikipedia.org/wiki/Proxy_server), multiple proxies or [proxy chains](https://medium.com/@redfanatic7/how-to-use-proxychains-8420dd4ef88c) allow you to have one or more intermediate systems between the site you access with your browser and that server providing the data or service.
 
 If you export proxy environment variables (as shown below) then the SPB install / update scripts will respect these settings and perform network operations via the specified proxy.
 
