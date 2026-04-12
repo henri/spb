@@ -1019,7 +1019,7 @@ if [[ "${help_wanted}" == "yes" ]] ; then
     echo "            # start a new private browser session using vivaldi as the browser"
     echo "            $ start-private-browser --browser vivaldi"
     echo ""
-    echo "            # pass additional argument (proxy in this example) to private browser"
+    echo "            # pass additional argument(s) (proxy in this example - note setting proxy this way works with Brave)"
     echo "            $ start-private-browser --proxy-server=\"http://myproxy.com:9090\" \"https://brave.com\""
     echo ""
     echo "            # pass additional argument (app mode [eg no toolbars] in this example) to private browser"
