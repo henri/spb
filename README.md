@@ -577,6 +577,8 @@ If you export proxy environment variables (as shown below) then the SPB install 
 If you would like to use a proxy when checking for updates, it is reccomded that you either add the enviroment varables to your crontab (or automation system of choice) or create a custom update wrapper script which adds the proxy varables to your enviroment so they are respected during the update process. Editing the included update script should be avoided because during the update proces any changes made to that file will be removed.
 
 
+Different web browsers may or may not respect the proxy enviroment variables. [Browser specific notes](https://github.com/henri/spb/blob/main/901.notes_browser_specific.md) are available regarding the use of proxies.
+
 <br/>
 
 ### :memo: Licensing, Terms of Use and Legal
