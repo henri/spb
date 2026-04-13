@@ -467,7 +467,7 @@ Different operating systems and even different LINUX distributions have differen
 #### Tor Network Access
 The [Tor Project](https://www.torproject.org/) has many powerful [tools](https://github.com/henri/spb/blob/main/README.md#warning-disclaimer) to arm yourself in the fight for your privacy.
 
-By default SPB will launch an private browser session within a new isolated instance of Brave. Turning on Tor is possible from within the Brave session. 
+By default SPB will launch a private browser session (AKA incognito window) within a new isolated instance of Brave. Turning on Tor is possible from within the Brave session. 
 
 With SPB installed it is possible to quickly start an isolated Tor session within the Brave Browser right from the [command line](https://github.com/henri/spb/blob/main/README.md#fish-shell-wrappers). This is a great way to quickly access the web via the Tor network, when the protection of [Tails](https://github.com/henri/spb/blob/main/README.md#warning-disclaimer) is not required. The Tor project is a powerful privacy tool which is an intregal part of the [Tails](https://github.com/henri/spb/blob/main/README.md#warning-disclaimer) project. 
 
