@@ -560,7 +560,7 @@ All of the above and much more is handled for you if you use the included [updat
 #### Proxy Settings
 Using a single [proxy](https://en.wikipedia.org/wiki/Proxy_server), multiple proxies or [proxy chains](https://medium.com/@redfanatic7/how-to-use-proxychains-8420dd4ef88c) allow you to have one or more intermediate systems between the site you access with your browser and that server providing the data or service.
 
-If you export proxy environment variables (as shown below) then the SPB install / update scripts will respect these settings and perform network operations via the specified proxy.
+If you export proxy environment variables (as shown below) then the SPB install / update scripts will respect these settings and perform network operations via the specified single proxy.
 
 ```
   # proxy settings for SPB install / update scripts
@@ -574,10 +574,10 @@ If you export proxy environment variables (as shown below) then the SPB install 
   set -x export https_proxy "https://proxy.server:port"
   
 ```
-If you would like to use a proxy when checking for updates, it is reccomded that you either add the enviroment varables to your crontab (or automation system of choice) or create a custom update wrapper script which adds the proxy varables to your enviroment so they are respected during the update process. Editing the included update script should be avoided because during the update proces any changes made to that file will be removed.
+If you would like to use a single proxy when checking for updates, it is reccomded that you either add the enviroment varables to your crontab (or automation system of choice) or create a custom update wrapper script which adds the proxy varables to your enviroment so they are respected during the update process. Editing the included update script should be avoided because during the update proces any changes made to that file will be removed.
 
 
-Different web browsers may or may not respect the proxy enviroment variables. [Browser specific notes](https://github.com/henri/spb/blob/main/901.notes_browser_specific.md) are available regarding the use of proxies.
+Different web browsers may or may not respect the proxy enviroment variables. [Browser specific notes](https://github.com/henri/spb/blob/main/901.notes_browser_specific.md) are available regarding the use of individual proxies.
 
 <br/>
 
