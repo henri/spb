@@ -44,6 +44,21 @@ start-private-browser --browser firefox
        export spb_browser_path=/"Applications/Firefox.app/Contents/MacOS/firefox"
        ```
 
+#### Preventing and Limiting Telemetry Data
+
+   - [Little Snitch](https://obdev.at/products/littlesnitch/index.html) is a possible appraoch for macOS and some desktop distributions of LINUX. Keep in mind that this is a closed source project.
+   
+   - [Open Snitch](https://github.com/evilsocket/opensnitch) is an approach for many LINUX distributions
+   
+   - Using a VPN, proxy or proxychain is a way to have telemetry data flowing from a different IP address.
+   
+   - Brave Specific Teletery
+
+       - [This Reddit post](https://www.reddit.com/r/brave_browser/comments/n71we0/just_helping_everybody_out_how_to_disable_all/) proposes blocking various domains
+       
+       - [Comment on this open issue](https://github.com/brave/brave-browser/issues/48604) and request that disabeling telemetry have a command line switch or enviroment vartiable added as a new feature.
+
+
 #### What is '[easy-as](https://github.com/henri/spb/blob/main/README.md#lock--spb-start-private-browser)'?
 Easy-as is one of many classic kiwi expressions. Private-as is the SPB motto!
 
