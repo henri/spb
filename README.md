@@ -673,7 +673,7 @@ spb --browser chromium --browser-path chromium
 ```
 Specifing the --browser and --browser-path command line arguments also allow you to reference non-standard paths or even setup browsers with custom icons for that session. These command line options allow you to quickly specify specific browsers on an adhoc basis.
 
-It is also possible to configure a default browser name and path by adding the following lines into your SPB configuration file : 
+It is also possible to configure a default browser name and path by adding the following lines into your [SPB configuration file](https://github.com/henri/spb/blob/main/README.md#spb-configuration-file) : 
 ```
 export spb_browser_name="chromium"
 export spb_browser_path="chromium"
