@@ -41,7 +41,7 @@ This project is still in a [seedling stage](https://github.com/henri/spb/blob/ma
 
 <br/>
 
-SPB features built-in support for a growing list of [operating systems](https://github.com/henri/spb/blob/main/README.md#triangular_flag_on_post-compatibility) and [browsers](https://github.com/henri/spb/blob/main/README.md#sunrise-browser-support). SPB works from most interactive shells. However, keep in mind that development is focused on the fish shell.
+SPB features built-in support for a growing list of [operating systems](https://github.com/henri/spb/blob/main/README.md#triangular_flag_on_post-compatibility) and [browsers](https://github.com/henri/spb/blob/main/README.md#sunrise-browser-support). SPB works from most interactive shells. However, keep in mind that development is heavily focused twards integration with the [fish shell](https://fishshell.com).
 
 <br/>
 
