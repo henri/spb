@@ -752,11 +752,11 @@ SPB gives you the ability to start multiple instances of the same web browser. E
 
 ```
 
-# Start three indpeneded instances of the Brave
+# Start three independent instances of the Brave
 spb ; spb ; spb
 
-# Start ten instances (assumes FISH shell)
-for i in (seq 1 10) ; spb ; end
+# Start ten instances of FireFox (assumes FISH shell and each instance is started using spb)
+for i in (seq 1 10) ; spb --browser firefox ; end
 
 ```
 
