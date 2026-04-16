@@ -254,6 +254,8 @@ If you are using the fish shell, then these commands should be active and ready 
 | `spb-bit`        |  [BitChute Search](https://github.com/henri/spb-fish-snippits/blob/main/spb-bit.fish) | initiate simultaneous [BitChute](https://bitchute.com) searches |
 | `spb-ody`        |  [Odysee Search](https://github.com/henri/spb-fish-snippits/blob/main/spb-ody.fish) | initiate simultaneous [Odysee](https://odysee.com) searches |
 | `spb-twitch`     |  [Twitch Search](https://github.com/henri/spb-fish-snippits/blob/main/spb-twitch.fish) | initiate simultaneous [Twitch](https://twitch.tv) searches |
+| `spb-imdb`     |  [IMDB Search](https://github.com/henri/spb-fish-snippits/blob/main/spb-imdb.fish) | initiate simultaneous [imdb](https://imdb.com) searches |
+| `spb-wikipedia`     |  [Wikipedia](https://github.com/henri/spb-fish-snippits/blob/main/spb-wikipedia.fish) | initiate simultaneous [Wikipedia](https://wikipedia.com) searches |
 |  `spb-pai`       |  [Perplexity AI Chat](https://github.com/henri/spb-fish-snippits/blob/main/spb-perlexity-ai.fish) | kick off conversations with Perplexity AI |
 |  `spb-mist`      |  [Mistral AI Chat](https://github.com/henri/spb-fish-snippits/blob/main/spb-mistral-ai.fish) | kick off conversations with Mistral AI |
 |  `spb-claude`    |  [Claude AI Chat](https://github.com/henri/spb-fish-snippits/blob/main/spb-claude-ai.fish) | kick off conversations with Claude AI |
