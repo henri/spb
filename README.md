@@ -750,7 +750,7 @@ Imagine you have two (or more) computeres and on each of these computers you sta
 
 It is possible to run isolated web browser sessions on a single machine by starting multiple different web browsers. For example you could run FireFox and Brave on the same computer (these two browsers are now somewhat isolated). Although they are running under the same user account they are not sharing cookies (for example).
 
-SPB (Start Private Browser) gives you the ability to quickly start multiple isolated instanced of the same web browser under the same account. Examples of using SPB to start isolated sessions below :
+SPB (Start Private Browser) gives you the ability to quickly start multiple isolated instances of the same web browser under the same account. Examples of using SPB to start isolated sessions below :
 
 ```
 
