@@ -101,6 +101,60 @@ With SPB installed you may run the following command (or more precisly an [spb-f
 
 <br>
 
+
+### :sailboat: What are Isolated Web Sessions?
+
+Imagine you have two (or more) computeres and on each of these computers you start a web browser. Assuming you do not log into anything within any browser, these web sessions are now somewhat isolated (running on two or more sperate computeres).
+
+It is possible to run isolated web browser sessions on a single machine by starting multiple different web browsers. For example you could run FireFox and Brave on the same computer (these two browsers are now somewhat isolated). Although they are running under the same user account they are not sharing cookies (for example).
+
+SPB (Start Private Browser) gives you the ability to quickly start multiple isolated instances of the same web browser under the same account. 
+
+Examples of using SPB to start isolated sessions :
+
+```
+
+# Start three independent instances of the Brave
+spb ; spb ; spb
+
+# Start ten instances of FireFox (assumes FISH shell and each instance is started using spb)
+for i in (seq 1 10) ; spb --browser firefox ; end
+
+```
+
+The way SPB accomplishes this isolation is is by storing the browser data directory in seperate part of computers file system for each instance you spin up. 
+
+If you want to further isolate these sessions from one and other and from your local machine. It is possible to run SPB on a remote machine, within a virtual machine or a seperate name space (depending on your operating system).
+
+Advatanges of using isolated web browser sessions include :
+
+   - Ability to log into two or more web based accounts from the same provider simultaniusly on the same machine using your prefered browser.
+     - Login to many google / gmail accounts at the same time
+     - Login to multiple Amazon / AWS accounts simultanusly
+     - Using SPB you can even configure each instance with a different icon so that you are able to identify the browser more easily.
+     - Linux Mint includes a graphical tool called WebApps (installed via ```sudo apt install webapp-manager```) and this also offers a similar functionality but it is not able to be controlled from the command line (at the time of writing).
+   - Reduce tracking between providers and web sessions
+     - Keep different tasks seperate within a dedicated browser instance
+     - Unlike switching between browser profiles SPB makes running run two or more sessions simultanusly easy
+    
+Using the [SPB templating system](https://github.com/henri/spb/blob/main/README.md#spb-templating-support) it is possible to have the data preserved between sessions. As an example you may create a template for a specific tasks :
+
+```
+# create a template for using Anthopic
+spb --standard --new-template anthopic
+
+# reopen and edit this template
+spb --standard --edit-template anthopic
+```
+Using templates for spcific tasks minimizes the potential for data leakage between tasks.
+
+<br>
+
+Learn more about [SPB privacy](https://github.com/henri/spb/blob/main/README.md#shield-privacy).
+
+<br/>
+
+
 ### :floppy_disk: Installation 
   1. [Confirm your operating system is supported and install dependicies](https://github.com/henri/spb/blob/main/README.md#triangular_flag_on_post-compatibility)
   2. Kick-off install/upgrade by running following inside a BASH shell : 
@@ -744,57 +798,6 @@ Please note, that not all Chromium and FireFox based browsers are officially sup
 
 <br/>
 
-### :sailboat: What are Isolated Web Sessions?
-
-Imagine you have two (or more) computeres and on each of these computers you start a web browser. Assuming you do not log into anything within any browser, these web sessions are now somewhat isolated (running on two or more sperate computeres).
-
-It is possible to run isolated web browser sessions on a single machine by starting multiple different web browsers. For example you could run FireFox and Brave on the same computer (these two browsers are now somewhat isolated). Although they are running under the same user account they are not sharing cookies (for example).
-
-SPB (Start Private Browser) gives you the ability to quickly start multiple isolated instances of the same web browser under the same account. 
-
-Examples of using SPB to start isolated sessions :
-
-```
-
-# Start three independent instances of the Brave
-spb ; spb ; spb
-
-# Start ten instances of FireFox (assumes FISH shell and each instance is started using spb)
-for i in (seq 1 10) ; spb --browser firefox ; end
-
-```
-
-The way SPB accomplishes this isolation is is by storing the browser data directory in seperate part of computers file system for each instance you spin up. 
-
-If you want to further isolate these sessions from one and other and from your local machine. It is possible to run SPB on a remote machine, within a virtual machine or a seperate name space (depending on your operating system).
-
-Advatanges of using isolated web browser sessions include :
-
-   - Ability to log into two or more web based accounts from the same provider simultaniusly on the same machine using your prefered browser.
-     - Login to many google / gmail accounts at the same time
-     - Login to multiple Amazon / AWS accounts simultanusly
-     - Using SPB you can even configure each instance with a different icon so that you are able to identify the browser more easily.
-     - Linux Mint includes a graphical tool called WebApps (installed via ```sudo apt install webapp-manager```) and this also offers a similar functionality but it is not able to be controlled from the command line (at the time of writing).
-   - Reduce tracking between providers and web sessions
-     - Keep different tasks seperate within a dedicated browser instance
-     - Unlike switching between browser profiles SPB makes running run two or more sessions simultanusly easy
-    
-Using the [SPB templating system](https://github.com/henri/spb/blob/main/README.md#spb-templating-support) it is possible to have the data preserved between sessions. As an example you may create a template for a specific tasks :
-
-```
-# create a template for using Anthopic
-spb --standard --new-template anthopic
-
-# reopen and edit this template
-spb --standard --edit-template anthopic
-```
-Using templates for spcific tasks minimizes the potential for data leakage between tasks.
-
-<br>
-
-Learn more about [SPB privacy](https://github.com/henri/spb/blob/main/README.md#shield-privacy).
-
-<br/>
 
 ### Frequenty Asked Questions
 
