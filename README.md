@@ -746,7 +746,7 @@ Please note, that not all Chromium and FireFox based browsers are officially sup
 
 ### :sailboat: What are Isolated Web Sessions?
 
-Imagine you have two (or more) computeres and on each of these computers you start a web browser. Assuming you do not log into anything within any browsers or the operating system, these web sessions are now somewhat isolated (running on two or more sperate computeres).
+Imagine you have two (or more) computeres and on each of these computers you start a web browser. Assuming you do not log into anything within any browser, these web sessions are now somewhat isolated (running on two or more sperate computeres).
 
 It is possible to run isolated web browser sessions on a single machine by starting multiple different web browsers. For example you could run FireFox and Brave on the computer and these two browsers are now somewhat isolated. They are running under the same user account. But they are not sharing cookies (for example).
 
