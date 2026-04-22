@@ -746,11 +746,11 @@ Please note, that not all Chromium and FireFox based browsers are officially sup
 
 ### :sailboat: What are Isolated Web Sessions?
 
-One way to think about an isolated web seesion is to imagine you have two (or more) computeres. If you start a web browser on each computer then assuming you have not logged into anything within the browser or the operating system ; these web sessions are somewhat isolated (running on two sperate computeres). 
+Imagine you have two (or more) computeres and on each of these computers you start a web browser. Assuming you do not log into anything within any browsers or the operating system, these web sessions are now somewhat isolated (running on two or more sperate computeres).
 
-It is possible to run isolated web browser sessions on a single machine by starting multiple different web browsers. For example you could run FireFox and Brave on the computer and these two browsers are somewhat isolated. 
+It is possible to run isolated web browser sessions on a single machine by starting multiple different web browsers. For example you could run FireFox and Brave on the computer and these two browsers are now somewhat isolated. They are running under the same user account. But they are not sharing cookies (for example).
 
-SPB gives you the ability to start multiple instances of the same web browser. Examples of using SPB to start isolated sessions below :
+SPB (Start Private Browser) gives you the ability to quickly start multiple isolated instanced of the same web browser under the same account. Examples of using SPB to start isolated sessions below :
 
 ```
 
@@ -762,7 +762,9 @@ for i in (seq 1 10) ; spb --browser firefox ; end
 
 ```
 
-The way SPB accomplishes this is by storing the data directory which the browser uses in seperate parts of the computers file system. However, it is also possible to further isolate these sessions from one and other and from your local machine by running SPB on a remote machine, within a virtual machine or a seperate name space (depending on your operating system).
+The way SPB accomplishes this isolation is is by storing the browser data directory in seperate part of computers file system for each instance you spin up. 
+
+If you want to further isolate these sessions from one and other and from your local machine. It is possible to run SPB on a remote machine, within a virtual machine or a seperate name space (depending on your operating system).
 
 Advatanges of using isolated web browser sessions include :
 
