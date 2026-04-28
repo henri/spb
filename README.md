@@ -62,7 +62,7 @@ More than just software. This project also attempts to be an extensive reference
 ### :mag: About SPB
 With SPB installed you may run the following command (or more precisly an [spb-fish-snippit](https://github.com/henri/spb#fish-shell-wrappers)) to start a private isolated brave browser session and ask Perplexity to provide information about the SPB project.
 
-```spb-pai "tell me about spb the private script wrapper"```
+```spb-pai "tell me about spb the private browser script wrapper"```
 
 > SPB (Start Private Browser) is a small shell-script-based “wrapper” that quickly launches one or more completely [isolated private browser sessions](https://github.com/henri/spb/blob/main/README.md#sailboat-what-are-isolated-web-sessions), each with its own profile directory and options.
 > What SPB actually does
