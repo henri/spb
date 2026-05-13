@@ -72,8 +72,13 @@ With SPB installed you may run the following command (or more precisly an [spb-f
 > ```<snip>```
 
 
-<br/>
+<br><br>
 
+<div align="center">
+    <img src="https://github.com/henri/spb/blob/gh-pages/spb-startup-loop.gif?raw=true" width="800">
+</div>
+
+<br><br>
 
 ### :dart: SPB Feature Summary
 
