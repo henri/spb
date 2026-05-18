@@ -96,7 +96,7 @@ With SPB installed you may run the following command (or more precisly an [spb-f
   - Extensive customisation options
       - [conguration file](https://github.com/henri/spb/blob/main/README.md#spb-configuration-file)
       - [command line switches](https://github.com/henri/spb/blob/main/README.md#bookmark_tabs-usage)
-      - [enviroment varables]https://github.com/henri/spb/blob/main/README.md#enviroment-varables)
+      - [enviroment varables](https://github.com/henri/spb/blob/main/README.md#earth_asia-spb-enviroment-varables)
       - shell wrapper functions
         - support for starting [Tor](https://github.com/henri/spb/blob/main/README.md#fish-shell-wrappers) session
       - custom scripts
