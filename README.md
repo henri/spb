@@ -496,9 +496,6 @@ Mild testing has been completed on the following operating systems :
                    - Visit the [Brave website](https://brave.com/download/) and to manually install.
        - macOS 10.15 (and later)
        - Officially the latest versions of Chromium [requires macOS 13](https://issues.chromium.org/issues/376381582) or later.
-       
-       
-       has during useage but they are not required.
   
 <br/>
 
