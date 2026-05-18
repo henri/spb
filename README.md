@@ -482,6 +482,8 @@ Mild testing has been completed on the following operating systems :
           ```
   
    - <b>MacOS</b>
+       - Dependiences will provide additional tools which will improve the way SPB works (they are not needed).
+       - The default macOS install has everything required to make SPB work apart from a [supported browser](https://github.com/henri/spb/blob/main/README.md#sunrise-browser-support).
        - Brew or MacPorts are the recommend approaches to managing SPB dependencies on MacOS
            - MacOS pacakge managers 
                - [Brew](https://brew.sh)
@@ -494,6 +496,9 @@ Mild testing has been completed on the following operating systems :
                    - Visit the [Brave website](https://brave.com/download/) and to manually install.
        - macOS 10.15 (and later)
        - Officially the latest versions of Chromium [requires macOS 13](https://issues.chromium.org/issues/376381582) or later.
+       
+       
+       has during useage but they are not required.
   
 <br/>
 
