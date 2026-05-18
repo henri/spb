@@ -1,14 +1,15 @@
 #!/usr/bin/env bash
 #
-# Start many instances of Brave at the same time all within the same linux graphical login
-# The general idea behind this script to start a private instance of brave-browser
-# with local user data directory set to a directory within /tmp/ (by default)
+# Start many instances of Brave (or another browser) at the same time
+# all these isolated browser instances started with SPB,
+# may run within the same graphical login instance.
 #
-# This also allows you to easily run multiple instances of the browser all with different
-# startup options.
+# Easily run multiple isolated instances of a browser with different
+# startup options, settings, proxies, seperated cookies and more...
 #
-# This script may be easily modified to work with different Blink based browsers for example
-# chromium, vivaldi, opera etc...
+# This script has built in support for many web browsers. SPB also allows
+# starting of unsupported browsers. Uuse the '--help' option or see
+# the home page (listed below) for additional usage information.
 #
 # (C) Copyright Henri Shustak 2024
 #
@@ -2140,5 +2141,4 @@ screen -S "${screen_session_name}" -dm bash -c " \"${spb_browser_path}\" ${brows
 run_post_browser_startup_commands
 
 exit 0
-
 
