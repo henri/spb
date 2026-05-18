@@ -1,0 +1,2 @@
+# use this option to turn of filesystem syncronization
+export spb_filesystem_sync="false"
