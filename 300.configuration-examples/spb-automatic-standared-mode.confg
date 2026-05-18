@@ -1,3 +1,4 @@
+# default spb configuration file : ~/bin/spb-templates/spb.config
 
 # automatically switch on standard (non-incognito) mode when editing templates
 export spb_edit_template_standard_mode="true"
