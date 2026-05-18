@@ -499,6 +499,8 @@ Mild testing has been completed on the following operating systems :
   
 <br/>
 
+<sub>Once the SPB dependencies have been installed, [proceed with the installation of SPB](https://github.com/henri/spb/blob/main/README.md#floppy_disk-installation)</sub>
+
   > If you have managed to get SPB working on your operating system and your operatiing system is not listed above, kindly consider contributing a pull request which includes instructions ; in order to assist others with getting up and running quickly.
 <br/>
 
