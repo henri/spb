@@ -1,4 +1,4 @@
-# By default create this file : ~/bin/spb-templates/spb.config
+# default spb configuration file : ~/bin/spb-templates/spb.config
 
 # use this option to turn of filesystem syncronization
 export spb_filesystem_sync="false"
