@@ -405,6 +405,8 @@ spb --configuration-variables --verbose | grep "Configuration found : " | awk '{
 
 Additional information in regards to [configuring your browser](https://github.com/henri/spb/blob/main/README.md#sunrise-browser-support) via the spb.config.
 
+Example SPB [configuration files are available](https://github.com/henri/spb/tree/main/300.configuration-examples) to help you get started.
+
 If there is an option you wish to modifiy but it is not yet supported [raise an issue](https://github.com/henri/spb/issues) or submit a [pull request](https://github.com/henri/spb/blob/main/README.md#rocket-contributing-to-the-project).
 
 
