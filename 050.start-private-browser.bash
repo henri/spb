@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 #
-# Start many instances of Brave (or another browser) at the same time
-# all these isolated browser instances started with SPB,
-# may run within the same graphical login instance.
+# Start many instances of Brave (or another browser) at the same time.
+#
+# All isolated browser instances started with SPB,
+# may run within the same graphical login instance simultantiusly.
 #
 # Easily run multiple isolated instances of a browser with different
 # startup options, settings, proxies, seperated cookies and more...
