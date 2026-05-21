@@ -19,97 +19,99 @@
 # Project home page (featuring additional information and easy installation guide) :
 # https://github.com/henri/spb
 #
-# version 1.0 - initial release
-# version 1.1 - added a check to make sure brave is installed before doing anything
-# version 1.2 - added a basic help menu explaining the functionality (if you call it with -h or --help)
-# version 1.3 - added basic support for FreeBSD and MacOS
-# version 1.4 - added support for listing the running sessions (just list them via screen - nothing internal keeping track)
-# version 1.5 - initial support for passing additional options to brave implemented (note : zero checking of option validity)
-# version 1.6 - updates to the help output
-# version 1.7 - added url to download brave if it is not installed
-# version 1.8 - added user-agent usage example
-# version 1.9 - added additional sanity check
-# version 2.0 - additional requirement check that screen is installed before doing anything
-# version 2.1 - bug fix related to screen detection
-# version 2.2 - minor improvement when listing active sessions
-# version 2.3 - added additional usage notes
-# version 2.4 - added improved support for displaying help
-# version 2.5 - improved option parsing system
-# version 2.6 - initial foundations for templating sub-system implemented
-# version 2.7 - improved option parsing to allow for greater flexibility
-# version 2.8 - increased verbosity of output while loading template data
-# version 2.9 - added locking to the templates and squashed bugs
-# version 3.0 - added standard option to not start incognito mode
-# version 3.1 - added a quiet mode option for less verbose output
-# version 3.2 - prevent copying a template while it is being edited
-# version 3.3 - improved template lock file session support, improved template support and squashed bugs
-# version 3.4 - reporting and error handling relating to lock files improved
-# version 3.5 - further improvements to template lock file subsystem reliability and user support dialog
-# version 3.6 - cross platform compatibility enhancement
-# version 3.7 - added a force stop command (to kill an spb session)
-# version 3.8 - foundation laid for the template system to support browser compatibility
-# version 3.9 - further improvements to multi-browser support within the templating system
-# version 4.0 - added update option support
-# version 4.1 - minor improvements to output relating to updates
-# version 4.2 - bug fixes
-# version 4.3 - altered configuration defaults working towards improved browser compatibility
-# version 4.4 - prepared multi-browser compatibility foundations
-# version 4.5 - initial templating compatibility checks implemented
-# version 4.6 - improved template listing output in relation to multi-browser improvements
-# version 4.7 - bug fixes relating to older versions of bash
-# version 4.8 - improvements to mutli-browser compatibility
-# version 4.9 - initial environment variable support for spb browser configuration
-# version 5.0 - initial spb configuration file support - only via sourcing
-# version 5.1 - bug fixes relating to loading order of configuration file
-# version 5.2 - improved template listing output and bug fixes relating to multi-browser support
-# version 5.2 - improvements with regards support for cross-platform multi-browser support
-# version 5.3 - updates to the built in help
-# version 5.4 - bug fixes
-# version 5.5 - added ability to list available browsers in multi-mode with option --list-browsers
-# version 5.6 - improved multi-browser support
-# version 5.7 - bug fix related to loading templates
-# version 5.8 - improved logic paths during edge cases of browser template laoding
-# version 5.9 - implemented detection for shells without connected display enviroment(s)
-# version 6.0 - experimental support for ungoogled-chrome, firefox and palemoon
-# version 6.1 - improved template loading, additional linux distribution support (this needs some work)
-# version 6.2 - improved argument parsing and bug fixes
-# version 6.3 - bug fix relating to experimental firefox and palemoon support
-# version 6.4 - added template copy progress bar using gcp if it is installed on the system
-# version 6.5 - added template copy progress bar using pv and tar if they are available on the system and gcp is not available
-# version 6.6 - bug fix resolved relating to du options on macOS and also added APFS template cloning support (it is faster)
-# version 6.7 - bug fix we now correctly report when we are copying or cloning template data
-# version 6.8 - standard mode reporting improvements
-# version 6.9 - added support for custom spb-template path override via the option --template-path
-# version 7.0 - experimental support for opera
-# version 7.1 - initial support for verbose option currently providing reporting of the path to to user data for session
-# version 7.2 - bug fix relating to following template symlinks when using the --list-templates option
-# version 7.3 - added option to overide the default /tmp/ directory used for storing temporary browser data via spb.config file
-# version 7.4 - very experimental support for zen browser
-# version 7.5 - updates to the help
-# version 7.6 - enabled post-browser script launching subsystem
-# version 7.7 - exerimental support for omarchy
-# version 7.8 - added --browser-path option to allow the path to be set via the CLI rather than just via an envioment variable
-# version 7.9 - improved --list-browser option output to check if a browser is installed on the system
-# version 8.0 - slightly improved help message when listing templates with the --list-templates option
-# version 8.1 - added experimental support for cachyos
-# version 8.2 - added option to allow for editing of the active spb configuration file using the --edit-configuration option
-# version 8.3 - improved template listing display for browsers with longer names (specifically chromium)
-# version 8.4 - improved verbose output when listing templates to include template directory with --list-templates --verbose options
-# version 8.5 - improved verbose output when listing sessions with the --list --verbose options
-# version 8.6 - various improvements to output formatting and error messages providing more information.
-# version 8.7 - added edge case for browser installed tick mark on macOS (bug fix) when using --list-browsers option
-# version 8.8 - improved error output when editing a template which has not yet to been created
-# version 8.9 - experimental support for pop!_os introduced
-# version 9.0 - experimental support for librewolf introduced
-# version 9.1 - added ability to disable filesystem syncs
-# version 9.2 - requesting to edit the SPB configuration file will automatically setup the template directory if not present
-# version 9.3 - improved quiet output for listing installed browsers
-# version 9.4 - implimented --about option which will start an SPB web session showing information about the SPB project
-# version 9.5 - updates for FireFox launching (removed -class falg)
-# version 9.6 - spb_edit_template_standard_mode added for automatic standard mode when editing a template and resolved mispelling of --quiet
-# version 9.7 - added --configuration-variables parameter to show a list of the possible spb enviroment variables
-# version 9.8 - updated to provide realpath display for configuration file when when using --verbose option
-# version 9.9 - added enviroment varibles further supporting auto standard mode : spb_template_standard_mode and template_standard_mode
+# version 01.0 - initial release
+# version 01.1 - added a check to make sure brave is installed before doing anything
+# version 01.2 - added a basic help menu explaining the functionality (if you call it with -h or --help)
+# version 01.3 - added basic support for FreeBSD and MacOS
+# version 01.4 - added support for listing the running sessions (just list them via screen - nothing internal keeping track)
+# version 01.5 - initial support for passing additional options to brave implemented (note : zero checking of option validity)
+# version 01.6 - updates to the help output
+# version 01.7 - added url to download brave if it is not installed
+# version 01.8 - added user-agent usage example
+# version 01.9 - added additional sanity check
+# version 02.0 - additional requirement check that screen is installed before doing anything
+# version 02.1 - bug fix related to screen detection
+# version 02.2 - minor improvement when listing active sessions
+# version 02.3 - added additional usage notes
+# version 02.4 - added improved support for displaying help
+# version 02.5 - improved option parsing system
+# version 02.6 - initial foundations for templating sub-system implemented
+# version 02.7 - improved option parsing to allow for greater flexibility
+# version 02.8 - increased verbosity of output while loading template data
+# version 02.9 - added locking to the templates and squashed bugs
+# version 03.0 - added standard option to not start incognito mode
+# version 03.1 - added a quiet mode option for less verbose output
+# version 03.2 - prevent copying a template while it is being edited
+# version 03.3 - improved template lock file session support, improved template support and squashed bugs
+# version 03.4 - reporting and error handling relating to lock files improved
+# version 03.5 - further improvements to template lock file subsystem reliability and user support dialog
+# version 03.6 - cross platform compatibility enhancement
+# version 03.7 - added a force stop command (to kill an spb session)
+# version 03.8 - foundation laid for the template system to support browser compatibility
+# version 03.9 - further improvements to multi-browser support within the templating system
+# version 04.0 - added update option support
+# version 04.1 - minor improvements to output relating to updates
+# version 04.2 - bug fixes
+# version 04.3 - altered configuration defaults working towards improved browser compatibility
+# version 04.4 - prepared multi-browser compatibility foundations
+# version 04.5 - initial templating compatibility checks implemented
+# version 04.6 - improved template listing output in relation to multi-browser improvements
+# version 04.7 - bug fixes relating to older versions of bash
+# version 04.8 - improvements to mutli-browser compatibility
+# version 04.9 - initial environment variable support for spb browser configuration
+# version 05.0 - initial spb configuration file support - only via sourcing
+# version 05.1 - bug fixes relating to loading order of configuration file
+# version 05.2 - improved template listing output and bug fixes relating to multi-browser support
+# version 05.2 - improvements with regards support for cross-platform multi-browser support
+# version 05.3 - updates to the built in help
+# version 05.4 - bug fixes
+# version 05.5 - added ability to list available browsers in multi-mode with option --list-browsers
+# version 05.6 - improved multi-browser support
+# version 05.7 - bug fix related to loading templates
+# version 05.8 - improved logic paths during edge cases of browser template laoding
+# version 05.9 - implemented detection for shells without connected display enviroment(s)
+# version 06.0 - experimental support for ungoogled-chrome, firefox and palemoon
+# version 06.1 - improved template loading, additional linux distribution support (this needs some work)
+# version 06.2 - improved argument parsing and bug fixes
+# version 06.3 - bug fix relating to experimental firefox and palemoon support
+# version 06.4 - added template copy progress bar using gcp if it is installed on the system
+# version 06.5 - added template copy progress bar using pv and tar if they are available on the system and gcp is not available
+# version 06.6 - bug fix resolved relating to du options on macOS and also added APFS template cloning support (it is faster)
+# version 06.7 - bug fix we now correctly report when we are copying or cloning template data
+# version 06.8 - standard mode reporting improvements
+# version 06.9 - added support for custom spb-template path override via the option --template-path
+# version 07.0 - experimental support for opera
+# version 07.1 - initial support for verbose option currently providing reporting of the path to to user data for session
+# version 07.2 - bug fix relating to following template symlinks when using the --list-templates option
+# version 07.3 - added option to overide the default /tmp/ directory used for storing temporary browser data via spb.config file
+# version 07.4 - very experimental support for zen browser
+# version 07.5 - updates to the help
+# version 07.6 - enabled post-browser script launching subsystem
+# version 07.7 - exerimental support for omarchy
+# version 07.8 - added --browser-path option to allow the path to be set via the CLI rather than just via an envioment variable
+# version 07.9 - improved --list-browser option output to check if a browser is installed on the system
+# version 08.0 - slightly improved help message when listing templates with the --list-templates option
+# version 08.1 - added experimental support for cachyos
+# version 08.2 - added option to allow for editing of the active spb configuration file using the --edit-configuration option
+# version 08.3 - improved template listing display for browsers with longer names (specifically chromium)
+# version 08.4 - improved verbose output when listing templates to include template directory with --list-templates --verbose options
+# version 08.5 - improved verbose output when listing sessions with the --list --verbose options
+# version 08.6 - various improvements to output formatting and error messages providing more information.
+# version 08.7 - added edge case for browser installed tick mark on macOS (bug fix) when using --list-browsers option
+# version 08.8 - improved error output when editing a template which has not yet to been created
+# version 08.9 - experimental support for pop!_os introduced
+# version 09.0 - experimental support for librewolf introduced
+# version 09.1 - added ability to disable filesystem syncs
+# version 09.2 - requesting to edit the SPB configuration file will automatically setup the template directory if not present
+# version 09.3 - improved quiet output for listing installed browsers
+# version 09.4 - implimented --about option which will start an SPB web session showing information about the SPB project
+# version 09.5 - updates for FireFox launching (removed -class falg)
+# version 09.6 - spb_edit_template_standard_mode added for automatic standard mode when editing a template and resolved mispelling of --quiet
+# version 09.7 - added --configuration-variables parameter to show a list of the possible spb enviroment variables
+# version 09.8 - updated to provide realpath display for configuration file when when using --verbose option
+# version 09.9 - added enviroment varibles further supporting auto standard mode : spb_template_standard_mode and template_standard_mode
+# version 10.0 - improved output formating of enviroment variable listing and of those currently configured
+#
 
 ##
 ## Configuration of Variables
