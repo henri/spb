@@ -109,6 +109,7 @@
 # version 9.6 - spb_edit_template_standard_mode added for automatic standard mode when editing a template and resolved mispelling of --quiet
 # version 9.7 - added --configuration-variables parameter to show a list of the possible spb enviroment variables
 # version 9.8 - updated to provide realpath display for configuration file when when using --verbose option
+# version 9.9 - added enviroment varibles further supporting auto standard mode : spb_template_standard_mode and template_standard_mode
 
 ##
 ## Configuration of Variables
@@ -141,11 +142,16 @@ skip_arg="false"
 pre_skip_arg="false"
 super_pre_skip_arg="false"
 pre_arg_scan_proceed="true"
-dot_dot_dot=""
-edit_tempalte_via_cli_falg="false"
-stadard_mode_via_cli_flag="false"
-stadard_mode_via_variable_text=""
 
+dot_dot_dot=""
+template_in_use_via_cli_flag="false"
+standard_mode_via_variable_flag="false"
+standard_mode_via_cli_flag="false"
+standard_mode_via_variable_text=""
+
+tempalte_via_cli_flag="false"
+new_tempalte_via_cli_flag="false"
+edit_tempalte_via_cli_flag="false"
 
 template_dir_base_default_override=""
 spb_default_multi_browser_support="false"
@@ -327,13 +333,14 @@ for arg in "$@" ; do
     fi
 
     if [[ "${arg}" == "--standard" ]] ; then
-        stadard_mode_via_cli_flag="true"
+        standard_mode_via_cli_flag="true"
     fi
 
-    # check if we are editing the template (pre super check)
+    # check if we are editing template (pre super check)
     if [[ "${arg}" == "--edit-template" ]] ; then
-        # we will know later in that the --edit-template argument was passed in via the cli
-        edit_tempalte_via_cli_falg="true"
+        # we will know later in that the --edit-template, --new-template or --tempalte argument was passed in via the cli
+        template_in_use_via_cli_flag="true"
+        edit_tempalte_via_cli_flag="true"
         if [[ "${next_arg}" != "" ]] ; then
             # configure the system to skip the next argument for processing 
             # as it is the value for this one
@@ -341,6 +348,33 @@ for arg in "$@" ; do
             valid_argument_found="true"
         fi
     fi
+
+    # check if we are creating new template (pre super check)
+    if [[ "${arg}" == "--new-template" ]] ; then
+        # we will know later in that the --edit-template, --new-template or --tempalte argument was passed in via the cli
+        template_in_use_via_cli_flag="true"
+        new_tempalte_via_cli_flag="true"
+        if [[ "${next_arg}" != "" ]] ; then
+            # configure the system to skip the next argument for processing 
+            # as it is the value for this one
+            super_pre_skip_arg="true"
+            valid_argument_found="true"
+        fi
+    fi
+
+    # check if we are using an exiting template (pre super check)
+    if [[ "${arg}" == "--template" ]] ; then
+        # we will know later in that the --edit-template, --new-template or --tempalte argument was passed in via the cli
+        template_in_use_via_cli_flag="true"
+        tempalte_via_cli_flag="true"
+        if [[ "${next_arg}" != "" ]] ; then
+            # configure the system to skip the next argument for processing 
+            # as it is the value for this one
+            super_pre_skip_arg="true"
+            valid_argument_found="true"
+        fi
+    fi
+    
 
     # check for template or template editing
     if [[ "${arg}" == "--template-path" ]] ; then
@@ -518,6 +552,10 @@ fi
 # export spb_browser_path="brave-browser"
 # export spb_temp_data_path="/tmp"
 # export spb_filesystem_sync="true"
+# 
+# 
+# export spb_template_standard_mode="false"
+# export spb_new_template_standard_mode="false"
 # export spb_edit_template_standard_mode="false"
 #
 # 
@@ -526,7 +564,7 @@ function list_defaut_configuration_enviroment_variables() {
     echo ""
     if [[ "${quiet_mode}" == "false" ]] ; then
         if [[ "${verbose_mode}" == "true" ]] ; then
-            echo "/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/"
+            echo "/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/"
             echo ""
         fi
         echo "Default SPB enviroment variables : "
@@ -538,22 +576,29 @@ function list_defaut_configuration_enviroment_variables() {
             echo ""
         fi
     fi
-    grep "# export spb_" $0 | grep -v "grep"
+    echo "#----------------------------------------------------"
+    grep "# export spb_" $0 | grep -v "grep" | sed '/spb_template_standard_mode/s/^/#----------------------------------------------------\n/'
+    echo "#----------------------------------------------------"
     if [[ "${verbose_mode}" == "true" ]] ; then
         echo ""
-        echo "/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/"
+        echo "/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/"
     fi
     echo ""
     if [[ "${verbose_mode}" == "true" ]] ; then
-        echo "Configured SPB enviroment variables :"
+        echo "Currenlty configured SPB enviroment variables :"
         echo ""
-        echo "spb_browser_name : ${spb_browser_name}"
-        echo "spb_browser_path : ${spb_browser_path}"
-        echo "spb_temp_data_path : ${spb_temp_data_path}"
-        echo "spb_filesystem_sync : ${spb_filesystem_sync}"
-        echo "spb_edit_template_standard_mode : ${spb_edit_template_standard_mode}"
+        echo "#----------------------------------------------------"
+        echo "# spb_browser_name : ${spb_browser_name}"
+        echo "# spb_browser_path : ${spb_browser_path}"
+        echo "# spb_temp_data_path : ${spb_temp_data_path}"
+        echo "# spb_filesystem_sync : ${spb_filesystem_sync}"
+        echo "#----------------------------------------------------"
+        echo "# spb_template_standard_mode : ${spb_template_standard_mode}"
+        echo "# spb_new_template_standard_mode : ${spb_new_template_standard_mode}"
+        echo "# spb_edit_template_standard_mode : ${spb_edit_template_standard_mode}"
+        echo "#----------------------------------------------------"
         echo ""
-        echo "/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/"
+        echo "/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/"
         echo ""
     fi
     sleep 0.001 ${spb_etlfr_cmd}
@@ -626,6 +671,40 @@ else
         echo ""
     fi
 fi
+if [ -z "${spb_new_template_standard_mode}" ] ; then
+    spb_new_template_standard_mode="false"
+else
+    if [[ "${spb_new_template_standard_mode}" != "true" ]] && [[ "${spb_new_template_standard_mode}" != "false" ]] ; then
+        # no valid value is configured so exit with error
+        echo ""
+        echo "ERROR! : Invalid option set for enviroment variable : spb_new_template_standard_mode"
+        echo ""
+        echo "         Valid configurations options:"
+        echo ""
+        echo "             export spb_new_template_standard_mode=\"true\""
+        echo "             export spb_new_template_standard_mode=\"false\""
+        echo ""
+    fi
+fi
+if [ -z "${spb_template_standard_mode}" ] ; then
+    spb_template_standard_mode="false"
+else
+    if [[ "${spb_template_standard_mode}" != "true" ]] && [[ "${spb_template_standard_mode}" != "false" ]] ; then
+        # no valid value is configured so exit with error
+        echo ""
+        echo "ERROR! : Invalid option set for enviroment variable : spb_template_standard_mode"
+        echo ""
+        echo "         Valid configurations options:"
+        echo ""
+        echo "             export spb_template_standard_mode=\"true\""
+        echo "             export spb_template_standard_mode=\"false\""
+        echo ""
+    fi
+fi
+# configure standard_mode_via_variable_flag if requirted to true (based on enviroment variables)
+if [[ "${edit_tempalte_via_cli_flag}" == "true" ]] && [[ "${spb_edit_template_standard_mode}" == "true" ]] ; then standard_mode_via_variable_flag="true" ; fi
+if [[ "${new_tempalte_via_cli_flag}" == "true" ]] && [[ "${spb_new_template_standard_mode}" == "true" ]] ; then standard_mode_via_variable_flag="true" ; fi
+if [[ "${tempalte_via_cli_flag}" == "true" ]] && [[ "${spb_template_standard_mode}" == "true" ]] ; then standard_mode_via_variable_flag="true" ; fi
 
 # updated variables and the defaults
 creating_new_template="false"
@@ -1354,21 +1433,21 @@ for arg in "$@" ; do
   fi
 
   # check for standard mode (not incognito)
-  if [[ "${arg}" == "--standard" ]] || [[ "${spb_edit_template_standard_mode}" == "true" ]] ; then
+  if [[ "${arg}" == "--standard" ]] || [[ "${standard_mode_via_variable_flag}" == "true" ]] ; then
         if [[ "${standard_mode}" != "true" ]] ; then
-            if [[ "${stadard_mode_via_cli_flag}" == "true" ]] || [[ "${stadard_mode_via_variable_text}" == "" ]]; then
-                if [[ "${stadard_mode_via_cli_flag}" == "true" ]] || [[ "${edit_tempalte_via_cli_falg}" == "true" ]] ; then 
+            if [[ "${standard_mode_via_cli_flag}" == "true" ]] || [[ "${standard_mode_via_variable_text}" == "" ]]; then
+                if [[ "${standard_mode_via_cli_flag}" == "true" ]] || [[ "${standard_mode_via_variable_flag}" == "true" ]] ; then 
                   # TODO : probably we also want a way to configure this from a configuration file... needs looking at :) - not just for template editing
-                  if [[ "${spb_edit_template_standard_mode}" == "true" ]] && [[ "${stadard_mode_via_cli_flag}" == "false" ]] ; then
+                  if [[ "${standard_mode_via_variable_flag}" == "true" ]] && [[ "${standard_mode_via_cli_flag}" == "false" ]] ; then
                       # note this text being set to anything other than "" is also used to reduce dropping into this logic path within the  loop
-                      stadard_mode_via_variable_text=" (auto enabled)" 
+                      standard_mode_via_variable_text=" (auto enabled)" 
                   fi
                   if [[ "${quiet_mode}" != "true" ]] ; then
                       if [[ "${use_template_dir_name}" != "" ]] ; then
                           echo -n "        " # add a space if we are doing template stuff to keep things looking pretty
                           dot_dot_dot="..."
                       fi
-                      echo "Standard Mode Enabled${stadard_mode_via_variable_text}${dot_dot_dot}"
+                      echo "Standard Mode Enabled${standard_mode_via_variable_text}${dot_dot_dot}"
                   fi
                   standard_mode="true"
                   valid_argument_found="true"
@@ -2141,4 +2220,3 @@ screen -S "${screen_session_name}" -dm bash -c " \"${spb_browser_path}\" ${brows
 run_post_browser_startup_commands
 
 exit 0
-
