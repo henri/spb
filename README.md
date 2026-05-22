@@ -189,8 +189,8 @@ henri/spb/refs/heads/main/\
 
 <details>
 <summary>manual installation steps</summary>
-
-
+<br>
+  
 ``` bash
 # manual command installation (not recommend)
 
