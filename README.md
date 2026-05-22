@@ -124,11 +124,11 @@ Examples of using SPB to start isolated sessions - assumes FISH shell :
 spb ; spb ; spb
 
 
-# Start ten instances of FireFox
+# Launch ten instances of FireFox
 for i in (seq 1 10) ; spb --browser firefox ; end
 
 
-# Start editing five templates : claude, aws, github, amazon and youtube : all in standard mode (assumes exiting brave templates)
+# Editing five templates : claude, aws, github, amazon and youtube : all in standard mode (assumes exiting brave templates)
 for template in claude aws github amazon youtube ; spb --standard --edit-template $template ; end ;
 
 
