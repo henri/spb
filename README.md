@@ -192,6 +192,7 @@ henri/spb/refs/heads/main/\
 
 ``` bash
 # manual script installation (not recommend)
+
 mkdir -p "$HOME/bin"
 
 curl --fail --silent --show-error --location \
@@ -202,6 +203,7 @@ henri/spb/refs/heads/main/\
 "$HOME/bin/start-private-browser.bash"
 
 chmod +x "$HOME/bin/start-private-browser.bash"
+
 ```
 
 </details>
