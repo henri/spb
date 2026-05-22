@@ -8,6 +8,8 @@
 
 SPB is tightly connected with the [FISH](https://fishshell.com/) shell (hence all the ocean references). When you install SPB a number of [fish functions](https://github.com/henri/spb/blob/main/README.md#fish-shell-wrappers) will be automatically setup to assist you with diving into the web from the comfort of your terminal.
 
+The built in [templating](https://github.com/henri/spb/blob/main/README.md#spb-templating-support) sub-system adds another level of control. Use SPB to create teamplates, edit and load browser templates. This allows you to start your isolated browser enviroment(s) using your custom pre-configured settings.
+
 # :anchor: SPB Readme : Table of Contents
 
 - [Introduction to SPB](https://github.com/henri/spb/blob/main/README.md#lock--spb-start-private-browser)
