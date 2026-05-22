@@ -171,6 +171,7 @@ Learn more about [SPB privacy](https://github.com/henri/spb/blob/main/README.md#
   1. [Confirm your operating system is supported and install dependicies](https://github.com/henri/spb/blob/main/README.md#triangular_flag_on_post-compatibility)
   2. Kick-off install/upgrade by running following inside a BASH shell : 
 ```bash
+# scripted installation (reccomdned)
 /bin/bash -c "$(curl -fsSL \
 https://raw.githubusercontent.com/\
 henri/spb/refs/heads/main/\
@@ -185,6 +186,19 @@ henri/spb/refs/heads/main/\
 > <sub>The [installer/update](https://github.com/henri/spb/blob/main/500.spb-install-script.bash) script is a convenience to simplify installation and updating of spb on your system(s). Updates are semi-automatic because in order to update you manually run the [installer](https://github.com/henri/spb/blob/main/500.spb-install-script.bash) interactively. Check the [automated notes](https://github.com/henri/spb/?tab=readme-ov-file#arrows_counterclockwise-automate-installation-and-updates) for details on configuring unattended spb updates and installations. Also, before enabling automatic updtes read the [disclaimer section](https://github.com/henri/spb/?tab=readme-ov-file#warning-disclaimer) carfully. When installing SPB (using the above command), automatic updates are not enabled. If you want automatic updates, you must [deliberatly select](https://github.com/henri/spb/?tab=readme-ov-file#arrows_counterclockwise-automate-installation-and-updates) that as an option.</sub>
 
 > <sub>If you prefer to use spb without using the install/update script (not recommended due to ease of using the install script ) ; just copy the SBP [project](https://github.com/henri/spb/blob/main/050.start-private-browser.bash) script to your system and make it executable.<sub>
+
+``` bash
+# manual script installation (not reccomdned)
+mkdir -p "$HOME/bin"
+
+curl -fsSL "https://raw.githubusercontent.com/\
+henri/spb/refs/heads/main/\
+050.start-private-browser.bash" \
+-o "$HOME/bin/start-private-browser.bash"
+
+chmod +x "$HOME/bin/start-private-browser.bash"
+```
+
 <br/>
 
 ### :bookmark_tabs: Usage
