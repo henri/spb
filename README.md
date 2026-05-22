@@ -196,8 +196,8 @@ henri/spb/refs/heads/main/\
 # this approach, results in less dependency checking and as
 # such some features of SPB may not be fully functional
 
-# This appraoch will result in no fish snippits,
-# fish auto completions or aliass being configured
+# also, this  appraoch results in no fish snippits,
+# no fish auto completions and no aliass being configured
 
 # create the ~/bin directory
 mkdir -p "$HOME/bin"
