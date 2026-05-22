@@ -417,6 +417,38 @@ It is possible to set this mode perminatly by appending the line above into your
 echo 'export spb_edit_template_standard_mode="true"' >> ~/bin/spb-templates/spb.config
 ```
 
+<details>
+<summary>show more auto stadnard mode enviroment varable options</summary>
+<br>
+<hr>
+Set the approriate [enviroment variable](https://github.com/henri/spb/edit/main/README.md#earth_asia-enviroment-varables) if you would like to have --standard mode enabled (automatically) when creating new spb templates :
+```
+export spb_new_template_standard_mode="true"
+```
+
+It is possible to set this mode perminatly by appending the line above into your [spb.conig](https://github.com/henri/spb/blob/main/README.md#spb-configuration-file) file using the command below :
+
+```
+echo 'export spb_new_template_standard_mode="true"' >> ~/bin/spb-templates/spb.config
+```
+
+<hr>
+
+Set the approriate [enviroment variable](https://github.com/henri/spb/edit/main/README.md#earth_asia-enviroment-varables) if you would like to have --standard mode enabled (automatically) when loading spb templates :
+```
+export spb_template_standard_mode="true"
+```
+
+It is possible to set this mode perminatly by appending the line above into your [spb.conig](https://github.com/henri/spb/blob/main/README.md#spb-configuration-file) file using the command below :
+
+```
+echo 'export spb_template_standard_mode="true"' >> ~/bin/spb-templates/spb.config
+```
+
+<hr>
+
+</details>
+
 <br>
 
 #### SPB Configuration File
