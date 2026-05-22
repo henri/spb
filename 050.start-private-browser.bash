@@ -160,6 +160,7 @@ template_dir_base_default_override=""
 spb_default_multi_browser_support="false"
 spb_browser_path_externally_configured="false"
 
+enviroment_varibales_true_or_false_pass="true"
 
 # super pre argument varables (initial setup)
 #
@@ -563,6 +564,24 @@ fi
 #
 # 
 
+function variable_check_true_or_false () {
+    local varable_name="${1}"
+    local varable_data="${2}"
+    if [[ "${varable_data}" != "true" ]] && [[ "${varable_data}" != "false" ]] ; then
+        # no valid value is configured so exit with error
+        echo ""
+        echo "ERROR! : Invalid option set for enviroment variable : ${varable_name}"
+        echo ""
+        echo ""
+        echo "         Valid configurations options :"
+        echo ""
+        echo "             export ${varable_name}=\"true\""
+        echo "             export ${varable_name}=\"false\""
+        echo ""
+        enviroment_varibales_true_or_false_pass="false"
+    fi
+}
+
 function list_defaut_configuration_enviroment_variables() {
     echo ""
     if [[ "${quiet_mode}" == "false" ]] ; then
@@ -647,67 +666,41 @@ temp_path="${spb_temp_data_path%/}/${temp_dir_name_prefix}"
 if [ -z "${spb_filesystem_sync}" ] ; then
     spb_filesystem_sync="true"
 else
-    if [[ "${spb_filesystem_sync}" != "true" ]] && [[ "${spb_filesystem_sync}" != "false" ]] ; then
-        # no valid value is configured so exit with error
-        echo ""
-        echo "ERROR! : Invalid option set for enviroment variable : spb_filesystem_sync"
-        echo ""
-        echo "         Valid configurations options:"
-        echo ""
-        echo "             export spb_filesystem_sync=\"true\""
-        echo "             export spb_filesystem_sync=\"false\""
-        echo ""
-    fi
+    variable_check_true_or_false spb_filesystem_sync ${spb_filesystem_sync}
 fi
 if [ -z "${spb_edit_template_standard_mode}" ] ; then
     spb_edit_template_standard_mode="false"
 else
-    if [[ "${spb_edit_template_standard_mode}" != "true" ]] && [[ "${spb_edit_template_standard_mode}" != "false" ]] ; then
-        # no valid value is configured so exit with error
-        echo ""
-        echo "ERROR! : Invalid option set for enviroment variable : spb_edit_template_standard_mode"
-        echo ""
-        echo "         Valid configurations options:"
-        echo ""
-        echo "             export spb_edit_template_standard_mode=\"true\""
-        echo "             export spb_edit_template_standard_mode=\"false\""
-        echo ""
-    fi
+    variable_check_true_or_false spb_edit_template_standard_mode ${spb_edit_template_standard_mode}
 fi
 if [ -z "${spb_new_template_standard_mode}" ] ; then
     spb_new_template_standard_mode="false"
 else
-    if [[ "${spb_new_template_standard_mode}" != "true" ]] && [[ "${spb_new_template_standard_mode}" != "false" ]] ; then
-        # no valid value is configured so exit with error
-        echo ""
-        echo "ERROR! : Invalid option set for enviroment variable : spb_new_template_standard_mode"
-        echo ""
-        echo "         Valid configurations options:"
-        echo ""
-        echo "             export spb_new_template_standard_mode=\"true\""
-        echo "             export spb_new_template_standard_mode=\"false\""
-        echo ""
-    fi
+    variable_check_true_or_false spb_new_template_standard_mode ${spb_new_template_standard_mode}
 fi
 if [ -z "${spb_template_standard_mode}" ] ; then
     spb_template_standard_mode="false"
 else
-    if [[ "${spb_template_standard_mode}" != "true" ]] && [[ "${spb_template_standard_mode}" != "false" ]] ; then
-        # no valid value is configured so exit with error
-        echo ""
-        echo "ERROR! : Invalid option set for enviroment variable : spb_template_standard_mode"
-        echo ""
-        echo "         Valid configurations options:"
-        echo ""
-        echo "             export spb_template_standard_mode=\"true\""
-        echo "             export spb_template_standard_mode=\"false\""
-        echo ""
-    fi
+    variable_check_true_or_false spb_template_standard_mode ${spb_template_standard_mode}
 fi
 # configure standard_mode_via_variable_flag if requirted to true (based on enviroment variables)
 if [[ "${edit_tempalte_via_cli_flag}" == "true" ]] && [[ "${spb_edit_template_standard_mode}" == "true" ]] ; then standard_mode_via_variable_flag="true" ; fi
 if [[ "${new_tempalte_via_cli_flag}" == "true" ]] && [[ "${spb_new_template_standard_mode}" == "true" ]] ; then standard_mode_via_variable_flag="true" ; fi
 if [[ "${tempalte_via_cli_flag}" == "true" ]] && [[ "${spb_template_standard_mode}" == "true" ]] ; then standard_mode_via_variable_flag="true" ; fi
+# display help if issues with enviroment variable(s) detected
+if [[ "${enviroment_varibales_true_or_false_pass}" == "false" ]] && [[ "${quiet_mode}" != "true" ]]; then
+    echo ""
+    echo "         Display currently configured enviroment varables : "
+    echo ""
+    echo "             start-private-browser --configuration-variables --verbose"
+    echo ""
+    echo ""
+    echo "         Edit active SPB configuration file with prefered editor : "
+    echo ""
+    echo "             start-private-browser --edit-configuration"
+    echo ""
+    echo ""
+fi
 
 # updated variables and the defaults
 creating_new_template="false"
@@ -973,6 +966,10 @@ fi
 
 # show usage information
 if [[ "${help_wanted}" == "yes" ]] ; then
+    if [[ "${enviroment_varibales_true_or_false_pass}" == "false" ]] ; then
+    echo "  ///////////////////////////////////////////////////////////////////////////////////"
+    echo ""
+    fi
     echo ""
     echo "         SPB or 'start-private-browser' is a wrapper to the brave-browser command."
     echo ""
@@ -2186,6 +2183,11 @@ if [[ "${config_variables_wanted}" == "yes" ]] ; then
     list_defaut_configuration_enviroment_variables
 fi
 
+# check for envirment variable issues
+if [[ "${enviroment_varibales_true_or_false_pass}" == "false" ]] ; then
+    exit -78
+fi
+
 # parse the arguments for options and URL's to pass to brave.
 browser_options="${user_data_directory_options} ${incognito_options}"
 url_list=""
@@ -2223,3 +2225,4 @@ screen -S "${screen_session_name}" -dm bash -c " \"${spb_browser_path}\" ${brows
 run_post_browser_startup_commands
 
 exit 0
+
