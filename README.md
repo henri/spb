@@ -115,18 +115,19 @@ It is possible to run isolated web browser sessions on a single machine by start
 
 SPB (Start Private Browser) gives you the ability to quickly start multiple isolated instances of the same web browser under the same account. 
 
-Examples of using SPB to start isolated sessions :
+Examples of using SPB to start isolated sessions - assumes FISH shell :
 
 ```
 
 # Start three independent instances of the Brave
 spb ; spb ; spb
 
-# Start ten instances of FireFox (assumes FISH shell and each instance is started using spb)
+# Start ten instances of FireFox
 for i in (seq 1 10) ; spb --browser firefox ; end
 
-# Start editing three templates : github, amazon and youtube : all in standard mode (assumes FISH shell and exiting templates)
+# Start editing three templates : github, amazon and youtube : all in standard mode (assumes exiting templates)
 for template in claude aws github amazon youtube ; spb --standard --edit-template $template ; end ;
+
 
 ```
 
