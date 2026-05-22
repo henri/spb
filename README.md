@@ -191,10 +191,15 @@ henri/spb/refs/heads/main/\
 <summary>manual installation steps</summary>
 
 ``` bash
-# manual script installation (not recommend)
+# manual command installation (not recommend)
 
+# this approach, results in less dependency checking and as
+# such some features of SPB may not be fully functional
+
+# create the ~/bin directory
 mkdir -p "$HOME/bin"
 
+# download spb (bash script)
 curl --fail --silent --show-error --location \
 "https://raw.githubusercontent.com/\
 henri/spb/refs/heads/main/\
@@ -202,6 +207,8 @@ henri/spb/refs/heads/main/\
 -o \
 "$HOME/bin/start-private-browser.bash"
 
+# set the executable bit on the downloaded script
+# this allows you to run the the script
 chmod +x "$HOME/bin/start-private-browser.bash"
 
 ```
