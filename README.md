@@ -125,7 +125,7 @@ spb ; spb ; spb
 # Start ten instances of FireFox (assumes FISH shell and each instance is started using spb)
 for i in (seq 1 10) ; spb --browser firefox ; end
 
-# Start three pre-configured templates | github | amazon | youtube | : all in standard mode (assumes FISH shell)
+# Start three pre-configured templates : github, amazon and youtube : all in standard mode (assumes FISH shell)
 for template in claude aws github amazon youtube ; spb --standard --edit-template $template ; end ;
 
 ```
