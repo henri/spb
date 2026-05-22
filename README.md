@@ -125,6 +125,9 @@ spb ; spb ; spb
 # Start ten instances of FireFox (assumes FISH shell and each instance is started using spb)
 for i in (seq 1 10) ; spb --browser firefox ; end
 
+# Start pre-configured tempaltes (github, amazon, youtube) in edit mode (assumes FISH shell)
+for template in claude aws github amazon youtube ; spb --standard --edit-template $template ; end ;
+
 ```
 
 The way SPB accomplishes this isolation is is by storing the browser data directory in seperate part of computers file system for each instance you spin up. 
