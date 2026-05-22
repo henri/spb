@@ -215,13 +215,8 @@ henri/spb/refs/heads/main/\
 # this allows you to run the the script
 chmod +x "$HOME/bin/start-private-browser.bash"
 
-# helpful tips follow
-
 # inspect source code
 # less -S ~/bin/start-private-browser.bash
-
-# run spb
-# ~/bin/start-private-browser.bash
 
 ```
 
