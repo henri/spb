@@ -171,7 +171,7 @@ Learn more about [SPB privacy](https://github.com/henri/spb/blob/main/README.md#
   1. [Confirm your operating system is supported and install dependicies](https://github.com/henri/spb/blob/main/README.md#triangular_flag_on_post-compatibility)
   2. Kick-off install/upgrade by running following inside a BASH shell : 
 ```bash
-# scripted installation (reccomdned)
+# scripted installation (recommend)
 /bin/bash -c "$(curl -fsSL \
 https://raw.githubusercontent.com/\
 henri/spb/refs/heads/main/\
@@ -191,7 +191,7 @@ henri/spb/refs/heads/main/\
 <summary>manual installation steps</summary>
 
 ``` bash
-# manual script installation (not reccomdned)
+# manual script installation (not recommend)
 mkdir -p "$HOME/bin"
 
 curl --fail --silent --show-error --location \
