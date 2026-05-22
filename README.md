@@ -188,7 +188,7 @@ henri/spb/refs/heads/main/\
 > <sub>If you prefer to use spb without using the install/update script (not recommended due to ease of using the install script) ; just copy the SBP [project](https://github.com/henri/spb/blob/main/050.start-private-browser.bash) script to your system and make it executable. If you prefer this meathod click below for manual installation steps (avoiding the install/update script).<sub>
 
 <details>
-<summary>manual installation steps</summary>
+<summary><font color="#808080">manual installation steps</font></summary>
 
 ``` bash
 # manual script installation (not recommend)
