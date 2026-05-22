@@ -406,7 +406,7 @@ Templates allow you to run browsers in a more standard browser mode but to still
 
 ##### SPB Auto Standard Mode
 
-Set the approriate [enviroment variable](https://github.com/henri/spb/edit/main/README.md#earth_asia-enviroment-varables) if you would like to have --standard mode enabled (automatically) when editing spb templates :
+Set the approriate [enviroment variable](https://github.com/henri/spb/main/README.md#earth_asia-enviroment-varables) if you would like to have --standard mode enabled (automatically) when editing spb templates :
 ```
 export spb_edit_template_standard_mode="true"
 ```
@@ -423,7 +423,7 @@ echo 'export spb_edit_template_standard_mode="true"' >> ~/bin/spb-templates/spb.
 <br>
 <hr>
 
-Set the approriate [enviroment variable](https://github.com/henri/spb/edit/main/README.md#earth_asia-enviroment-varables) if you would like to have --standard mode enabled (automatically) when creating new spb templates :
+Set the approriate [enviroment variable](https://github.com/henri/spb/main/README.md#earth_asia-enviroment-varables) if you would like to have --standard mode enabled (automatically) when creating new spb templates :
 ```
 export spb_new_template_standard_mode="true"
 ```
@@ -436,7 +436,7 @@ echo 'export spb_new_template_standard_mode="true"' >> ~/bin/spb-templates/spb.c
 
 <hr>
 
-Set the approriate [enviroment variable](https://github.com/henri/spb/edit/main/README.md#earth_asia-enviroment-varables) if you would like to have --standard mode enabled (automatically) when loading spb templates :
+Set the approriate [enviroment variable](https://github.com/henri/spb/main/README.md#earth_asia-enviroment-varables) if you would like to have --standard mode enabled (automatically) when loading spb templates :
 ```
 export spb_template_standard_mode="true"
 ```
