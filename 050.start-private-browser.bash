@@ -1439,8 +1439,7 @@ for arg in "$@" ; do
   if [[ "${arg}" == "--standard" ]] || [[ "${standard_mode_via_variable_flag}" == "true" ]] ; then
         if [[ "${standard_mode}" != "true" ]] ; then
             if [[ "${standard_mode_via_cli_flag}" == "true" ]] || [[ "${standard_mode_via_variable_text}" == "" ]]; then
-                if [[ "${standard_mode_via_cli_flag}" == "true" ]] || [[ "${standard_mode_via_variable_flag}" == "true" ]] ; then 
-                  # TODO : probably we also want a way to configure this from a configuration file... needs looking at :) - not just for template editing
+                if [[ "${standard_mode_via_cli_flag}" == "true" ]] || [[ "${standard_mode_via_variable_flag}" == "true" ]] ; then
                   if [[ "${standard_mode_via_variable_flag}" == "true" ]] && [[ "${standard_mode_via_cli_flag}" == "false" ]] ; then
                       # note this text being set to anything other than "" is also used to reduce dropping into this logic path within the  loop
                       standard_mode_via_variable_text=" (auto enabled)" 
