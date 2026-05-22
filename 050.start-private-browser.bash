@@ -320,8 +320,7 @@ for arg in "$@" ; do
         ((super_pre_index++))
     continue
     fi
-
-
+    
     # skip some parameters passed into script
     if [[ "${super_pre_skip_arg}" == "true" ]] ; then
         super_pre_skip_arg="false"
@@ -342,7 +341,7 @@ for arg in "$@" ; do
 
     # check if we are editing template (pre super check)
     if [[ "${arg}" == "--edit-template" ]] ; then
-        # we will know later in that the --edit-template, --new-template or --tempalte argument was passed in via the cli
+        # used for enviromental varable processing
         template_in_use_via_cli_flag="true"
         edit_tempalte_via_cli_flag="true"
         if [[ "${next_arg}" != "" ]] ; then
@@ -355,7 +354,7 @@ for arg in "$@" ; do
 
     # check if we are creating new template (pre super check)
     if [[ "${arg}" == "--new-template" ]] ; then
-        # we will know later in that the --edit-template, --new-template or --tempalte argument was passed in via the cli
+        # used for enviromental varable processing
         template_in_use_via_cli_flag="true"
         new_tempalte_via_cli_flag="true"
         if [[ "${next_arg}" != "" ]] ; then
@@ -368,7 +367,7 @@ for arg in "$@" ; do
 
     # check if we are using an exiting template (pre super check)
     if [[ "${arg}" == "--template" ]] ; then
-        # we will know later in that the --edit-template, --new-template or --tempalte argument was passed in via the cli
+        # used for enviromental varable processing
         template_in_use_via_cli_flag="true"
         tempalte_via_cli_flag="true"
         if [[ "${next_arg}" != "" ]] ; then
@@ -379,7 +378,6 @@ for arg in "$@" ; do
         fi
     fi
     
-
     # check for template or template editing
     if [[ "${arg}" == "--template-path" ]] ; then
         # check they are not listed more than once
