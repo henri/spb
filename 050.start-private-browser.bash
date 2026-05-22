@@ -1145,6 +1145,9 @@ fi
 
 # kick off update
 if [[ "${update_wanted}" == "yes" ]] ; then
+    if [[ "${enviroment_varibales_true_or_false_pass}" == "false" ]] ; then
+        exit -77
+    fi
     update_script_path_absolute="${update_script_path/#\~/$HOME}"
     if [ -x ${update_script_path_absolute} ] ; then
         updating_fish_snippits_message=""
@@ -2225,4 +2228,5 @@ screen -S "${screen_session_name}" -dm bash -c " \"${spb_browser_path}\" ${brows
 run_post_browser_startup_commands
 
 exit 0
+
 
