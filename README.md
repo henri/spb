@@ -419,8 +419,10 @@ echo 'export spb_edit_template_standard_mode="true"' >> ~/bin/spb-templates/spb.
 
 <details>
 <summary>show more auto stadnard mode enviroment varable options</summary>
+
 <br>
 <hr>
+
 Set the approriate [enviroment variable](https://github.com/henri/spb/edit/main/README.md#earth_asia-enviroment-varables) if you would like to have --standard mode enabled (automatically) when creating new spb templates :
 ```
 export spb_new_template_standard_mode="true"
