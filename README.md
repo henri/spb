@@ -418,7 +418,7 @@ echo 'export spb_edit_template_standard_mode="true"' >> ~/bin/spb-templates/spb.
 ```
 
 <details>
-<summary>additional auto stadnard mode enviroment varable options and usage</summary>
+<summary>additional auto standard mode enviroment varable options and usage</summary>
 
 <br>
 <hr>
