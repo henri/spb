@@ -196,6 +196,10 @@ henri/spb/refs/heads/main/\
 # this approach, results in less dependency checking and as
 # such some features of SPB may not be fully functional
 
+# This appraoch will result in no fish snippits,
+# fish auto completions or aliass being configured
+# on your system
+
 # create the ~/bin directory
 mkdir -p "$HOME/bin"
 
@@ -210,6 +214,14 @@ henri/spb/refs/heads/main/\
 # set the executable bit on the downloaded script
 # this allows you to run the the script
 chmod +x "$HOME/bin/start-private-browser.bash"
+
+# helpful tips follow
+
+# inspect source code
+# less -S ~/bin/start-private-browser.bash
+
+# run spb
+# ~/bin/start-private-browser.bash
 
 ```
 
