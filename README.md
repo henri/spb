@@ -198,7 +198,6 @@ henri/spb/refs/heads/main/\
 
 # This appraoch will result in no fish snippits,
 # fish auto completions or aliass being configured
-# on your system
 
 # create the ~/bin directory
 mkdir -p "$HOME/bin"
