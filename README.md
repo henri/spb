@@ -136,7 +136,7 @@ for template in claude aws github amazon youtube ; spb --standard --edit-templat
 
 The way SPB accomplishes this isolation is is by storing the browser data directory in seperate part of computers file system for each instance you spin up. 
 
-If you want to further isolate these sessions from one and other. It is possible to run SPB on a remote machine, within a virtual machine or within seperate name spaces (depending on your operating system).
+If you want to further isolate these sessions from one and other. It is possible to run SPB on one or more remote machines, within a virtual machine or within seperate name spaces (depending on your operating system).
 
 Advatanges of using isolated web browser sessions include :
 
