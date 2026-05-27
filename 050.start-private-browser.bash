@@ -112,7 +112,7 @@
 # version 09.8 - updated to provide realpath display for configuration file when when using --verbose option
 # version 09.9 - added enviroment varibles further supporting auto standard mode : spb_template_standard_mode and template_standard_mode
 # version 10.0 - improved output formating of enviroment variable listing and of those currently configured
-# version 10.1 - experimental support for waterfox added
+# version 10.1 - experimental support for waterfox and helium added
 #
 
 ##
@@ -194,6 +194,20 @@ if [[ ! -z ${BASH_VERSINFO} ]] ; then
         spb_default_browser_data["zen:linux:pop"]="zen"
         spb_default_browser_data["zen:freebsd"]="zen"
         spb_default_browser_data["zen:darwin"]="/Applications/Zen.app/Contents/MacOS/zen"
+        # # # # # # # # # # # # #
+        spb_default_browser_data["helium:linux:mint"]="helium"
+        spb_default_browser_data["helium:linux:arch"]="helium"
+        spb_default_browser_data["helium:linux:omarchy"]="helium"
+        spb_default_browser_data["helium:linux:ubuntu"]="helium"
+        spb_default_browser_data["helium:linux:debian"]="helium"
+        spb_default_browser_data["helium:linux:endeavouros"]="helium"
+        spb_default_browser_data["helium:linux:manjaro"]="helium"
+        spb_default_browser_data["helium:linux:centos"]="helium"
+        spb_default_browser_data["helium:linux:fredora"]="helium"
+        spb_default_browser_data["helium:linux:cachyos"]="helium"
+        spb_default_browser_data["helium:linux:pop"]="helium"
+        spb_default_browser_data["helium:freebsd"]="helium"
+        spb_default_browser_data["helium:darwin"]="/Applications/Helium.app/Contents/MacOS/Helium"
         # # # # # # # # # # # # #
         spb_default_browser_data["waterfox:linux:mint"]="waterfox"
         spb_default_browser_data["waterfox:linux:arch"]="waterfox"
