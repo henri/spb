@@ -45,6 +45,7 @@ start-private-browser --browser firefox
        export spb_browser_name="firefox"
        export spb_browser_path=/"Applications/Firefox.app/Contents/MacOS/firefox"
        ```
+   > <sub>Even with this set in the configuration file, it is possible to temporarily overide the prefered browser using the [CLI options](https://github.com/henri/spb/blob/main/README.md#sunrise-browser-support)</sub>
 
 #### Preventing and Limiting Telemetry Data
 
