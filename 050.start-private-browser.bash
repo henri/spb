@@ -112,6 +112,7 @@
 # version 09.8 - updated to provide realpath display for configuration file when when using --verbose option
 # version 09.9 - added enviroment varibles further supporting auto standard mode : spb_template_standard_mode and template_standard_mode
 # version 10.0 - improved output formating of enviroment variable listing and of those currently configured
+# version 10.1 - experimental support for waterfox added
 #
 
 ##
@@ -193,6 +194,20 @@ if [[ ! -z ${BASH_VERSINFO} ]] ; then
         spb_default_browser_data["zen:linux:pop"]="zen"
         spb_default_browser_data["zen:freebsd"]="zen"
         spb_default_browser_data["zen:darwin"]="/Applications/Zen.app/Contents/MacOS/zen"
+        # # # # # # # # # # # # #
+        spb_default_browser_data["waterfox:linux:mint"]="waterfox"
+        spb_default_browser_data["waterfox:linux:arch"]="waterfox"
+        spb_default_browser_data["waterfox:linux:omarchy"]="waterfox"
+        spb_default_browser_data["waterfox:linux:ubuntu"]="waterfox"
+        spb_default_browser_data["waterfox:linux:debian"]="waterfox"
+        spb_default_browser_data["waterfox:linux:endeavouros"]="waterfox"
+        spb_default_browser_data["waterfox:linux:manjaro"]="waterfox"
+        spb_default_browser_data["waterfox:linux:centos"]="waterfox"
+        spb_default_browser_data["waterfox:linux:fredora"]="waterfox"
+        spb_default_browser_data["waterfox:linux:cachyos"]="waterfox"
+        spb_default_browser_data["waterfox:linux:pop"]="waterfox"
+        spb_default_browser_data["waterfox:freebsd"]="waterfox"
+        spb_default_browser_data["waterfox:darwin"]="/Applications/Waterfox.app/Contents/MacOS/waterfox"
         # # # # # # # # # # # # #
         spb_default_browser_data["opera:linux:mint"]="opera"
         spb_default_browser_data["opera:linux:arch"]="opera"
@@ -2083,8 +2098,8 @@ if [[ "${use_template_dir_name}" != "" ]] ; then
     fi
 fi
 
-# check if we are we using firefox, palemoon, librewolf or zen (experimental)
-if [[ "${spb_browser_name}" == "firefox" ]] || [[ "${spb_browser_name}" == "palemoon" ]] || [[ "${spb_browser_name}" == "zen" ]] || [[ "${spb_browser_name}" == "librewolf" ]]; then 
+# check if we are we using firefox, palemoon, librewolf, waterfox or zen (experimental)
+if [[ "${spb_browser_name}" == "firefox" ]] || [[ "${spb_browser_name}" == "palemoon" ]] || [[ "${spb_browser_name}" == "zen" ]] || [[ "${spb_browser_name}" == "librewolf" ]] || [[ "${spb_browser_name}" == "waterfox" ]] ; then 
     incognito_options="--private-window"
     # spb_data_browser_specifc_options="--new-instance --no-remote --class CustomClass --profile "
     spb_data_browser_specifc_options="--new-instance --no-remote --profile "
