@@ -855,7 +855,7 @@ It is important to note that SPB has an order of priority when overriding settin
 flowchart LR
     A[command line arguments\n\n--browser\n--browser-path\n\nhighest priority] --> B[spb configuration file\n\nspb_browser_name\nspb_browser_path] --> C[shell enviroment variable\n\nspb_browser_name\nspb_browser_path\n\nlowest priority]
 ```
-> <sub>Note : The order shown above is subject to change. The diagram above shows the current priority order.</sub>
+> <sub>Note : The order shown above is subject to change. The diagram above shows the current priority order. Higher priority settings will override lower priority settings.</sub>
 
 Also, see the [SPB FAQ](https://github.com/henri/spb/blob/main/FAQ.md#will-spb-work-with-browsers-other-than-brave) for frequntly asked questions regarding SPB browser support.
 
