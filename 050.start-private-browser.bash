@@ -113,6 +113,7 @@
 # version 09.9 - added enviroment varibles further supporting auto standard mode : spb_template_standard_mode and template_standard_mode
 # version 10.0 - improved output formating of enviroment variable listing and of those currently configured
 # version 10.1 - experimental support for waterfox and helium added
+# version 10.2 - added ability to use --browser and --browser-path cli arguments to override enviroment variables / configuration file
 #
 
 ##
@@ -162,6 +163,12 @@ spb_default_multi_browser_support="false"
 spb_browser_path_externally_configured="false"
 
 enviroment_varibales_true_or_false_pass="true"
+
+spb_cli_browser_option_occurance_count=0
+spb_cli_browser_path_option_occurance_count=0
+spb_config_file_spb_browser_name_set="false"
+spb_config_file_spb_browser_path_set="false"
+spb_browser_path_backup=""
 
 # super pre argument varables (initial setup)
 #
@@ -340,6 +347,11 @@ if [[ ! -z ${BASH_VERSINFO} ]] ; then
     fi
 fi
 
+# keep an eye on the browser_path being configured externally
+if [[ ! -z "$spb_browser_path" ]] ; then
+    spb_browser_path_externally_configured="true"
+fi
+
 # super-pre argument scanning (special arguments for overiding settings and configuring varables correctly) - yes we custom argument parsing in 2025
 for arg in "$@" ; do
 
@@ -460,11 +472,17 @@ for arg in "$@" ; do
     if [[ "${arg}" == "--browser-path" ]] ; then
 
         # check they are not listed more than once
+        ((spb_cli_browser_path_option_occurance_count++))
         if [[ "${spb_browser_path_externally_configured}" == "true" ]] ; then
-            echo ""
-            echo "ERROR! : Using the ${arg} option is only allowed once"
-            echo ""
-            exit -75
+            if [[ ${spb_cli_browser_path_option_occurance_count} -gt 1 ]] ; then
+                echo ""
+                echo "ERROR! : Using the ${arg} option is only allowed once"
+                echo ""
+                echo "         It is possible that browser_path has been"
+                echo "         configured via an enviroment varable."
+                echo ""
+                exit -75
+            fi
         fi
 
         # look ahead for passed argument parameters
@@ -490,6 +508,7 @@ for arg in "$@" ; do
 
         # update the browser path and other variables which depend on the browser path 
         spb_browser_path="${super_pre_next_arg}"
+        spb_browser_path_backup="${spb_browser_path}"
         spb_browser_path_externally_configured="true"
     
     fi
@@ -679,8 +698,31 @@ fi
 
 # configuration file loading
 if [ -r ${spb_configuration_file_absolute} ] ; then
+
     # lets start with sourcing, then we can move onto parsing
     source ${spb_configuration_file_absolute}
+
+    # parse configuration file to see if browser_name has been set
+    if [[ "$(grep -v '^\s*#' ${spb_configuration_file_absolute} | grep -E "^\s*(export\s+)?spb_browser_name=")" != "" ]] ; then
+        spb_config_file_spb_browser_name_set="true"
+        spb_browser_name_externally_configured="true"
+    fi
+
+    # parse configuration file to see if browser_path has been set
+    if [[ $(grep -v '^\s*#' ${spb_configuration_file_absolute} | grep -E "^\s*(export\s+)?spb_browser_path=") != "" ]] ; then
+        spb_config_file_spb_browser_path_set="true"
+        spb_browser_path_externally_configured="true"
+        if [ ! -z "${spb_browser_path_backup}" ] ; then
+            if [[ "${quiet_mode}" != "true" ]] ; then
+                    echo "Enviroment Varible Notice : spb_browser_path specififed within config file ignored"
+                if [[ "${verbose_mode}" == "true" ]] ; then
+                    echo "    Enviroment update is due to --browser-path being specified as a CLI argument"
+                fi
+            fi
+            spb_browser_path="${spb_browser_path_backup}"
+        fi
+    fi
+
 fi
 
 # update the template directory parent so that it is browser specific
@@ -910,12 +952,17 @@ for arg in "$@" ; do
   if [[ "${arg}" == "--browser" ]] ; then
 
     # check they are not listed more than once
-    if [[ "${spb_browser_name_externally_configured}" == "true" ]] ; then
+    ((spb_cli_browser_option_occurance_count++))
+    if [[ "${spb_browser_name_externally_configured}" == "true" ]] && [[ ${spb_cli_browser_option_occurance_count} -gt 1 ]] ; then
         echo ""
         echo "ERROR! : Using the ${arg} option is only allowed once"
         echo ""
+        echo "         It is possible that browser_name has been"
+        echo "         configured via an enviroment varable."
+        echo ""
         exit -75
     fi
+
 
     # look ahead for passed argument parameters
     if (( pre_index + 1 < num_args )) ; then
@@ -977,6 +1024,31 @@ for arg in "$@" ; do
   ((pre_index++))
 
 done
+
+function wipe_spb_browser_path_varable {
+    spb_browser_path=""
+    if [[ "${quiet_mode}" != "true" ]] ; then
+        echo "Auto Reset of Enviroment Varable : spb_browser_path"
+        if [[ "${verbose_mode}" == "true" ]] ; then
+            echo "    Auto Reset is due to --browser being provided without --browser-path"
+        fi
+    fi
+}
+
+# wipe out enivorment variable for browser_path based on various factors
+if [[ ${spb_cli_browser_option_occurance_count} -eq 1 ]] && [[ ${spb_cli_browser_path_option_occurance_count} -eq 0 ]] ; then
+    if [[ "${spb_browser_path_externally_configured}" == "true" ]] ; then
+        # browser_path enviroment variable has been set and --browser specified but no --browser-path specified 
+        wipe_spb_browser_path_varable
+    fi
+fi
+# if [[ "${spb_config_file_spb_browser_path_set}" == "true" ]] && [[ ${spb_cli_browser_option_occurance_count} -eq 1 ]] ; then
+#     if [[ "${spb_browser_path_externally_configured}" == "true" ]] ; then
+#         # browser_path enviroment variable set by spb.config file and --browser specified but no --browser-path specified 
+#         wipe_spb_browser_path_varable
+#     fi
+# fi
+
 
 
 # ensure that if the browser path is configud via an option that the browser name is also configured
