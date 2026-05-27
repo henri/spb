@@ -346,7 +346,7 @@ Automatons which leverage SPB may be simple operations such as performing a sear
 
 Below are starter SPB examples for the fish shell to enhance every day web based tasks. More examples are on the horizon for testing, bench-marking, advanced automatons such as leveraging AI agents. If you have created something which you feel may be useful to the SPB community, [start a discussion](https://github.com/henri/spb/discussions) and share your ideas.
 
-If your search engine is set to [DuckDuckGo](duckduckgo.com) or you use the ```spb-ddg``` fish snippit, it is possible to use the array of bangs on offer to further enhance your command line searches. See the example below : 
+If your search engine is set to [DuckDuckGo](duckduckgo.com) or you use the ```spb-ddg``` fish snippit, it is possible to use the array of [bangs on offer](https://duckduckgo.com/bangs) to further enhance your command line searches. See the example below : 
 
 ```
 # search wikipedia for information on nikola tesla
