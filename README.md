@@ -841,14 +841,6 @@ export spb_browser_path="chromium"
 ```
 This approach allows you to use a browser which may not be officially supported on your operating system by SPB. In the example above we are selecting Chromium as the default browser for SPB.
 
-SPB has an order of priority when overriding settings configured for ```spb_browser_name``` and ```spb_browser_path``` or via the CLI arguments.  
-
-```mermaid
-flowchart LR
-    A[command line arguments\n\n--browser\n--browser-path\n\nhighest priority] --> B[spb configuration file\n\nspb_browser_name\nspb_browser_path] --> C[shell enviroment variable\n\nspb_browser_name\nspb_browser_path\n\nlowest priority]
-```
-> <sub>Note : The order shown above is subject to change. The diagram above shows the current priority order.</sub>
-
 In addition, it is possible to overide and/or extend the mutli-browser support options on your system within the spb.config file. If the spb.cofnig file present, SPB will source this file and many variables are able to be overriden and/or extended beyond the defaults which SPB multi-browser support nativly offers.
 
 For additional information regarding SPB configuration files. Run the following command to open the SPB help page and jump to the appropriate section : 
@@ -858,6 +850,14 @@ spb --help | less -S -p "Configuration File"
 ```
 
 Also, see the [SPB FAQ](https://github.com/henri/spb/blob/main/FAQ.md#will-spb-work-with-browsers-other-than-brave)
+
+It is important to note that SPB has an order of priority when overriding settings configured for ```spb_browser_name``` and ```spb_browser_path``` or via the CLI arguments ```--browser`` and ``--browser-path```.  
+
+```mermaid
+flowchart LR
+    A[command line arguments\n\n--browser\n--browser-path\n\nhighest priority] --> B[spb configuration file\n\nspb_browser_name\nspb_browser_path] --> C[shell enviroment variable\n\nspb_browser_name\nspb_browser_path\n\nlowest priority]
+```
+> <sub>Note : The order shown above is subject to change. The diagram above shows the current priority order.</sub>
 
 
 #### Why Brave As Default Browser
