@@ -20,6 +20,8 @@ Yes, SPB works fine with various web browsers.
 ```
 start-private-browser --list-browsers
 ```
+- [SPB Default Browser](https://github.com/henri/spb/blob/main/README.md#why-brave-as-default-browser)
+- [Configuring your prefered default browser](https://github.com/henri/spb#spb-configuration-file)
 
 <hr>
 
