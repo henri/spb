@@ -849,8 +849,6 @@ For additional information regarding SPB configuration files. Run the following 
 spb --help | less -S -p "Configuration File"
 ```
 
-Also, see the [SPB FAQ](https://github.com/henri/spb/blob/main/FAQ.md#will-spb-work-with-browsers-other-than-brave)
-
 It is important to note that SPB has an order of priority when overriding settings configured for ```spb_browser_name``` and ```spb_browser_path``` or via the CLI arguments ```--browser`` and ``--browser-path```.  
 
 ```mermaid
@@ -859,6 +857,7 @@ flowchart LR
 ```
 > <sub>Note : The order shown above is subject to change. The diagram above shows the current priority order.</sub>
 
+Also, see the [SPB FAQ](https://github.com/henri/spb/blob/main/FAQ.md#will-spb-work-with-browsers-other-than-brave) for frequntly asked questions regarding SPB browser support.
 
 #### Why Brave As Default Browser
 
