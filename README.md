@@ -353,7 +353,7 @@ Typically web browsers attempt to protect you by preventing (what you would cons
 
 The Same-Origin Policy is a core browser security feature that aims to prevent code on one website from accessing cookie data from another. It's one of the most fundamental protections in web browser security. Same-Origin Policy in browsers extends far beyond just cookie access and modification management. If malicious code on evil.com tries to read data from yourbank.com, the browser is meant to block access. Without SOP, any website you visit could read your emails, banking info, or anything else open in another tab or window. 
 
-Web servers can relax SOP using CORS (Cross-Origin Resource Sharing). Thhis is controled by headers sent from the server. For example the Access-Control-Allow-Origin header allows a server to say ```I trust requests from this/these other domain(s)```.
+Web servers can relax SOP using CORS (Cross-Origin Resource Sharing). This is controled by headers sent from the server. For example the Access-Control-Allow-Origin header allows a server to say ```I trust requests from this/these other domain(s)```.
 
 
 Learn more about [cookies at Wikiepedia](https://en.wikipedia.org/wiki/HTTP_cookie)
