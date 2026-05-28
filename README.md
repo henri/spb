@@ -340,14 +340,14 @@ Keep in mind that different browsers will potentially have different [options](h
 <br>
 
 ### :cookie: What are Cookies?
-Web browser cookies are data which a website may saves within your browser configuratrion. These are typically saved by visiting a site.
+Browser cookies are actually data files which a website may save within your browser settings.
 
 Cookies have various uses (some are listed below) : 
 
-  - Login status (so you don't have to sign in every time)
-  - Preferences (like your language or theme settings)
-  - Shopping cart contents (so items persist between visits)
-  - Tracking (advertisers can follow your browsing habits across sites)
+  - Login status (so you don't have to sign in every time - bad things can happen if your cookie is stolen)
+  - Preferences (like your language or theme settings - bad things can happen if this is modified without you knowing)
+  - Shopping cart contents (so items persist between visits - bad things can happen if these are modified / or read without you knowing)
+  - Tracking (advertisers can follow browsing habits across sites - bad things can happen if this data is leaked)
 
 Learn more about [cookies at Wikiepedia](https://en.wikipedia.org/wiki/HTTP_cookie)
 
