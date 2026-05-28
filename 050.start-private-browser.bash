@@ -114,6 +114,7 @@
 # version 10.0 - improved output formating of enviroment variable listing and of those currently configured
 # version 10.1 - experimental support for waterfox and helium added
 # version 10.2 - added ability to use --browser and --browser-path cli arguments to override enviroment variables / configuration file
+# version 10.3 - allowed spb_temp_data_path enviroment varable to be configured not only within configuration file
 #
 
 ##
@@ -122,13 +123,19 @@
 
 # configuration variables
 screen_session_prefix="spb-session"                 #  prefix of the screen session name
-spb_temp_data_path="/tmp"                           #  temporary data storage path
 temp_dir_name_prefix="spb-browser"                  #  prefix for spb temporary instance data storage
 template_dir_base="~/bin/spb-templates"             #  location of spb templates and configuration parent path
 template_browser_id_filename="spb-browser.id"       #  file which will contain the browser identifier for this template
 update_script_path="~/bin/spb-update.bash"          #  where to find the spb-update script
 update_script_arguments="--auto-monitoring"         #  arguments passed to update script when running an update
 spb_configuration_file_name="spb.config"            #  default config file name
+
+
+                                                    #  //////////////////////////////////
+# configuration variables                           #  enviroment option override allowed
+if [ -z ${spb_temp_data_path} ] ; then              #  //////////////////////////////////
+    spb_temp_data_path="/tmp"                       #  temporary data storage path 
+fi
 
 # lock file variables to protect templates being edited
 spb_template_lock_file_name="spb-template-edit.lock"
@@ -2326,5 +2333,4 @@ screen -S "${screen_session_name}" -dm bash -c " \"${spb_browser_path}\" ${brows
 run_post_browser_startup_commands
 
 exit 0
-
 
