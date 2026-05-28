@@ -346,8 +346,15 @@ Cookies have various uses (some are listed below) :
 
   - Login status (so you don't have to sign in every time - bad things can happen if your cookie is stolen)
   - Preferences (like your language or theme settings - bad things can happen if this is modified without you knowing)
-  - Shopping cart contents (so items persist between visits - bad things can happen if these are modified / or read without you knowing)
+  - Shopping cart contents (items persist between visits - bad things can happen if these are modified or read without you knowing)
   - Tracking (advertisers can follow browsing habits across sites - bad things can happen if this data is leaked)
+
+Typically web browsers attempt to protect you by preventing (what you would consider) unwanted access or modification of cooikes by sites which did not origionally create the cookie. This is managed by cookies being tied to a specific domain / sub-domain / path-scope and then flags being set on the cookie to limit access and modification. This protection idea is called SOP (Same-Origin Policy).
+
+The Same-Origin Policy is a core browser security feature that aims to prevent code on one website from accessing cookie data from another. It's one of the most fundamental protections in web browser security. Same-Origin Policy in browsers extends far beyond just cookie access and modification management. If malicious code on evil.com tries to read data from yourbank.com, the browser is meant to block access. Without SOP, any website you visit could read your emails, banking info, or anything else open in another tab or window. 
+
+Web servers can relax SOP using CORS (Cross-Origin Resource Sharing). Thhis is controled by headers sent from the server. For example the Access-Control-Allow-Origin header allows a server to say ```I trust requests from this/these other domain(s)```.
+
 
 Learn more about [cookies at Wikiepedia](https://en.wikipedia.org/wiki/HTTP_cookie)
 
