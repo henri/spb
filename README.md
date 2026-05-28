@@ -109,9 +109,9 @@ With SPB installed you may run the following command (or more precisly an [spb-f
 
 ### :sailboat: What are Isolated Web Sessions?
 
-Imagine you have two (or more) computers and on each of these computers you start a web browser. Assuming you do not log into anything within any browser, these web sessions are now somewhat isolated (running on two or more sperate computer systems).
+Imagine you have two (or more) computers and on each of these computers you start a web browser. Assuming you do not log into anything within any browser, these web sessions are now somewhat isolated (running on two or more physically sperate computer systems).
 
-It is possible to run isolated web browser sessions on a single machine by starting multiple different web browsers. For example you could run FireFox and Brave on the same computer (these two browsers are now somewhat isolated). Although they are running under the same user account they are not sharing cookies (as an example).
+It is possible to run isolated web browser sessions on a single machine by starting multiple different web browsers. For example you could run FireFox and Brave on the same computer (these two browsers are now somewhat isolated). Although they are running under the same user account they are not sharing [cookies](https://github.com/henri/spb/blob/main/README.md#cookie-what-are-cookies) (as one example).
 
 SPB (Start Private Browser) gives you the ability to quickly start multiple isolated instances of the same web browser under the same account. 
 
@@ -337,6 +337,20 @@ Information availble via the links below will assist you with forming a deeper u
 Keep in mind that different browsers will potentially have different [options](https://github.com/henri/spb/blob/main/901.notes_browser_specific.md) which may alter the way the program works with respect to your privacy.
 
 <br>
+<br>
+
+### :cookie: What are Cookies?
+Web browser cookies are data which a website may saves within your browser configuratrion. These are typically saved by visiting a site.
+
+Cookies have various uses (some are listed below) : 
+
+  - Login status (so you don't have to sign in every time)
+  - Preferences (like your language or theme settings)
+  - Shopping cart contents (so items persist between visits)
+  - Tracking (advertisers can follow your browsing habits across sites)
+
+Learn more about [cookies at Wikiepedia](https://en.wikipedia.org/wiki/HTTP_cookie)
+
 <br>
 
 ### :star: Usage Examples
