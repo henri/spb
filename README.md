@@ -511,6 +511,8 @@ Mild testing has been completed on the following operating systems :
 
   > <b>If you have an operating system which is not listed below as long as you are able to install the dependcies then SPB will likely work just fine</b>.
 
+  > <b>Note, some dependencies are optional and simply add features or improved usage. Many systems will have the required dependencies already installed. If you skip ahead and start the install / update script it will report any criticle dependenceis.</b>.
+
 <sub>Once the SPB dependencies have been installed, [proceed with the installation of SPB](https://github.com/henri/spb/blob/main/README.md#floppy_disk-installation)</sub>
 
   - <b>GNU/LINUX</b>
