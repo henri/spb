@@ -355,6 +355,7 @@ The Same-Origin Policy is a core browser security feature that aims to prevent c
 
 Web servers can relax SOP using CORS (Cross-Origin Resource Sharing). This is controled by headers sent from the server. For example the Access-Control-Allow-Origin header allows a server to say ```I trust requests from this/these other domain(s)```.
 
+In a web browser there are cookies called session cookeis and these typically stick around until the browser closes. Some browsers restore previous sessions on startup, which can effectively persist session cookies even across browser restarts. This is where [isolated browsing sessions](https://github.com/henri/spb/blob/main/README.md#sailboat-what-are-isolated-web-sessions) are able to help.
 
 Learn more about [cookies at Wikiepedia](https://en.wikipedia.org/wiki/HTTP_cookie)
 
