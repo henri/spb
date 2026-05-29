@@ -344,10 +344,19 @@ Browser cookies are actually data files which a website may save within your bro
 
 Cookies have various uses (some are listed below) : 
 
-  - Login status (so you don't have to sign in every time - bad things can happen if your cookie is stolen)
-  - Preferences (like your language or theme settings - bad things can happen if this is modified without you knowing)
-  - Shopping cart contents (items persist between visits - bad things can happen if these are modified or read without you knowing)
-  - Tracking (advertisers can follow browsing habits across sites - bad things can happen if this data is leaked)
+  - Login status
+    - so you don't have to sign in every time
+    - access to website if authentication cookie is stolen (think of it as a key to your account)
+  - Preferences
+    - language theme settings and much more...
+    - bad things can happen if this is modified without you knowing
+  - Shopping cart contents
+    - items persist between visits
+    - potential for abuse if modified without you knowing
+  - Tracking
+    - collection of browsing habits across sites is possible
+    - profiles and information is often sold or used by advertisers
+    - potential for abuse if cookies are stolen without you knowlage
 
 Typically web browsers attempt to protect you by preventing (what you would consider) unwanted access or modification of cooikes by sites which did not origionally create the cookie. This is managed by cookies being tied to a specific domain / sub-domain / path-scope and then flags being set on the cookie to limit access and modification. This protection idea is called SOP (Same-Origin Policy).
 
