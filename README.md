@@ -357,7 +357,7 @@ Set-Cookie: theme=dark; Max-Age=31536000
 Set-Cookie: cart=xyz789; SameSite=Strict
 Set-Cookie: region=eu-west; Max-Age=86400
 ```
-Typically, a web browser will processes each ```Set-Cookie``` header independently. Once stored they are able to be included with subsequent requests made to that domain.
+Typically, a web browser will processes each ```Set-Cookie``` header independently. Once stored they are able to be included with subsequent requests made to that domain (again there are edge cases and this is a simplification).
 
 Cookies have various uses (some are listed below) : 
 
