@@ -347,7 +347,7 @@ Browser cookies essentially are data chunks which a website is able to request y
 
 The following is a simplifcation but it will provide a basis for undertanding what cookies are and how they are used within a web browser. The key idea is that a cookie is linked to a domain. As an example, when you direct your web browser to visit ```https://www.yahoo.com``` the response from the Yahoo server may ask your web browser to store some cookies. Then each time you make subsequent requests to Yahoo these cookies are sent along with those request so that Yahoo is able to identify the requests as being part of the same session.
 
-The tecnical way this is implimented is that with the response from the server, there are headers set which instruct your browser to store a cookie. An example below illustrates a how web server responce asks the web browser to store five indivudal cookies. The data for each cookie is part of that header sent from the server.
+The tecnical way this is implimented is that with the response from the server, there are headers set which instruct your browser to store a cookie. An example below illustrates a how web server responce asks the web browser to store five indivudal cookies. The data for each cookie is part of that header sent from the server. When the browser echos back the cookie in a request it only sends back the data gram of the cookie not the meta data. The meta data flags assoiated with the cookie are uesed by the browser to manage a cookie.
 
 ```
 HTTP/1.1 200 OK
@@ -375,10 +375,16 @@ Cookies have various uses (some are listed below) :
     - profiles and information is often sold or used by advertisers
     - potential for abuse if cookies are stolen without you knowlage
 
-There are different kinds of cookies (some are listed below) : 
+Your browsers cookie jar may have cookies and some can be calssified (some examples listed below) : 
 
   - Session Cookies (typically discrarded when the browser is closed - there are exceptions)
   - Persistant Cookies (sometimes will have a expiry date)
+  - Tracking Cookies 
+  - First Party Cookies (sent from the site you initially reuqrsted)
+  - Thrid Party Cookies (set by a different domain than the one initially requested)
+  - Super/Zombie Cookies
+
+The cookie mechanism was designed as a simple store-and-echo. Everything built on top (sessions, persistence, tracking, etc) are differences in usage, not a technical cookie variation.
 
 Typically web browsers attempt to protect you by preventing (what you would consider) unwanted access or modification of cooikes by sites which did not origionally create the cookie. This is managed by cookies being tied to a specific domain / sub-domain / path-scope and then flags being set on the cookie to limit access and modification. This protection idea is called SOP (Same-Origin Policy).
 
@@ -389,6 +395,8 @@ Web servers can relax SOP using CORS (Cross-Origin Resource Sharing). This is co
 In a web browser there are cookies called session cookeis and these typically stick around until the browser closes. Some browsers restore previous sessions on startup, which can effectively persist session cookies even across browser restarts. This is where [isolated browsing sessions](https://github.com/henri/spb/blob/main/README.md#sailboat-what-are-isolated-web-sessions) are able to help.
 
 Learn more about [cookies at Wikiepedia](https://en.wikipedia.org/wiki/HTTP_cookie)
+
+Remember Cookies are not the only way your browsing behavior is monitored.
 
 <br>
 
