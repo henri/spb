@@ -347,9 +347,7 @@ Browser cookies essentially are data chunks which a website is able to request y
 
 The following is a simplifcation but it will provide a basis for undertanding what cookies are and how they are used within a web browser. The key idea is that a cookie is linked to a domain. As an example, when you direct your web browser to visit ```https://www.yahoo.com``` the response from the Yahoo server may ask your web browser to store some cookies. Then each time you make subsequent requests to Yahoo these cookies are sent along with those request so that Yahoo is able to identify the requests as being part of the same session.
 
-The tecnical way this is implimented is that with the response from the server, there are headers set which instruct your browser to store a cookie.
-
-The example below illustrates a web server responce asking the browser to store five indivudal cookies. The data for each cookie is part of that header sent from the server.
+The tecnical way this is implimented is that with the response from the server, there are headers set which instruct your browser to store a cookie. An example below illustrates a how web server responce asks the web browser to store five indivudal cookies. The data for each cookie is part of that header sent from the server.
 
 ```
 HTTP/1.1 200 OK
