@@ -66,7 +66,7 @@ With SPB installed you may run the following command (or more precisly an [spb-f
 
 > SPB (Start Private Browser) is a small shell-script-based “wrapper” that quickly launches one or more completely [isolated private browser sessions](https://github.com/henri/spb/blob/main/README.md#sailboat-what-are-isolated-web-sessions), each with its own profile directory and options.
 > What SPB actually does
-> Creates a fresh browser profile directory per session (or per template), so cookies, logins, and history are isolated between runs.
+> Creates a fresh browser profile directory per session (or per template), so [cookies](https://github.com/henri/spb/blob/main/README.md#cookie-what-are-cookies), logins, and history are isolated between runs.
 > Spawns one or many browser windows/tabs in one command, using a simple CLI interface and optional templates.
 > Works as a generic wrapper script around your installed browser (e.g., Brave, Firefox, Chromium), passing in flags like private/incognito mode, profile dir, and more.
 > ```<snip>```
@@ -86,7 +86,7 @@ With SPB installed you may run the following command (or more precisly an [spb-f
   - Reliable browser [templating](https://github.com/henri/spb/blob/main/README.md#spb-templating-support) system
      - providing task isolation
      - browser customisation
-     - isolated cookie storage
+     - isolated [cookie](https://github.com/henri/spb/blob/main/README.md#cookie-what-are-cookies) storage
      - repeatable browser configuration
      - sharing of browser [templates](https://github.com/henri/spb/blob/main/README.md#spb-templating-support) between systems
   - Support for [multiple web browsers](https://github.com/henri/spb/blob/main/README.md#sunrise-browser-support)
@@ -820,7 +820,7 @@ The use cases for this SPB are immense and include :
   - Development
   - Load-testing
   - Dedicated agent task isolation
-  - Privacy ; or just having multiple tabs which are not related in terms of cookies etc.
+  - Privacy ; or just having multiple tabs which are not related in terms of [cookies](https://github.com/henri/spb/blob/main/README.md#cookie-what-are-cookies) etc.
   - Simplified remote browser isolation
   - Research
 
