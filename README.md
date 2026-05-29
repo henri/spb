@@ -341,11 +341,11 @@ Keep in mind that different browsers will potentially have different [options](h
 
 ### :cookie: What are Cookies?
 
-HTTP is stateless (every request is independent), and as such the server has no memory of previous request(s). One function of cookies is to give the web server a way to recognize a session over indivudal requests.
+HTTP/HTTPS the primary protocal supporrted by a web browser (certinally not the only one) is stateless. Because every request is independent the web server (at the HTTP/HTTPS level) has no memory of previous request(s). One function of cookies is to give the web server a way to recognize a session across these indivudal requests.
 
-Browser cookies essentially are data chunks which a website is able to request your browser store within your browsers profile. Different browsers handle the implimentation details of cookie storage differenty. 
+Web browser cookies essentially are data chunks which a website is able to request your browser store within your browsers profile or in memory. Different browsers handle the implimentation specifics of cookie storage and hadneling differenty. 
 
-The following is a simplifcation but it will provide a basis for undertanding what cookies are and how they are used within a web browser. The key idea is that a cookie is linked to a domain. As an example, when you direct your web browser to visit ```https://www.yahoo.com``` the response from the Yahoo server may ask your web browser to store some cookies. Then each time you make subsequent requests to Yahoo these cookies are sent along with those request so that Yahoo is able to identify the requests as being part of the same session.
+The following is a simplifcation but it will provide a basis for undertanding what cookies are and how they are typically handled by a web browser. The key idea is that a cookie is linked to a domain. As an example, when you direct your web browser to visit ```https://www.yahoo.com``` the response from the Yahoo server may ask your web browser to store some cookies. Then each time you make subsequent requests to Yahoo these cookies are sent along with those request so that Yahoo is able to identify the requests as being part of the same session.
 
 The tecnical way this is implimented is that with the response from the server, there are headers set which instruct your browser to store a cookie. An example below illustrates a how web server responce asks the web browser to store five indivudal cookies. The data for each cookie is part of that header sent from the server. When the browser echos back the cookie in a request it only sends back the data gram of the cookie not the meta data. The meta data flags assoiated with the cookie are uesed by the browser to manage a cookie.
 
