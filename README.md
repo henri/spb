@@ -396,7 +396,7 @@ In a web browser there are cookies called session cookeis and these typically st
 
 Learn more about [cookies at Wikiepedia](https://en.wikipedia.org/wiki/HTTP_cookie)
 
-Remember Cookies are not the only way your browsing behavior data is linked / collected.
+Remember Cookies are not the only way your browsing behavior data is linked and collected.
 
 <br>
 
