@@ -340,7 +340,7 @@ Keep in mind that different browsers will potentially have different [options](h
 <br>
 
 ### :cookie: What are Cookies?
-Browser cookies are actually data files which a website may save within your browser settings.
+Browser cookies are actually data files which a website may save within your browsers user data directory.
 
 Cookies have various uses (some are listed below) : 
 
