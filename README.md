@@ -341,7 +341,7 @@ Keep in mind that different browsers will potentially have different [options](h
 
 ### :cookie: What are Cookies?
 
-[HTTP/HTTPS](https://wikipedia.org/wiki/HTTP) the primary protocal supporrted by a web browser (certinally not the only one) is stateless. Because every request is independent the web server (at the HTTP/HTTPS level) has no memory of previous request(s). One function of cookies is to give the web server a way to recognize a session across these indivudal requests.
+[HTTP/HTTPS](https://wikipedia.org/wiki/HTTP) the primary protocal supporrted by a web browser (not the only one) is stateless. Because every request is independent the web server (at the HTTP/HTTPS level) has no memory of previous request(s). One function of cookies is to give the web server a way to recognize a session across these indivudal requests.
 
 Web browser cookies essentially are data chunks which a website is able to request your browser store within your browsers profile or in memory. Different browsers handle the implimentation specifics of cookie storage and hadneling differenty. 
 
