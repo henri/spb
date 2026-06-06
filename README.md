@@ -849,9 +849,7 @@ SPB (start private browser) is able to start multiple private browsers. But do n
 
 SPB [removes the web browser data from disk](https://github.com/henri/spb/blob/main/README.md#spb-templating-support). However, SPB makes no effort to deal with data stored in memory such as file system caches or system memory which may have been [written to swap](https://en.wikipedia.org/wiki/Memory_paging).
 
-In the event additional privacy is required consider running SPB within a remote machine, VM, name space isolation or some other isolation approach. 
-
-If higher levels of privacy are needed, then consider these projects :
+In the event additional privacy is required consider running SPB within a remote machine, VM, name space isolation or some other isolation approach. If higher levels of privacy are needed, then consider these projects :
 
   * [Tails](https://tails.net/)
   * [Whonix](https://www.whonix.org/)
