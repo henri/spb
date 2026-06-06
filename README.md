@@ -198,7 +198,10 @@ henri/spb/refs/heads/main/\
 # such some features of SPB may not be fully functional
 
 # also, this  appraoch results in no fish snippits,
-# no fish auto completions and no aliass being configured
+# no fish auto completions or alias configuration.
+
+# if that all sounds perfct for you then proceed with
+# the commands below :
 
 # create the ~/bin directory
 mkdir -p "$HOME/bin"
