@@ -218,8 +218,8 @@ henri/spb/refs/heads/main/\
 # this allows you to run the the script
 chmod +x "$HOME/bin/start-private-browser.bash"
 
-# inspect source code (using prefered text editor,
-# the example below is using less
+# inspect source code (example below uses less)
+# use your prefered text editor / viewer
 # less -S ~/bin/start-private-browser.bash
 
 ```
