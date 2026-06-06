@@ -862,11 +862,7 @@ If higher levels of privacy are needed, then consider these projects :
       * built in [Tor](https://github.com/henri/spb/blob/main/README.md#fish-shell-wrappers) client
       * built in [Snowflake](https://support.brave.app/hc/en-us/articles/9059440641421-What-is-the-Snowflake-extension) extension (contribute to the Tor network)
 
-> These projects and SPB are non-exclusive (many are able to be used together).
-
-> Get synergetic and combine these tools together.
-
-> As an Example use Cubes and Tails together.
+> <sub>These projects and SPB are non-exclusive. Get synergetic and combine these tools together. As an Example use Cubes and Tails together.</sub>
 
 Is this list incomplete? If you know of a privacy focused system missing from this list [let me know](https://github.com/henri/spb/discussions).
 
