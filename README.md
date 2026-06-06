@@ -120,7 +120,7 @@ Examples of using SPB to start isolated sessions - assumes FISH shell :
 ```
 
 
-# Start three independent instances of the Brave
+# Start three independent instances of the Brave web breowswe.
 spb ; spb ; spb
 
 
