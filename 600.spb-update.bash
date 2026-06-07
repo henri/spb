@@ -285,7 +285,6 @@ if [[ "${spb_update_log_file_truncated}" == "warning" ]] ; then
     echo "WARNING! : Unable to compacted the log file." >> ${log_file}
     echo "////////////////////////////////////////////" >> ${log_file}
     echo ""
-    sleep 2
 fi
 echo "Running in non-interactive mode..." >> ${log_file}
 if [[ "${update_delay}" == "yes" ]] ; then
@@ -354,5 +353,4 @@ if [[ "${SPB_UPDATE_AUTO_ANSWER}" == "true" ]] ; then
 fi
 # exit with the exit values from the update
 clean_exit
-
 
