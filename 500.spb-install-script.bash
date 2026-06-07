@@ -188,7 +188,7 @@ fi
 
 # copy file start-private-browser.bash into place - assumes you have write access to your home directory.
 mkdir -p ~/bin/
-if [ -e ~/bin/spb-update.bash ] ; then
+if [ -e ~/bin/start-private-browser.bash ] ; then
     # move any old file found to the side for deletion at script run end
     mv ~/bin/start-private-browser.bash ~/bin/start-private-browser.bash.old.2delete
 fi
