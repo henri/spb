@@ -47,7 +47,6 @@
 # version 2.5 - Updated the update URL
 # version 2.6 - Improved support for modern macOS versions
 # version 2.7 - Updated fish snippits pull repository
-# version 2.8 - Added file truncation into the summary report
 #
 
 # enviroment varibles setup
