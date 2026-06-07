@@ -483,15 +483,15 @@ elif [[ "${spb_fish_snippits_install_status}" == "failure" ]] ; then
     echo -e "${spb_report_summary}"
     spb_report_exit_status=98
 fi
-if ! [ -z $log_file_truncated ] ; then
-    if [[ "${log_file_truncated}" == "warning" ]] ; then
+if ! [ -z $spb_update_log_file_truncated ] ; then
+    if [[ "${spb_update_log_file_truncated}" == "warning" ]] ; then
         echo ""
         echo "////////////////////////////////////////////" >> ${log_file}
         echo "WARNING! : Unable to compacted the log file." >> ${log_file}
         echo "////////////////////////////////////////////" >> ${log_file}
         echo ""
     fi
-    if [[ "${log_file_truncated}" == "yes" ]] ; then
+    if [[ "${spb_update_log_file_truncated}" == "yes" ]] ; then
         echo ""
         echo "NOTICE : Log file has been truncated to save space. The oldest data is no longer available."
         echo ""
