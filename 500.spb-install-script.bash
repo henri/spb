@@ -47,6 +47,7 @@
 # version 2.5 - Updated the update URL
 # version 2.6 - Improved support for modern macOS versions
 # version 2.7 - Updated fish snippits pull repository
+# version 2.8 - Added file truncation into the summary report
 #
 
 # enviroment varibles setup
@@ -482,8 +483,20 @@ elif [[ "${spb_fish_snippits_install_status}" == "failure" ]] ; then
     echo -e "${spb_report_summary}"
     spb_report_exit_status=98
 fi
-echo ""
-
+if ! [ -z $log_file_truncated ] ; then
+    if [[ "${log_file_truncated}" == "warning" ]] ; then
+        echo ""
+        echo "////////////////////////////////////////////" >> ${log_file}
+        echo "WARNING! : Unable to compacted the log file." >> ${log_file}
+        echo "////////////////////////////////////////////" >> ${log_file}
+        echo ""
+    fi
+    if [[ "${log_file_truncated}" == "yes" ]] ; then
+        echo ""
+        echo "NOTICE : Log file has been truncated to save space. The oldest data is no longer available."
+        echo ""
+    fi
+fi
 
 # clean up
 cd /tmp/ && rm -rf ${temporary_build_directory}
