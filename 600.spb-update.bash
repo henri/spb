@@ -29,6 +29,7 @@
 # version 2.2 - updated the update URL
 # version 2.3 - improved log viewing reliability
 # version 2.4 - checking screen is installed
+# version 2.5 - additional log checks during log file compact step
 #
 
 # check if we are running with a connected tty for input
@@ -247,15 +248,19 @@ set -e
 # logging file (for now)...
 log_file="$HOME/bin/spb-update.log"
 log_file_temporary="$HOME/bin/spb-update.log.tmp"
-log_file_truncated="no"
+export log_file_truncated="no"
 
-# check the log file size. 
+# check the log file size and compact if more than 1000KB
 if [[ -e ${log_file} ]] ; then
-    if [[ $(du ${log_file} 2> /dev/null| awk '{print $1}') -ge 1000 ]] ; then
-        # log is getting large, cut it down to size (trim down to around 500kilobytes and then start with the first entry)
-        tail -c 500k ${log_file} | sed '1,/^------------------------------------------------------------------------$/d' > ${log_file_temporary}
-        mv ${log_file_temporary} ${log_file}
-        log_file_truncated="yes"
+    if [[ -f ${log_file} && -r ${log_file} && -w ${log_file} && -s ${log_file} ]] ; then
+        if [[ $(du ${log_file} 2> /dev/null| awk '{print $1}') -ge 1000 ]] ; then
+            # log is getting large, cut it down to size (trim down to around 500kilobytes and then start with the first entry)
+            tail -c 500k ${log_file} | sed '1,/^------------------------------------------------------------------------$/d' > ${log_file_temporary}
+            mv ${log_file_temporary} ${log_file}
+            export log_file_truncated="yes"
+        fi
+    else
+        export log_file_truncated="warning"
     fi
 fi
 
@@ -273,6 +278,14 @@ echo "SPB auto update starting up..." >> ${log_file}
 echo "$(date)" >> ${log_file}
 if [[ "${log_file_truncated}" == "yes" ]] ; then
     echo "FYI : Log file has been truncated to save space. The oldest data is no longer available."  >> ${log_file}
+fi
+if [[ "${log_file_truncated}" == "warning" ]] ; then
+    echo ""
+    echo "////////////////////////////////////////////" >> ${log_file}
+    echo "WARNING! : Unable to compacted the log file." >> ${log_file}
+    echo "////////////////////////////////////////////" >> ${log_file}
+    echo ""
+    sleep 2
 fi
 echo "Running in non-interactive mode..." >> ${log_file}
 if [[ "${update_delay}" == "yes" ]] ; then
@@ -341,4 +354,5 @@ if [[ "${SPB_UPDATE_AUTO_ANSWER}" == "true" ]] ; then
 fi
 # exit with the exit values from the update
 clean_exit
+
 
