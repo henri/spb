@@ -483,7 +483,6 @@ elif [[ "${spb_fish_snippits_install_status}" == "failure" ]] ; then
     echo -e "${spb_report_summary}"
     spb_report_exit_status=98
 fi
-echo $spb_update_log_file_truncated
 if ! [ -z ${spb_update_log_file_truncated} ] ; then
     if [[ "${spb_update_log_file_truncated}" == "warning" ]] ; then
         echo ""
