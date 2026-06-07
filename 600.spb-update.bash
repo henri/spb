@@ -248,7 +248,7 @@ set -e
 # logging file (for now)...
 log_file="$HOME/bin/spb-update.log"
 log_file_temporary="$HOME/bin/spb-update.log.tmp"
-export log_file_truncated="no"
+export spb_update_log_file_truncated="no"
 
 # check the log file size and compact if more than 1000KB
 if [[ -e ${log_file} ]] ; then
@@ -257,10 +257,10 @@ if [[ -e ${log_file} ]] ; then
             # log is getting large, cut it down to size (trim down to around 500kilobytes and then start with the first entry)
             tail -c 500k ${log_file} | sed '1,/^------------------------------------------------------------------------$/d' > ${log_file_temporary}
             mv ${log_file_temporary} ${log_file}
-            export log_file_truncated="yes"
+            export spb_update_log_file_truncated="yes"
         fi
     else
-        export log_file_truncated="warning"
+        export spb_update_log_file_truncated="warning"
     fi
 fi
 
@@ -276,10 +276,10 @@ echo "" >> ${log_file}
 echo "------------------------------------------------------------------------" >> ${log_file} 
 echo "SPB auto update starting up..." >> ${log_file}
 echo "$(date)" >> ${log_file}
-if [[ "${log_file_truncated}" == "yes" ]] ; then
+if [[ "${spb_update_log_file_truncated}" == "yes" ]] ; then
     echo "FYI : Log file has been truncated to save space. The oldest data is no longer available."  >> ${log_file}
 fi
-if [[ "${log_file_truncated}" == "warning" ]] ; then
+if [[ "${spb_update_log_file_truncated}" == "warning" ]] ; then
     echo ""
     echo "////////////////////////////////////////////" >> ${log_file}
     echo "WARNING! : Unable to compacted the log file." >> ${log_file}
