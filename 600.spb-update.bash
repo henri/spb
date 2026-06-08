@@ -277,7 +277,7 @@ echo "------------------------------------------------------------------------" 
 echo "SPB auto update starting up..." >> ${log_file}
 echo "$(date)" >> ${log_file}
 if [[ "${spb_update_log_file_truncated}" == "yes" ]] ; then
-    echo "NOTICE : Log file has been truncated to save space. The oldest data is no longer available."  >> ${log_file}
+    echo "NOTICE : Log file has been truncated to save space."  >> ${log_file}
 fi
 if [[ "${spb_update_log_file_truncated}" == "warning" ]] ; then
     echo ""
@@ -339,7 +339,7 @@ if [[ "${spb_update_log_file_truncated}" == "warning" ]] ; then
 fi
 if [[ "${spb_update_log_file_truncated}" == "yes" ]] ; then
     echo "" >> ${log_file}
-    echo "NOTICE : Log file has been truncated to save space. The oldest data is no longer available." >> ${log_file}
+    echo "NOTICE : Log file has been truncated to save space." >> ${log_file}
     echo "" >> ${log_file}
 fi
 
