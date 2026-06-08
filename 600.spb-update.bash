@@ -281,9 +281,9 @@ if [[ "${spb_update_log_file_truncated}" == "yes" ]] ; then
 fi
 if [[ "${spb_update_log_file_truncated}" == "warning" ]] ; then
     echo ""
-    echo "////////////////////////////////////////////" >> ${log_file}
-    echo "WARNING! : Unable to compacted the log file." >> ${log_file}
-    echo "////////////////////////////////////////////" >> ${log_file}
+    echo "//////////////////////////////////////////" >> ${log_file}
+    echo "WARNING! : Unable to compact the log file." >> ${log_file}
+    echo "//////////////////////////////////////////" >> ${log_file}
     echo ""
 fi
 echo "Running in non-interactive mode..." >> ${log_file}
@@ -332,9 +332,9 @@ echo "Total Update Execution Time (in seconds) : ${total_run_time}" >> ${log_fil
 # report any compacting of the log file
 if [[ "${spb_update_log_file_truncated}" == "warning" ]] ; then
     echo ""
-    echo "////////////////////////////////////////////" >> ${log_file}
-    echo "WARNING! : Unable to compacted the log file." >> ${log_file}
-    echo "////////////////////////////////////////////" >> ${log_file}
+    echo "//////////////////////////////////////////" >> ${log_file}
+    echo "WARNING! : Unable to compact the log file." >> ${log_file}
+    echo "//////////////////////////////////////////" >> ${log_file}
     echo ""
 fi
 if [[ "${spb_update_log_file_truncated}" == "yes" ]] ; then
