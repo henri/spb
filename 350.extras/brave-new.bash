@@ -66,11 +66,18 @@ spinner_delete() {
     tput cnorm
     echo ""
 }
+spinner_sleep() {
+    for i in $(seq 1 30) ; do
+        spinner
+        sleep 0.1
+    done
+    #sleep 3
+}
 
 echo -n "Waiting for Brave CDP on port $CDP_PORT..."
-for i in $(seq 1 30); do
+for i in $(seq 1 30) ; do
     spinner
-    sleep 0.2
+    sleep 0.1 ; spinner ;sleep 0.1 ; spinner
     if curl -sf "http://localhost:${CDP_PORT}/json/version" > /dev/null 2>&1; then
         spinner
         spinner_delete
@@ -83,6 +90,7 @@ for i in $(seq 1 30); do
         echo ""
         exit 1
     fi
+    
 done
 
 
@@ -106,7 +114,7 @@ fi
 
 # open compoents window (from which we will run updates)
 cdp_silent '{"id":1,"method":"Page.navigate","params":{"url":"brave://components/"}}'
-sleep 3
+spinner_sleep
 
 # count the buttons we can click update
 COUNT_RESULT=$(cdp '{"id":2,"method":"Runtime.evaluate","params":{"expression":"document.querySelectorAll(\"button\").length","returnByValue":true}}')
@@ -116,9 +124,9 @@ COUNT=$(echo "$COUNT_RESULT" | jq -r '.result.result.value // 0')
 for ((i=0; i<COUNT; i++)); do
     ID=$((i + 10))
     # echo -n "."
-    spinner
+    sleep 0.1 ; spinner sleep 0.1 ; spinner
     cdp_silent "{\"id\":$ID,\"method\":\"Runtime.evaluate\",\"params\":{\"expression\":\"document.querySelectorAll('button')[$i].click()\",\"returnByValue\":true}}"
-    sleep 0.3
+    sleep 0.1 ; spinner
 done
 
 # everything updated close the compoents window / tab
