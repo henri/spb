@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
-
+#
+# This script is part of the SPB project : https://github.com/henri/spb
+# (C) 2026 Henri Shustak - Released Under the GNU GPL v3 or later
 #
 # Example script to launch a new Brave session with spb and configure hidden virticle tabs
 # 
