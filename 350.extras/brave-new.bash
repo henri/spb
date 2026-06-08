@@ -27,7 +27,7 @@ BASE="http://localhost:$CDP_PORT"
 
 # start browser (via command spb)
 ADDITIONAL_SPB_ARGS="$@"
-fish -c "spb $ADDITIONAL_SPB_ARGS --remote-debugging-port=$CDP_PORT "
+fish -c "spb $ADDITIONAL_SPB_ARGS --remote-debugging-port=$CDP_PORT"
 if [[ $? != 0 ]] ; then
     echo "ERROR! : Failed to start Brave via SPB."
     echo ""
