@@ -337,6 +337,7 @@ if [[ "${spb_update_log_file_truncated}" == "warning" ]] ; then
     echo "//////////////////////////////////////////" >> ${log_file}
     echo ""
 fi
+echo spb_update_log_file_truncated : $spb_update_log_file_truncated
 if [[ "${spb_update_log_file_truncated}" == "yes" ]] ; then
     echo ""
     echo "NOTICE : Log file has been truncated to save space. The oldest data is no longer available."
