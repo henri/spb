@@ -9,4 +9,4 @@ This directory contains extra notes and settings as well as scripts to assist yo
     - Information and examples relating to opening your spb instance within sandboxed filesystem using brwap.
 
   - [spb-data-cleanup.bash](https://github.com/henri/spb/blob/main/350.extras/spb-data-cleanup.bash)
-    - Cleanup your spb tempoary area by running this script (the idea is to run this via cron or your prefered scheduler).
+    - Cleanup your spb tempoary area by running this script. Kick of this script via cron or your choice of scheduler.
