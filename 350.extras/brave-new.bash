@@ -7,10 +7,10 @@
 # and make some configuration alterations using the remote debging port.
 #
 # This script will accept parameters and pass them to SPB. Below is an example
-# to start this scirpt and create a new standard template with updated componets
-# and updated settings applied automatically
+# to start this scirpt and create a new standard template called testing12 with 
+# updated componets and updated settings applied automatically
 #
-# ~/bin/brave-new.bash --new-template testing10 --standard --no-default-browser-check --disable-default-apps
+# ~/bin/brave-new.bash --new-template testing12 --standard --no-first-run
 #
 
 # preflight checks for required components 
