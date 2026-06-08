@@ -1,5 +1,13 @@
 #!/usr/bin/env bash
 #
+#    _____ _____  ____  
+#   / ____|  __ \|  _ \ 
+#  | (___ | |__) | |_) |
+#   \___ \|  ___/|  _ < 
+#   ____) | |    | |_) |
+#  |_____/|_|    |____/ 
+#  START PRIVATE BROWSER  
+#
 # Start many instances of Brave (or another browser) at the same time.
 #
 # All isolated browser instances started with SPB,
