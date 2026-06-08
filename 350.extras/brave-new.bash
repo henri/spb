@@ -34,24 +34,60 @@ if [[ $? != 0 ]] ; then
     exit -9
 fi
 echo "Started brave instance with CDP port number : $CDP_PORT"
-sleep 1.45
+# sleep 1.45
 
-echo "Waiting for Brave on port $CDP_PORT..."
-for i in $(seq 1 5); do
+
+# function to assist with requests
+cdp() {
+    echo "$1" | websocat -n1 "$WS_URL" 2>/dev/null || true
+}
+cdp_silent() {
+    echo "$1" | websocat -n1 "$WS_URL" > /dev/null 2>&1 || true
+}
+cdp_send() {
+  local ws="$1" payload="$2"
+  echo "$payload" | websocat "$ws" | head -1 > /dev/null
+}
+set_pref() {
+  local ws="$1" pref="$2" value="$3"
+  local id=$(( RANDOM % 1000 + 1 ))
+  cdp_send "$ws" \
+    "{\"id\":$id,\"method\":\"Runtime.evaluate\",\"params\":{\"expression\":\"chrome.settingsPrivate.setPref(\\\"$pref\\\",$value,undefined,function(r){console.log(r)})\",\"awaitPromise\":true}}"
+}
+SPINNER=0
+spinner() {
+    local sp='/-\|'
+    local n=${#sp}
+    tput civis
+    printf '%s\b' "${sp:$(( SPINNER++ % n )):1}"
+}
+spinner_delete() {
+    printf ' \b'
+    tput cnorm
+    echo ""
+}
+
+echo -n "Waiting for Brave CDP on port $CDP_PORT..."
+for i in $(seq 1 30); do
+    spinner
+    sleep 0.2
     if curl -sf "http://localhost:${CDP_PORT}/json/version" > /dev/null 2>&1; then
-        echo "CDP ready."
+        spinner
+        spinner_delete
         break
     fi
-    if [[ $i -gt 5 ]]; then
-        echo "Brave not reachable on port $CDP_PORT after 5 attempts. Is it running with --remote-debugging-port=$CDP_PORT"
+    if [[ $i -eq 30 ]]; then
+        echo "" ; echo ""
+        echo -e "ERROR! : Brave not reachable on port $CDP_PORT after 5 attempts."
+        echo "            Check it running with --remote-debugging-port=$CDP_PORT"
+        echo ""
         exit 1
     fi
-    echo "  Attempt $i/5 failed, retrying..."
-    sleep 1
 done
 
+
 ##### update compoents
-echo "Updating Brave Components..."
+echo -n "Updating Brave Components..."
 
 curl -sf "http://localhost:${CDP_PORT}/json/version" > /dev/null \
     || { echo "brave is not reachable on port $CDP_PORT. Check it running with --remote-debugging-port=$CDP_PORT?"; exit 1; }
@@ -62,30 +98,11 @@ WS_URL=$(echo "$NEW_TAB" | jq -r '.webSocketDebuggerUrl')
 TARGET_ID=$(echo "$NEW_TAB" | jq -r '.id')
 
 if [[ -z "$WS_URL" || "$WS_URL" == "null" ]]; then
-    echo "Failed to open a new tab."
+    echo ""
+    echo "ERROR! : Failed to open a new tab."
+    echo ""
     exit 1
 fi
-
-# function to assist with requests
-cdp() {
-    echo "$1" | websocat -n1 "$WS_URL" 2>/dev/null || true
-}
-
-cdp_silent() {
-    echo "$1" | websocat -n1 "$WS_URL" > /dev/null 2>&1 || true
-}
-
-cdp_send() {
-  local ws="$1" payload="$2"
-  echo "$payload" | websocat "$ws" | head -1 > /dev/null
-}
-
-set_pref() {
-  local ws="$1" pref="$2" value="$3"
-  local id=$(( RANDOM % 1000 + 1 ))
-  cdp_send "$ws" \
-    "{\"id\":$id,\"method\":\"Runtime.evaluate\",\"params\":{\"expression\":\"chrome.settingsPrivate.setPref(\\\"$pref\\\",$value,undefined,function(r){console.log(r)})\",\"awaitPromise\":true}}"
-}
 
 # open compoents window (from which we will run updates)
 cdp_silent '{"id":1,"method":"Page.navigate","params":{"url":"brave://components/"}}'
@@ -98,12 +115,16 @@ COUNT=$(echo "$COUNT_RESULT" | jq -r '.result.result.value // 0')
 # click each button to update the compoent
 for ((i=0; i<COUNT; i++)); do
     ID=$((i + 10))
+    # echo -n "."
+    spinner
     cdp_silent "{\"id\":$ID,\"method\":\"Runtime.evaluate\",\"params\":{\"expression\":\"document.querySelectorAll('button')[$i].click()\",\"returnByValue\":true}}"
     sleep 0.3
 done
 
 # everything updated close the compoents window / tab
 curl -sf -X GET "http://localhost:${CDP_PORT}/json/close/${TARGET_ID}" > /dev/null
+spinner
+spinner_delete
 
 ###### setup browser options
 echo "Configuring Brave Settings..."
