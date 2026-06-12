@@ -951,6 +951,11 @@ Brave was slected as the deafult browser for the following reasons :
 
 The most important of these is the built in [Fingerpinrting prevention](https://brave.com/privacy-features/). It would be great to see more web browsers offering a similar feature.
 
+Below is a list of sites which will report data they are able to collect from your Web Browser : 
+
+  - https://www.deviceinfo.me
+  - https://www.amiunique.org
+
 If you would like to configure SPB to always use a specific browser, then [these instructions](https://github.com/henri/spb/blob/main/FAQ.md#will-spb-work-with-browsers-other-than-brave) will help.
 
 #### Why not FireFox as the default
