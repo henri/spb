@@ -124,6 +124,7 @@
 # version 10.2 - added ability to use --browser and --browser-path cli arguments to override enviroment variables / configuration file
 # version 10.3 - allowed spb_temp_data_path enviroment varable to be configured not only within configuration file
 # version 10.4 - imporved support for fedora
+# version 10.5 - initial support for provideding suplamentary browser options via 'spb_browser_options" envirment varable
 #
 
 ##
@@ -365,7 +366,7 @@ fi
 
 # keep an eye on the browser_path being configured externally
 if [[ ! -z "$spb_browser_path" ]] ; then
-    spb_browser_path_externally_configured="true"
+    export spb_browser_path_externally_configured="true"
 fi
 
 # super-pre argument scanning (special arguments for overiding settings and configuring varables correctly) - yes we custom argument parsing in 2025
@@ -523,7 +524,7 @@ for arg in "$@" ; do
         fi
 
         # update the browser path and other variables which depend on the browser path 
-        spb_browser_path="${super_pre_next_arg}"
+        export spb_browser_path="${super_pre_next_arg}"
         spb_browser_path_backup="${spb_browser_path}"
         spb_browser_path_externally_configured="true"
     
@@ -618,7 +619,7 @@ fi
 # export spb_browser_path="brave-browser"
 # export spb_temp_data_path="/tmp"
 # export spb_filesystem_sync="true"
-# 
+# export spb_browser_options=""
 # 
 # export spb_template_standard_mode="false"
 # export spb_new_template_standard_mode="false"
@@ -672,14 +673,23 @@ function list_defaut_configuration_enviroment_variables() {
         echo "Currenlty configured SPB enviroment variables :"
         echo ""
         echo "#----------------------------------------------------"
-        echo "# spb_browser_name : ${spb_browser_name}"
-        echo "# spb_browser_path : ${spb_browser_path}"
+        echo "# spb_browser_name : ${spb_browser_name}" # set by SPB at runtime and is accessable from the config file
+        echo "# spb_browser_path : ${spb_browser_path}" 
         echo "# spb_temp_data_path : ${spb_temp_data_path}"
         echo "# spb_filesystem_sync : ${spb_filesystem_sync}"
+        echo "# spb_browser_options : ${spb_browser_options}"
         echo "#----------------------------------------------------"
         echo "# spb_template_standard_mode : ${spb_template_standard_mode}"
         echo "# spb_new_template_standard_mode : ${spb_new_template_standard_mode}"
         echo "# spb_edit_template_standard_mode : ${spb_edit_template_standard_mode}"
+        echo "#----------------------------------------------------"
+        echo ""
+        echo "/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/"
+        echo ""
+        echo "Run-time enviroment variables exported to spb.config :"
+        echo ""
+        echo "#----------------------------------------------------"
+        echo "# spb_browser_is_default : ${spb_browser_is_default}"
         echo "#----------------------------------------------------"
         echo ""
         echo "/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/"
@@ -1028,10 +1038,10 @@ for arg in "$@" ; do
     fi
 
     # update the browser name and other variables which depend on the browser name 
-    spb_browser_name="${pre_next_arg}"
+    export spb_browser_name="${pre_next_arg}"
     spb_browser_name_externally_configured="true"
     if [[ "${spb_browser_name_default}" != "${spb_browser_name}" ]] ; then 
-        spb_browser_is_default="false" 
+        export spb_browser_is_default="false"
     fi
     template_dir_parent="${template_dir_base}/${spb_browser_name}"
     
@@ -1042,7 +1052,7 @@ for arg in "$@" ; do
 done
 
 function wipe_spb_browser_path_varable {
-    spb_browser_path=""
+    export spb_browser_path=""
     if [[ "${quiet_mode}" != "true" ]] ; then
         echo "Auto Reset of Enviroment Varable : spb_browser_path"
         if [[ "${verbose_mode}" == "true" ]] ; then
@@ -1058,12 +1068,6 @@ if [[ ${spb_cli_browser_option_occurance_count} -eq 1 ]] && [[ ${spb_cli_browser
         wipe_spb_browser_path_varable
     fi
 fi
-# if [[ "${spb_config_file_spb_browser_path_set}" == "true" ]] && [[ ${spb_cli_browser_option_occurance_count} -eq 1 ]] ; then
-#     if [[ "${spb_browser_path_externally_configured}" == "true" ]] ; then
-#         # browser_path enviroment variable set by spb.config file and --browser specified but no --browser-path specified 
-#         wipe_spb_browser_path_varable
-#     fi
-# fi
 
 
 
@@ -2305,8 +2309,11 @@ if [[ "${enviroment_varibales_true_or_false_pass}" == "false" ]] ; then
     exit -78
 fi
 
-# parse the arguments for options and URL's to pass to brave.
+# parse the arguments for options and URL's to pass to the browser.
 browser_options="${user_data_directory_options} ${incognito_options}"
+if [ ! -z spb_browser_options ] ; then
+    browser_options="${browser_options} ${spb_browser_options}"
+fi
 url_list=""
 while [[ ${#} -ge 1 ]] ; do
     # note, that no additional checking for validly of options is performed.
@@ -2342,4 +2349,6 @@ screen -S "${screen_session_name}" -dm bash -c " \"${spb_browser_path}\" ${brows
 run_post_browser_startup_commands
 
 exit 0
+
+
 
