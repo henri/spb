@@ -1,0 +1,16 @@
+
+# in the event the browser configured is brave and this is the SPB default browser - add spb_browser_options
+
+if [[ "${spb_browser_is_default}" == "true" ]] && [[ "${spb_browser_name}" == "brave" ]] ; then
+    
+    echo "brave browser is running..."
+    # if the browser is the default and that default is brave
+    
+    echo "    - brave auto updating disabled"
+    export spb_browser_options"--disable-component-update"
+
+    echo "    - brave custom window size set"
+    export spb_browser_options="--window-size=500,900"
+    
+fi
+
