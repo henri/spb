@@ -999,14 +999,27 @@ Use this link to access the [SPB FAQ](https://github.com/henri/spb/blob/main/FAQ
 ### :rocket: Contributing to the project
 In order to protect users of this project all contributors must comply with the [Developer Certificate of Origin](https://developercertificate.org). This ensures that all contributions are properly licensed and attributed.
 
-If you are looking to contribute financially, I would prefer that you make a donation to one or more of the organsations below : 
+If you are looking to contribute financially, please instead consider donating to one or more of the organsations below : 
   
-  - [Ladybrid](https://ladybird.org/)
-  - [EFF](https://www.eff.org/)
-  - [FSF](https://www.fsf.org/)
+  - [Ladybrid](https://ladybird.org)
+  - [EFF](https://www.eff.org)
+  - [FSF](https://www.fsf.org)
   - [Debian](https://www.debian.org)
   - [Linx Mint](https://linuxmint.com)
   - [Thunderbird](https://www.thunderbird.net)
+  - [Wikipedia](https://wikipedia.org)
+
+  ```
+# Visit all links above with SPB to learn more
+spb --standard \
+https://ladybird.org \
+https://www.eff.org \
+https://www.fsf.org \
+https://www.debian.org \
+https://linuxmint.com \
+https://www.thunderbird.net \
+https://wikipedia.org
+  ```
 
 <br/>
 
