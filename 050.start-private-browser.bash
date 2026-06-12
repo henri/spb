@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 #
-#    _____ _____  ____  
-#   / ____|  __ \|  _ \ 
+#    _____ _____  ____
+#   / ____|  __ \|  _ \
 #  | (___ | |__) | |_) |
-#   \___ \|  ___/|  _ < 
+#   \___ \|  ___/|  _ <
 #   ____) | |    | |_) |
-#  |_____/|_|    |____/ 
+#  |_____/|_|    |____/
 #  START PRIVATE BROWSER  
 #
 # Start many instances of Brave (or another browser) at the same time.
@@ -123,6 +123,7 @@
 # version 10.1 - experimental support for waterfox and helium added
 # version 10.2 - added ability to use --browser and --browser-path cli arguments to override enviroment variables / configuration file
 # version 10.3 - allowed spb_temp_data_path enviroment varable to be configured not only within configuration file
+# version 10.4 - imporved support for fredora
 #
 
 ##
