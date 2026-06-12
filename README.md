@@ -634,6 +634,11 @@ Mild testing has been completed on the following operating systems :
             sudo apt update
             sudo apt install brave-browser 
           ```
+      - [Freedora](https://fedoraproject.org/) (x86)
+        ```
+          sudo dnf update && sudo dnf update git fish coreutils gcp screen
+          curl -fsS https://dl.brave.com/install.sh | sh
+        ```
   
    - <b>MacOS</b>
        - Dependiences will provide additional tools which will improve the way SPB works (they are not needed).
