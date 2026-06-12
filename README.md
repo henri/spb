@@ -636,7 +636,7 @@ Mild testing has been completed on the following operating systems :
           ```
       - [Freedora](https://fedoraproject.org/) (x86)
         ```
-          sudo dnf update && sudo dnf update git fish coreutils screen
+          sudo dnf update && sudo dnf install git fish coreutils screen
           curl -fsS https://dl.brave.com/install.sh | sh
         ```
   
