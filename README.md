@@ -634,7 +634,7 @@ Mild testing has been completed on the following operating systems :
             sudo apt update
             sudo apt install brave-browser 
           ```
-      - [Freedora](https://fedoraproject.org/) (x86)
+      - [Fedora](https://fedoraproject.org/) (x86)
         ```
           sudo dnf update && sudo dnf install git fish coreutils screen
           curl -fsS https://dl.brave.com/install.sh | sh
