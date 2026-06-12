@@ -1010,7 +1010,9 @@ If you are looking to contribute financially, please instead consider donating t
   - [Wikipedia](https://wikipedia.org)
 
   ```
+
 # Visit all links above with SPB to learn more
+
 spb --standard \
 https://ladybird.org \
 https://www.eff.org \
@@ -1019,6 +1021,7 @@ https://www.debian.org \
 https://linuxmint.com \
 https://www.thunderbird.net \
 https://wikipedia.org
+
   ```
 
 <br/>
