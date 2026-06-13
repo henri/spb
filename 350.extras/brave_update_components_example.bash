@@ -15,8 +15,10 @@
 #
 # The idea is for this to be a template to build what you would like to setup
 #
-# On macOS install gshuf via coreutils and then replace shuf with gshuf
-#
+
+
+os_type=$(uname -s | tr '[:upper:]' '[:lower:]')
+if [[ "$os_type" == "darwin" ]] ; then SHUF="gshuf" ; else SHUF="shuf" ; fi
 
 
 # preflight checks for required components 
@@ -27,7 +29,11 @@ done
 # pick random port
 while true; do
     CDP_PORT=$(shuf -i 9000-9999 -n 1)
-    ! ss -tulpn | grep -q ":$CDP_PORT " && break
+    if [[ "$os_type" == "darwin" ]] ; then 
+        ! lsof -iTCP:"$CDP_PORT" -sTCP:LISTEN >/dev/null 2>&1 && break
+    else
+        ! ss -tulpn | grep -q ":$CDP_PORT " && break
+    fi
 done
 
 # start browser (via command spb)
