@@ -12,6 +12,9 @@
 #
 # ~/bin/brave-new.bash --new-template testing12 --standard --no-first-run
 #
+# On macOS install gshuf via coreutils and then replace shuf with gshuf
+#
+
 
 # preflight checks for required components 
 for cmd in curl jq websocat; do
