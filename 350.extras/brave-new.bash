@@ -12,8 +12,6 @@
 #
 # ~/bin/brave-new.bash --new-template testing12 --standard --no-first-run
 #
-# On macOS install gshuf via coreutils and then replace shuf with gshuf
-#
 
 os_type=$(uname -s | tr '[:upper:]' '[:lower:]')
 if [[ "$os_type" == "darwin" ]] ; then SHUF="gshuf" ; else SHUF="shuf" ; fi
@@ -25,8 +23,12 @@ done
 
 # pick random port
 while true; do
-    CDP_PORT=$(shuf -i 9000-9999 -n 1)
-    ! ss -tulpn | grep -q ":$CDP_PORT " && break
+    CDP_PORT=$($SHUF -i 9000-9999 -n 1)
+    if [[ "$os_type" == "darwin" ]] ; then 
+        ! lsof -iTCP:"$CDP_PORT" -sTCP:LISTEN >/dev/null 2>&1 && break
+    else
+        ! ss -tulpn | grep -q ":$CDP_PORT " && break
+    fi
 done
 BASE="http://localhost:$CDP_PORT"
 
@@ -153,4 +155,3 @@ set_pref "$WS" "brave.tabs.vertical_tabs_hide_completely_when_collapsed" "true"
 # close settings tab
 ID=$(curl -s "$BASE/json" | jq -r '.[0].id')
 curl -s -X GET "$BASE/json/close/$ID" > /dev/null
-
