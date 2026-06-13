@@ -15,6 +15,9 @@
 #
 # The idea is for this to be a template to build what you would like to setup
 #
+# On macOS install gshuf via coreutils and then replace shuf with gshuf
+#
+
 
 # preflight checks for required components 
 for cmd in curl jq websocat; do
