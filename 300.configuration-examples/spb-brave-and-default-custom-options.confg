@@ -5,8 +5,11 @@ if [[ "${spb_browser_is_default}" == "true" ]] && [[ "${spb_browser_name}" == "b
     
     echo "brave browser is running..."
     # if the browser is the default and that default is brave
-    
-    echo "    - brave auto updating disabled"
+
+    echo "    - brave browser updates are disabled"
+    export spb_browser_options="--disable-brave-update" 
+
+    echo "    - brave component updates are disabled"
     export spb_browser_options"--disable-component-update"
 
     echo "    - brave custom window size set"
