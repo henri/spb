@@ -15,6 +15,8 @@
 # On macOS install gshuf via coreutils and then replace shuf with gshuf
 #
 
+os_type=$(uname -s | tr '[:upper:]' '[:lower:]')
+if [[ "$os_type" == "darwin" ]] ; then SHUF="gshuf" ; else SHUF="shuf" ; fi
 
 # preflight checks for required components 
 for cmd in curl jq websocat; do
