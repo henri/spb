@@ -6,7 +6,7 @@
 #   \___ \|  ___/|  _ <
 #   ____) | |    | |_) |
 #  |_____/|_|    |____/
-#  START PRIVATE BROWSER  
+#  START PRIVATE BROWSER
 #
 # Start many instances of Brave (or another browser) at the same time.
 #
@@ -125,11 +125,12 @@
 # version 10.3 - allowed spb_temp_data_path enviroment varable to be configured not only within configuration file
 # version 10.4 - imporved support for fedora
 # version 10.5 - initial support for provideding suplamentary browser options via 'spb_browser_options" envirment varable
+# version 10.6 - experimental support for mallvad browser added
 #
 
 ##
 ## Configuration of Variables
-## 
+##
 
 # configuration variables
 screen_session_prefix="spb-session"                 #  prefix of the screen session name
@@ -358,6 +359,20 @@ if [[ ! -z ${BASH_VERSINFO} ]] ; then
         spb_default_browser_data["chromium:linux:pop"]="chromium"
         spb_default_browser_data["chromium:freebsd"]="chromium"
         spb_default_browser_data["chromium:darwin"]="/Applications/Chromium.app/Contents/MacOS/Chromium"
+        # # # # # # # # # # # # #
+        spb_default_browser_data["mullvad:linux:mint"]="mullvad-browser"
+        spb_default_browser_data["mullvad:linux:arch"]="mullvad-browser" # untested
+        spb_default_browser_data["mullvad:linux:omarchy"]="mullvad-browser" # untested
+        spb_default_browser_data["mullvad:linux:ubuntu"]="mullvad-browser"
+        spb_default_browser_data["mullvad:linux:debian"]="mullvad-browser"
+        spb_default_browser_data["mullvad:linux:endeavouros"]="mullvad-browser" # untested
+        spb_default_browser_data["mullvad:linux:manjaro"]="mullvad-browser" # untested
+        spb_default_browser_data["mullvad:linux:centos"]="mullvad-browser" #untested
+        spb_default_browser_data["mullvad:linux:fedora"]="mullvad-browser"
+        spb_default_browser_data["mullvad:linux:cachyos"]="mullvad-browser" # untested
+        spb_default_browser_data["mullvad:linux:pop"]="mullvad-browser" # untested
+        spb_default_browser_data["mullvad:freebsd"]="mullvad-browser" # untested
+        spb_default_browser_data["mullvad:darwin"]="/Applications/Mullvad Browser.app/Contents/MacOS/mullvadbrowser" # untested
         # # # # # # # # # # # # #
         spb_default_multi_browser_support="true"
         # # # # # # # # # # # # #
@@ -2205,11 +2220,11 @@ if [[ "${use_template_dir_name}" != "" ]] ; then
 fi
 
 # check if we are we using firefox, palemoon, librewolf, waterfox or zen (experimental)
-if [[ "${spb_browser_name}" == "firefox" ]] || [[ "${spb_browser_name}" == "palemoon" ]] || [[ "${spb_browser_name}" == "zen" ]] || [[ "${spb_browser_name}" == "librewolf" ]] || [[ "${spb_browser_name}" == "waterfox" ]] ; then 
+if [[ "${spb_browser_name}" == "firefox" ]] || [[ "${spb_browser_name}" == "palemoon" ]] || [[ "${spb_browser_name}" == "zen" ]] || [[ "${spb_browser_name}" == "librewolf" ]] || [[ "${spb_browser_name}" == "waterfox" ]] || [[ "${spb_browser_name}" == "mullvad" ]] ; then 
     incognito_options="--private-window"
     # spb_data_browser_specifc_options="--new-instance --no-remote --class CustomClass --profile "
     spb_data_browser_specifc_options="--new-instance --no-remote --profile "
-    if [[ "${spb_browser_name}" == "zen" ]] ; then 
+    if [[ "${spb_browser_name}" == "zen" ]] ; then
          spb_data_browser_specifc_options="--new-instance --no-remote --profile "
          if [[ ${os_type} == "darwin" ]] ; then
             # bring the zen to the front if running on macOS
@@ -2227,8 +2242,8 @@ else
 fi
 
 # check if we are we running in standard mode
-if [[ "${standard_mode}" == "true" ]] ; then 
-    if [[ "${spb_browser_name}" == "firefox" ]] || [[ "${spb_browser_name}" == "palemoon" ]] ; then 
+if [[ "${standard_mode}" == "true" ]] ; then
+    if [[ "${spb_browser_name}" == "firefox" ]] || [[ "${spb_browser_name}" == "palemoon" ]] ; then
         incognito_options="--new-window"
     else
         # not running incognito mode (eg standard mode)
@@ -2247,7 +2262,7 @@ if [[ "${edit_template_dir_name}" != "" ]] ; then
 
     # temp directory is not used for this session (keeping the data and saving into the template)
     user_data_directory_options="${spb_data_browser_specifc_options}${edit_template_dir_absolute}"
-    
+
     # create a sym-link within that directory to the template for clarity
     if [[ "${quiet_mode}" != "true" ]] ; then
         echo "        Linking to template data..."
@@ -2289,7 +2304,7 @@ fi
 
 # report temporary directory information and screen session name in verbose mode
 if [[ "${quiet_mode}" != "true" ]] ; then
-    if [[ "${verbose_mode}" == "true" ]] ; then 
+    if [[ "${verbose_mode}" == "true" ]] ; then
         echo "Screen session name : ${screen_session_name}"
         echo "Temporary directory : ${browser_tmp_directory}"
         echo "Templates directory : $(realpath ${template_dir_base/#\~/$HOME})"
@@ -2349,6 +2364,7 @@ screen -S "${screen_session_name}" -dm bash -c " \"${spb_browser_path}\" ${brows
 run_post_browser_startup_commands
 
 exit 0
+
 
 
 
