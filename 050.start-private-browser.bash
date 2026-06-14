@@ -125,7 +125,7 @@
 # version 10.3 - allowed spb_temp_data_path enviroment varable to be configured not only within configuration file
 # version 10.4 - imporved support for fedora
 # version 10.5 - initial support for provideding suplamentary browser options via 'spb_browser_options" envirment varable
-# version 10.6 - experimental support for mallvad browser added
+# version 10.6 - experimental support for mallvad browser added - templating is broken for mallvad -
 #
 
 ##
