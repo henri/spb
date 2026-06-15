@@ -555,6 +555,21 @@ To show only the the path of current SPB configuration ; issue the following com
 spb --configuration-variables --verbose | grep "Configuration found : " | awk '{print $4}'
 ```
 
+The configuration file allows you to alter the way SPB works on your system. For example, if you would like to change your default web browser from Brave to FireFox, the example below shows you how to accomplish this modification.
+
+```
+# adds a line to the spb.config fille which will set FireFox as the default SPB browser
+echo 'export spb_browser_name=firefox' >> ~/bin/spb-templates/spb.config
+```
+
+To undo this change, edit the configruation file and comment out or delete that line.
+
+```
+# removes the line above which sets firefox as the default SPB browser (reverting the default browser to Brave)
+sed -i '/^export spb_browser_name=firefox$/d' ~/bin/spb-templates/spb.config
+```
+
+
 Additional information in regards to [configuring your browser](https://github.com/henri/spb/blob/main/README.md#sunrise-browser-support) via the spb.config.
 
 Example SPB [configuration files are available](https://github.com/henri/spb/tree/main/300.configuration-examples) to help you get started.
