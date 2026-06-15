@@ -543,6 +543,8 @@ start-private-browser --template-path bin/spb-templates
 
 The SPB template file always has the same name in the spb-templates directory ```spb.config``` and the default template path is ```~/bin/spb-templates```. Various options may be set via the spb.config file. The value specified  using the ```--template-path``` option is also the path in which browser templates are read and written.
 
+##### Available Enviroment Varables (SPB Configuration File)
+
 Run the following command to show available and also currently configured [```spb```](https://github.com/henri/spb) enviroment varibales : 
 
 ```
@@ -555,7 +557,9 @@ To show only the the path of current SPB configuration ; issue the following com
 spb --configuration-variables --verbose | grep "Configuration found : " | awk '{print $4}'
 ```
 
-The configuration file allows you to alter the way SPB works on your system. For example, if you would like to change your default web browser from Brave to FireFox, the example below shows you how to accomplish this modification.
+##### Configure Default Browser (SPB Configuration File)
+
+The SPB configuration file allows you to alter the way SPB works on your system. For example, if you would like to set your default SPB web browser from Brave to FireFox, the example below shows you how to accomplish this modification to the ```spb.config``` file.
 
 ```
 # adds a line to the spb.config fille which will set FireFox as the default SPB browser
@@ -569,10 +573,14 @@ To undo this change, edit the configruation file and comment out or delete that 
 sed -i '/^export spb_browser_name=firefox$/d' ~/bin/spb-templates/spb.config
 ```
 
+##### Configurations Examples (SPB Configuration File)
 
 Additional information in regards to [configuring your browser](https://github.com/henri/spb/blob/main/README.md#sunrise-browser-support) via the spb.config.
 
 Example SPB [configuration files are available](https://github.com/henri/spb/tree/main/300.configuration-examples) to help you get started.
+
+
+##### Missing Options (SPB Configuration File)
 
 If there is an option you wish to modifiy but it is not yet supported [raise an issue](https://github.com/henri/spb/issues) or submit a [pull request](https://github.com/henri/spb/blob/main/README.md#rocket-contributing-to-the-project).
 
