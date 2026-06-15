@@ -188,6 +188,7 @@ spb_cli_browser_path_option_occurance_count=0
 spb_config_file_spb_browser_name_set="false"
 spb_config_file_spb_browser_path_set="false"
 spb_browser_path_backup=""
+spb_browser_name_backup=""
 
 # super pre argument varables (initial setup)
 #
@@ -615,6 +616,7 @@ for arg in "$@" ; do
 
     # update the browser name and other variables which depend on the browser name 
     export spb_browser_name="${super_pre_next_arg}"
+    spb_browser_name_backup="${spb_browser_name}"
     spb_browser_name_externally_configured="true"
     if [[ "${spb_browser_name_default}" != "${spb_browser_name}" ]] ; then 
         export spb_browser_is_default="false"
@@ -841,6 +843,21 @@ if [ -r ${spb_configuration_file_absolute} ] ; then
                 fi
             fi
             spb_browser_path="${spb_browser_path_backup}"
+        fi
+    fi
+
+    # parse configuration file to see if browser_name has been set
+    if [[ $(grep -v '^\s*#' ${spb_configuration_file_absolute} | grep -E "^\s*(export\s+)?spb_browser_name=") != "" ]] ; then
+        spb_config_file_spb_browser_name_set="true"
+        spb_browser_name_externally_configured="true"
+        if [ ! -z "${spb_browser_name_backup}" ] ; then
+            if [[ "${quiet_mode}" != "true" ]] ; then
+                    echo "Enviroment Varible Notice : spb_browser_name specififed within config file ignored"
+                if [[ "${verbose_mode}" == "true" ]] ; then
+                    echo "    Enviroment update is due to --browser being specified as a CLI argument"
+                fi
+            fi
+            spb_browser_name="${spb_browser_name_backup}"
         fi
     fi
 
@@ -2371,8 +2388,5 @@ screen -S "${screen_session_name}" -dm bash -c " \"${spb_browser_path}\" ${brows
 run_post_browser_startup_commands
 
 exit 0
-
-
-
 
 
