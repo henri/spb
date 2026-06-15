@@ -529,11 +529,13 @@ echo 'export spb_template_standard_mode="true"' >> ~/bin/spb-templates/spb.confi
 
 The SPB configuration file allows a way to store frequently used settings and also to confgure [pre and post scripts](https://github.com/henri/spb/tree/main/300.configuration-examples) to run when you start and stop SPB.
 
-Editing the configuration file is easy ; run the command below to edit with your default editor.
+
+Editing the SPB configuration file a matter of running the command below. The SPB configruation file will open within your sessions default editor.
 
 ```
 start-private-browser --edit-configuration
 ```
+
 
 It is possible to have multiple SPB configuration files and template sets on your system and switch between these sets using the following command to specify the SPB template path.
 
