@@ -125,7 +125,8 @@
 # version 10.3 - allowed spb_temp_data_path enviroment varable to be configured not only within configuration file
 # version 10.4 - imporved support for fedora
 # version 10.5 - initial support for provideding suplamentary browser options via 'spb_browser_options" envirment varable
-# version 10.6 - experimental support for mallvad browser added - templating is broken for mallvad -
+# version 10.6 - experimental support for mallvad browser added - templating is broken for mallvad
+# version 10.7 - bug fixes for correctly exporting enviroment variable spb_browser_name when spb.config is run with cli argument --browser
 #
 
 ##
@@ -193,7 +194,8 @@ spb_browser_path_backup=""
 # related to output verbosity
 verbose_mode="false" # when set to true additional information reported to standard out
 quiet_mode="false" # when set to true less information is reported to standard out
-
+export spb_verbose_mode="${verbose_mode}"
+export spb_quiet_mode="${quiet_mode}"
 
 # os detection
 os_type=$(uname -s | tr '[:upper:]' '[:lower:]')
@@ -491,12 +493,14 @@ for arg in "$@" ; do
         # there is a mis-spelt option also which will be allowed for legacy scripts
         # which may exist using the incorrect spelling and also for recursive calls
         quiet_mode="true"
+        export spb_quiet_mode="${quiet_mode}"
         valid_argument_found="true"
     fi
 
     # check if verbose mode should be enabled
     if [[ "${arg}" == "--verbose" ]] ; then
         verbose_mode="true"
+        export spb_verbose_mode="${verbose_mode}"
         valid_argument_found="true"
     fi
 
@@ -543,6 +547,80 @@ for arg in "$@" ; do
         spb_browser_path_backup="${spb_browser_path}"
         spb_browser_path_externally_configured="true"
     
+    fi
+
+
+    # check to see if browser mode should be enabled
+    if [[ "${arg}" == "--browser" ]] ; then
+
+    # check they are not listed more than once
+    ((spb_cli_browser_option_occurance_count++))
+    if [[ "${spb_browser_name_externally_configured}" == "true" ]] && [[ ${spb_cli_browser_option_occurance_count} -gt 1 ]] ; then
+        echo ""
+        echo "ERROR! : Using the ${arg} option is only allowed once"
+        echo ""
+        echo "         It is possible that browser_name has been"
+        echo "         configured via an enviroment varable."
+        echo ""
+        exit -75
+    fi
+
+
+    # look ahead for passed argument parameters
+    if (( super_pre_index + 1 < num_args )) ; then
+        super_pre_next_arg="${args[super_pre_index + 1]}"
+    else
+        super_pre_next_arg=""
+    fi
+
+    if [[ "${spb_default_multi_browser_support}" == "false" ]] && [[ "${spb_browser_path_externally_configured}" == "false" ]] ; then
+        echo ""
+        echo "ERROR! : SPB multi-browser support is not available!"
+        echo ""
+        echo "         This is due to you running an older version"
+        echo "         of BASH on your system, please update to"
+        echo "         latest version of BASH if you would like"
+        echo "         to use the --browser option."
+        echo ""
+        echo "         If you want to use an alternative browser"
+        echo "         but do not want to upgrade your version"
+        echo "         of BASH, then you may configure the alt"
+        echo "         browser by setting environment variables."
+        echo "         It is possible to set these in the SPB"
+        echo "         configuration file or via your shell."
+        echo ""
+        echo "         Finally, it is also possible to use the "
+        echo "         --browser-path option to specify a path"
+        echo "         for your browser."
+        echo ""
+        echo "         For addiitonal help use the command : "
+        echo "         ${0} --help"
+        echo ""
+        exit -165
+    fi
+
+    # okay lets see whats what
+    if [[ "${super_pre_next_arg}" != "" ]] ; then
+        # configure the system to skip the next argument for processing 
+        # as it is the value for this one
+        super_pre_skip_arg="true"
+    else
+        echo ""
+        echo "ERROR! : When you specify --browser you must also"
+        echo "         supply a browser name which will be used"
+        echo "         instead of the default browser name."
+        echo ""
+        exit -164
+    fi
+
+    # update the browser name and other variables which depend on the browser name 
+    export spb_browser_name="${super_pre_next_arg}"
+    spb_browser_name_externally_configured="true"
+    if [[ "${spb_browser_name_default}" != "${spb_browser_name}" ]] ; then 
+        export spb_browser_is_default="false"
+    fi
+    template_dir_parent="${template_dir_base}/${spb_browser_name}"
+
     fi
 
     ((super_pre_index++))
@@ -704,6 +782,8 @@ function list_defaut_configuration_enviroment_variables() {
         echo "Run-time enviroment variables exported to spb.config :"
         echo ""
         echo "#----------------------------------------------------"
+        echo "# spb_verbose_mode : ${spb_verbose_mode}"
+        echo "# spb_quiet_mode : ${spb_quiet_mode}"
         echo "# spb_browser_is_default : ${spb_browser_is_default}"
         echo "#----------------------------------------------------"
         echo ""
@@ -987,79 +1067,6 @@ for arg in "$@" ; do
   # forcefully close a browser session via identifier
   if [[ "${arg}" == "--force-stop" ]] ; then
     force_stop_mode="true"
-  fi
-
-  # check to see if browser mode should be enabled
-  if [[ "${arg}" == "--browser" ]] ; then
-
-    # check they are not listed more than once
-    ((spb_cli_browser_option_occurance_count++))
-    if [[ "${spb_browser_name_externally_configured}" == "true" ]] && [[ ${spb_cli_browser_option_occurance_count} -gt 1 ]] ; then
-        echo ""
-        echo "ERROR! : Using the ${arg} option is only allowed once"
-        echo ""
-        echo "         It is possible that browser_name has been"
-        echo "         configured via an enviroment varable."
-        echo ""
-        exit -75
-    fi
-
-
-    # look ahead for passed argument parameters
-    if (( pre_index + 1 < num_args )) ; then
-        pre_next_arg="${args[pre_index + 1]}"
-    else
-        pre_next_arg=""
-    fi
-
-    if [[ "${spb_default_multi_browser_support}" == "false" ]] && [[ "${spb_browser_path_externally_configured}" == "false" ]] ; then
-        echo ""
-        echo "ERROR! : SPB multi-browser support is not available!"
-        echo ""
-        echo "         This is due to you running an older version"
-        echo "         of BASH on your system, please update to"
-        echo "         latest version of BASH if you would like"
-        echo "         to use the --browser option."
-        echo ""
-        echo "         If you want to use an alternative browser"
-        echo "         but do not want to upgrade your version"
-        echo "         of BASH, then you may configure the alt"
-        echo "         browser by setting environment variables."
-        echo "         It is possible to set these in the SPB"
-        echo "         configuration file or via your shell."
-        echo ""
-        echo "         Finally, it is also possible to use the "
-        echo "         --browser-path option to specify a path"
-        echo "         for your browser."
-        echo ""
-        echo "         For addiitonal help use the command : "
-        echo "         ${0} --help"
-        echo ""
-        exit -165
-    fi
-
-    # okay lets see whats what
-    if [[ "${pre_next_arg}" != "" ]] ; then
-        # configure the system to skip the next argument for processing 
-        # as it is the value for this one
-            pre_skip_arg="true"
-    else
-        echo ""
-        echo "ERROR! : When you specify --browser you must also"
-        echo "         supply a browser name which will be used"
-        echo "         instead of the default browser name."
-        echo ""
-        exit -164
-    fi
-
-    # update the browser name and other variables which depend on the browser name 
-    export spb_browser_name="${pre_next_arg}"
-    spb_browser_name_externally_configured="true"
-    if [[ "${spb_browser_name_default}" != "${spb_browser_name}" ]] ; then 
-        export spb_browser_is_default="false"
-    fi
-    template_dir_parent="${template_dir_base}/${spb_browser_name}"
-    
   fi
 
   ((pre_index++))
@@ -2364,6 +2371,7 @@ screen -S "${screen_session_name}" -dm bash -c " \"${spb_browser_path}\" ${brows
 run_post_browser_startup_commands
 
 exit 0
+
 
 
 
