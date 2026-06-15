@@ -574,10 +574,9 @@ To undo this change, edit the configruation file and comment out or delete that 
 # removes the line above which sets firefox as the default SPB browser (reverting the default browser to Brave)
 sed -i '/^export spb_browser_name=firefox$/d' ~/bin/spb-templates/spb.config
 ```
+Additional information in regards to [configuring your browser](https://github.com/henri/spb/blob/main/README.md#sunrise-browser-support) via the spb.config.
 
 ##### Configurations Examples (SPB Configuration File)
-
-Additional information in regards to [configuring your browser](https://github.com/henri/spb/blob/main/README.md#sunrise-browser-support) via the spb.config.
 
 Example SPB [configuration files are available](https://github.com/henri/spb/tree/main/300.configuration-examples) to help you get started.
 
