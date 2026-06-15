@@ -7,7 +7,7 @@ if [[ "${spb_browser_is_default}" == "true" ]] && [[ "${spb_browser_name}" == "b
     # if the browser is the default and that default is brave
 
     echo "    - brave browser updates are disabled"
-    export spb_browser_options=" $spb_browser_options --disable-brave-update" 
+    export spb_browser_options="--disable-brave-update" 
 
     echo "    - brave component updates are disabled"
     export spb_browser_options" $spb_browser_options --disable-component-update"
