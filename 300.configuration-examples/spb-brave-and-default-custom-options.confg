@@ -7,13 +7,20 @@ if [[ "${spb_browser_is_default}" == "true" ]] && [[ "${spb_browser_name}" == "b
     # if the browser is the default and that default is brave
 
     echo "    - brave browser updates are disabled"
-    export spb_browser_options="--disable-brave-update" 
+    export spb_browser_options=" $spb_browser_options --disable-brave-update" 
 
     echo "    - brave component updates are disabled"
-    export spb_browser_options"--disable-component-update"
+    export spb_browser_options" $spb_browser_options --disable-component-update"
 
     echo "    - brave custom window size set"
-    export spb_browser_options="--window-size=500,900"
-    
+    export spb_browser_options=" $spb_browser_options --window-size=500,900"
+
+
+    echo "    - brave custom window position set"
+    export spb_browser_options=" $spb_browser_options  --window-position=0,0"
+
+    echo "   - brave custom proxy set"
+    export spb_browser_options=" $spb_browser_options --proxy-server=http://192.168.1.100:8080"
+
 fi
 
