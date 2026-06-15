@@ -15,7 +15,6 @@ if [[ "${spb_browser_is_default}" == "true" ]] && [[ "${spb_browser_name}" == "b
     echo "    - brave custom window size set"
     export spb_browser_options=" $spb_browser_options --window-size=500,900"
 
-
     echo "    - brave custom window position set"
     export spb_browser_options=" $spb_browser_options  --window-position=0,0"
 
