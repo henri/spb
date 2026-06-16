@@ -919,7 +919,23 @@ Learn more about [SPB privacy](https://github.com/henri/spb/blob/main/README.md#
 <br/>
 
 ### :sunrise: Browser Support
-SPB supports various browsers accross a wide range of operating systems. 
+SPB supports various browsers accross a wide range of operating systems.
+
+Some browsers have better support than others. Some browsers are in an experimental support stage. If you have a browser which is based on Chromium or Firefox there is a good chance it will work with SPB.
+
+  - Brave
+  - Chromium
+  - FireFox
+  - Helium
+  - LibreWolf
+  - Mullvad
+  - Opera
+  - PaleMoon
+  - Ungoogled-Chromium
+  - Vivaldi
+  - Waterfox
+  - Zen
+  - ...and more
 
 At startup SPB checks if BASH 4 or later is installed. If a modern version of BASH is detected, then multi-browser support is automatically enabled. SPB multi-browser support makes it possible to specify the browser name you would like to use via a command line option or from within the SPB configuration file. 
 
