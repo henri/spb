@@ -126,10 +126,12 @@ Examples of using SPB to start isolated sessions - assumes FISH shell :
 spb ; spb ; spb
 
 
+
 # Launch ten disposable independent instances of FireFox web browser.
 # Closing each browser will delete session data.
 
 for i in (seq 1 10) ; spb --browser firefox ; end
+
 
 
 # Edit five templates : claude, aws, github, amazon and youtube in standard mode (assumes templates already exist)
