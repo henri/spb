@@ -122,16 +122,19 @@ Examples of using SPB to start isolated sessions - assumes FISH shell :
 
 # Start three disposable independent instances of the Brave web browser.
 # Closing each browsers will delete session data.
+
 spb ; spb ; spb
 
 
 # Launch ten disposable independent instances of FireFox web browser.
 # Closing each browser will delete session data.
+
 for i in (seq 1 10) ; spb --browser firefox ; end
 
 
 # Edit five templates : claude, aws, github, amazon and youtube in standard mode (assumes templates already exist)
 # Closing any browser will *** not *** delete the session data from your system.
+
 for template in claude aws github amazon youtube ; spb --standard --edit-template $template ; end ;
 
 
@@ -139,7 +142,7 @@ for template in claude aws github amazon youtube ; spb --standard --edit-templat
 
 The way SPB accomplishes this isolation is is by storing the browser data directory for each instance in seperate part of computers file system. 
 
-If you want to further isolate these sessions from one and other. It is possible to run SPB on one or more remote machines, within a virtual machine or within seperate name spaces (depending on your operating system).
+If you want to further isolate these sessions from one and other. It is possible to run SPB on remote machine(s), within a virtual machine(s) or within seperate name spaces (depending on your operating system).
 
 Advatanges of using isolated web browser sessions include :
 
