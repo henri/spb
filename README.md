@@ -128,7 +128,7 @@ spb ; spb ; spb
 for i in (seq 1 10) ; spb --browser firefox ; end
 
 
-# Edit five templates : claude, aws, github, amazon and youtube in standard mode (assumes exiting templates)
+# Edit five templates : claude, aws, github, amazon and youtube in standard mode (assumes templates already exist)
 for template in claude aws github amazon youtube ; spb --standard --edit-template $template ; end ;
 
 
