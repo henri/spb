@@ -921,7 +921,7 @@ Learn more about [SPB privacy](https://github.com/henri/spb/blob/main/README.md#
 ### :sunrise: Browser Support
 SPB supports various browsers accross a wide range of [operating systems](https://github.com/henri/spb/blob/main/README.md#triangular_flag_on_post-compatibility).
 
-Below is a list of SPB supported browsers. Note some have better support than others your millage may vary. Some browsers are currently in an experimental support stage in terms of SPB support. If you have a browser which is based on Chromium or Firefox there is a good chance it will work with SPB.
+Below is a list of SPB supported browsers. Some browsers have better support than others (your millage may vary). Some browsers are currently in an experimental support stage by SPB. If you have a browser which is based on Chromium or Firefox, then there is a good chance it will work with SPB.
 
   - Brave
   - Chromium
