@@ -1,0 +1,27 @@
+# ~/.local/share/applications/start-private-browser.desktop
+
+
+[Desktop Entry]
+Name=Start-Private-Browser
+Exec=bash -c '$HOME/bin/start-private-browser.bash "$@"' -- %u
+Type=Application
+MimeType=x-scheme-handler/http;x-scheme-handler/https;
+
+
+## setup instructions
+#
+## db update 
+#  update-desktop-database ~/.local/share/applications/
+#
+## register 
+#  xdg-mime default my-browser.desktop x-scheme-handler/http
+#  xdg-mime default my-browser.desktop x-scheme-handler/https
+#
+## verify
+#  xdg-mime query default x-scheme-handler/http
+#  xdg-mime query default x-scheme-handler/https
+#
+## test
+# xdg-open https://github.com/henri/spb
+
+
