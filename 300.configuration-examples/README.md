@@ -10,5 +10,5 @@ Learn more about the [SPB configuration file](https://github.com/henri/spb/blob/
 <br>
 
   - Configure Custom Options Based on Browser <sub><br><br>Combine together in your configuration to have specific options set by default for specific browsers or browser families.<br><br></sub> 
-    - [Brave](https://github.com/henri/spb/blob/main/300.configuration-examples/spb-brave-custom-options.config)
-    - [Firefox](https://github.com/henri/spb/blob/main/300.configuration-examples/spb-firefox-custom-options.config)
+    - [Brave](https://github.com/henri/spb/blob/main/300.configuration-examples/spb-brave-custom-options.config) (will work with Chromium browser family)
+    - [Firefox](https://github.com/henri/spb/blob/main/300.configuration-examples/spb-firefox-custom-options.config) (will work with FireFox browser family
