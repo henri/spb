@@ -14,14 +14,14 @@ MimeType=x-scheme-handler/http;x-scheme-handler/https;
 #  update-desktop-database ~/.local/share/applications/
 #
 ## register 
-#  xdg-mime default my-browser.desktop x-scheme-handler/http
-#  xdg-mime default my-browser.desktop x-scheme-handler/https
+#  xdg-mime default start-private-browser.desktop x-scheme-handler/http
+#  xdg-mime default start-private-browser.desktop x-scheme-handler/https
 #
 ## verify
 #  xdg-mime query default x-scheme-handler/http
 #  xdg-mime query default x-scheme-handler/https
 #
 ## test
-# xdg-open https://github.com/henri/spb
+#  xdg-open https://github.com/henri/spb
 
 
