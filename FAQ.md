@@ -7,7 +7,7 @@ This document aims to provide clear ansers to some of the [SPB](https://github.c
 </p>
 
 ### Will SPB work with browsers other than Brave
-Yes, SPB works fine with various web browsers. 
+Yes, SPB works fine with [various web browsers](https://github.com/henri/spb/blob/main/README.md#sunrise-browser-support). 
 
 <hr>
 
