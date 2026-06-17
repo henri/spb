@@ -8,7 +8,7 @@ Type=Application
 MimeType=x-scheme-handler/http;x-scheme-handler/https;
 
 
-## setup instructions
+## setup instructions to configuring SPB as default handler for http/https URLs
 #
 ## db update 
 #  update-desktop-database ~/.local/share/applications/
