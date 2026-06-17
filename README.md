@@ -4,7 +4,7 @@
 
 ### :trident: SPB :speak_no_evil: [private-as](https://github.com/henri/spb/blob/main/FAQ.md#what-is-easy-as)! :chipmunk:
 
-SPB is a command line management interface for your [web browser(s)](https://github.com/henri/spb/blob/main/README.md#sunrise-browser-support).
+SPB provides a command line management interface to your [web browser(s)](https://github.com/henri/spb/blob/main/README.md#sunrise-browser-support).
 
 Have you wished there was an easy way to interact with the web from your terminal? Maybe like me you feel ready  to automate your web surfing from the tranquility of the shell? Bundled [SPB fish snippits](https://github.com/henri/spb/?tab=readme-ov-file#fish-shell-wrappers) makes searching for information from the fish shell [easy-as](https://github.com/henri/spb/blob/main/FAQ.md#what-is-easy-as)! 
 
