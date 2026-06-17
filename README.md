@@ -84,8 +84,8 @@ With SPB installed you may run the following command (or more precisly an [spb-f
 
 ### :dart: SPB Feature Summary
 
-  - Generate [disposable](https://github.com/henri/spb/blob/main/README.md#bookmark_tabs-usage) browser sessions.
-  - [Create](https://github.com/henri/spb/blob/main/README.md#bookmark_tabs-usage) multiple [isolated web browser instances](https://github.com/henri/spb/blob/main/README.md#sailboat-what-are-isolated-web-sessions).
+  - Generate [disposable](https://github.com/henri/spb/blob/main/README.md#bookmark_tabs-usage) browser sessions
+  - [Create](https://github.com/henri/spb/blob/main/README.md#bookmark_tabs-usage) multiple [isolated web browser instances](https://github.com/henri/spb/blob/main/README.md#sailboat-what-are-isolated-web-sessions)
   - Reliable browser [templating](https://github.com/henri/spb/blob/main/README.md#spb-templating-support) system
      - providing task isolation
      - browser customisation
