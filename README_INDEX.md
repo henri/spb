@@ -4,7 +4,7 @@
 </p>
 
 # 🏖️ Welcome to SPB
-SPB is a command line management interface for your [web browser(s)](https://github.com/henri/spb/blob/main/README.md#sunrise-browser-support).
+SPB provides a command line management interface to your [web browser(s)](https://github.com/henri/spb/blob/main/README.md#sunrise-browser-support).
 
 [Harness the power](https://github.com/henri/spb/blob/main/README.md#shield-privacy) of [isolated web sessions](https://github.com/henri/spb/blob/main/README.md#sailboat-what-are-isolated-web-sessions) with SPB. Every time you run [```spb```](https://github.com/henri/spb#fish-shell-wrappers) a new browser instance ([Brave](https://brave.com/) is the default) will be spawned within a [screen](https://www.gnu.org/software/screen/) session. When you close the browser, [SPB will delete all <b>web</b> data](https://github.com/henri/spb/blob/main/README.md#shield-privacy) related to that browser session.
 
