@@ -17,6 +17,12 @@ MimeType=x-scheme-handler/http;x-scheme-handler/https;
 ## db update 
 #  update-desktop-database ~/.local/share/applications/
 #
+## check current settings (incase you would like to switch back)
+#  xdg-mime query default x-scheme-handler/http
+#     # note value returned by command should you wish to switch back
+#  xdg-mime query default x-scheme-handler/https
+#     # note value returned by commands should you wish to switch back
+#
 ## register 
 #  xdg-mime default start-private-browser.desktop x-scheme-handler/http
 #  xdg-mime default start-private-browser.desktop x-scheme-handler/https
