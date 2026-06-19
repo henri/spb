@@ -128,7 +128,7 @@
 # version 10.6 - experimental support for mallvad browser added - templating is broken for mallvad
 # version 10.7 - bug fixes for correctly exporting enviroment variable spb_browser_name when spb.config is run with cli argument --browser
 # version 10.8 - standard input support added and modifiable with enviroment variable spb_read_from_stdin
-
+# version 10.9 - bug fixes related to standrd input support
 
 ##
 ## configuration of variables
@@ -1436,14 +1436,13 @@ function check_template_browser_identification() {
     return 0
 }
 
-
 function read_from_standard_input() {
     # check if standard input is provided - this check may also benifit from a time out being added for exta peace of mind?
     if [ -t 0 ] ; then return ; fi
     # read standard input (if you got this far something is waiting to be read)
-    while IFS= read -r line; do
+    while IFS= read -r line || [[ -n "${line}" ]] ; do
         [[ -z "${line}" || "${line}" =~ ^[#[:space:]] ]] && continue
-        standard_input_data="${standard_input_data:+$standard_input_data }${line}"
+        standard_input_data="${standard_input_data:+$standard_input_data } \"${line}\""
     done
 }
 
@@ -2405,7 +2404,7 @@ if [[ "${spb_show_about}" == "true" ]] ; then url_list="\"${spb_show_about_url}\
 # add standard_input_data to the url list
 if [[ "${read_from_stdin}" == "true" ]] ; then
     read_from_standard_input
-    if ! [ -z "${standard_input_data}" ] ; then url_list="\"${standard_input_data}\" ${url_list}" ; fi
+    if ! [ -z "${standard_input_data}" ] ; then url_list="${standard_input_data} ${url_list}" ; fi
 fi
 
 # start a screen session with the name based off the temp directory, then once browser exits delete the temporary directory
