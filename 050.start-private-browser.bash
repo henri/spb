@@ -127,7 +127,7 @@
 # version 10.5 - initial support for suplamentary browser options to be provided via 'spb_browser_options" envirment varable
 # version 10.6 - experimental support for mallvad browser added - templating is broken for mallvad
 # version 10.7 - bug fixes for correctly exporting enviroment variable spb_browser_name when spb.config is run with cli argument --browser
-# version 10.8 - standard input support added and modifiable with enviroment varable spb_read_from_stdin
+# version 10.8 - standard input support added and modifiable with enviroment variable spb_read_from_stdin
 
 
 ##
