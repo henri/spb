@@ -1439,10 +1439,16 @@ function check_template_browser_identification() {
 function read_from_standard_input() {
     # check if standard input is provided - this check may also benifit from a time out being added for exta peace of mind?
     if [ -t 0 ] ; then return ; fi
+    local line url
     # read standard input (if you got this far something is waiting to be read)
-    while IFS= read -r line || [[ -n "${line}" ]] ; do
+    while IFS= read -r line || [[ -n "${line}" ]]; do
         [[ -z "${line}" || "${line}" =~ ^[#[:space:]] ]] && continue
-        standard_input_data="${standard_input_data:+$standard_input_data } \"${line}\""
+        while IFS= read -r url; do
+            # sanitise the input so it is just a URL
+            url=$( sed 's/\$/%24/g; s/!/%21/g' <<< "${url}" )
+            url=$( tr -dc 'A-Za-z0-9-._~:/?#[]@&()*+,;=%' <<< "${url}" )
+            [[ -n "${url}" ]] && standard_input_data="${standard_input_data:+$standard_input_data }\"${url}\""
+        done < <( tr '[:space:]' '\n' <<< "${line}" ) # break apart urls on the same line sepetated by space
     done
 }
 
@@ -2407,6 +2413,7 @@ if [[ "${read_from_stdin}" == "true" ]] ; then
     if ! [ -z "${standard_input_data}" ] ; then url_list="${standard_input_data} ${url_list}" ; fi
 fi
 
+
 # start a screen session with the name based off the temp directory, then once browser exits delete the temporary directory
 screen -S "${screen_session_name}" -dm bash -c " \"${spb_browser_path}\" ${browser_options} ${url_list} ; sleep 1 ; ${pre_remove_tmp_directory_cmd} ; rm -rf ${browser_tmp_directory} ${spb_etlfr_cmd} "
 
@@ -2414,5 +2421,6 @@ screen -S "${screen_session_name}" -dm bash -c " \"${spb_browser_path}\" ${brows
 run_post_browser_startup_commands
 
 exit 0
+
 
 
