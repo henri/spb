@@ -17,7 +17,7 @@
 # startup options, settings, proxies, seperated cookies and more...
 #
 # This script has built in support for many web browsers. SPB also allows
-# starting of unsupported browsers. Use the '--help' option or see
+# starting of unsupported browsers. Uuse the '--help' option or see
 # the home page (listed below) for additional usage information.
 #
 # (C) Copyright Henri Shustak 2024
@@ -127,10 +127,11 @@
 # version 10.5 - initial support for suplamentary browser options to be provided via 'spb_browser_options" envirment varable
 # version 10.6 - experimental support for mallvad browser added - templating is broken for mallvad
 # version 10.7 - bug fixes for correctly exporting enviroment variable spb_browser_name when spb.config is run with cli argument --browser
-#
+# version 10.8 - standard input support added and modifiable with enviroment varable spb_read_from_stdin
+
 
 ##
-## Configuration of Variables
+## configuration of variables
 ##
 
 # configuration variables
@@ -144,10 +145,17 @@ spb_configuration_file_name="spb.config"            #  default config file name
 
 
                                                     #  //////////////////////////////////
-# configuration variables                           #  enviroment option override allowed
-if [ -z ${spb_temp_data_path} ] ; then              #  //////////////////////////////////
+                                                    #  enviroment option override allowed
+                                                    #  //////////////////////////////////
+# configuration of variables with overide           #
+if [ -z ${spb_temp_data_path} ] ; then              #
     spb_temp_data_path="/tmp"                       #  temporary data storage path 
+fi                                                  #
+if [ -z ${spb_read_from_stdin} ] ; then             #  
+    spb_read_from_stdin="true"                      #  spb to read data from standard input (piped intput)
 fi
+
+
 
 # lock file variables to protect templates being edited
 spb_template_lock_file_name="spb-template-edit.lock"
@@ -166,6 +174,9 @@ skip_arg="false"
 pre_skip_arg="false"
 super_pre_skip_arg="false"
 pre_arg_scan_proceed="true"
+
+read_from_stdin="true"
+standard_input_data=""
 
 dot_dot_dot=""
 template_in_use_via_cli_flag="false"
@@ -565,7 +576,7 @@ for arg in "$@" ; do
         echo ""
         exit -75
     fi
-
+    
 
     # look ahead for passed argument parameters
     if (( super_pre_index + 1 < num_args )) ; then
@@ -714,6 +725,7 @@ fi
 # export spb_browser_path="brave-browser"
 # export spb_temp_data_path="/tmp"
 # export spb_filesystem_sync="true"
+# export spb_read_from_stdin="true"
 # export spb_browser_options=""
 # 
 # export spb_template_standard_mode="false"
@@ -772,6 +784,7 @@ function list_defaut_configuration_enviroment_variables() {
         echo "# spb_browser_path : ${spb_browser_path}" 
         echo "# spb_temp_data_path : ${spb_temp_data_path}"
         echo "# spb_filesystem_sync : ${spb_filesystem_sync}"
+        echo "# spb_read_from_stdin : ${spb_read_from_stdin}"
         echo "# spb_browser_options : ${spb_browser_options}"
         echo "#----------------------------------------------------"
         echo "# spb_template_standard_mode : ${spb_template_standard_mode}"
@@ -822,14 +835,12 @@ fi
 # configuration file loading
 if [ -r ${spb_configuration_file_absolute} ] ; then
 
+
     # lets start with sourcing, then we can move onto parsing
     source ${spb_configuration_file_absolute}
 
-    # parse configuration file to see if browser_name has been set
-    if [[ "$(grep -v '^\s*#' ${spb_configuration_file_absolute} | grep -E "^\s*(export\s+)?spb_browser_name=")" != "" ]] ; then
-        spb_config_file_spb_browser_name_set="true"
-        spb_browser_name_externally_configured="true"
-    fi
+    # update internal spb variables (to match published varables) - not great but this is the current approach
+    read_from_stdin="${spb_read_from_stdin}"
 
     # parse configuration file to see if browser_path has been set
     if [[ $(grep -v '^\s*#' ${spb_configuration_file_absolute} | grep -E "^\s*(export\s+)?spb_browser_path=") != "" ]] ; then
@@ -1423,6 +1434,17 @@ function check_template_browser_identification() {
         exit -68
     fi
     return 0
+}
+
+
+function read_from_standard_input() {
+    # check if standard input is provided - this check may also benifit from a time out being added for exta peace of mind?
+    if [ -t 0 ]; then return ; fi
+    # read standard input (if you got this far something is waiting to be read)
+    while IFS= read -r line; do
+        [[ -z "${line}" || "${line}" =~ ^[#[:space:]] ]] && continue
+        standard_input_data="${standard_input_data:+$standard_input_data }${line}"
+    done
 }
 
 function check_template_directory_accessability() {
@@ -2380,6 +2402,11 @@ done
 # add spb_show_about_url to url list if --about option detected
 if [[ "${spb_show_about}" == "true" ]] ; then url_list="\"${spb_show_about_url}\" ${url_list}" ; fi
 
+# add standard_input_data to the url list
+if [[ "${read_from_stdin}" == "true" ]] ; then
+    read_from_standard_input
+    if ! [ -z "${standard_input_data}" ] ; then url_list="\"${standard_input_data}\" ${url_list}" ; fi
+fi
 
 # start a screen session with the name based off the temp directory, then once browser exits delete the temporary directory
 screen -S "${screen_session_name}" -dm bash -c " \"${spb_browser_path}\" ${browser_options} ${url_list} ; sleep 1 ; ${pre_remove_tmp_directory_cmd} ; rm -rf ${browser_tmp_directory} ${spb_etlfr_cmd} "
