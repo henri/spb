@@ -2,8 +2,8 @@
 # https://github.com/henri/spb
 #
 # note it is somewhat dangerous using this to evaluate untrusted URL's
-# there may be break out conditions which would allow a malicouse
-# url to cause issues
+# there may be break out conditions which would allow malicious
+# URLs to cause issues
 #
 # due to these potential issues this is currently in the extras directory
 # if you are a security expert and are able to provide guidence around
