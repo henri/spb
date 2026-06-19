@@ -2,13 +2,13 @@
 # https://github.com/henri/spb
 #
 # note it is somewhat dangerous using this to evaluate untrusted URL's
-# there may be break out conditions which would allow malicious
-# URLs to cause issues
+# there may be unforseen break out conditions which could allow malicious
+# URLs to cause issues on a system
 #
 # due to these potential issues this is currently in the extras directory
 # if you are a security expert and are able to provide guidence around
-# mitigating maliciouse urls from running commands on the system
-# your inptu is most welcome
+# mitigating maliciouse URLs from running commands on the system, then
+# your input is most welcome
 #
 # save the file into the path below or into an approriate location on your system
 # ~/.local/share/applications/start-private-browser.desktop
