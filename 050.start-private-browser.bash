@@ -1439,7 +1439,7 @@ function check_template_browser_identification() {
 
 function read_from_standard_input() {
     # check if standard input is provided - this check may also benifit from a time out being added for exta peace of mind?
-    if [ -t 0 ]; then return ; fi
+    if [ -t 0 ] ; then return ; fi
     # read standard input (if you got this far something is waiting to be read)
     while IFS= read -r line; do
         [[ -z "${line}" || "${line}" =~ ^[#[:space:]] ]] && continue
