@@ -10,6 +10,9 @@
 # mitigating maliciouse URLs from running commands on the system, then
 # your input is most welcome
 #
+# if you enable this as your defult URL handler proceed with caution and
+# check the URL you are clicking
+#
 # save the file into the path below or into an approriate location on your system
 # ~/.local/share/applications/start-private-browser.desktop
 
