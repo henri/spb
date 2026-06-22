@@ -7,6 +7,8 @@ Learn more about the [SPB configuration file](https://github.com/henri/spb/blob/
 
 #### Quick SPB Configuration Links
 
+- [Automatically enable standard mode when editing a template](https://github.com/henri/spb/blob/main/300.configuration-examples/spb-automatic-standard-mode.config)
+
 <br>
 
   - Configure Custom Options Based on Browser <sub><br><br>Combine together in your configuration to have specific options set by default for specific browsers or browser families.<br><br></sub> 
