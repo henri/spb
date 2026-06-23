@@ -682,7 +682,7 @@ Mild testing has been completed on the following operating systems :
            - MacOS pacakge managers 
                - [MacPorts](https://www.macports.org/)
                    - ``` sudo port install git fish coreutils pv bash```
-                   - Visit the [Brave website](https://brave.com/download/) and to manually install.
+                   - Visit the [Brave website](https://brave.com/download/) and manually install.
                - [Brew](https://brew.sh)
                  ```
                    brew install git fish coreutils pv bash
