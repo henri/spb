@@ -678,16 +678,16 @@ Mild testing has been completed on the following operating systems :
    - <b>MacOS</b>
        - Dependiences will provide additional tools which will improve the way SPB works (they are not needed).
        - The default macOS install has everything required to make SPB work apart from a [supported browser](https://github.com/henri/spb/blob/main/README.md#sunrise-browser-support).
-       - Brew or MacPorts are the recommend approaches to managing SPB dependencies on MacOS
+       - MacPorts is the recommend package manager on MacOS to handle dependencies. If you prefer Brew that will also work.
            - MacOS pacakge managers 
+               - [MacPorts](https://www.macports.org/)
+                   - ``` sudo port install git fish coreutils pv bash```
+                   - Visit the [Brave website](https://brave.com/download/) and to manually install.
                - [Brew](https://brew.sh)
                  ```
                    brew install git fish coreutils pv bash
                    brew install --cask brave-browser
                  ```
-               - [MacPorts](https://www.macports.org/)
-                   - ``` sudo port install git fish coreutils pv bash```
-                   - Visit the [Brave website](https://brave.com/download/) and to manually install.
        - macOS 10.15 (and later)
        - Officially the latest versions of Chromium [requires macOS 13](https://issues.chromium.org/issues/376381582) or later.
   
