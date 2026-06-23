@@ -47,7 +47,7 @@ SPB features built-in support for a growing list of [operating systems](https://
 
 <br/>
 
-More than just software. This project also attempts to be an extensive reference for anyone interested in learning more about web browser basics ; in particular the focus of this projects documentaiton is related to privacy as it relates to web browsers.
+More than just software. This project also attempts to be an extensive reference for anyone interested in learning more about web browser basics ; in particular the focus of this projects documentation is related to privacy as it relates to web browsers.
 
 <br/>
 
