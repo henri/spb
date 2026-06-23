@@ -1033,10 +1033,7 @@ Again, [[disccusion]](https://github.com/henri/spb/discussions) on this is very 
 
 #### SPB Browser Support History
 
-SPB (Start Private Browser) was initially developed to only support and work with Brave (back then SPB was a much simpler system totaling less than 100 lines of code). Due to Brave being based on [Chromium](https://www.chromium.org) it was not a big task to update SPB to include support for Chromium and many other Chromium based browsers. With [Mozzila FireFox](https://www.firefox.com) also being an extreamlly popular browser having decent command line support, the more recent versions of SPB have experimenal support for FireFox and some FireFox forks. Currently, SPB includes multi-browser support for the following FireFox forks : 
-
-  - [PaleMoon](https://www.palemoon.org/)
-  - [Zen](https://zen-browser.app/)
+SPB (Start Private Browser) was initially developed to only support and work with Brave (back then SPB was a much simpler system totaling less than 100 lines of code). Due to Brave being based on [Chromium](https://www.chromium.org) it was not a big task to update SPB to include support for Chromium and many other Chromium based browsers. With [Mozzila FireFox](https://www.firefox.com) also being an extreamlly popular browser having decent command line support, the more recent versions of SPB have experimenal support for FireFox and some FireFox forks. Currently, SPB includes [multi-browser support](https://github.com/henri/spb/blob/main/README.md#sunrise-browser-support) for many FireFox forks.
 
 Please note, that not all Chromium and FireFox based browsers are officially supported by SPB. Many broswers have significant variations from their upstream projects and in some cases these changes makes it impossible or at least difficult to get them working correctly with SPB ; without additional support from those projects. If you are a developer, then patches and pull requests are welcome if your faviorte browser is not yet supported and you would like to see support in an official SPB release. If you are not ready to make the changes yourself, then open an issue or start a discussion outlining your problem or request.
 
