@@ -149,13 +149,13 @@ spb_configuration_file_name="spb.config"            #  default config file name
                                                     #  enviroment option override allowed
                                                     #  //////////////////////////////////
 # configuration of variables with overide           #
-if [ -z ${spb_temp_data_path} ] ; then              #
+if [ -z "${spb_temp_data_path}" ] ; then            #
     spb_temp_data_path="/tmp"                       #  temporary data storage path 
 fi                                                  #
-if [ -z ${spb_read_from_stdin} ] ; then             #  
+if [ -z "${spb_read_from_stdin}" ] ; then           #  
     spb_read_from_stdin="true"                      #  spb to read data from standard input (piped intput)
 fi                                                  #
-if [ -z ${spb_hook_pre_browser_cmd} ] ; then        #  
+if [ -z "${spb_hook_pre_browser_cmd}" ] ; then      #  
     spb_hook_pre_browser_cmd=""                     #  executed brefore the browser is launched
 fi                                                  #
 
