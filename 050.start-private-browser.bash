@@ -129,6 +129,7 @@
 # version 10.7 - bug fixes for correctly exporting enviroment variable spb_browser_name when spb.config is run with cli argument --browser
 # version 10.8 - standard input support added and modifiable with enviroment variable spb_read_from_stdin
 # version 10.9 - bug fixes related to standrd input support
+# version 11.0 - added hook enviroment variable to allow script or comands to be run prior launching the browser 'spb_hook_pre_browser_cmd'
 
 ##
 ## configuration of variables
@@ -153,16 +154,19 @@ if [ -z ${spb_temp_data_path} ] ; then              #
 fi                                                  #
 if [ -z ${spb_read_from_stdin} ] ; then             #  
     spb_read_from_stdin="true"                      #  spb to read data from standard input (piped intput)
-fi
-
+fi                                                  #
+if [ -z ${spb_hook_pre_browser_cmd} ] ; then        #  
+    spb_hook_pre_browser_cmd=""                     #  executed brefore the browser is launched
+fi                                                  #
 
 
 # lock file variables to protect templates being edited
 spb_template_lock_file_name="spb-template-edit.lock"
 spb_etlfr_cmd="" # spb edit template lock file remove command (leave this blank it is automatically updated when required)
 
+
 # post browser launch subsystem variables
-post_browser_cmd="" # executed once the browse has been launched (leave this blank it is automatically updated when required)
+post_browser_cmd="" # executed once the browser has been launched (leave this blank it is automatically updated when required)
 
 # setup variables for processing arguments we ares specifically NOT using get opts 
 args=("$@")
@@ -786,6 +790,7 @@ function list_defaut_configuration_enviroment_variables() {
         echo "# spb_filesystem_sync : ${spb_filesystem_sync}"
         echo "# spb_read_from_stdin : ${spb_read_from_stdin}"
         echo "# spb_browser_options : ${spb_browser_options}"
+        echo "# spb_hook_pre_browser_cmd : ${spb_hook_pre_browser_cmd}" # use this to run a script or command before loading browser
         echo "#----------------------------------------------------"
         echo "# spb_template_standard_mode : ${spb_template_standard_mode}"
         echo "# spb_new_template_standard_mode : ${spb_new_template_standard_mode}"
@@ -1463,6 +1468,22 @@ function check_template_directory_accessability() {
     return 0
 }
 
+# this function is used for externally hooked in pre browser launch actions to be run
+function run_spb_hook_pre_browser_startup_commands() {
+    if [[ "${spb_hook_pre_browser_cmd}" != "" ]] ; then
+        bash -c "${spb_hook_pre_browser_cmd}" # 2>>/dev/null >>/dev/null
+        spb_hook_pre_browser_cmd_status=$?
+        if [[ ${spb_hook_pre_browser_cmd_status} != 0 ]] ; then
+            echo ""
+            echo "ERROR! : SPB Hook Pre Browser Command Failed (with exit code) : [${spb_hook_pre_browser_cmd_status}]"
+            echo ""
+            exit ${spb_hook_pre_browser_cmd_status}
+        fi          
+    fi
+    return 0
+}
+
+# this function is used for internally setup post action commands to be loaded
 function run_post_browser_startup_commands() {
     if [[ "${post_browser_cmd}" != "" ]] ; then
         # try running the post script five times until it succees (if it fails after that many goes give up)
@@ -1485,7 +1506,6 @@ function run_post_browser_startup_commands() {
     fi
     return 0
 }
-
 
 # show available spb templates
 if [[ ${spb_list_templates} == "true" ]] ; then
@@ -2413,6 +2433,8 @@ if [[ "${read_from_stdin}" == "true" ]] ; then
     if ! [ -z "${standard_input_data}" ] ; then url_list="${standard_input_data} ${url_list}" ; fi
 fi
 
+# run spb hook pre browser commands
+run_spb_hook_pre_browser_startup_commands
 
 # start a screen session with the name based off the temp directory, then once browser exits delete the temporary directory
 screen -S "${screen_session_name}" -dm bash -c " \"${spb_browser_path}\" ${browser_options} ${url_list} ; sleep 1 ; ${pre_remove_tmp_directory_cmd} ; rm -rf ${browser_tmp_directory} ${spb_etlfr_cmd} "
