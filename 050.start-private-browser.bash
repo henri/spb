@@ -730,6 +730,7 @@ fi
 # export spb_temp_data_path="/tmp"
 # export spb_filesystem_sync="true"
 # export spb_read_from_stdin="true"
+# export spb_hook_pre_browser_cmd=""
 # export spb_browser_options=""
 # 
 # export spb_template_standard_mode="false"
@@ -2443,6 +2444,5 @@ screen -S "${screen_session_name}" -dm bash -c " \"${spb_browser_path}\" ${brows
 run_post_browser_startup_commands
 
 exit 0
-
 
 
