@@ -130,6 +130,7 @@
 # version 10.8 - standard input support added and modifiable with enviroment variable spb_read_from_stdin
 # version 10.9 - bug fixes related to standrd input support
 # version 11.0 - added hook enviroment variable to allow script or comands to be run prior launching the browser 'spb_hook_pre_browser_cmd'
+# version 11.1 - added experimental enviroment varable which is availble to hook scripts 'spb_browser_data_directory'
 
 ##
 ## configuration of variables
@@ -2455,4 +2456,3 @@ screen -S "${screen_session_name}" -dm bash -c " \"${spb_browser_path}\" ${brows
 run_post_browser_startup_commands
 
 exit 0
-
