@@ -715,9 +715,6 @@ if [[ spb_external_count -eq 1 ]] ; then
 fi
 
 
-
-
-
 # List of currently supported configuration file options
 # set these as exported environment variables or place them
 # in the configuration file and they will automatically be
@@ -778,13 +775,13 @@ function list_defaut_configuration_enviroment_variables() {
     echo "#----------------------------------------------------"
     if [[ "${verbose_mode}" == "true" ]] ; then
         echo ""
-        echo "/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/"
+        echo "/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/"
     fi
     echo ""
     if [[ "${verbose_mode}" == "true" ]] ; then
         echo "Currenlty configured SPB enviroment variables :"
         echo ""
-        echo "#----------------------------------------------------"
+        echo "#----------------------------------------------------------"
         echo "# spb_browser_name : ${spb_browser_name}" # set by SPB at runtime and is accessable from the config file
         echo "# spb_browser_path : ${spb_browser_path}" 
         echo "# spb_temp_data_path : ${spb_temp_data_path}"
@@ -792,23 +789,31 @@ function list_defaut_configuration_enviroment_variables() {
         echo "# spb_read_from_stdin : ${spb_read_from_stdin}"
         echo "# spb_browser_options : ${spb_browser_options}"
         echo "# spb_hook_pre_browser_cmd : ${spb_hook_pre_browser_cmd}" # use this to run a script or command before loading browser
-        echo "#----------------------------------------------------"
+        echo "#----------------------------------------------------------"
         echo "# spb_template_standard_mode : ${spb_template_standard_mode}"
         echo "# spb_new_template_standard_mode : ${spb_new_template_standard_mode}"
         echo "# spb_edit_template_standard_mode : ${spb_edit_template_standard_mode}"
-        echo "#----------------------------------------------------"
+        echo "#----------------------------------------------------------"
         echo ""
-        echo "/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/"
+        echo "/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/"
         echo ""
         echo "Run-time enviroment variables exported to spb.config :"
         echo ""
-        echo "#----------------------------------------------------"
+        echo "#----------------------------------------------------------"
         echo "# spb_verbose_mode : ${spb_verbose_mode}"
         echo "# spb_quiet_mode : ${spb_quiet_mode}"
         echo "# spb_browser_is_default : ${spb_browser_is_default}"
-        echo "#----------------------------------------------------"
+        echo "#----------------------------------------------------------"
         echo ""
-        echo "/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/"
+        echo "/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/"
+        echo ""
+        echo "Run-time enviroment variables exported to hook scripts :"
+        echo ""
+        echo "#----------------------------------------------------------"
+        echo "# spb_browser_data_directory"
+        echo "#----------------------------------------------------------"
+        echo ""
+        echo "/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/"
         echo ""
     fi
     sleep 0.001 ${spb_etlfr_cmd}
@@ -2137,7 +2142,12 @@ if [[ $? != 0 ]] ; then
     exit -3
 fi
 
-
+# configure and export spb_browser_data_directory
+#
+#    notes : - if editing or creating a new template this is updated to point to that template directory
+#            - this enviroment variable is realtime and currently only available for acces by hook scripts 
+#
+export spb_browser_data_directory="${browser_tmp_directory}" 
 
 # calculate the screen session name
 screen_session_name="${screen_session_prefix}-$(echo "${browser_tmp_directory}" | awk -F "${temp_path}-" '{print$2}')"
@@ -2343,6 +2353,7 @@ if [[ "${edit_template_dir_name}" != "" ]] ; then
     if [[ ${?} != 0 ]] ; then
         echo "" ; echo "        WARNING! : Unable establish symlink within temporary directory to the template."
     fi
+    export spb_browser_data_directory="$edit_template_dir_absolute"
 
     # create or check template browser identification file (used to ensure compatability of templates)
     if [[ "${creating_new_template}" == "true" ]] ; then
@@ -2444,5 +2455,4 @@ screen -S "${screen_session_name}" -dm bash -c " \"${spb_browser_path}\" ${brows
 run_post_browser_startup_commands
 
 exit 0
-
 
