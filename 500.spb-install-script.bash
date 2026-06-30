@@ -461,6 +461,12 @@ if $(which zsh 1>/dev/null 2>/dev/null) && $(ps -a | grep --silent zsh) && ! $(g
     echo ""
 fi
 
+# provide links to documentation and removal
+echo ""
+echo "Helpful SPB links : "
+echo "    - Documentation : https://github.com/henri/spb"
+echo ""
+
 # report summary reagrding installation of spb and snippits 
 # this is only displayed if fish snippits optional install was attempted
 # the exit values are also pulled for spb update and the fish snippts from this code block
