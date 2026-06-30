@@ -131,6 +131,7 @@
 # version 10.9 - bug fixes related to standrd input support
 # version 11.0 - added hook enviroment variable to allow script or comands to be run prior launching the browser 'spb_hook_pre_browser_cmd'
 # version 11.1 - added experimental enviroment varable which is availble to hook scripts 'spb_browser_data_directory'
+# version 11.2 - added experimental support for athena os
 
 ##
 ## configuration of variables
@@ -227,6 +228,7 @@ if [[ ! -z ${BASH_VERSINFO} ]] ; then
         # # # # # # # # # # # # #
         spb_default_browser_data["zen:linux:mint"]="zen"
         spb_default_browser_data["zen:linux:arch"]="zen"
+        spb_default_browser_data["zen:linux:athenaos"]="zen"
         spb_default_browser_data["zen:linux:omarchy"]="zen"
         spb_default_browser_data["zen:linux:ubuntu"]="zen"
         spb_default_browser_data["zen:linux:debian"]="zen"
@@ -241,6 +243,7 @@ if [[ ! -z ${BASH_VERSINFO} ]] ; then
         # # # # # # # # # # # # #
         spb_default_browser_data["helium:linux:mint"]="helium"
         spb_default_browser_data["helium:linux:arch"]="helium"
+        spb_default_browser_data["helium:linux:athenaos"]="helium"
         spb_default_browser_data["helium:linux:omarchy"]="helium"
         spb_default_browser_data["helium:linux:ubuntu"]="helium"
         spb_default_browser_data["helium:linux:debian"]="helium"
@@ -255,6 +258,7 @@ if [[ ! -z ${BASH_VERSINFO} ]] ; then
         # # # # # # # # # # # # #
         spb_default_browser_data["waterfox:linux:mint"]="waterfox"
         spb_default_browser_data["waterfox:linux:arch"]="waterfox"
+        spb_default_browser_data["waterfox:linux:athenaos"]="waterfox"
         spb_default_browser_data["waterfox:linux:omarchy"]="waterfox"
         spb_default_browser_data["waterfox:linux:ubuntu"]="waterfox"
         spb_default_browser_data["waterfox:linux:debian"]="waterfox"
@@ -269,6 +273,7 @@ if [[ ! -z ${BASH_VERSINFO} ]] ; then
         # # # # # # # # # # # # #
         spb_default_browser_data["opera:linux:mint"]="opera"
         spb_default_browser_data["opera:linux:arch"]="opera"
+        spb_default_browser_data["opera:linux:athenaos"]="opera"
         spb_default_browser_data["opera:linux:omarchy"]="opera"
         spb_default_browser_data["opera:linux:ubuntu"]="opera"
         spb_default_browser_data["opera:linux:debian"]="opera"
@@ -283,6 +288,7 @@ if [[ ! -z ${BASH_VERSINFO} ]] ; then
         # # # # # # # # # # # # #
         spb_default_browser_data["librewolf:linux:mint"]="librewolf"
         spb_default_browser_data["librewolf:linux:arch"]="librewolf"
+        spb_default_browser_data["librewolf:linux:athenaos"]="librewolf"
         spb_default_browser_data["librewolf:linux:omarchy"]="librewolf"
         spb_default_browser_data["librewolf:linux:ubuntu"]="librewolf"
         spb_default_browser_data["librewolf:linux:debian"]="librewolf"
@@ -297,6 +303,7 @@ if [[ ! -z ${BASH_VERSINFO} ]] ; then
         # # # # # # # # # # # # #
         spb_default_browser_data["palemoon:linux:mint"]="palemoon"
         spb_default_browser_data["palemoon:linux:arch"]="palemoon"
+        spb_default_browser_data["palemoon:linux:athenaos"]="palemoon"
         spb_default_browser_data["palemoon:linux:omarchy"]="palemoon"
         spb_default_browser_data["palemoon:linux:ubuntu"]="palemoon"
         spb_default_browser_data["palemoon:linux:debian"]="palemoon"
@@ -311,6 +318,7 @@ if [[ ! -z ${BASH_VERSINFO} ]] ; then
         # # # # # # # # # # # # #
         spb_default_browser_data["firefox:linux:mint"]="firefox"
         spb_default_browser_data["firefox:linux:arch"]="firefox"
+        spb_default_browser_data["firefox:linux:athenaos"]="firefox"
         spb_default_browser_data["firefox:linux:omarchy"]="firefox"
         spb_default_browser_data["firefox:linux:ubuntu"]="firefox"
         spb_default_browser_data["firefox:linux:debian"]="firefox"
@@ -341,6 +349,7 @@ if [[ ! -z ${BASH_VERSINFO} ]] ; then
         spb_default_browser_data["vivaldi:linux:ubuntu"]="vivaldi"
         spb_default_browser_data["vivaldi:linux:debian"]="vivaldi"
         spb_default_browser_data["vivaldi:linux:arch"]="vivaldi"
+        spb_default_browser_data["vivaldi:linux:athenaos"]="vivaldi"
         spb_default_browser_data["vivaldi:linux:omarchy"]="vivaldi"
         spb_default_browser_data["vivaldi:linux:endeavouros"]="vivaldi"
         spb_default_browser_data["vivaldi:linux:manjaro"]="vivaldi"
@@ -355,6 +364,7 @@ if [[ ! -z ${BASH_VERSINFO} ]] ; then
         spb_default_browser_data["brave:linux:ubuntu"]="brave-browser"
         spb_default_browser_data["brave:linux:debian"]="brave-browser"
         spb_default_browser_data["brave:linux:arch"]="brave"
+        spb_default_browser_data["brave:linux:athenaos"]="brave"
         spb_default_browser_data["brave:linux:omarchy"]="brave"
         spb_default_browser_data["brave:linux:endeavouros"]="brave"
         spb_default_browser_data["brave:linux:manjaro"]="brave"
@@ -369,6 +379,7 @@ if [[ ! -z ${BASH_VERSINFO} ]] ; then
         spb_default_browser_data["chromium:linux:ubuntu"]="chromium"
         spb_default_browser_data["chromium:linux:debian"]="chromium"
         spb_default_browser_data["chromium:linux:arch"]="chromium"
+        spb_default_browser_data["chromium:linux:athenaos"]="chromium"
         spb_default_browser_data["chromium:linux:omarchy"]="chromium"
         spb_default_browser_data["chromium:linux:endeavouros"]="chromium"
         spb_default_browser_data["chromium:linux:manjaro"]="chromium"
@@ -381,6 +392,7 @@ if [[ ! -z ${BASH_VERSINFO} ]] ; then
         # # # # # # # # # # # # #
         spb_default_browser_data["mullvad:linux:mint"]="mullvad-browser"
         spb_default_browser_data["mullvad:linux:arch"]="mullvad-browser" # untested
+        spb_default_browser_data["mullvad:linux:athenaos"]="mullvad-browser" # untested
         spb_default_browser_data["mullvad:linux:omarchy"]="mullvad-browser" # untested
         spb_default_browser_data["mullvad:linux:ubuntu"]="mullvad-browser"
         spb_default_browser_data["mullvad:linux:debian"]="mullvad-browser"
