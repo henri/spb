@@ -5,6 +5,11 @@ Learn more about the [SPB configuration file](https://github.com/henri/spb/blob/
 
 <br>
 
+<p align="left">
+  <a href="https://github.com/henri/spb/#lock-spb-start-private-browser">
+    <img src="https://henri.github.io/spb/SPB_logo_with_text_with_boarder_tranparent_v1.png" width="35%"></a>
+</p>
+
 #### Quick SPB Configuration Links
 
 <br>
