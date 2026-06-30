@@ -463,7 +463,7 @@ fi
 
 # provide links to documentation
 echo ""
-echo "SPB Documentation : "
+echo "SPB documentation : "
 echo "https://github.com/henri/spb"
 echo ""
 
