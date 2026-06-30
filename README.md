@@ -621,6 +621,11 @@ Mild testing has been completed on the following operating systems :
           sudo pacman -Syu git fish coreutils grep screen pv
           yay -S brave-bin
         ```
+          - [Athena OS](https://athenaos.org/)
+            ```
+              sudo pacman -Syu git coreutils grep screen pv
+              curl -fsS https://dl.brave.com/install.sh | sh
+            ```
           - [CachyOS](https://cachyos.org/)
             ```
               sudo pacman -Syu screen
