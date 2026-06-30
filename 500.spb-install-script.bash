@@ -461,10 +461,10 @@ if $(which zsh 1>/dev/null 2>/dev/null) && $(ps -a | grep --silent zsh) && ! $(g
     echo ""
 fi
 
-# provide links to documentation and removal
+# provide links to documentation
 echo ""
-echo "Helpful SPB links : "
-echo "    - Documentation : https://github.com/henri/spb"
+echo "SPB Documentation : "
+echo "https://github.com/henri/spb"
 echo ""
 
 # report summary reagrding installation of spb and snippits 
