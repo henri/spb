@@ -2,6 +2,11 @@
 
 This directory contains extra notes, settings and scripts to assist you with with [SPB](https://github.com/henri/spb).
 
+<p align="left">
+  <a href="https://github.com/henri/spb/#lock-spb-start-private-browser">
+    <img src="https://henri.github.io/spb/SPB_logo_with_text_with_boarder_tranparent_v1.png" width="35%"></a>
+</p>
+
 <hr>
 
   - [brave-new.bash](https://github.com/henri/spb/blob/main/350.extras/brave-new.bash)
