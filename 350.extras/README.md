@@ -9,6 +9,12 @@ This directory contains extra notes, settings and scripts to assist you with wit
 
 <hr>
 
+  - [start-private-browser.desktop](https://github.com/henri/spb/blob/main/350.extras/start-private-browser.desktop)
+    - Example desktop file (for GNU/LINUX) which facilitates starting SPB via your desktop enviroment
+    - This desktop file also allows you to set SPB as the default https/http URL handler ([thanks René](https://github.com/henri/spb/blob/main/800.contributors.md))
+
+<hr>
+
   - [brave-new.bash](https://github.com/henri/spb/blob/main/350.extras/brave-new.bash)
     - Example script which will create a new brave instance using the ```spb``` command<br>and then proceed with updating [brave components](https://github.com/henri/spb/blob/main/901.notes_browser_specific.md) and then altering various brave settings<br>[browser settings](https://github.com/henri/spb/blob/main/901.notes_browser_specific.md). This is all accomplished using the browsers remote debugging port.
 
