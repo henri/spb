@@ -1021,7 +1021,7 @@ If you would like to configure SPB to always use a specific browser, then [these
 
 There are excellent projects such as [Arkenfox](https://github.com/arkenfox/user.js/) and [LibreWolf](https://librewolf.net/) which offer excellent privacy features. At this point in time, Brave offers great out of the box configuration. At some point the default browser could be switched to FireFox or another browser. Suggestions and comments around this are very welcome. There are many privacy focused projects and resources which I am not aware of and it would be great to include links to such projects within the SPB documentation.
 
-At present FireFox has some really execlelent features but often they are not accesable directly via a command line switch and instead rely upon settings or files being loaded into the profile. Setting this up is all possible and you can even setup an spb config file to have Firefox work as the default browser via the spb command.
+At present FireFox has some really excellent features. However, they often they are not accesable directly via a command line switch and instead rely upon settings or files being loaded into the profile. Setting this up is all possible and you can even setup an spb config file to have Firefox work as the default browser via the spb command.
 
 ```
 alias -s spb "start-private-browser --browser firefox"
