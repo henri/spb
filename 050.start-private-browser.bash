@@ -132,6 +132,8 @@
 # version 11.0 - added hook enviroment variable to allow script or comands to be run prior launching the browser 'spb_hook_pre_browser_cmd'
 # version 11.1 - added experimental enviroment varable which is availble to hook scripts 'spb_browser_data_directory'
 # version 11.2 - added experimental support for athena os
+# version 11.3 - added option --install-brave-new to pull down latest the example brave-new.bash script and configure fish alias if fish installed
+
 
 ##
 ## configuration of variables
@@ -958,6 +960,7 @@ use_template_dir_absolute=""
 template_show_progress_bar="true" # even this is set to true, the size of the template must be exceed the value set in template template_size_to_show_progress_bar before the progress bar is shown
 template_size_to_show_progress_bar="180" # mesured in MB (if the tempalte is greater than this size and gcp is installed, then a progress bar is displayed during the copy)
 help_wanted="no"
+brave_new_wanted="no"
 config_variables_wanted="no"
 update_wanted="no"
 valid_argument_found="false"
@@ -992,11 +995,17 @@ for arg in "$@" ; do
     echo "SPB (start-private-browser) version : ${installed_version}"
     exit
   fi
-  
 
   # check for help wanted
   if [[ "${arg}" == "-h" ]] || [[ "${arg}" == "--help" ]] ; then
     help_wanted="yes"
+    valid_argument_found="true"
+    break
+  fi
+
+  # check for example brave-new.bash script wanted
+  if [[ "${arg}" == "--install-brave-new" ]] ; then
+    brave_new_wanted="yes"
     valid_argument_found="true"
     break
   fi
@@ -1156,6 +1165,103 @@ if [[ "${spb_browser_path_externally_configured}" == "true" ]] && [[ "${spb_brow
     exit -99
 fi
 
+# show usage information
+if [[ "${brave_new_wanted}" == "yes" ]] ; then
+    brave_new_url="https://raw.githubusercontent.com/henri/spb/refs/heads/main/350.extras/brave-new.bash"
+    brave_new_install_path="$HOME/bin/brave-new.bash"
+    if [ -e ${brave_new_install_path} ] ; then
+        echo ""
+        echo "Existing local version detected : ~/bin/brave-new.bash"
+        echo "    Would you like to overwrite your local copy"
+        echo -n "    by downloading the example version? [y/N] "
+        read overwrite_local_brave_new
+        echo ""
+        if \
+                [[ "${overwrite_local_brave_new}" == "y" ]] || \
+                [[ "${overwrite_local_brave_new}" == "Y" ]]|| \
+                [[ "${overwrite_local_brave_new}" == "yes" ]] || \
+                [[ "${overwrite_local_brave_new}" == "Yes" ]] || \
+                [[ "${overwrite_local_brave_new}" == "YES" ]] \
+            ; then
+                which curl 1>/dev/null 2>/dev/null ; curl_available=${?}
+                if [[ ${curl_available} != 0 ]] ; then
+                    echo "ERROR! : The curl command was not detected on your system."
+                    echo "         Ensure it is part of your path or install curl onto your"
+                    echo "         system and try again."
+                    echo ""
+                    echo "         Learn more about curl the link below :"
+                    echo "         https://curl.se"
+                    echo ""
+                    curl # just see if the os reports anything helpful 
+                    exit -99
+                fi
+                echo "Downloading example brave-new.bash..."
+                curl --fail --silent --show-error --location -o "${brave_new_install_path}" "${brave_new_url}"
+                if [ $? != 0 ]; then
+                    echo ""
+                    echo "ERROR! : Downloadiong brave-new.bash failed!"
+                    echo ""
+                    echo "         Attempted Download URL : "
+                    echo "         ${brave_new_install_path}"
+                    echo ""
+                    exit 1
+                fi
+                echo "Installation of brave-new.bash successful."
+                which fish >> /dev/null ; fish_available=${?}
+                if [[ ${fish_available} != 0 ]] ; then
+                    echo "WARNING : The fish shell was not detected on your system."
+                    echo "          Learn more about the fish shell via the link below :"
+                    echo "          https://fishshell.com/"
+                    echo ""
+                    echo "          Without the fish shell installed on your system"
+                    echo "          it is not possible to configure the fish alias"
+                    echo "          which makes running the brave-new.bash script"
+                    echo "          super easy using the command : spb-brave-new"
+                    exit -99
+                fi
+                echo ""
+                echo "Configuring fish function..."
+                fish -c "alias -s spb-brave-new \"~/bin/brave-new.bash\"" > /dev/null
+                if [[ $? == 0 ]] ; then
+                    echo "Fish alias has been succesfully configured."
+                    echo "You may now try out the script by issuing the following"
+                    echo "command from the fish shell :"
+                    echo ""
+                    echo "    spb-brave-new"
+                    echo ""
+                    echo "The command above will create a temporary instance of"
+                    echo "the Brave browser using SPB. That Brave Browser instance"
+                    echo "will then be configured by the script."
+                    echo ""
+                    echo "It is possible to pass SPB arguments to the script."
+                    echo "For example, you could create a new template called"
+                    echo "'test1' running in standard mode, which will be"
+                    echo "configured by the installed script by issuing the"
+                    echo "command below within a fish shell : "
+                    echo ""
+                    echo "    spb-new-brave --new-template test --standard"
+                    echo ""
+                    echo "If you would like to remove the alias and script"
+                    echo "which have been configured the commands below will"
+                    echo "removing the alias and script which have been"
+                    echo "configured :"
+                    echo ""
+                    echo "    rm -i ~/bin/brave-new.bash"
+                    echo "    fish -c \"functions --erase spb-brave-new\""
+                    echo ""
+                    echo "Happy swimming!"
+                    echo ""
+                else
+                    echo "ERROR! : Unable to configure fish alias spb-brave-new!"
+                    echo ""
+                    exit -99
+                fi
+            else
+                echo "Understood... exiting without altering your system." ; echo ""
+        fi
+    fi
+    exit 0
+fi
 
 # show usage information
 if [[ "${help_wanted}" == "yes" ]] ; then
@@ -1268,6 +1374,12 @@ if [[ "${help_wanted}" == "yes" ]] ; then
     echo ""
     echo "             # Edit the active configuration file (using VISUAL and then EDITOR enviroment varables)"
     echo "             $ start-private-browser --edit-configuration"
+    echo ""
+    echo ""
+    echo "         Install Helper Scripts : "
+    echo ""
+    echo "             # install brave-new.bash example script into ~/bin/brave-new.bash"
+    echo "             $ tart-private-browser --install-brave-new"
     echo ""
     echo ""
     echo "         Additional Resources : "
@@ -2468,3 +2580,5 @@ screen -S "${screen_session_name}" -dm bash -c " \"${spb_browser_path}\" ${brows
 run_post_browser_startup_commands
 
 exit 0
+
+
