@@ -1247,7 +1247,8 @@ if [[ "${brave_new_wanted}" == "yes" ]] ; then
                     echo "script which have just been configured on this"
                     echo "system; simply run the commands below :"
                     echo ""
-                    echo "    rm -i ~/bin/brave-new.bash"
+                    echo "    rm -i $HOME/bin/brave-new.bash"
+                    echo "    rm -i $(fish -c 'functions --details spb-brave-new')"
                     echo "    fish -c \"functions --erase spb-brave-new\""
                     echo ""
                     echo "Happy swimming!"
@@ -2581,7 +2582,6 @@ screen -S "${screen_session_name}" -dm bash -c " \"${spb_browser_path}\" ${brows
 run_post_browser_startup_commands
 
 exit 0
-
 
 
 
