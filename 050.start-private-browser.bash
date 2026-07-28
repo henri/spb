@@ -1243,7 +1243,7 @@ if [[ "${brave_new_wanted}" == "yes" ]] ; then
                     echo ""
                     echo "    spb-new-brave --new-template test --standard"
                     echo ""
-                    echo "Should you wishto remove the alias and script"
+                    echo "Should you wish to remove the alias and script"
                     echo "at some point, then the commands below will"
                     echo "removing the alias and script which have been"
                     echo "configured on your system :"
