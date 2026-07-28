@@ -96,13 +96,14 @@ With SPB installed you may run the following command (or more precisly an [spb-f
   - Compatabilty with [many](https://github.com/henri/spb/blob/main/README.md#triangular_flag_on_post-compatibility) operating systems
   - Stright forward [install](https://github.com/henri/spb/blob/main/README.md#floppy_disk-installation), [update](https://github.com/henri/spb/blob/main/README.md#bookmark_tabs-usage) and [removal](https://github.com/henri/spb/blob/main/README.md#bookmark_tabs-usage) process
   - [Privacy](https://github.com/henri/spb/blob/main/README.md#shield-telemetry-and-privacy) respecting
-  - Extensive customisation options
-      - [conguration file](https://github.com/henri/spb/blob/main/README.md#spb-configuration-file)
+  - Extensive customization and automation options
+      - [configuration file](https://github.com/henri/spb/blob/main/README.md#spb-configuration-file)
       - [command line switches](https://github.com/henri/spb/blob/main/README.md#bookmark_tabs-usage)
-      - [enviroment varables](https://github.com/henri/spb/blob/main/README.md#earth_asia-enviroment-varables)
+      - [environment varables](https://github.com/henri/spb/blob/main/README.md#earth_asia-enviroment-varables)
       - shell wrapper functions
         - support for starting [Tor](https://github.com/henri/spb/blob/main/README.md#fish-shell-wrappers) session
       - custom scripts
+      - [automation scripts](https://github.com/henri/spb/tree/main/350.extras)
   - Supports running on a remote or isolated machine for increased sandbox protection
   - [Licensed](https://github.com/henri/spb/blob/main/README.md#memo-licensing-terms-of-use-and-legal) under GNU GPL, ensuring your rights (as a user of this software) are respected.
 
