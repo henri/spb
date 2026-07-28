@@ -278,7 +278,7 @@ Update SPB (accept defaults)
 
 #### :blowfish: Fish Autocompletions
 
-SPB includes [fish auto-completions](https://github.com/henri/spb-fish-snippits/blob/main/spb-completions.fish). Auto-completion allows for quick reference and completion of command line options. In addition, auto completion helps with searching template names, session names and more. Basic auto completion usage is showen below to get you started.
+SPB includes [fish auto-completions](https://github.com/henri/spb-fish-snippits/blob/main/completion/spb-completions.fish). Auto-completion allows for quick reference and completion of command line options. In addition, auto completion helps with searching template names, session names and more. Basic auto completion usage is showen below to get you started.
 
 ```
 spb --<tab> # displays a list of possible spb options
