@@ -1165,7 +1165,7 @@ if [[ "${spb_browser_path_externally_configured}" == "true" ]] && [[ "${spb_brow
     exit -99
 fi
 
-# show usage information
+# configure spb-brave-new support script and fish function
 if [[ "${brave_new_wanted}" == "yes" ]] ; then
     brave_new_url="https://raw.githubusercontent.com/henri/spb/refs/heads/main/350.extras/brave-new.bash"
     brave_new_install_path="$HOME/bin/brave-new.bash"
@@ -2580,5 +2580,6 @@ screen -S "${screen_session_name}" -dm bash -c " \"${spb_browser_path}\" ${brows
 run_post_browser_startup_commands
 
 exit 0
+
 
 
