@@ -17,6 +17,7 @@ This directory contains extra notes, settings and scripts to assist you with wit
 
   - [brave-new.bash](https://github.com/henri/spb/blob/main/350.extras/brave-new.bash)
     - Example script which will create a new brave instance using the ```spb``` command<br>and then proceed with updating [brave components](https://github.com/henri/spb/blob/main/901.notes_browser_specific.md) and then altering various brave settings<br>[browser settings](https://github.com/henri/spb/blob/main/901.notes_browser_specific.md). This is all accomplished using the browsers remote debugging port.
+    - easily installed using the command ```spb --install-brave-new```
 
 <hr>
 
