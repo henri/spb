@@ -1243,10 +1243,9 @@ if [[ "${brave_new_wanted}" == "yes" ]] ; then
                     echo ""
                     echo "    spb-new-brave --new-template test --standard"
                     echo ""
-                    echo "Should you wish to remove the alias and script"
-                    echo "at some point, then the commands below will"
-                    echo "removing the alias and script which have been"
-                    echo "configured on your system :"
+                    echo "Should you wish to remove the fish alias and bash"
+                    echo "script which have been configured on your system,"
+                    echo "then simply run the commands below :
                     echo ""
                     echo "    rm -i ~/bin/brave-new.bash"
                     echo "    fish -c \"functions --erase spb-brave-new\""
