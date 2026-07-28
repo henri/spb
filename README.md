@@ -420,6 +420,8 @@ The real power of SPB is less about the basic usage listed above and more the ab
   
 Automatons which leverage SPB may be simple operations such as performing a search or starting a chat. They may be also be complex operations controlled by scripts which will assist you with performing testing, bench-marking and other steps which you may need to be able to carry out repeatedly.
 
+The [SPB extras directory](https://github.com/henri/spb/tree/main/350.extras) provides various examples of scripting. One such example is the [brave-new.bash](https://github.com/henri/spb/blob/main/350.extras/brave-new.bash) example script. This example script is able to be installed using the command : ```spb --install-brave-new```. Usage information is provided during installation.
+
 Below are starter SPB examples for the fish shell to enhance every day web based tasks. More examples are on the horizon for testing, bench-marking, advanced automatons such as leveraging AI agents. If you have created something which you feel may be useful to the SPB community, [start a discussion](https://github.com/henri/spb/discussions) and share your ideas.
 
 If your search engine is set to [DuckDuckGo](duckduckgo.com) or you use the ```spb-ddg``` fish snippit, it is possible to use the array of [bangs on offer](https://duckduckgo.com/bangs) to further enhance your command line searches. See the example below : 
