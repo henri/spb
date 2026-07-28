@@ -1245,7 +1245,7 @@ if [[ "${brave_new_wanted}" == "yes" ]] ; then
                     echo ""
                     echo "Should you wish to remove the fish alias and bash"
                     echo "script which have just been configured on this"
-                    echo "system, then simply run the commands below :"
+                    echo "system; simply run the commands below :"
                     echo ""
                     echo "    rm -i ~/bin/brave-new.bash"
                     echo "    fish -c \"functions --erase spb-brave-new\""
