@@ -3,6 +3,9 @@
 # This script is part of the SPB project : https://github.com/henri/spb
 # (C) 2026 Henri Shustak - Released Under the GNU GPL v3 or later
 #
+# If you have SPB installed, this script can be installed using the command below
+# $ spb --install-brave-new
+# 
 # Example script to launch a new brave instance with SPB and update the componets
 # and make some configuration alterations using the remote debging port.
 #
