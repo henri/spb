@@ -1245,7 +1245,7 @@ if [[ "${brave_new_wanted}" == "yes" ]] ; then
                     echo ""
                     echo "Should you wish to remove the fish alias and bash"
                     echo "script which have been configured on your system,"
-                    echo "then simply run the commands below :
+                    echo "then simply run the commands below :"
                     echo ""
                     echo "    rm -i ~/bin/brave-new.bash"
                     echo "    fish -c \"functions --erase spb-brave-new\""
@@ -2581,6 +2581,7 @@ screen -S "${screen_session_name}" -dm bash -c " \"${spb_browser_path}\" ${brows
 run_post_browser_startup_commands
 
 exit 0
+
 
 
 
