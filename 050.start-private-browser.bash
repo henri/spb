@@ -1196,6 +1196,7 @@ if [[ "${brave_new_wanted}" == "yes" ]] ; then
                     exit -99
                 fi
                 echo "Downloading example brave-new.bash..."
+                echo "Script install loction : ${brave_new_install_path}"
                 curl --fail --silent --show-error --location -o "${brave_new_install_path}" "${brave_new_url}"
                 if [ $? != 0 ]; then
                     echo ""
@@ -1206,7 +1207,8 @@ if [[ "${brave_new_wanted}" == "yes" ]] ; then
                     echo ""
                     exit 1
                 fi
-                echo "Installation of brave-new.bash successful."
+                echo "Script installation successful."
+                echo ""
                 which fish >> /dev/null ; fish_available=${?}
                 if [[ ${fish_available} != 0 ]] ; then
                     echo "WARNING : The fish shell was not detected on your system."
@@ -1219,12 +1221,11 @@ if [[ "${brave_new_wanted}" == "yes" ]] ; then
                     echo "          super easy using the command : spb-brave-new"
                     exit -99
                 fi
-                echo ""
                 echo "Configuring fish function..."
                 fish -c "alias -s spb-brave-new \"~/bin/brave-new.bash\"" > /dev/null
                 if [[ $? == 0 ]] ; then
-                    echo "Fish alias has been succesfully configured."
-                    echo "You may now try out the script by issuing the following"
+                    echo "Fish alias succesfully configured."
+                    echo "Try out the script by issuing the following"
                     echo "command from the fish shell :"
                     echo ""
                     echo "    spb-brave-new"
@@ -1234,17 +1235,18 @@ if [[ "${brave_new_wanted}" == "yes" ]] ; then
                     echo "will then be configured by the script."
                     echo ""
                     echo "It is possible to pass SPB arguments to the script."
-                    echo "For example, you could create a new template called"
-                    echo "'test1' running in standard mode, which will be"
-                    echo "configured by the installed script by issuing the"
-                    echo "command below within a fish shell : "
+                    echo "For example, you could create a new SPB template"
+                    echo "called 'test1' running in standard mode, which"
+                    echo "will be configured by the brave-new.bash "
+                    echo "script by issuing the command showen below"
+                    echo "within a fish shell : "
                     echo ""
                     echo "    spb-new-brave --new-template test --standard"
                     echo ""
-                    echo "If you would like to remove the alias and script"
-                    echo "which have been configured the commands below will"
+                    echo "Should you wishto remove the alias and script"
+                    echo "at some point, then the commands below will"
                     echo "removing the alias and script which have been"
-                    echo "configured :"
+                    echo "configured on your system :"
                     echo ""
                     echo "    rm -i ~/bin/brave-new.bash"
                     echo "    fish -c \"functions --erase spb-brave-new\""
