@@ -132,7 +132,7 @@
 # version 11.0 - added hook enviroment variable to allow script or comands to be run prior launching the browser 'spb_hook_pre_browser_cmd'
 # version 11.1 - added experimental enviroment varable which is availble to hook scripts 'spb_browser_data_directory'
 # version 11.2 - added experimental support for athena os
-# version 11.3 - added option --install-brave-new to install brave-new.bash (example configuration script) and also conigures fish alilas to start the script
+# version 11.3 - added option --install-brave-new to install brave-new.bash (example configuration script) and also configures related fish alias
 
 
 ##
