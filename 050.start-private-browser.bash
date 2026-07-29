@@ -1219,6 +1219,13 @@ if [[ "${brave_new_wanted}" == "yes" ]] ; then
         echo ""
         exit 1
     fi
+    chmod +x "${brave_new_install_path}"
+     if [ $? != 0 ]; then
+        echo ""
+        echo "ERROR! : Setting execute permissions for brave-new.bash failed!"
+        echo ""
+        exit 2
+    fi
     echo "Script installation successful."
     echo ""
     which fish >> /dev/null ; fish_available=${?}
