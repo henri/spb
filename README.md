@@ -23,7 +23,7 @@ Swim happily ; SPB [installs](https://github.com/henri/spb/?tab=readme-ov-file#f
 
 <br/>
 
-<p style="text-align: center;">
+<p align="center">
   <!-- <a href="https://https://www.gnu.org/licenses/gpl-3.0.en.html"><img src="http://img.shields.io/badge/License-GPLv3-red.svg"></a> -->
   <a href="https://www.gnu.org/software/bash/"><img src="https://img.shields.io/badge/bash_script-%23121011.svg?logo=gnu-bash&logoColor=white"></a>
       <a href="https://github.com/henri/spb/blob/main/README.md"><img src="https://img.shields.io/badge/%2B-%23121011?logoColor=white"></a>
