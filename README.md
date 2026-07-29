@@ -9,7 +9,7 @@ SPB provides a command line management interface to your [web browser(s)](https:
 Have you wished there was an easy way to interact with the web from your terminal? Maybe like me you feel ready  to automate your web surfing from the tranquility of the shell? Bundled [SPB fish snippits](https://github.com/henri/spb/?tab=readme-ov-file#fish-shell-wrappers) makes searching for information from the fish shell [easy-as](https://github.com/henri/spb/blob/main/FAQ.md#what-is-easy-as)! 
 
 
-SPB presents the power to navigate the surging currents of our planets vast digital oceans right at your fingertips. SPB is a deceptivly simple shell [script](https://github.com/henri/spb/blob/main/050.start-private-browser.bash) which will rapidly spawn one or more [isolated browser sessons](https://github.com/henri/spb/blob/main/README.md#sailboat-what-are-isolated-web-sessions). The [built-in SPB templating system](https://github.com/henri/spb/blob/main/README.md#spb-templating-support) allows isolation between different tasks.
+SPB presents the power to navigate the surging currents of our planets vast digital oceans right at your fingertips. SPB is a deceptively simple shell [script](https://github.com/henri/spb/blob/main/050.start-private-browser.bash) which will rapidly spawn one or more [isolated browser sessons](https://github.com/henri/spb/blob/main/README.md#sailboat-what-are-isolated-web-sessions). The [built-in SPB templating system](https://github.com/henri/spb/blob/main/README.md#spb-templating-support) allows isolation between different tasks.
 
 
 
@@ -23,8 +23,29 @@ Swim happily ; SPB [installs](https://github.com/henri/spb/?tab=readme-ov-file#f
 
 <br/>
 
-<p align="center">
+Yes — because this is now being processed as Markdown rather than raw HTML, a single newline between inline elements is treated as a space, not a line break. So you can just put each badge on its own line:
+markdown<div align="center">
+
+<!-- crazy work around for blink rendering -->
+
+[![bash](https://img.shields.io/badge/bash_script-%23121011.svg?logo=gnu-bash&logoColor=white)](https://www.gnu.org/software/bash/)
+[![](https://img.shields.io/badge/%2B-%23121011?logoColor=white)](https://github.com/henri/spb/blob/main/README.md)
+[![curl](https://img.shields.io/badge/curl-%23121011.svg?logo=curl&logoColor=white)](https://curl.se/)
+[![](https://img.shields.io/badge/%2B-%23121011?logoColor=white)](https://github.com/henri/spb/blob/main/README.md)
+[![Brave](https://img.shields.io/badge/Brave-%23121011.svg?logo=Brave&logoColor=white)](https://brave.com/)
+[![](https://img.shields.io/badge/%2B-%23121011?logoColor=white)](https://github.com/henri/spb/blob/main/README.md)
+[![GNU screen](https://img.shields.io/badge/GNU_screen-%23121011.svg?logo=terminal&logoColor=white)](https://www.gnu.org/software/screen/)
+[![](https://img.shields.io/badge/%2B-%23121011?logoColor=white)](https://github.com/henri/spb/blob/main/README.md)
+[![Linux](https://img.shields.io/badge/Linux-%23121011.svg?logo=linux&logoColor=white)](https://kernel.org/)
+[![](https://img.shields.io/badge/%2B-%23121011?logoColor=white)](https://github.com/henri/spb/blob/main/README.md)
+[![macOS](https://img.shields.io/badge/macOS-%23121011.svg)](https://www.apple.com/macos)
+
+</div>
+
+<p align="center"> 
   <!-- <a href="https://https://www.gnu.org/licenses/gpl-3.0.en.html"><img src="http://img.shields.io/badge/License-GPLv3-red.svg"></a> -->
+
+  <!-- 
   <a href="https://www.gnu.org/software/bash/"><img style="display:inline" src="https://img.shields.io/badge/bash_script-%23121011.svg?logo=gnu-bash&logoColor=white"></a>
       <a href="https://github.com/henri/spb/blob/main/README.md"><img src="https://img.shields.io/badge/%2B-%23121011?logoColor=white"></a>
   <a href="https://curl.se/"><img src="https://img.shields.io/badge/curl-%23121011.svg?logo=curl&logoColor=white"></a>
@@ -36,7 +57,12 @@ Swim happily ; SPB [installs](https://github.com/henri/spb/?tab=readme-ov-file#f
   <a href="https://kernel.org/"><img src="https://img.shields.io/badge/Linux-%23121011.svg?logo=linux&logoColor=white"></a>
       <a href="https://github.com/henri/spb/blob/main/README.md"><img src="https://img.shields.io/badge/%2B-%23121011?logoColor=white"></a>
    <a href="https://www.apple.com/macos"><img src="https://img.shields.io/badge/macOS-%23121011.svg"></a>
+
+-->
 </p>
+
+
+
 <br/>
 
 This project is still in a [seedling stage](https://github.com/henri/spb/blob/main/README.md#warning-disclaimer). If you find a bug please [start a discussion](https://github.com/henri/spb/discussions) or [open an issue](https://github.com/henri/spb/issues). SPB is [free software](https://www.gnu.org/philosophy/free-sw.en.html) (thank you [RMS](https://en.wikipedia.org/wiki/Richard_Stallman)) [released under the GNU GPL v3 or later](https://github.com/henri/spb/blob/main/README.md#memo-licensing-terms-of-use-and-legal). If you enjoy using SPB, then share a link with your friends! This way you and your friends enjoy the [benifits](https://github.com/henri/spb/blob/main/README.md#raising_hand-why-is-spb-needed) of SPB together! True friends protect their friends from data spills.
