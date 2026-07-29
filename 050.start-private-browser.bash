@@ -1175,7 +1175,6 @@ if [[ "${brave_new_wanted}" == "yes" ]] ; then
         echo "    Would you like to overwrite your local copy"
         echo -n "    by downloading the example version? [y/N] "
         read overwrite_local_brave_new
-        echo ""
         if \
                 [[ "${overwrite_local_brave_new}" == "y" ]] || \
                 [[ "${overwrite_local_brave_new}" == "Y" ]]|| \
@@ -1183,84 +1182,93 @@ if [[ "${brave_new_wanted}" == "yes" ]] ; then
                 [[ "${overwrite_local_brave_new}" == "Yes" ]] || \
                 [[ "${overwrite_local_brave_new}" == "YES" ]] \
             ; then
-                which curl 1>/dev/null 2>/dev/null ; curl_available=${?}
-                if [[ ${curl_available} != 0 ]] ; then
-                    echo "ERROR! : The curl command was not detected on your system."
-                    echo "         Ensure it is part of your path or install curl onto your"
-                    echo "         system and try again."
+                rm ${brave_new_install_path}
+                if [[ $? != 0 ]] ; then
                     echo ""
-                    echo "         Learn more about curl the link below :"
-                    echo "         https://curl.se"
+                    echo "    ERROR! : Unable to remove existing file."
                     echo ""
-                    curl # just see if the os reports anything helpful 
-                    exit -99
+                    exit -9
                 fi
-                echo "Downloading example brave-new.bash..."
-                echo "Script install loction : ${brave_new_install_path}"
-                curl --fail --silent --show-error --location -o "${brave_new_install_path}" "${brave_new_url}"
-                if [ $? != 0 ]; then
-                    echo ""
-                    echo "ERROR! : Downloadiong brave-new.bash failed!"
-                    echo ""
-                    echo "         Attempted Download URL : "
-                    echo "         ${brave_new_install_path}"
-                    echo ""
-                    exit 1
-                fi
-                echo "Script installation successful."
-                echo ""
-                which fish >> /dev/null ; fish_available=${?}
-                if [[ ${fish_available} != 0 ]] ; then
-                    echo "WARNING : The fish shell was not detected on your system."
-                    echo "          Learn more about the fish shell via the link below :"
-                    echo "          https://fishshell.com/"
-                    echo ""
-                    echo "          Without the fish shell installed on your system"
-                    echo "          it is not possible to configure the fish alias"
-                    echo "          which makes running the brave-new.bash script"
-                    echo "          super easy using the command : spb-brave-new"
-                    exit -99
-                fi
-                echo "Configuring fish function..."
-                fish -c "alias -s spb-brave-new \"~/bin/brave-new.bash\"" > /dev/null
-                if [[ $? == 0 ]] ; then
-                    echo "Fish alias succesfully configured."
-                    echo "Try out the script by issuing the following"
-                    echo "command from the fish shell :"
-                    echo ""
-                    echo "    spb-brave-new"
-                    echo ""
-                    echo "The command above will create a temporary instance of"
-                    echo "the Brave browser using SPB. That Brave Browser instance"
-                    echo "will then be configured by the script."
-                    echo ""
-                    echo "It is possible to pass SPB arguments to the script."
-                    echo "For example, you could create a new SPB template"
-                    echo "called 'test1' running in standard mode, which"
-                    echo "will be configured by the brave-new.bash "
-                    echo "script by issuing the command showen below"
-                    echo "within a fish shell : "
-                    echo ""
-                    echo "    spb-new-brave --new-template test --standard"
-                    echo ""
-                    echo "Should you wish to remove the fish alias and bash"
-                    echo "script which have just been configured on this"
-                    echo "system; simply run the commands below :"
-                    echo ""
-                    echo "    rm -i $HOME/bin/brave-new.bash"
-                    echo "    rm -i $(fish -c 'functions --details spb-brave-new')"
-                    echo "    fish -c \"functions --erase spb-brave-new\""
-                    echo ""
-                    echo "Happy swimming!"
-                    echo ""
-                else
-                    echo "ERROR! : Unable to configure fish alias spb-brave-new!"
-                    echo ""
-                    exit -99
-                fi
+                echo "    Existing file succesfully removed." ; echo ""
             else
                 echo "Understood... exiting without altering your system." ; echo ""
+                exit 0
         fi
+    fi
+    which curl 1>/dev/null 2>/dev/null ; curl_available=${?}
+    if [[ ${curl_available} != 0 ]] ; then
+        echo "ERROR! : The curl command was not detected on your system."
+        echo "         Ensure it is part of your path or install curl onto your"
+        echo "         system and try again."
+        echo ""
+        echo "         Learn more about curl the link below :"
+        echo "         https://curl.se"
+        echo ""
+        curl # just see if the os reports anything helpful 
+        exit -99
+    fi
+    echo "Downloading example brave-new.bash..."
+    echo "Script install loction : ${brave_new_install_path}"
+    curl --fail --silent --show-error --location -o "${brave_new_install_path}" "${brave_new_url}"
+    if [ $? != 0 ]; then
+        echo ""
+        echo "ERROR! : Downloadiong brave-new.bash failed!"
+        echo ""
+        echo "         Attempted Download URL : "
+        echo "         ${brave_new_install_path}"
+        echo ""
+        exit 1
+    fi
+    echo "Script installation successful."
+    echo ""
+    which fish >> /dev/null ; fish_available=${?}
+    if [[ ${fish_available} != 0 ]] ; then
+        echo "WARNING : The fish shell was not detected on your system."
+        echo "          Learn more about the fish shell via the link below :"
+        echo "          https://fishshell.com/"
+        echo ""
+        echo "          Without the fish shell installed on your system"
+        echo "          it is not possible to configure the fish alias"
+        echo "          which makes running the brave-new.bash script"
+        echo "          super easy using the command : spb-brave-new"
+        exit -99
+    fi
+    echo "Configuring fish function..."
+    fish -c "alias -s spb-brave-new \"~/bin/brave-new.bash\"" > /dev/null
+    if [[ $? == 0 ]] ; then
+        echo "Fish alias succesfully configured."
+        echo "Try out the script by issuing the following"
+        echo "command from the fish shell :"
+        echo ""
+        echo "    spb-brave-new"
+        echo ""
+        echo "The command above will create a temporary instance of"
+        echo "the Brave browser using SPB. That Brave Browser instance"
+        echo "will then be configured by the script."
+        echo ""
+        echo "It is possible to pass SPB arguments to the script."
+        echo "For example, you could create a new SPB template"
+        echo "called 'test1' running in standard mode, which"
+        echo "will be configured by the brave-new.bash "
+        echo "script by issuing the command showen below"
+        echo "within a fish shell : "
+        echo ""
+        echo "    spb-new-brave --new-template test --standard"
+        echo ""
+        echo "Should you wish to remove the fish alias and bash"
+        echo "script which have just been configured on this"
+        echo "system; simply run the commands below :"
+        echo ""
+        echo "    rm -i $HOME/bin/brave-new.bash"
+        echo "    rm -i $(fish -c 'functions --details spb-brave-new')"
+        echo "    fish -c \"functions --erase spb-brave-new\""
+        echo ""
+        echo "Happy swimming!"
+        echo ""
+    else
+        echo "ERROR! : Unable to configure fish alias spb-brave-new!"
+        echo ""
+        exit -99
     fi
     exit 0
 fi
