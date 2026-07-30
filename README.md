@@ -717,11 +717,11 @@ Mild testing has been completed on the following operating systems :
        - MacPorts is the recommend package manager on MacOS to handle SPB dependencies. If you prefer Brew that will also work.
            - MacOS pacakge managers 
                - [MacPorts](https://www.macports.org/)
-                   - ``` sudo port install git fish coreutils pv bash```
+                   - ``` sudo port install git fish coreutils pv bash websocat```
                    - Visit the [Brave website](https://brave.com/download/) and manually install.
                - [Brew](https://brew.sh)
                  ```
-                   brew install git fish coreutils pv bash
+                   brew install git fish coreutils pv bash websocat
                    brew install --cask brave-browser
                  ```
        - macOS 10.15 (and later)
