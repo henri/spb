@@ -434,7 +434,7 @@ The Same-Origin Policy is a core browser security feature that aims to prevent c
 
 Web servers can relax SOP using CORS (Cross-Origin Resource Sharing). This is controled by headers sent from the server. For example the Access-Control-Allow-Origin header allows a server to say ```I trust requests from this/these other domain(s)```.
 
-In a web browser there are cookies called session cookeis and these typically stick around until the browser closes. Some browsers restore previous sessions on startup, which can effectively persist session cookies even across browser restarts. This is where [isolated browsing sessions](https://github.com/henri/spb/blob/main/README.md#sailboat-what-are-isolated-web-sessions) are able to help.
+In a web browser there are cookies called session cookies and these typically stick around until the browser closes. Some browsers restore previous sessions on startup, which can effectively persist session cookies even across browser restarts. This is where [isolated browsing sessions](https://github.com/henri/spb/blob/main/README.md#sailboat-what-are-isolated-web-sessions) are able to help.
 
 Learn more about [cookies at Wikiepedia](https://en.wikipedia.org/wiki/HTTP_cookie)
 
@@ -648,32 +648,32 @@ Mild testing has been completed on the following operating systems :
   - <b>GNU/LINUX</b>
       - [Arch](https://archlinux.org/)
         ```
-          sudo pacman -Syu git fish coreutils grep screen pv
+          sudo pacman -Syu git fish coreutils grep screen pv websocat
           yay -S brave-bin
         ```
           - [Athena OS](https://athenaos.org/)
             ```
-              sudo pacman -Syu git fish coreutils grep screen pv
+              sudo pacman -Syu git fish coreutils grep screen pv websocat
               curl -fsS https://dl.brave.com/install.sh | sh
             ```
           - [CachyOS](https://cachyos.org/)
             ```
-              sudo pacman -Syu screen
+              sudo pacman -Syu screen websocat
               paru -S brave-bin
             ```
           - [EndeavourOS](https://endeavouros.com/)
             ```
-              sudo pacman -Syu git fish coreutils grep screen pv
+              sudo pacman -Syu git fish coreutils grep screen pv websocat
               yay -S brave-bin
             ```
           - [Manjearo](https://manjaro.org/)
             ```
-              sudo pacman -Syu git fish coreutils grep screen pv
+              sudo pacman -Syu git fish coreutils grep screen pv websocat
               curl -fsS https://dl.brave.com/install.sh | sh
             ```
           - [Omarchy](https://omarchy.org/)
             ```
-              sudo pacman -Syu git fish coreutils grep screen pv
+              sudo pacman -Syu git fish coreutils grep screen pv websocat
               yay -S brave-bin
             ```
       - [Debian](https://www.debian.org/) (x86)
