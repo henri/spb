@@ -17,7 +17,7 @@
 # startup options, settings, proxies, seperated cookies and more...
 #
 # This script has built in support for many web browsers. SPB also allows
-# starting of unsupported browsers. Uuse the '--help' option or see
+# starting of unsupported browsers. Use the '--help' option or see
 # the home page (listed below) for additional usage information.
 #
 # (C) Copyright Henri Shustak 2024
