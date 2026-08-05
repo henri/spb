@@ -23,8 +23,7 @@ Swim happily ; SPB [installs](https://github.com/henri/spb/?tab=readme-ov-file#f
 
 <br/>
 
-Yes — because this is now being processed as Markdown rather than raw HTML, a single newline between inline elements is treated as a space, not a line break. So you can just put each badge on its own line:
-markdown<div align="center">
+<div align="center">
 
 <!-- crazy work around for blink rendering -->
 
