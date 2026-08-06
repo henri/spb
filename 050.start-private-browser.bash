@@ -133,7 +133,7 @@
 # version 11.1 - added experimental enviroment varable which is availble to hook scripts 'spb_browser_data_directory'
 # version 11.2 - added experimental support for athena os
 # version 11.3 - added option --install-brave-new to install brave-new.bash (example configuration script) and also configures related fish alias
-# version 11.4 - added initial support for brave-origin (for GNU/Linux systems)
+# version 11.4 - added initial built-in multi-browser support for brave-origin (for GNU/Linux systems)
 
 ##
 ## configuration of variables
