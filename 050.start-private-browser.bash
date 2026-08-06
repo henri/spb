@@ -133,7 +133,7 @@
 # version 11.1 - added experimental enviroment varable which is availble to hook scripts 'spb_browser_data_directory'
 # version 11.2 - added experimental support for athena os
 # version 11.3 - added option --install-brave-new to install brave-new.bash (example configuration script) and also configures related fish alias
-
+# version 11.4 - added initial support for brave-origin (for GNU/Linux systems)
 
 ##
 ## configuration of variables
@@ -376,6 +376,19 @@ if [[ ! -z ${BASH_VERSINFO} ]] ; then
         spb_default_browser_data["brave:linux:pop"]="brave-browser"
         spb_default_browser_data["brave:freebsd"]="brave-browser"
         spb_default_browser_data["brave:darwin"]="/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"
+        # # # # # # # # # # # # #
+        spb_default_browser_data["brave-origin:linux:mint"]="brave-origin"
+        spb_default_browser_data["brave-origin:linux:ubuntu"]="brave-origin"
+        spb_default_browser_data["brave-origin:linux:debian"]="brave-origin"
+        spb_default_browser_data["brave-origin:linux:arch"]="brave-origin" # untested
+        spb_default_browser_data["brave-origin:linux:athenaos"]="brave-origin" # untested
+        spb_default_browser_data["brave-origin:linux:omarchy"]="brave-origin" # untested
+        spb_default_browser_data["brave-origin:linux:endeavouros"]="brave-origin" # untested
+        spb_default_browser_data["brave-origin:linux:manjaro"]="brave-origin" # untested
+        spb_default_browser_data["brave-origin:linux:centos"]="brave-origin" # untested
+        spb_default_browser_data["brave-origin:linux:fedora"]="brave-origin" # untested
+        spb_default_browser_data["brave-origin:linux:cachyos"]="brave-origin" # untested
+        spb_default_browser_data["brave-origin:linux:pop"]="brave-origin" # untested
         # # # # # # # # # # # # #
         spb_default_browser_data["chromium:linux:mint"]="chromium"
         spb_default_browser_data["chromium:linux:ubuntu"]="chromium"
@@ -2597,6 +2610,5 @@ screen -S "${screen_session_name}" -dm bash -c " \"${spb_browser_path}\" ${brows
 run_post_browser_startup_commands
 
 exit 0
-
 
 
