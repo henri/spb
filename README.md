@@ -981,7 +981,7 @@ The example command showen below instructs SPB to load Chromium rather than the 
 spb --browser chromium
 ```
 
-This next example will show a list of browsers which SPB natively supports
+This next example command displays a list of browsers which SPB natively supports.
 ```
 spb --list-browsers
 ```
