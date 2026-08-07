@@ -384,7 +384,7 @@ Keep in mind that different browsers will potentially have different [options](h
 
 [HTTP/HTTPS](https://wikipedia.org/wiki/HTTP) the primary protocols supported by a web browser are stateless. Because every request is independent (at the HTTP/HTTPS level) the web server has no memory of previous request(s). One function of cookies is to give the web server a way to recognize a session across these individual requests.
 
-Web browser cookies essentially are data chunks which a website is able to request your browser store within your browsers profile or in memory. Different browsers handle the implementation specifics of cookie storage and handling differently. 
+Web browser cookies essentially are data chunks which a website is able to request your browser store within your browsers profile or in memory. Different browsers handle the implementation specifics of cookie storage and handling in various ways. 
 
 The following is a simplification but it will provide a basis for understanding what cookies are and how they are typically handled by a web browser. The key idea is that a cookie is linked to a domain. As an example, when you direct your web browser to visit ```https://www.yahoo.com``` the response from the Yahoo server may ask your web browser to store some cookies. Then each time you make subsequent requests to Yahoo these cookies are sent along with those request so that Yahoo is able to identify the requests as being part of the same session.
 
