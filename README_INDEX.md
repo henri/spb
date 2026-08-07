@@ -31,6 +31,7 @@ The built-in [templating](https://github.com/henri/spb/blob/main/README.md#spb-t
     - [DRM and Privacy](https://github.com/henri/spb/blob/main/README.md#drm-and-privacy)
     - [Seucity and Trust](https://github.com/henri/spb/blob/main/README.md#lock-security-and-trust)
     - [Update Automation](https://github.com/henri/spb/blob/main/README.md#arrows_counterclockwise-automate-installation-and-updates)
+    - [What are Cookies](https://github.com/henri/spb/blob/main/README.md#cookie-what-are-cookies)
     - [Proxy Settings](https://github.com/henri/spb/blob/main/README.md#proxy-settings)
 - [Licencing and Terms of Use](https://github.com/henri/spb/blob/main/README.md#memo-licensing-terms-of-use-and-legal)
 - [Disclaimers](https://github.com/henri/spb/blob/main/README.md#warning-disclaimer)
