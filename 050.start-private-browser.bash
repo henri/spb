@@ -1409,7 +1409,7 @@ if [[ "${help_wanted}" == "yes" ]] ; then
     echo "         Install Helper Scripts : "
     echo ""
     echo "             # install brave-new.bash example script into ~/bin/brave-new.bash"
-    echo "             $ tart-private-browser --install-brave-new"
+    echo "             $ start-private-browser --install-brave-new"
     echo ""
     echo ""
     echo "         Additional Resources : "
