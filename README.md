@@ -405,8 +405,8 @@ Cookies have various uses (some are listed below) :
   - Login status
     - so you don't have to sign in every time
     - access to website via authentication cookie(s)
-      - You can think of an authentication like a key to your account
-      - Problematic if your authentication cookie(s) are stolen
+      - think of an authentication like a key to your account
+      - should authentication cookie(s) be stolen this is potentially problamatic
   - Preferences
     - language theme settings and much more...
     - bad things can happen if this is modified without you knowing
