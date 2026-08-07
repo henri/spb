@@ -216,7 +216,7 @@ henri/spb/refs/heads/main/\
 ```
 > <sub>Detailed install instructions : Copy and paste the lines above into a terminal and press enter. [View source code](https://github.com/henri/spb/blob/main/500.spb-install-script.bash)</sub>
 
-> <sub>**Operating system specific installation instructions for SPB dependencies is [available below](https://github.com/henri/spb/blob/main/README.md#triangular_flag_on_post-compatibility).**</sub>
+> <sub>**Operating system specific installation instructions for SPB dependencies are [available below](https://github.com/henri/spb/blob/main/README.md#triangular_flag_on_post-compatibility).**</sub>
 
 > <sub>Only run code from sources whom you [trust](https://github.com/henri/spb/?tab=readme-ov-file#lock-security-and-trust). Inspect SPB source-code [ [installer](https://github.com/henri/spb/blob/main/500.spb-install-script.bash), [project](https://github.com/henri/spb/blob/main/050.start-private-browser.bash) and [fish snippets](https://github.com/henri/spb-fish-snippits) ] below.</sub>
 
@@ -382,7 +382,7 @@ Keep in mind that different browsers will potentially have different [options](h
 
 ### :cookie: What are Cookies?
 
-[HTTP/HTTPS](https://wikipedia.org/wiki/HTTP) the primary protocols supported by a web browser are stateless. Because every request is independent (at the HTTP/HTTPS level) the web server has no memory of previous request(s). One function cookies of cookies is to give the web server a way to recognize a session across these indivudal requests.
+[HTTP/HTTPS](https://wikipedia.org/wiki/HTTP) the primary protocols supported by a web browser are stateless. Because every request is independent (at the HTTP/HTTPS level) the web server has no memory of previous request(s). One function of cookies is to give the web server a way to recognize a session across these individual requests.
 
 Web browser cookies essentially are data chunks which a website is able to request your browser store within your browsers profile or in memory. Different browsers handle the implementation specifics of cookie storage and handling differently. 
 
