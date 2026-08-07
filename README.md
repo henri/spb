@@ -173,29 +173,29 @@ for template in claude aws github amazon youtube ; spb --standard --edit-templat
 
 The way SPB accomplishes this isolation is is by storing the browser data directory for each instance in seperate parts of the file system. If you would like to use ```spb``` for more than disposable isolated web sessions, take a look at the [templating subsystem documention](https://github.com/henri/spb/blob/main/README.md#spb-templating-support).
 
-If you want to further isolate these sessions from one and other. It is possible to run SPB on remote machine(s), within a virtual machine(s) or within seperate name spaces (depending on your operating system).
+If you want to further isolate these sessions from one and other. It is possible to run SPB on remote machine(s), within a virtual machine(s) or within separate name spaces (depending on your operating system).
 
-Advatanges of using isolated web browser sessions include :
+Advantages of using isolated web browser sessions include :
 
-   - Ability to log into two or more web based accounts from the same provider simultaniusly on the same machine using your prefered browser.
+   - Ability to log into two or more web based accounts from the same provider simultaneously on the same machine using your preferred browser.
      - Login to many google / gmail accounts at the same time
-     - Login to multiple Amazon / AWS accounts simultanusly
+     - Login to multiple Amazon / AWS accounts simultaneously
      - Using SPB you can even configure each instance with a different icon so that you are able to identify the browser more easily.
      - Linux Mint includes a graphical tool called WebApps (installed via ```sudo apt install webapp-manager```) and this also offers a similar functionality but it is not able to be controlled from the command line (at the time of writing).
    - Reduce tracking between providers and web sessions
-     - Keep different tasks seperate within a dedicated browser instance
+     - Keep different tasks separate within a dedicated browser instance
      - Unlike switching between browser profiles SPB makes running run two or more sessions simultanusly easy
     
 Using the [SPB templating system](https://github.com/henri/spb/blob/main/README.md#spb-templating-support) it is possible to have the data preserved between sessions. As an example you may create a templates for specific tasks :
 
 ```
-# create a template for using Anthopic
-spb --standard --new-template anthopic
+# create a template for using Anthropic
+spb --standard --new-template anthropic
 
 # reopen and edit this template
-spb --standard --edit-template anthopic
+spb --standard --edit-template anthropic
 ```
-Using templates for spcific tasks minimizes the potential for data leakage between tasks.
+Using templates for specific tasks minimizes the potential for data leakage between tasks.
 
 <br>
 
@@ -220,9 +220,9 @@ henri/spb/refs/heads/main/\
 
 > <sub>Only run code from sources whom you [trust](https://github.com/henri/spb/?tab=readme-ov-file#lock-security-and-trust). Inspect SPB source-code [ [installer](https://github.com/henri/spb/blob/main/500.spb-install-script.bash), [project](https://github.com/henri/spb/blob/main/050.start-private-browser.bash) and [fish snippets](https://github.com/henri/spb-fish-snippits) ] below.</sub>
 
-> <sub>The [installer/update](https://github.com/henri/spb/blob/main/500.spb-install-script.bash) script is a convenience to simplify installation and updating of spb on your system(s). Updates are semi-automatic because in order to update you manually run the [installer](https://github.com/henri/spb/blob/main/500.spb-install-script.bash) interactively. Check the [automated notes](https://github.com/henri/spb/?tab=readme-ov-file#arrows_counterclockwise-automate-installation-and-updates) for details on configuring unattended spb updates and installations. Also, before enabling automatic updates read the [disclaimer section](https://github.com/henri/spb/?tab=readme-ov-file#warning-disclaimer) carfully. When installing SPB (using the above command), automatic updates are not enabled. If you want automatic updates, you must [deliberatly select](https://github.com/henri/spb/?tab=readme-ov-file#arrows_counterclockwise-automate-installation-and-updates) that as an option.</sub>
+> <sub>The [installer/update](https://github.com/henri/spb/blob/main/500.spb-install-script.bash) script is a convenience to simplify installation and updating of spb on your system(s). Updates are semi-automatic because in order to update you manually run the [installer](https://github.com/henri/spb/blob/main/500.spb-install-script.bash) interactively. Check the [automated notes](https://github.com/henri/spb/?tab=readme-ov-file#arrows_counterclockwise-automate-installation-and-updates) for details on configuring unattended spb updates and installations. Also, before enabling automatic updates read the [disclaimer section](https://github.com/henri/spb/?tab=readme-ov-file#warning-disclaimer) carefully. When installing SPB (using the above command), automatic updates are not enabled. If you want automatic updates, you must [deliberatly select](https://github.com/henri/spb/?tab=readme-ov-file#arrows_counterclockwise-automate-installation-and-updates) that as an option.</sub>
 
-> <sub>If you prefer to use spb without using the install/update script (not recommended due to ease of using the install script) ; just copy the SBP [project](https://github.com/henri/spb/blob/main/050.start-private-browser.bash) script to your system and make it executable. If you prefer a manual installation ; click below for installation stpes (this will completly avoiding the install/update script).<sub>
+> <sub>If you prefer to use spb without using the install/update script (not recommended due to ease of using the install script) ; just copy the SBP [project](https://github.com/henri/spb/blob/main/050.start-private-browser.bash) script to your system and make it executable. If you prefer a manual installation ; click below for installation steps (this will completely avoiding the install/update script).<sub>
 
 <details>
 <summary>manual installation steps</summary>
@@ -234,7 +234,7 @@ henri/spb/refs/heads/main/\
 # this approach, results in less dependency checking and as
 # such some features of SPB may not be fully functional
 
-# also, this  appraoch results in no fish snippits,
+# also, this  approach results in no fish snippets,
 # no fish auto completions or alias configuration.
 
 # if that all sounds perfct for you then proceed with
@@ -256,7 +256,7 @@ henri/spb/refs/heads/main/\
 chmod +x "$HOME/bin/start-private-browser.bash"
 
 # inspect source code (example below uses less)
-# use your prefered text editor / viewer
+# use your preferred text editor / viewer
 # less -S ~/bin/start-private-browser.bash
 
 ```
@@ -304,7 +304,7 @@ Update SPB (accept defaults)
 
 #### :blowfish: Fish Autocompletions
 
-SPB includes [fish auto-completions](https://github.com/henri/spb-fish-snippits/blob/main/completion/spb-completions.fish). Auto-completion allows for quick reference and completion of command line options. In addition, auto completion helps with searching template names, session names and more. Basic auto completion usage is showen below to get you started.
+SPB includes [fish auto-completions](https://github.com/henri/spb-fish-snippits/blob/main/completion/spb-completions.fish). Auto-completion allows for quick reference and completion of command line options. In addition, auto completion helps with searching template names, session names and more. Basic auto completion usage is shown below to get you started.
 
 ```
 spb --<tab> # displays a list of possible spb options
@@ -324,7 +324,7 @@ Start a fresh fish session by running ```fish``` :shell:
 ---
 #### :earth_asia: Enviroment Varables
 
-Display a list of enviroment variables which may be configured within your shell or via the SPB [configuration file](https://github.com/henri/spb/blob/main/README.md#spb-configuration-file).
+Display a list of environment variables which may be configured within your shell or via the SPB [configuration file](https://github.com/henri/spb/blob/main/README.md#spb-configuration-file).
 
 ```spb --configuration-variables```
 
@@ -334,18 +334,18 @@ Display a list of enviroment variables which may be configured within your shell
 
 No longer loving SPB? Need to free up disk space? 
 
-If you decide it is time to remove SPB and assosiated data ; removal instructions follow.
+If you decide it is time to remove SPB and associated data ; removal instructions follow.
 
 ```bash
 # removes spb software and any update logs
 rm -ri ~/bin/start-private-browser.bash ~/bin/spb-update.bash ~/bin/spb-update.log
 
-# remove your spb custom templates and configruation file ; assuming you have not saved to a custom location
+# remove your spb custom templates and configuration file ; assuming you have not saved to a custom location
 # carful you may not want to delete this data - CAUTION ADVISED!
 rm -ri ~/bin/spb-templates
 
 # remove your spb fish functions ; including any custom spb functions
-# carful you may not want to delete this data - CAUTION ADVISED!
+# careful you may not want to delete this data - CAUTION ADVISED!
 rm -ri ~/.config/fish/functions/spb*.fish ~/.config/fish/functions/start-private-browser.fish
 
 # remove spb fish completions
@@ -360,7 +360,7 @@ rm -ri ~/.config/fish/completions/spb-update.bash.fish
 
 SPB is a useful tool which is able to assist you in your privacy journey. Below are important links to sections of this documentation and external resources regarding SPB and your privacy. Like any tool, it is important to spend time learning the basics so you understand when and how it will assist you with your privacy, as well as the limitations.
 
-Information availble via the links below will assist you with forming a deeper understanding of SPB : 
+Information available via the links below will assist you with forming a deeper understanding of SPB : 
 
   - [Why SPB](https://github.com/henri/spb/blob/main/README.md#raising_hand-why-is-spb-needed)
   - [Isolated Browser Sessions](https://github.com/henri/spb/blob/main/README.md#sailboat-what-are-isolated-web-sessions)
@@ -382,13 +382,13 @@ Keep in mind that different browsers will potentially have different [options](h
 
 ### :cookie: What are Cookies?
 
-[HTTP/HTTPS](https://wikipedia.org/wiki/HTTP) the primary protocals supporrted by a web browser are stateless. Because every request is independent (at the HTTP/HTTPS level) the web server has no memory of previous request(s). One function cookies of cookies is to give the web server a way to recognize a session across these indivudal requests.
+[HTTP/HTTPS](https://wikipedia.org/wiki/HTTP) the primary protocols supported by a web browser are stateless. Because every request is independent (at the HTTP/HTTPS level) the web server has no memory of previous request(s). One function cookies of cookies is to give the web server a way to recognize a session across these indivudal requests.
 
-Web browser cookies essentially are data chunks which a website is able to request your browser store within your browsers profile or in memory. Different browsers handle the implimentation specifics of cookie storage and hadneling differenty. 
+Web browser cookies essentially are data chunks which a website is able to request your browser store within your browsers profile or in memory. Different browsers handle the implementation specifics of cookie storage and handling differently. 
 
-The following is a simplifcation but it will provide a basis for undertanding what cookies are and how they are typically handled by a web browser. The key idea is that a cookie is linked to a domain. As an example, when you direct your web browser to visit ```https://www.yahoo.com``` the response from the Yahoo server may ask your web browser to store some cookies. Then each time you make subsequent requests to Yahoo these cookies are sent along with those request so that Yahoo is able to identify the requests as being part of the same session.
+The following is a simplification but it will provide a basis for understanding what cookies are and how they are typically handled by a web browser. The key idea is that a cookie is linked to a domain. As an example, when you direct your web browser to visit ```https://www.yahoo.com``` the response from the Yahoo server may ask your web browser to store some cookies. Then each time you make subsequent requests to Yahoo these cookies are sent along with those request so that Yahoo is able to identify the requests as being part of the same session.
 
-The tecnical way this is implimented is that with the response from the server, there are headers set which instruct your browser to store a cookie. An example below illustrates a how web server responce asks the web browser to store five indivudal cookies. The data for each cookie is part of that header sent from the server. When the browser echos back the cookie in a request it only sends back the data gram of the cookie not the meta data. The meta data flags assoiated with the cookie are uesed by the browser to manage a cookie.
+The technical way this is implemented is that with the response from the server, there are headers set which instruct your browser to store a cookie. An example below illustrates a how web server response asks the web browser to store five individual cookies. The data for each cookie is part of that header sent from the server. When the browser echos back the cookie in a request it only sends back the data gram of the cookie not the meta data. The meta data flags associated with the cookie are used by the browser to manage a cookie.
 
 ```
 HTTP/1.1 200 OK
@@ -414,24 +414,24 @@ Cookies have various uses (some are listed below) :
   - Tracking
     - collection of browsing habits across sites is possible
     - profiles and information is often sold or used by advertisers
-    - potential for abuse if cookies are stolen without you knowlage
+    - potential for abuse if cookies are stolen without you knowledge
 
-Your browsers cookie jar may have cookies and some can be calssified (some examples listed below) : 
+Your browsers cookie jar may have cookies and some can be classified (some examples listed below) : 
 
-  - Session Cookies (typically discrarded when the browser is closed - there are exceptions)
-  - Persistant Cookies (sometimes will have a expiry date)
+  - Session Cookies (typically discarded when the browser is closed - there are exceptions)
+  - Persistent Cookies (sometimes will have a expiry date)
   - Tracking Cookies 
-  - First Party Cookies (sent from the site you initially reuqrsted)
-  - Thrid Party Cookies (set by a different domain than the one initially requested)
+  - First Party Cookies (sent from the site you initially requested)
+  - Third Party Cookies (set by a different domain than the one initially requested)
   - Super/Zombie Cookies
 
 The cookie mechanism was designed as a simple store-and-echo. Everything built on top (sessions, persistence, tracking, etc) are differences in usage, not a technical cookie variation.
 
-Typically web browsers attempt to protect you by preventing (what you would consider) unwanted access or modification of cooikes by sites which did not origionally create the cookie. This is managed by cookies being tied to a specific domain / sub-domain / path-scope and then flags being set on the cookie to limit access and modification. This protection idea is called SOP (Same-Origin Policy).
+Typically web browsers attempt to protect you by preventing (what you would consider) unwanted access or modification of cookies by sites which did not originally create the cookie. This is managed by cookies being tied to a specific domain / sub-domain / path-scope and then flags being set on the cookie to limit access and modification. This protection idea is called SOP (Same-Origin Policy).
 
 The Same-Origin Policy is a core browser security feature that aims to prevent code on one website from accessing cookie data from another. It's one of the most fundamental protections in web browser security. Same-Origin Policy in browsers extends far beyond just cookie access and modification management. If malicious code on evil.com tries to read data from yourbank.com, the browser is meant to block access. Without SOP, any website you visit could read your emails, banking info, or anything else open in another tab or window. 
 
-Web servers can relax SOP using CORS (Cross-Origin Resource Sharing). This is controled by headers sent from the server. For example the Access-Control-Allow-Origin header allows a server to say ```I trust requests from this/these other domain(s)```.
+Web servers can relax SOP using CORS (Cross-Origin Resource Sharing). This is controlled by headers sent from the server. For example the Access-Control-Allow-Origin header allows a server to say ```I trust requests from this/these other domain(s)```.
 
 In a web browser there are cookies called session cookies and these typically stick around until the browser closes. Some browsers restore previous sessions on startup, which can effectively persist session cookies even across browser restarts. This is where [isolated browsing sessions](https://github.com/henri/spb/blob/main/README.md#sailboat-what-are-isolated-web-sessions) are able to help.
 
@@ -450,7 +450,7 @@ The [SPB extras directory](https://github.com/henri/spb/tree/main/350.extras) pr
 
 Below are starter SPB examples for the fish shell to enhance every day web based tasks. More examples are on the horizon for testing, bench-marking, advanced automatons such as leveraging AI agents. If you have created something which you feel may be useful to the SPB community, [start a discussion](https://github.com/henri/spb/discussions) and share your ideas.
 
-If your search engine is set to [DuckDuckGo](duckduckgo.com) or you use the ```spb-ddg``` fish snippit, it is possible to use the array of [bangs on offer](https://duckduckgo.com/bangs) to further enhance your command line searches. See the example below : 
+If your search engine is set to [DuckDuckGo](duckduckgo.com) or you use the ```spb-ddg``` fish snippet, it is possible to use the array of [bangs on offer](https://duckduckgo.com/bangs) to further enhance your command line searches. See the example below : 
 
 ```
 # search wikipedia for information on nikola tesla
@@ -497,7 +497,7 @@ If you are using the fish shell, then these commands should be active and ready 
 
 #### SPB Templating Support
 
-The built-in templating sub-system allows you to list, create, edit and load browser data templates. Essentially, this allows you to configure a browser just as you like and then load this template as needed for future browsing sessions. When you load a template, spb creates a copy of the template for your requested session and then when you quit that copy is deleted. However, you still have the template and may start as many separate browser instances as you like form that template.
+The built-in template sub-system allows you to list, create, edit and load browser data templates. Essentially, this allows you to configure a browser just as you like and then load this template as needed for future browsing sessions. When you load a template, spb creates a copy of the template for your requested session and then when you quit that copy is deleted. However, you still have the template and may start as many separate browser instances as you like form that template.
 
 By default templates are stored in the directory : ~/bin/spb-templates/
 
@@ -518,29 +518,29 @@ Templates allow you to run browsers in a more standard browser mode but to still
 
 ##### SPB Auto Standard Mode
 
-Set the approriate [enviroment variable](https://github.com/henri/spb/blob/main/README.md#earth_asia-enviroment-varables) if you would like to have --standard mode enabled (automatically) when editing spb templates :
+Set the appropriate [environment variable](https://github.com/henri/spb/blob/main/README.md#earth_asia-enviroment-varables) if you would like to have --standard mode enabled (automatically) when editing spb templates :
 ```
 export spb_edit_template_standard_mode="true"
 ```
 
-It is possible to set this mode perminatly by appending the line above into your [spb.conig](https://github.com/henri/spb/blob/main/README.md#spb-configuration-file) file using the command below :
+It is possible to set this mode permanently by appending the line above into your [spb.conig](https://github.com/henri/spb/blob/main/README.md#spb-configuration-file) file using the command below :
 
 ```
 echo 'export spb_edit_template_standard_mode="true"' >> ~/bin/spb-templates/spb.config
 ```
 
 <details>
-<summary>additional auto standard mode enviroment varable options and usage</summary>
+<summary>additional auto standard mode environment variable options and usage</summary>
 
 <br>
 <hr>
 
-Set the approriate [enviroment variable](https://github.com/henri/spb/blob/main/README.md#earth_asia-enviroment-varables) if you would like to have --standard mode enabled (automatically) when creating new spb templates :
+Set the appropriate [environment variable](https://github.com/henri/spb/blob/main/README.md#earth_asia-enviroment-varables) if you would like to have --standard mode enabled (automatically) when creating new spb templates :
 ```
 export spb_new_template_standard_mode="true"
 ```
 
-It is possible to set this mode perminatly by appending the line above into your [spb.conig](https://github.com/henri/spb/blob/main/README.md#spb-configuration-file) file using the command below :
+It is possible to set this mode permanently by appending the line above into your [spb.conig](https://github.com/henri/spb/blob/main/README.md#spb-configuration-file) file using the command below :
 
 ```
 echo 'export spb_new_template_standard_mode="true"' >> ~/bin/spb-templates/spb.config
@@ -548,12 +548,12 @@ echo 'export spb_new_template_standard_mode="true"' >> ~/bin/spb-templates/spb.c
 
 <hr>
 
-Set the approriate [enviroment variable](https://github.com/henri/spb/blob/main/README.md#earth_asia-enviroment-varables) if you would like to have --standard mode enabled (automatically) when loading spb templates :
+Set the appropriate [environment variable](https://github.com/henri/spb/blob/main/README.md#earth_asia-enviroment-varables) if you would like to have --standard mode enabled (automatically) when loading spb templates :
 ```
 export spb_template_standard_mode="true"
 ```
 
-It is possible to set this mode perminatly by appending the line above into your [spb.conig](https://github.com/henri/spb/blob/main/README.md#spb-configuration-file) file using the command below :
+It is possible to set this mode permanently by appending the line above into your [spb.conig](https://github.com/henri/spb/blob/main/README.md#spb-configuration-file) file using the command below :
 
 ```
 echo 'export spb_template_standard_mode="true"' >> ~/bin/spb-templates/spb.config
@@ -567,10 +567,10 @@ echo 'export spb_template_standard_mode="true"' >> ~/bin/spb-templates/spb.confi
 
 #### SPB Configuration File
 
-The SPB configuration file allows a way to store frequently used settings and also to confgure [pre and post scripts](https://github.com/henri/spb/tree/main/300.configuration-examples) to run when you start and stop SPB.
+The SPB configuration file allows a way to store frequently used settings and also to configure [pre and post scripts](https://github.com/henri/spb/tree/main/300.configuration-examples) to run when you start and stop SPB.
 
 
-Editing the SPB configuration file a matter of running the command below. The SPB configruation file will open within your sessions default editor.
+Editing the SPB configuration file a matter of running the command below. The SPB configuration file will open within your sessions default editor.
 
 ```
 start-private-browser --edit-configuration
@@ -636,11 +636,11 @@ Mild testing has been completed on the following operating systems :
   <a href="https://github.com/henri/spb/blob/main/README.md#triangular_flag_on_post-compatibility" ><img src="https://henri.github.io/spb/spb-compatability.png" width="30%"></a>
 </p>
 
-  > Each operating system section listed below provides instructions for installing SPB dependencies using the terminal. At present the SPB installer will not automatically install dependiencies. That is left to you. SPB will not work correctly without the dependecies installed on your system. Either use the instructions below for your operating system or install dependcies using your own prefered approach.
+  > Each operating system section listed below provides instructions for installing SPB dependencies using the terminal. At present the SPB installer will not automatically install dependencies. That is left to you. SPB will not work correctly without the dependencies installed on your system. Either use the instructions below for your operating system or install dependencies using your own prefered approach.
 
-  > <b>If you have an operating system which is not listed below as long as you are able to install the dependcies then SPB will likely work just fine</b>.
+  > <b>If you have an operating system which is not listed below as long as you are able to install the dependencies then SPB will likely work just fine</b>.
 
-  > Some dependencies are optional and simply add features. Many operating systems will have all the required dependencies installed by default. If you skip ahead and [start the install / update process](https://github.com/henri/spb/blob/main/README.md#floppy_disk-installation) any critical dependenceis will be reported. To make the most of SPB it is reccomended that you install all  dependencies. Instructions for installing SPB dependencies are below.
+  > Some dependencies are optional and simply add features. Many operating systems will have all the required dependencies installed by default. If you skip ahead and [start the install / update process](https://github.com/henri/spb/blob/main/README.md#floppy_disk-installation) any critical dependencies will be reported. To make the most of SPB it is recommended that you install all  dependencies. Instructions for installing SPB dependencies are below.
 
 <sub>Once the SPB dependencies have been installed, [proceed with the installation of SPB](https://github.com/henri/spb/blob/main/README.md#floppy_disk-installation)</sub>
 
@@ -730,22 +730,22 @@ Mild testing has been completed on the following operating systems :
 
 <sub>Once the SPB dependencies have been installed, [proceed with the installation of SPB](https://github.com/henri/spb/blob/main/README.md#floppy_disk-installation)</sub>
 
-  > If you have managed to get SPB working on your operating system and your operatiing system is not listed above, kindly consider contributing a pull request which includes instructions ; in order to assist others with getting up and running quickly.
+  > If you have managed to get SPB working on your operating system and your operating system is not listed above, kindly consider contributing a pull request which includes instructions ; in order to assist others with getting up and running quickly.
 <br/>
 
 ### :shield: Telemetry and Privacy
 As you would expect. The SPB project has zero telemetry. As such if you decide to install and use this software nothing is sent back to mother-ship. 
 
-Most shells are configured by default to save a history of commands. As such, if you are including URL's, search terms or other data as arguments to SPB, then be aware these will potentially be stored on your system. Removing hisotry data from a shell is often possible (but beyond the scope of this documentation). If you are using the fish shell, you may start a private fish session using the '--private' option (example below) and within these private fish sessions the history will not perisist on your system once you exit the shell. 
+Most shells are configured by default to save a history of commands. As such, if you are including URL's, search terms or other data as arguments to SPB, then be aware these will potentially be stored on your system. Removing history data from a shell is often possible (but beyond the scope of this documentation). If you are using the fish shell, you may start a private fish session using the '--private' option (example below) and within these private fish sessions the history will not persist on your system once you exit the shell. 
 ```
 fish --private
 ```
 
-Some terminals / operating systems / kernel modules / system extensions / shell extensions / malware may send data from your machine to remote systems! It is important to understand the layers of the software stack and what is being sent and also what may be anylysed locally on your systems. 
+Some terminals / operating systems / kernel modules / system extensions / shell extensions / malware may send data from your machine to remote systems! It is important to understand the layers of the software stack and what is being sent and also what may be analyzed locally on your systems. 
 
 If you require no trace left behind on your device as you browse the web, then [SPB is likely not the right tool](https://github.com/henri/spb/blob/main/README.md#warning-disclaimer). 
 
-  > Note : If you schedule or manually run an install / update, then your system will poll and potentially access this Github reposotry. As such, it is advisable that you read the section below regarding this project being hosted on GitHub. If this is a problem think twice before installing SPB or running SPB updates (manually / scheduled).
+  > Note : If you schedule or manually run an install / update, then your system will poll and potentially access this GitHub repository. As such, it is advisable that you read the section below regarding this project being hosted on GitHub. If this is a problem think twice before installing SPB or running SPB updates (manually / scheduled).
 
 SPB is hosted on GitHub :octocat: and as such data is recorded :record_button: as you access this page. At the bottom of this page you will find links to manage the way GitHub handles your data and tracking within a browser. Also, the following links are useful with regards understanding the stance of GitHub towards privacy and trust : 
 
@@ -763,7 +763,7 @@ As the default browser option in SPB is [Brave](https://brave.com/) and that pro
 Different operating systems and even different LINUX distributions have different stances on privacy and telemetry. As such it is advisable that you check these details for your specific operating system. This project works on a variety of operating systems each with their own particulars relating to privacy and telemetry. Learn more about [SPB privacy](https://github.com/henri/spb/blob/main/README.md#shield-privacy).
 
 > #### SPB Fish Snippets 
-> <sub>Should you use spb-ddg, spb-ddg-ai or spb-pai fish snippets, then you will want to have a close look at the terms of service from [DuckDuckGo](https://duckduckgo.com/privacy) and [Perplexity Ai](https://www.perplexity.ai/hub/legal/privacy-policy) whose websites you will be accessing. If you are using spb-yt then be sure to check [Googles privacy policy](https://policies.google.com/privacy). The same applies to using other fish snippits not specifcially mentioned.</sub>
+> <sub>Should you use spb-ddg, spb-ddg-ai or spb-pai fish snippets, then you will want to have a close look at the terms of service from [DuckDuckGo](https://duckduckgo.com/privacy) and [Perplexity Ai](https://www.perplexity.ai/hub/legal/privacy-policy) whose websites you will be accessing. If you are using spb-yt then be sure to check [Googles privacy policy](https://policies.google.com/privacy). The same applies to using other fish snippets not specifically mentioned.</sub>
 
 <br/>
 
@@ -772,20 +772,20 @@ The [Tor Project](https://www.torproject.org/) has many powerful [tools](https:/
 
 By default SPB will launch a private browser session (AKA incognito window) within a new isolated instance of Brave. Turning on Tor is possible from within the Brave session. 
 
-With SPB installed it is possible to quickly start an isolated Tor session within the Brave Browser right from the [command line](https://github.com/henri/spb/blob/main/README.md#fish-shell-wrappers). This is a great way to quickly access the web via the Tor network, when the protection of [Tails](https://github.com/henri/spb/blob/main/README.md#warning-disclaimer) is not required. The Tor project is a powerful privacy tool which is an intregal part of the [Tails](https://github.com/henri/spb/blob/main/README.md#warning-disclaimer) project. 
+With SPB installed it is possible to quickly start an isolated Tor session within the Brave Browser right from the [command line](https://github.com/henri/spb/blob/main/README.md#fish-shell-wrappers). This is a great way to quickly access the web via the Tor network, when the protection of [Tails](https://github.com/henri/spb/blob/main/README.md#warning-disclaimer) is not required. The Tor project is a powerful privacy tool which is an integral part of the [Tails](https://github.com/henri/spb/blob/main/README.md#warning-disclaimer) project. 
 
 
-Brave also makes contributing to the Tor network stright forward with the built in [Snowflake](https://snowflake.torproject.org/) extension. To enable the SnowFlake extension use [this link within Brave](brave://settings/privacy). Learn more about [SPB privacy](https://github.com/henri/spb#shield-privacy).
+Brave also makes contributing to the Tor network straight forward with the built in [Snowflake](https://snowflake.torproject.org/) extension. To enable the SnowFlake extension use [this link within Brave](brave://settings/privacy). Learn more about [SPB privacy](https://github.com/henri/spb#shield-privacy).
 
 <br/>
 
 #### DRM and Privacy
-[DRM](https://en.wikipedia.org/wiki/Digital_rights_management) modules such as [Widevine](https://www.widevine.com/) typically result in device or installation‑specific identifiers (sometimes key pairs). Such identifiers are designed to persist between sessions and unlike cookies, this identity is not cleared when you wipe browser cookies or cache. Keep in mind that many web [browsers are bundled with Widevine by default](https://www.reddit.com/r/brave_browser/comments/1fqdr71/what_is_this_google_widevine_i_just_noticed_that/). [Brave](https://brave.com/) (SPB default browser) is one of the few web browsers which (at the time writing) has opted to not bundled Widevine into the browser. Although, keep in mind it is possible to install the Widevine extension into Brave and you will be pompted to do this if you try to access data protected by Widevine. If you install Widevine into an SPB template, keep in mind that this may result in additional tracking that takes place when using that template. For enhanced privacy protection you may want to consider a [differnt tool](https://github.com/henri/spb/blob/main/README.md#warning-disclaimer) or combine SPB with other [tools](https://github.com/henri/spb/blob/main/README.md#warning-disclaimer) to further enhance your protection. Learn more about [SPB privacy](https://github.com/henri/spb/blob/main/README.md#shield-privacy).
+[DRM](https://en.wikipedia.org/wiki/Digital_rights_management) modules such as [Widevine](https://www.widevine.com/) typically result in device or installation‑specific identifiers (sometimes key pairs). Such identifiers are designed to persist between sessions and unlike cookies, this identity is not cleared when you wipe browser cookies or cache. Keep in mind that many web [browsers are bundled with Widevine by default](https://www.reddit.com/r/brave_browser/comments/1fqdr71/what_is_this_google_widevine_i_just_noticed_that/). [Brave](https://brave.com/) (SPB default browser) is one of the few web browsers which (at the time writing) has opted to not bundled Widevine into the browser. Although, keep in mind it is possible to install the Widevine extension into Brave and you will be prompted to do this if you try to access data protected by Widevine. If you install Widevine into an SPB template, keep in mind that this may result in additional tracking that takes place when using that template. For enhanced privacy protection you may want to consider a [differnt tool](https://github.com/henri/spb/blob/main/README.md#warning-disclaimer) or combine SPB with other [tools](https://github.com/henri/spb/blob/main/README.md#warning-disclaimer) to further enhance your protection. Learn more about [SPB privacy](https://github.com/henri/spb/blob/main/README.md#shield-privacy).
 <br/>
 
 ### :lock: Security and Trust
 You should only run code and use software from sources you trust! 
-If you do not trust yourself to check the project code below or you do not trust my judgment, then it is recommended to not run this code. The alternative is asking someone familiar with shell scripting ([BASH](https://bash.com/) and [FISH](https://fishshell.com/) are the shell scripting languages used to create SPB) to vet the code on your behalf. The code base of the SPB project is small (the dependicenies not so much) and so it should not take long for someone to vet the SPB code ; backlinks to publicly accessable SPB code vetting reports are welcome and we have a [special place](https://github.com/henri/spb/blob/main/CODE_VETTING.md) for these within the project. Just make sure if you ask someone to help you vet the code ; that you also trust them. With 25+ years of experience writing shell scripts, you would hope that I have learnt to test my work.
+If you do not trust yourself to check the project code below or you do not trust my judgment, then it is recommended to not run this code. The alternative is asking someone familiar with shell scripting ([BASH](https://bash.com/) and [FISH](https://fishshell.com/) are the shell scripting languages used to create SPB) to vet the code on your behalf. The code base of the SPB project is small (the dependencies not so much) and so it should not take long for someone to vet the SPB code ; back-links to publicly accessible SPB code vetting reports are welcome and we have a [special place](https://github.com/henri/spb/blob/main/CODE_VETTING.md) for these within the project. Just make sure if you ask someone to help you vet the code ; that you also trust them. With 25+ years of experience writing shell scripts, you would hope that I have learnt to test my work.
   
 Already have spb and fish snippets setup, you may issue the following command to have perplexity vet the code : 
 ```
@@ -805,7 +805,7 @@ SPB is hosted on GitHub :octocat: and as such the infrastructure (will soon) sit
 
 ### :arrows_counterclockwise: Automate Installation and Updates
 
-Only configure auomated updates if you are confident and understand the risks outlined below. [Sticking with the manual updates](https://github.com/henri/spb/blob/main/README.md#floppy_disk-installation) is reccomended for most users. If you are sure you want to setup automated SPB updates, the easiest approach  is to run the command below from within the bash shell :
+Only configure automated updates if you are confident and understand the risks outlined below. [Sticking with the manual updates](https://github.com/henri/spb/blob/main/README.md#floppy_disk-installation) is recommended for most users. If you are sure you want to setup automated SPB updates, the easiest approach  is to run the command below from within the bash shell :
   
 ```bash
 export SPB_CRON_SETUP="true"
@@ -820,11 +820,11 @@ The setup of unattended / automated SPB updates (eg. using the command above) wi
 
 The command above will setup an entry in your users crontab which will run the included [spb-update.bash](https://github.com/henri/spb/blob/main/600.spb-update.bash) script automatically. This will keep your copy of SPB upto date.
 
-The crontab entry which is setup using the command above will result in your system checking for SPB updates once per week (assuming your system is turned on and has an active internet conenction). Updates will be initated by running the [spb-update.bash](https://github.com/henri/spb/blob/main/600.spb-update.bash) script without a connected tty (non-interactive mode). The command below provides additional information : 
+The crontab entry which is setup using the command above will result in your system checking for SPB updates once per week (assuming your system is turned on and has an active internet connection). Updates will be initiated by running the [spb-update.bash](https://github.com/henri/spb/blob/main/600.spb-update.bash) script without a connected tty (non-interactive mode). The command below provides additional information : 
 ```
 ~/bin/spb-update.bash --help
 ```
-Disable automated updates once they are setup by editing your crontab and commenting out or removing approriate entries.
+Disable automated updates once they are setup by editing your crontab and commenting out or removing appropriate entries.
 
 To view your users crontab simply run the command below : 
 ```
@@ -877,15 +877,15 @@ If you export proxy environment variables (as shown below) then the SPB install 
   set -x export https_proxy "https://proxy.server:port"
   
 ```
-If you would like to use a single proxy when checking for updates, it is reccomded that you either add the enviroment varables to your crontab (or automation system of choice) or create a custom update wrapper script which adds the proxy varables to your enviroment so they are respected during the update process. Editing the included update script should be avoided because during the update proces any changes made to that file will be removed.
+If you would like to use a single proxy when checking for updates, it is recommended that you either add the environment variables to your crontab (or automation system of choice) or create a custom update wrapper script which adds the proxy variables to your environment so they are respected during the update process. Editing the included update script should be avoided because during the update process any changes made to that file will be removed.
 
 
-Different web browsers may or may not respect the proxy enviroment variables. [Browser specific notes](https://github.com/henri/spb/blob/main/901.notes_browser_specific.md) are available regarding the use of individual proxies.
+Different web browsers may or may not respect the proxy environment variables. [Browser specific notes](https://github.com/henri/spb/blob/main/901.notes_browser_specific.md) are available regarding the use of individual proxies.
 
 <br/>
 
 ### :memo: Licensing, Terms of Use and Legal
-SPB is released under the [GNU GPL 3 or later](https://www.gnu.org/licenses/gpl-3.0.html). The GNU GPL is a free software licence which [protects users freedoms](https://www.gnu.org/philosophy/free-sw.en.html). Learn more about [escaping to freedom](https://www.fsf.org/blogs/rms/20140407-geneva-tedx-talk-free-software-free-society). 
+SPB is released under the [GNU GPL 3 or later](https://www.gnu.org/licenses/gpl-3.0.html). The GNU GPL is a free software license which [protects users freedoms](https://www.gnu.org/philosophy/free-sw.en.html). Learn more about [escaping to freedom](https://www.fsf.org/blogs/rms/20140407-geneva-tedx-talk-free-software-free-society). 
 
 <br/>
 
@@ -903,9 +903,9 @@ The use cases for this SPB are immense and include :
   - Simplified remote browser isolation
   - Research
 
-Make yourself aware of how insidious malware within browser extensions has become. There are ongoing efforts to load malware into web browsers at scale. :panda_face: [ShadyPanda](https://youtu.be/HDuBI0Pc1HE?si=Aa98KzJ5CzUIAtlQ) is just a single example. Thanks to [KOI](https://www.koi.ai/) for uncovering this issue. Sandboxes for software and [isolating browser instances](https://github.com/henri/spb/blob/main/README.md#sailboat-what-are-isolated-web-sessions) is helpful in minimising the blast radius of these attacks. In addition, SPB is also able to assist security researchers to learn more about browser based attack vectors.
+Make yourself aware of how insidious malware within browser extensions has become. There are ongoing efforts to load malware into web browsers at scale. :panda_face: [ShadyPanda](https://youtu.be/HDuBI0Pc1HE?si=Aa98KzJ5CzUIAtlQ) is just a single example. Thanks to [KOI](https://www.koi.ai/) for uncovering this issue. Sandboxes for software and [isolating browser instances](https://github.com/henri/spb/blob/main/README.md#sailboat-what-are-isolated-web-sessions) is helpful in minimizing the blast radius of these attacks. In addition, SPB is also able to assist security researchers to learn more about browser based attack vectors.
 
-When starting a private session within the [Safari WebBrowser](https://en.wikipedia.org/wiki/Safari_(web_browser)) on [MacOS](https://en.wikipedia.org/wiki/MacOS) each tab is seperate (the cookies are not shared between tabs). However, most other browsers share the private cookies with all private tabs. One approach is not better or worse. But if you would like to have multiple instances of a browser but not have them sharing all those dirty cookies, then this script allows you to start up as many private (and separate) sessions as you need (as long as your system will cope with the additional system resources being used). Have fun loading some private browsers.
+When starting a private session within the [Safari WebBrowser](https://en.wikipedia.org/wiki/Safari_(web_browser)) on [MacOS](https://en.wikipedia.org/wiki/MacOS) each tab is separate (the cookies are not shared between tabs). However, most other browsers share the private cookies with all private tabs. One approach is not better or worse. But if you would like to have multiple instances of a browser but not have them sharing all those dirty cookies, then this script allows you to start up as many private (and separate) sessions as you need (as long as your system will cope with the additional system resources being used). Have fun loading some private browsers.
 
 Wondering what even is an [isolated web session](https://github.com/henri/spb/blob/main/README.md#sailboat-what-are-isolated-web-sessions)?
 
@@ -939,7 +939,7 @@ In the event additional privacy is required consider running SPB within a remote
       * built in [Tor](https://github.com/henri/spb/blob/main/README.md#fish-shell-wrappers) client
       * built in [Snowflake](https://support.brave.app/hc/en-us/articles/9059440641421-What-is-the-Snowflake-extension) extension (contribute to the Tor network)
 
-> <sub>These projects and SPB are not mutually exclusive. Get synergetic and combine tools together. As an Example use Cubes, Tor and Tails together.</sub>
+> <sub>These projects and SPB are not mutually exclusive. Get synergistic and combine tools together. As an Example use Cubes, Tor and Tails together.</sub>
 
 Is this list incomplete? If you know of a privacy focused system missing from this list [let me know](https://github.com/henri/spb/discussions).
 
@@ -955,7 +955,7 @@ Learn more about [SPB privacy](https://github.com/henri/spb/blob/main/README.md#
 <br/>
 
 ### :sunrise: Browser Support
-SPB supports various browsers accross a wide range of [operating systems](https://github.com/henri/spb/blob/main/README.md#triangular_flag_on_post-compatibility).
+SPB supports various browsers across a wide range of [operating systems](https://github.com/henri/spb/blob/main/README.md#triangular_flag_on_post-compatibility).
 
 Below is a list of SPB supported browsers. Some browsers have better support than others (your millage may vary). Some browsers currently have experimental SPB support. If you have a browser which is based on Chromium or Firefox, then there is a good chance it will work with SPB.
 
@@ -981,19 +981,19 @@ The example command showen below instructs SPB to load Chromium rather than the 
 spb --browser chromium
 ```
 
-This next example will show a list of browsers which SPB nativly supports
+This next example will show a list of browsers which SPB natively supports
 ```
 spb --list-browsers
 ```
 
-The path (or command) which will be used is launch the specified web browser is configured automatically within SPB for various operating systems. Pull requests are always welcome in this regard as there are so many different LINUX distributions with different apparoches to browser naming.
+The path (or command) which will be used is launch the specified web browser is configured automatically within SPB for various operating systems. Pull requests are always welcome in this regard as there are so many different LINUX distributions with different approaches to browser naming.
 
 In the event you would like to try use a browser or operating system which is not officially supported, then you could try the following command to say launch chromium :
 
 ```
 spb --browser chromium --browser-path chromium
 ```
-Specifing the --browser and --browser-path command line arguments also allow you to reference non-standard paths or even setup browsers with custom icons for that session. These command line options allow you to quickly specify specific browsers on an adhoc basis.
+Specifying the --browser and --browser-path command line arguments also allow you to reference non-standard paths or even setup browsers with custom icons for that session. These command line options allow you to quickly specify specific browsers on an adhoc basis.
 
 It is also possible to configure a default browser name and path by adding the following lines into your [SPB configuration file](https://github.com/henri/spb/blob/main/README.md#spb-configuration-file) : 
 ```
@@ -1002,7 +1002,7 @@ export spb_browser_path="chromium"
 ```
 This approach allows you to use a browser which may not be officially supported on your operating system by SPB. In the example above we are selecting Chromium as the default browser for SPB.
 
-In addition, it is possible to overide and/or extend the mutli-browser support options on your system within the spb.config file. If the spb.cofnig file present, SPB will source this file and many variables are able to be overriden and/or extended beyond the defaults which SPB multi-browser support nativly offers.
+In addition, it is possible to override and/or extend the mutli-browser support options on your system within the spb.config file. If the spb.cofnig file present, SPB will source this file and many variables are able to be overridden and/or extended beyond the defaults which SPB multi-browser support natively offers.
 
 For additional information regarding SPB configuration files. Run the following command to open the SPB help page and jump to the appropriate section : 
 
@@ -1014,7 +1014,7 @@ It is important to note that SPB has an order of priority when overriding settin
 
 ```mermaid
 flowchart LR
-    A[command line arguments\n\n--browser\n--browser-path\n\nhighest priority] --> B[spb configuration file\n\nspb_browser_name\nspb_browser_path] --> C[shell enviroment variable\n\nspb_browser_name\nspb_browser_path\n\nlowest priority]
+    A[command line arguments\n\n--browser\n--browser-path\n\nhighest priority] --> B[spb configuration file\n\nspb_browser_name\nspb_browser_path] --> C[shell environment variable\n\nspb_browser_name\nspb_browser_path\n\nlowest priority]
 ```
 > <sub>Note : The order shown above is subject to change. The diagram above shows the current priority order. Higher priority settings will override lower priority settings.</sub>
 
@@ -1024,7 +1024,7 @@ Also, see the [SPB FAQ](https://github.com/henri/spb/blob/main/FAQ.md#will-spb-w
 
 Brave was slected as the deafult browser for the following reasons :
 
-  - Released under open source licence (Mozilla Public License 2.0)
+  - Released under open source license (Mozilla Public License 2.0)
   - Attempts to offer the following protection by default
     - Tracker Blocking
     - Cookie Tracking
@@ -1036,7 +1036,7 @@ Brave was slected as the deafult browser for the following reasons :
   - Built in Tor client
   - Ability to [easily disable or change the current level of sheilding](https://brave.com/privacy-updates/9-web-compat-blocking/#differences-between-standard-and-aggressive-blocking/)
 
-The most important of these is the built in [Fingerpinrting prevention](https://brave.com/privacy-features/). It would be great to see more web browsers offering a similar feature.
+The most important of these is the built in [Fingerprinting prevention](https://brave.com/privacy-features/). It would be great to see more web browsers offering a similar feature.
 
 Below is a list of sites which will report data they are able to collect from your Web Browser : 
 
@@ -1049,15 +1049,15 @@ If you would like to configure SPB to always use a specific browser, then [these
 
 There are excellent projects such as [Arkenfox](https://github.com/arkenfox/user.js/) and [LibreWolf](https://librewolf.net/) which offer excellent privacy features. At this point in time, Brave offers great out of the box configuration. At some point the default browser could be switched to FireFox or another browser. Suggestions and comments around this are very welcome. There are many privacy focused projects and resources which I am not aware of and it would be great to include links to such projects within the SPB documentation.
 
-At present FireFox has some really excellent features. However, they often they are not accesable directly via a command line switch and instead rely upon settings or files being loaded into the profile. Setting this up is all possible and you can even setup an spb config file to have Firefox work as the default browser via the spb command.
+At present FireFox has some really excellent features. However, they often they are not accessible directly via a command line switch and instead rely upon settings or files being loaded into the profile. Setting this up is all possible and you can even setup an spb config file to have Firefox work as the default browser via the spb command.
 
 ```
 alias -s spb "start-private-browser --browser firefox"
 ```
 
-However, the approach showen above will not play well with all fish snippits. The better approah is to set firefox as the default browser within the SPB configuration file.
+However, the approach shown above will not play well with all fish snippets. The better approach is to set FireFox as the default browser within the SPB configuration file.
 
-Adding the following into your SPB configuration file is the reccomended approach to setting firefox as the default browser.
+Adding the following into your SPB configuration file is the recommended approach to setting FireFox as the default browser.
 ```
 export spb_browser_name="firefox"
 export spb_browser_path="firefox"
@@ -1067,9 +1067,9 @@ Again, [[disccusion]](https://github.com/henri/spb/discussions) on this is very 
 
 #### SPB Browser Support History
 
-SPB (Start Private Browser) was initially developed to only support and work with Brave (back then SPB was a much simpler system totaling less than 100 lines of code). Due to Brave being based on [Chromium](https://www.chromium.org) it was not a big task to update SPB to include support for Chromium and many other Chromium based browsers. With [Mozzila FireFox](https://www.firefox.com) also being an extreamlly popular browser having decent command line support, the more recent versions of SPB have experimenal support for FireFox and some FireFox forks. Currently, SPB includes [multi-browser support](https://github.com/henri/spb/blob/main/README.md#sunrise-browser-support) for many FireFox forks.
+SPB (Start Private Browser) was initially developed to only support and work with Brave (back then SPB was a much simpler system totaling less than 100 lines of code). Due to Brave being based on [Chromium](https://www.chromium.org) it was not a big task to update SPB to include support for Chromium and many other Chromium based browsers. With [Mozzila FireFox](https://www.firefox.com) also being an extremely popular browser having decent command line support, the more recent versions of SPB have experimental support for FireFox and some FireFox forks. Currently, SPB includes [multi-browser support](https://github.com/henri/spb/blob/main/README.md#sunrise-browser-support) for many FireFox forks.
 
-Please note, that not all Chromium and FireFox based browsers are officially supported by SPB. Many broswers have significant variations from their upstream projects and in some cases these changes makes it impossible or at least difficult to get them working correctly with SPB ; without additional support from those projects. If you are a developer, then patches and pull requests are welcome if your faviorte browser is not yet supported and you would like to see support in an official SPB release. If you are not ready to make the changes yourself, then open an issue or start a discussion outlining your problem or request.
+Please note, that not all Chromium and FireFox based browsers are officially supported by SPB. Many browsers have significant variations from their upstream projects and in some cases these changes makes it impossible or at least difficult to get them working correctly with SPB ; without additional support from those projects. If you are a developer, then patches and pull requests are welcome if your favorite browser is not yet supported and you would like to see support in an official SPB release. If you are not ready to make the changes yourself, then open an issue or start a discussion outlining your problem or request.
 
 <br/>
 
@@ -1083,7 +1083,7 @@ Use this link to access the [SPB FAQ](https://github.com/henri/spb/blob/main/FAQ
 ### :rocket: Contributing to the project
 In order to protect users of this project all contributors must comply with the [Developer Certificate of Origin](https://developercertificate.org). This ensures that all contributions are properly licensed and attributed.
 
-If you are looking to contribute financially, please instead consider donating to one or more of these organsations : 
+If you are looking to contribute financially, please instead consider donating to one or more of these organizations : 
   
   - [Ladybrid](https://ladybird.org)
   - [EFF](https://www.eff.org)
@@ -1120,7 +1120,7 @@ https://wikipedia.org
   - [Brave : Using Command Line Switches](https://support.brave.com/hc/en-us/articles/360044860011-How-Do-I-Use-Command-Line-Flags-in-Brave)
   - [Brave : Cheatsheet](https://gist.github.com/henri/a454bb27edb3d3a567c5a695f0582aa7) (my gist)
   - [Browser Compartmentalization](https://secureblitz.com/browser-compartmentalization/)
-  - [PrivacyTools](https://www.privacytools.io/) (extensive resources regading various privacy tools)
+  - [PrivacyTools](https://www.privacytools.io/) (extensive resources regarding various privacy tools)
 
 <br/>
 <br/>
