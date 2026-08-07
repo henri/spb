@@ -604,7 +604,7 @@ spb --configuration-variables --verbose | grep "Configuration found : " | awk '{
 The SPB configuration file allows you to alter the way SPB works on your system. For example, if you would like to set your default SPB web browser from Brave to FireFox, the example below shows you how to accomplish this modification to the ```spb.config``` file.
 
 ```
-# adds a line to the spb.config fille which will set FireFox as the default SPB browser
+# adds a line to the spb.config file which sets FireFox as the default SPB browser
 echo 'export spb_browser_name=firefox' >> ~/bin/spb-templates/spb.config
 ```
 
