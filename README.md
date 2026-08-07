@@ -899,14 +899,16 @@ SPB is released under the [GNU GPL 3 or later](https://www.gnu.org/licenses/gpl-
 The use cases for this SPB are immense and include :
 
   - [Fast day-to-day web browsing](https://github.com/henri/spb/blob/main/README.md#star-usage-examples) accessed via the terminal
+  - Quickly load multiple highly customized workspaces and templates for specific tasks.
   - Trouble-shooting
-  - Testing
+  - Testing (especially with parallelization automation)
   - Development
-  - Load-testing
+  - Load-testing (especially with parallelization automation)
   - Dedicated agent task isolation
   - Privacy ; or just having multiple tabs which are not related in terms of [cookies](https://github.com/henri/spb/blob/main/README.md#cookie-what-are-cookies) etc.
   - Simplified remote browser isolation
-  - Research
+  - Research (especially with automation)
+  - Quick and repeatable setup of isolated web browsers sessions
 
 Make yourself aware of how insidious malware within browser extensions has become. There are ongoing efforts to load malware into web browsers at scale. :panda_face: [ShadyPanda](https://youtu.be/HDuBI0Pc1HE?si=Aa98KzJ5CzUIAtlQ) is just a single example. Thanks to [KOI](https://www.koi.ai/) for uncovering this issue. Sandboxes for software and [isolating browser instances](https://github.com/henri/spb/blob/main/README.md#sailboat-what-are-isolated-web-sessions) is helpful in minimizing the blast radius of these attacks. In addition, SPB is also able to assist security researchers to learn more about browser based attack vectors.
 
