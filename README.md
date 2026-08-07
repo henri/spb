@@ -608,10 +608,10 @@ The SPB configuration file allows you to alter the way SPB works on your system.
 echo 'export spb_browser_name=firefox' >> ~/bin/spb-templates/spb.config
 ```
 
-To undo this change, edit the configruation file and comment out or delete that line.
+To undo this change, edit the configuration file and comment out or delete that line.
 
 ```
-# removes the line above which sets firefox as the default SPB browser (reverting the default browser to Brave)
+# revert back to the default browser (Brave) by removing the line added by the command above from the ~/bin/spb-templates/spb.config
 sed -i '/^export spb_browser_name=firefox$/d' ~/bin/spb-templates/spb.config
 ```
 Additional information in regards to [configuring your browser](https://github.com/henri/spb/blob/main/README.md#sunrise-browser-support) via the spb.config.
