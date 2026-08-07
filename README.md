@@ -438,9 +438,11 @@ Web servers can relax SOP using CORS (Cross-Origin Resource Sharing). This is co
 
 In a web browser there are cookies called session cookies and these typically stick around until the browser closes. Some browsers restore previous sessions on startup, which can effectively persist session cookies even across browser restarts. This is where [isolated browsing sessions](https://github.com/henri/spb/blob/main/README.md#sailboat-what-are-isolated-web-sessions) are able to help.
 
-Learn more about [cookies at Wikiepedia](https://en.wikipedia.org/wiki/HTTP_cookie)
+  - Learn more about [cookies at Wikiepedia](https://en.wikipedia.org/wiki/HTTP_cookie)
+  - Learn more about [SPB and privacy](https://github.com/henri/spb/blob/main/README.md#shield-privacy).
 
 Remember Cookies are not the only way your browsing behavior data is linked and collected.
+
 
 <br>
 
