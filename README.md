@@ -370,6 +370,7 @@ Information available via the links below will assist you with forming a deeper 
   - [Templating Sub-System](https://github.com/henri/spb/blob/main/README.md#spb-templating-support) <sub>:floppy_disk: web data is preserved in certian template modes</sub>
   - [Security and Trust](https://github.com/henri/spb/blob/main/README.md#lock-security-and-trust) <sub>:lock:</sub>
   - [Proxies](https://github.com/henri/spb/blob/main/README.md#proxy-settings) <sub>:arrow_right: :arrows_counterclockwise: :arrow_left: server(s) in the middle</sub>
+  - [What are Cookies](https://github.com/henri/spb/blob/main/README.md#cookie-what-are-cookies)
   - [Tor Network Access](https://github.com/henri/spb/blob/main/README.md#tor-network-access) <sub>:melon: onion routing</sub>
   - [Brave Telemetry Issues](https://github.com/brave/brave-browser/issues/48604) <sub>:telephone: data sent to mothership by brave</sub>
 
