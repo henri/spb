@@ -1,0 +1,17 @@
+# default spb configuration file : ~/bin/spb-templates/spb.config
+# to edit spb configuration file : spb --edit-configuration
+
+# set brave origin as the default SPB browser
+export spb_browser_name="brave-origin"
+
+if [[ "${spb_browser_name}" == "brave-origin" ]] ; then
+    # we are running brave-origin - (not overridden by CLI arguments)
+
+    export spb_browser_options="--disable-brave-update"
+    export spb_browser_options=" $pb_browser_options --skip-origin-startup-dialog"
+    export spb_browser_options=" $spb_browser_options --window-size=500,900"
+    export spb_browser_options=" $spb_browser_options  --window-position=0,0"
+    export spb_browser_options=" $spb_browser_options --proxy-server=http://192.168.1.100:8080"
+
+fi
+
