@@ -30,6 +30,7 @@
 # version 2.3 - improved log viewing reliability
 # version 2.4 - checking screen is installed
 # version 2.5 - additional log checks during log file compact step
+# version 2.6 - repositioned the clean_exit function (loads earlier)
 #
 
 # check if we are running with a connected tty for input
@@ -52,6 +53,18 @@ if [ -e ${lock_file} ] ; then
     exit -78
 fi
 touch ${lock_file} # create the lock file :)
+
+# this will tidy up the lock file if we exit
+function clean_exit () {
+    rm -f ${lock_file} > /dev/null
+    if [[ ${exit_status} == 0 ]] ; then
+        # disable the exit trap
+        trap - EXIT
+    fi
+    # remove any old update scripts
+    rm -f ~/bin/spb-update.bash.old.2delete
+    exit ${exit_status}
+}
 
 # set an EXIT trap (basic to cover the lock file)
 trap 'clean_exit' EXIT
@@ -89,17 +102,7 @@ if [[ ${screen_available} != 0 ]] ; then
     exit -1
 fi
 
-# this will tidy up the lock file if we exit
-function clean_exit () {
-    rm -f ${lock_file} > /dev/null
-    if [[ ${exit_status} == 0 ]] ; then
-        # disable the exit trap
-        trap - EXIT
-    fi
-    # remove any old update scripts
-    rm -f ~/bin/spb-update.bash.old.2delete
-    exit ${exit_status}
-}
+
 
 function update_auto_answer () {
       echo ""
