@@ -1130,6 +1130,15 @@ https://wikipedia.org
   - [Browser Compartmentalization](https://secureblitz.com/browser-compartmentalization/)
   - [PrivacyTools](https://www.privacytools.io/) (extensive resources regarding various privacy tools)
 
+
+**Browser Automation**
+  - [Puppeteer](https://github.com/puppeteer/puppeteer)
+  - [Playwright](https://github.com/microsoft/playwright)
+  - [Selenium](https://github.com/seleniumhq/selenium)
+  - [TestCafe](https://github.com/DevExpress/testcafe)
+  - [WebDriverIO](https://github.com/webdriverio/webdriverio)
+  - [RobotFrameWork](https://github.com/robotframework/robotframework)
+
 <br/>
 <br/>
 
