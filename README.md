@@ -1124,13 +1124,6 @@ https://wikipedia.org
   - [The Pi Guy : Chromium Command Line Tools](https://the-pi-guy.com/blog/chromiums_commandline_tools_and_scripts/)
 
 
-**General**
-  - [Brave : Using Command Line Switches](https://support.brave.com/hc/en-us/articles/360044860011-How-Do-I-Use-Command-Line-Flags-in-Brave)
-  - [Brave : Cheatsheet](https://gist.github.com/henri/a454bb27edb3d3a567c5a695f0582aa7) (my gist)
-  - [Browser Compartmentalization](https://secureblitz.com/browser-compartmentalization/)
-  - [PrivacyTools](https://www.privacytools.io/) (extensive resources regarding various privacy tools)
-
-
 **Browser Automation**
   - [Puppeteer](https://github.com/puppeteer/puppeteer)
   - [Playwright](https://github.com/microsoft/playwright)
@@ -1138,6 +1131,14 @@ https://wikipedia.org
   - [TestCafe](https://github.com/DevExpress/testcafe)
   - [WebDriverIO](https://github.com/webdriverio/webdriverio)
   - [RobotFrameWork](https://github.com/robotframework/robotframework)
+
+
+**General**
+  - [Brave : Using Command Line Switches](https://support.brave.com/hc/en-us/articles/360044860011-How-Do-I-Use-Command-Line-Flags-in-Brave)
+  - [Brave : Cheatsheet](https://gist.github.com/henri/a454bb27edb3d3a567c5a695f0582aa7) (my gist)
+  - [Browser Compartmentalization](https://secureblitz.com/browser-compartmentalization/)
+  - [PrivacyTools](https://www.privacytools.io/) (extensive resources regarding various privacy tools)
+
 
 <br/>
 <br/>
