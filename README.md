@@ -901,6 +901,7 @@ The use cases for this SPB are immense and include :
   - [Fast day-to-day web browsing](https://github.com/henri/spb/blob/main/README.md#star-usage-examples) accessed via the terminal
   - Quickly load multiple highly customized workspaces and templates for specific tasks.
   - Trouble-shooting
+  - General Browser Automation (using browser [remote debugging port](https://github.com/henri/spb/blob/main/350.extras/README.md))
   - Testing (especially with parallelization automation)
   - Development
   - Load-testing (especially with parallelization automation)
