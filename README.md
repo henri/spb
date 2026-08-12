@@ -1124,7 +1124,7 @@ https://wikipedia.org
   - [The Pi Guy : Chromium Command Line Tools](https://the-pi-guy.com/blog/chromiums_commandline_tools_and_scripts/)
 
 
-**Browser Automation**
+**Browser Automation Software**
   - [Puppeteer](https://github.com/puppeteer/puppeteer)
   - [Playwright](https://github.com/microsoft/playwright)
   - [Selenium](https://github.com/seleniumhq/selenium)
