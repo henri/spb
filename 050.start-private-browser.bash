@@ -1488,7 +1488,7 @@ if [[ "${update_wanted}" == "yes" ]] ; then
     spb_update_lock_file="/tmp/spb-update-$(hostname)-$(whoami).lock"
     if [ -e ${spb_update_lock_file} ] ; then
         echo "ERROR! : SPB Update Lock file detected.. update aborted! "
-        echo "         ${lock_file}"
+        echo "         ${spb_update_lock_file}"
         exit -78
     fi
     update_script_path_absolute="${update_script_path/#\~/$HOME}"
