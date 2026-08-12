@@ -134,6 +134,7 @@
 # version 11.2 - added experimental support for athena os
 # version 11.3 - added option --install-brave-new to install brave-new.bash (example configuration script) and also configures related fish alias
 # version 11.4 - added initial built-in multi-browser support for brave-origin (for GNU/Linux systems)
+# version 11.5 - check for update lock prior to kicking off the update script sub process - cosmetic enhancment
 
 ##
 ## configuration of variables
@@ -1482,6 +1483,13 @@ fi
 if [[ "${update_wanted}" == "yes" ]] ; then
     if [[ "${enviroment_varibales_true_or_false_pass}" == "false" ]] ; then
         exit -77
+    fi
+    # lock file (one update at a time please)
+    spb_update_lock_file="/tmp/spb-update-$(hostname)-$(whoami).lock"
+    if [ -e ${spb_update_lock_file} ] ; then
+        echo "ERROR! : SPB Update Lock file detected.. update aborted! "
+        echo "         ${lock_file}"
+        exit -78
     fi
     update_script_path_absolute="${update_script_path/#\~/$HOME}"
     if [ -x ${update_script_path_absolute} ] ; then
