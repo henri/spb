@@ -997,7 +997,7 @@ spb --list-browsers
 
 The path (or command) which will be used is launch the specified web browser is configured automatically within SPB for various operating systems. Pull requests are always welcome in this regard as there are so many different LINUX distributions with different approaches to browser naming.
 
-In the event you would like to try use a browser or operating system which is not officially supported, then you could try the following command to say launch chromium :
+In the event you would like to use a browser or operating system which is not officially supported, then the following example command is a good reference. The example below will launch chromium :
 
 ```
 spb --browser chromium --browser-path chromium
