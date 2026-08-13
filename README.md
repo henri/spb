@@ -968,6 +968,7 @@ SPB supports various browsers across a wide range of [operating systems](https:/
 Below is a list of SPB supported browsers. Some browsers have better support than others (your millage may vary). Some browsers currently have experimental SPB support. If you have a browser which is based on Chromium or Firefox, then there is a good chance it will work with SPB.
 
   - Brave
+  - Brave Origin (running on LINUX)
   - Chromium
   - FireFox
   - Helium
