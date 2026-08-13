@@ -768,7 +768,7 @@ As the default browser option in SPB is [Brave](https://brave.com/) and that pro
 Different operating systems and even different LINUX distributions have different stances on privacy and telemetry. As such it is advisable that you check these details for your specific operating system. This project works on a variety of operating systems each with their own particulars relating to privacy and telemetry. Learn more about [SPB privacy](https://github.com/henri/spb/blob/main/README.md#shield-privacy).
 
 > #### SPB Fish Snippets 
-> <sub>Should you use spb-ddg, spb-ddg-ai or spb-pai fish snippets, then you will want to have a close look at the terms of service from [DuckDuckGo](https://duckduckgo.com/privacy) and [Perplexity Ai](https://www.perplexity.ai/hub/legal/privacy-policy) whose websites you will be accessing. If you are using spb-yt then be sure to check [Googles privacy policy](https://policies.google.com/privacy). The same applies to using other fish snippets not specifically mentioned.</sub>
+> <sub>Should you use fish snippets such as spb-ddg, spb-ddg-ai or spb-pai, then you will want to have a close look at the terms of service from [DuckDuckGo](https://duckduckgo.com/privacy) and [Perplexity Ai](https://www.perplexity.ai/hub/legal/privacy-policy) or any websites you will be accessing. If you are using spb-yt then be sure to check [Googles privacy policy](https://policies.google.com/privacy). The same applies to using other fish snippets not just those specifically mentioned.</sub>
 
 <br/>
 
