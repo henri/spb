@@ -6,7 +6,7 @@
 
 SPB is your friendly command line [web browser](https://github.com/henri/spb/blob/main/README.md#sunrise-browser-support) management interface.
 
-Have you wished there was an easy way to interact with the web from your terminal? Maybe like me you feel ready  to automate your web surfing from the tranquility of the shell? Bundled [SPB fish snippits](https://github.com/henri/spb/?tab=readme-ov-file#fish-shell-wrappers) makes searching for information from the fish shell [easy-as](https://github.com/henri/spb/blob/main/FAQ.md#what-is-easy-as)! 
+Have you wished there was an easy way to interact with the web from your terminal? Maybe like me you feel ready to automate your web surfing from the tranquility of the shell? Bundled [SPB fish snippits](https://github.com/henri/spb/?tab=readme-ov-file#fish-shell-wrappers) makes searching for information from the fish shell [easy-as](https://github.com/henri/spb/blob/main/FAQ.md#what-is-easy-as)! 
 
 
 SPB presents the power to navigate the surging currents of our planets vast digital oceans right at your fingertips. SPB is a BASH [script](https://github.com/henri/spb/blob/main/050.start-private-browser.bash) which automates management of [isolated browser sessions](https://github.com/henri/spb/blob/main/README.md#sailboat-what-are-isolated-web-sessions). The [built-in SPB templating system](https://github.com/henri/spb/blob/main/README.md#spb-templating-support) allows isolation between different tasks.
@@ -19,7 +19,7 @@ SPB presents the power to navigate the surging currents of our planets vast digi
 
 Swim happily ; SPB [installs](https://github.com/henri/spb/?tab=readme-ov-file#floppy_disk-installation) into your home directory and is [easily removed](https://github.com/henri/spb/blob/main/README.md#recycle-remove--uninstall). [This GitHub repository](https://github.com/henri/spb) has everything you need to [install and update](https://github.com/henri/spb/?tab=readme-ov-file#floppy_disk-installation) SPB on your systems.
 
-[Harness the power](https://github.com/henri/spb/blob/main/README.md#raising_hand-why-is-spb-needed) of [isolated web sessions](https://github.com/henri/spb/blob/main/README.md#sailboat-what-are-isolated-web-sessions) with SPB. Every time you run SPB a new instance of [Brave](https://brave.com/) (a modern web browser) or another browser (which you [specify](https://github.com/henri/spb/blob/main/README.md#sunrise-browser-support)) is spawned within a fresh [screen](https://www.gnu.org/software/screen/) session. When you close the browser, the default action is for [SPB to delete all <b>web</b> data related to that browser session](https://github.com/henri/spb/blob/main/README.md#shield-privacy) from your computer.
+[Harness the power](https://github.com/henri/spb/blob/main/README.md#raising_hand-why-is-spb-needed) of [isolated web sessions](https://github.com/henri/spb/blob/main/README.md#sailboat-what-are-isolated-web-sessions) with SPB. Every time you run SPB a new instance of [Brave](https://brave.com/) (a modern web browser) or another browser (which you [specify](https://github.com/henri/spb/blob/main/README.md#sunrise-browser-support)) is spawned within a fresh [screen](https://www.gnu.org/software/screen/) session. When you close that web browser, the default action will be [SPB deleting all <b>web</b> data related to that browser session](https://github.com/henri/spb/blob/main/README.md#shield-privacy) from your computer.
 
 <br/>
 
