@@ -249,17 +249,13 @@ log_file_temporary="$HOME/bin/spb-update.log.tmp"
 spb_update_log_file_truncated="no"
 
 # set an EXIT trap with logging to file
-trap "echo 'Something went horribly wrong with the unattended update script, please try again later!' >> ${log_file}; exit_status=55; clean_exit" EXIT
+trap "echo 'Something went horribly wrong with the unattended update script, please try again later!' >> ${log_file} ; exit_status=55 ; clean_exit" EXIT
 #trap 'echo "Something went horribly wrong with the unattended update script, please try again later!" >> ${log_file} ; exit_status=55 ; clean_exit' EXIT
 
 
 # preform exit if we hit an error 
 set -e
 
-# logging file (for now)...
-log_file="$HOME/bin/spb-update.log"
-log_file_temporary="$HOME/bin/spb-update.log.tmp"
-spb_update_log_file_truncated="no"
 
 # check the log file size and compact if more than 1000KB
 if [[ -e ${log_file} ]] ; then
@@ -275,11 +271,17 @@ if [[ -e ${log_file} ]] ; then
     fi
 fi
 
+
+
 # prevent exit if we hit an error and remove the EXIT trap
 set +e
 
+
+
 # only report success if we actually have success
 update_exit_status=10
+
+
 
 # report we are starting an update
 echo "" >> ${log_file}
@@ -378,4 +380,5 @@ if [[ "${SPB_UPDATE_AUTO_ANSWER}" == "true" ]] ; then
 fi
 # exit with the exit values from the update
 clean_exit
+
 
