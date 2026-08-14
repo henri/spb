@@ -1,4 +1,4 @@
-# Frequenty Asked Questions
+# Frequently Asked Questions
 
 This document aims to provide clear answers to some [SPB](https://github.com/henri/spb/blob/main/README_INDEX.md) frequently asked questions.
 
