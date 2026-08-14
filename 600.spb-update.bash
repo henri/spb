@@ -148,6 +148,7 @@ function update_auto_answer () {
       # start a screen session and recursivily call this script, set enviroment varable to report how to exit tail and start the update monitoing with tail command to monintor the log file
       screen -dm -S "spb-update" bash -c "export SPB_UPDATE_AUTO_ANSWER=\"true\" ; sleep 1 ; ~/bin/spb-update.bash --no-delay </dev/null" && clear -x ; sleep 1; ${timeout_command} tail -n0 -f ~/bin/spb-update.log
       # exit as we have completed the run, no clean exit call as this will have been handled by the recursive call
+      sleep 1
       exit 0
 }
 
@@ -250,7 +251,6 @@ spb_update_log_file_truncated="no"
 
 # set an EXIT trap with logging to file
 trap "echo 'Something went horribly wrong with the unattended update script, please try again later!' >> ${log_file} ; exit_status=55 ; clean_exit" EXIT
-#trap 'echo "Something went horribly wrong with the unattended update script, please try again later!" >> ${log_file} ; exit_status=55 ; clean_exit' EXIT
 
 
 # preform exit if we hit an error 
@@ -272,15 +272,12 @@ if [[ -e ${log_file} ]] ; then
 fi
 
 
-
 # prevent exit if we hit an error and remove the EXIT trap
 set +e
 
 
-
 # only report success if we actually have success
 update_exit_status=10
-
 
 
 # report we are starting an update
@@ -380,5 +377,8 @@ if [[ "${SPB_UPDATE_AUTO_ANSWER}" == "true" ]] ; then
 fi
 # exit with the exit values from the update
 clean_exit
+
+
+
 
 
