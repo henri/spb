@@ -1,5 +1,8 @@
 # below is a bwrap example to start brave (not using spb) - note that without /run/user/ dconf will not work correctly
 
+# If you are looking for partial file system sand boxing and starting the browser with spb on LINUX take a look at the link below : 
+# https://github.com/henri/spb/blob/main/912.notes_linux_specific.md
+
 export HOME=/tmp
 bwrap --ro-bind /
     --dev-bind /dev /dev \
