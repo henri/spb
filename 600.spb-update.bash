@@ -31,6 +31,7 @@
 # version 2.4 - checking screen is installed
 # version 2.5 - additional log checks during log file compact step
 # version 2.6 - repositioned the clean_exit function (loads earlier)
+# version 2.7 - resolved bug relating to trap error logging
 #
 
 # check if we are running with a connected tty for input
@@ -242,8 +243,15 @@ fi
 # now have auto-updates (default answer automatically) enabled.
 export SPB_SKIP_OVERWRITE_CHECK="true"
 
+# logging file (for now)...
+log_file="$HOME/bin/spb-update.log"
+log_file_temporary="$HOME/bin/spb-update.log.tmp"
+spb_update_log_file_truncated="no"
+
 # set an EXIT trap with logging to file
-trap 'echo "Something went horribly wrong with the unattended update script, please try again later!" >> ${log_file} ; exit_status=55 ; clean_exit' EXIT
+trap "echo 'Something went horribly wrong with the unattended update script, please try again later!' >> ${log_file}; exit_status=55; clean_exit" EXIT
+#trap 'echo "Something went horribly wrong with the unattended update script, please try again later!" >> ${log_file} ; exit_status=55 ; clean_exit' EXIT
+
 
 # preform exit if we hit an error 
 set -e
