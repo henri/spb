@@ -471,7 +471,7 @@ If you are using the fish shell, then these commands should be active and ready 
 | command          | snippet name          | explanation |
 | ---------------- | --------------------- | ------------|
 |  `spb`           |  [spb](https://github.com/henri/spb-fish-snippits/blob/main/spb.fish) | an alias to start-private-browser<br>but shortedned to spb<br>overide with your favorite extras|
-|  `spb-tor`       |  [spb-tor](https://github.com/henri/spb-fish-snippits/blob/main/spb-tor.fish) | start SPB with [Tor](https://github.com/henri/spb/blob/main/README.md#tor-network-access) network enabled ;<br>equivalent to spb --tor|
+|  `spb-tor`       |  [spb-tor](https://github.com/henri/spb-fish-snippits/blob/main/spb-tor.fish) | start SPB with [Tor](https://github.com/henri/spb/blob/main/README.md#tor-network-access) network enabled ;<br>equivalent to spb --tor (only some browsers will support this option)|
 | `spb-smart`      |  [spb-smart](https://github.com/henri/spb-fish-snippits/blob/main/spb-smart.fish) | experimental brave search / direct URL access |
 | `spb-ddg`        |  [DuckDuckGo Search](https://github.com/henri/spb-fish-snippits/blob/main/spb-ddg.fish)  |  start multiple DuckDuckGo searches |
 | `spb-ddg-ai`     | [DuckDuckGo Chat](https://github.com/henri/spb-fish-snippits/blob/main/spb-ddg-ai.fish) | have multiple DuckDuckGo AI (LLM) chats  |
