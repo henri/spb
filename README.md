@@ -171,7 +171,11 @@ for template in claude aws github amazon youtube ; spb --standard --edit-templat
 
 ```
 
-The way SPB accomplishes this isolation is is by storing the browser data directory for each instance in seperate parts of the file system. If you would like to use ```spb``` for more than disposable isolated web sessions, take a look at the [templating subsystem documention](https://github.com/henri/spb/blob/main/README.md#spb-templating-support). Because each browser instance is independently configurable you may choose to setup your claude browser instance to make new claude chat sessions whenever you make a new tab (as an example). The idea is you are able to set each instance up in a way which works well for you with that task.
+The way SPB accomplishes this isolation is is by storing the browser data directory for each instance in seperate parts of the file system. If you would like to use ```spb``` for more than disposable isolated web sessions, take a look at the [templating subsystem documention](https://github.com/henri/spb/blob/main/README.md#spb-templating-support). 
+
+
+
+> <sub> NOTE : With each browser instance being independently configurable ; you may choose to setup each browser instance with a focus on that specific task. As an example, in your Claude browser instance setting each new tab or window could jump you into a new chat. The key idea is you are able to set each instance up in a way which works well for you with regards that specific task.<br></sub>
 
 If you want to further isolate these sessions from one and other. It is possible to run SPB on remote machine(s), within a virtual machine(s) or within [separate name spaces](https://github.com/henri/spb/tree/main/350.extras) (depending on your operating system).
 
