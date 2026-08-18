@@ -175,7 +175,7 @@ The way SPB accomplishes this isolation is is by storing the browser data direct
 
 
 
-> <sub> NOTE : With each browser instance being independently configurable ; you may choose to setup each browser instance with a focus on that specific task. As an example, in your Claude browser instance setting each new tab or window could jump you into a new chat. The key idea is you are able to set each instance up in a way which works well for you with regards that specific task.<br></sub>
+> <sub> NOTE : With each browser instance being independently configurable ; you may choose to setup each browser instance with a focus on that specific task. For example : within your Claude browser instance opening a new tab or new window could start a brand new web chat. The key take away is you are able to configure each instance in a way which works well for you for that specific task.<br></sub>
 
 If you want to further isolate these sessions from one and other. It is possible to run SPB on remote machine(s), within a virtual machine(s) or within [separate name spaces](https://github.com/henri/spb/tree/main/350.extras) (depending on your operating system).
 
