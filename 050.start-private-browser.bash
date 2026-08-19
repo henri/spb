@@ -135,6 +135,7 @@
 # version 11.3 - added option --install-brave-new to install brave-new.bash (example configuration script) and also configures related fish alias
 # version 11.4 - added initial built-in multi-browser support for brave-origin (for GNU/Linux systems)
 # version 11.5 - check for update lock prior to kicking off the update script sub process - cosmetic enhancment
+# version 11.6 - experimental support for Spaced Linux
 
 ##
 ## configuration of variables
@@ -230,6 +231,7 @@ if [[ ! -z ${BASH_VERSINFO} ]] ; then
         declare -A spb_default_browser_data
         # # # # # # # # # # # # #
         spb_default_browser_data["zen:linux:mint"]="zen"
+        spb_default_browser_data["zen:linux:spaced"]="zen"
         spb_default_browser_data["zen:linux:arch"]="zen"
         spb_default_browser_data["zen:linux:athenaos"]="zen"
         spb_default_browser_data["zen:linux:omarchy"]="zen"
@@ -245,6 +247,7 @@ if [[ ! -z ${BASH_VERSINFO} ]] ; then
         spb_default_browser_data["zen:darwin"]="/Applications/Zen.app/Contents/MacOS/zen"
         # # # # # # # # # # # # #
         spb_default_browser_data["helium:linux:mint"]="helium"
+        spb_default_browser_data["helium:linux:spaced"]="helium"
         spb_default_browser_data["helium:linux:arch"]="helium"
         spb_default_browser_data["helium:linux:athenaos"]="helium"
         spb_default_browser_data["helium:linux:omarchy"]="helium"
@@ -260,6 +263,7 @@ if [[ ! -z ${BASH_VERSINFO} ]] ; then
         spb_default_browser_data["helium:darwin"]="/Applications/Helium.app/Contents/MacOS/Helium"
         # # # # # # # # # # # # #
         spb_default_browser_data["waterfox:linux:mint"]="waterfox"
+        spb_default_browser_data["waterfox:linux:spaced"]="waterfox"
         spb_default_browser_data["waterfox:linux:arch"]="waterfox"
         spb_default_browser_data["waterfox:linux:athenaos"]="waterfox"
         spb_default_browser_data["waterfox:linux:omarchy"]="waterfox"
@@ -275,6 +279,7 @@ if [[ ! -z ${BASH_VERSINFO} ]] ; then
         spb_default_browser_data["waterfox:darwin"]="/Applications/Waterfox.app/Contents/MacOS/waterfox"
         # # # # # # # # # # # # #
         spb_default_browser_data["opera:linux:mint"]="opera"
+        spb_default_browser_data["opera:linux:spaced"]="opera"
         spb_default_browser_data["opera:linux:arch"]="opera"
         spb_default_browser_data["opera:linux:athenaos"]="opera"
         spb_default_browser_data["opera:linux:omarchy"]="opera"
@@ -290,6 +295,7 @@ if [[ ! -z ${BASH_VERSINFO} ]] ; then
         spb_default_browser_data["opera:darwin"]="/Applications/Opera.app/Contents/MacOS/Opera"
         # # # # # # # # # # # # #
         spb_default_browser_data["librewolf:linux:mint"]="librewolf"
+        spb_default_browser_data["librewolf:linux:spaced"]="librewolf"
         spb_default_browser_data["librewolf:linux:arch"]="librewolf"
         spb_default_browser_data["librewolf:linux:athenaos"]="librewolf"
         spb_default_browser_data["librewolf:linux:omarchy"]="librewolf"
@@ -305,6 +311,7 @@ if [[ ! -z ${BASH_VERSINFO} ]] ; then
         spb_default_browser_data["librewolf:darwin"]="/Applications/LibreWolf.app/Contents/MacOS/librewolf"
         # # # # # # # # # # # # #
         spb_default_browser_data["palemoon:linux:mint"]="palemoon"
+        spb_default_browser_data["palemoon:linux:spaced"]="palemoon"
         spb_default_browser_data["palemoon:linux:arch"]="palemoon"
         spb_default_browser_data["palemoon:linux:athenaos"]="palemoon"
         spb_default_browser_data["palemoon:linux:omarchy"]="palemoon"
@@ -320,6 +327,7 @@ if [[ ! -z ${BASH_VERSINFO} ]] ; then
         spb_default_browser_data["palemoon:darwin"]="/Applications/Pale Moon.app/Contents/MacOS/palemoon"
         # # # # # # # # # # # # #
         spb_default_browser_data["firefox:linux:mint"]="firefox"
+        spb_default_browser_data["firefox:linux:spaced"]="firefox"
         spb_default_browser_data["firefox:linux:arch"]="firefox"
         spb_default_browser_data["firefox:linux:athenaos"]="firefox"
         spb_default_browser_data["firefox:linux:omarchy"]="firefox"
@@ -335,6 +343,7 @@ if [[ ! -z ${BASH_VERSINFO} ]] ; then
         spb_default_browser_data["firefox:darwin"]="/Applications/Firefox.app/Contents/MacOS/Firefox"
         # # # # # # # # # # # # #
         spb_default_browser_data["ungoogled-chromium:linux:mint"]="ungoogled-chromium"
+        spb_default_browser_data["ungoogled-chromium:linux:spaced"]="ungoogled-chromium"
         spb_default_browser_data["ungoogled-chromium:linux:ubuntu"]="ungoogled-chromium"
         spb_default_browser_data["ungoogled-chromium:linux:debian"]="ungoogled-chromium"
         spb_default_browser_data["ungoogled-chromium:linux:arch"]="ungoogled-chromium"
@@ -349,6 +358,7 @@ if [[ ! -z ${BASH_VERSINFO} ]] ; then
         spb_default_browser_data["ungoogled-chromium:darwin"]="/Applications/Chromium.app/Contents/MacOS/Chromium"
         # # # # # # # # # # # # #
         spb_default_browser_data["vivaldi:linux:mint"]="vivaldi"
+        spb_default_browser_data["vivaldi:linux:spaced"]="vivaldi"
         spb_default_browser_data["vivaldi:linux:ubuntu"]="vivaldi"
         spb_default_browser_data["vivaldi:linux:debian"]="vivaldi"
         spb_default_browser_data["vivaldi:linux:arch"]="vivaldi"
@@ -364,6 +374,7 @@ if [[ ! -z ${BASH_VERSINFO} ]] ; then
         spb_default_browser_data["vivaldi:darwin"]="/Applications/Vivaldi.app/Contents/MacOS/Vivaldi"
         # # # # # # # # # # # # #
         spb_default_browser_data["brave:linux:mint"]="brave-browser"
+        spb_default_browser_data["brave:linux:spaced"]="brave-browser"
         spb_default_browser_data["brave:linux:ubuntu"]="brave-browser"
         spb_default_browser_data["brave:linux:debian"]="brave-browser"
         spb_default_browser_data["brave:linux:arch"]="brave"
@@ -379,6 +390,7 @@ if [[ ! -z ${BASH_VERSINFO} ]] ; then
         spb_default_browser_data["brave:darwin"]="/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"
         # # # # # # # # # # # # #
         spb_default_browser_data["brave-origin:linux:mint"]="brave-origin"
+        spb_default_browser_data["brave-origin:linux:spaced"]="brave-origin"
         spb_default_browser_data["brave-origin:linux:ubuntu"]="brave-origin"
         spb_default_browser_data["brave-origin:linux:debian"]="brave-origin"
         spb_default_browser_data["brave-origin:linux:arch"]="brave-origin" # untested
@@ -392,6 +404,7 @@ if [[ ! -z ${BASH_VERSINFO} ]] ; then
         spb_default_browser_data["brave-origin:linux:pop"]="brave-origin" # untested
         # # # # # # # # # # # # #
         spb_default_browser_data["chromium:linux:mint"]="chromium"
+        spb_default_browser_data["chromium:linux:spaced"]="chromium"
         spb_default_browser_data["chromium:linux:ubuntu"]="chromium"
         spb_default_browser_data["chromium:linux:debian"]="chromium"
         spb_default_browser_data["chromium:linux:arch"]="chromium"
@@ -407,6 +420,7 @@ if [[ ! -z ${BASH_VERSINFO} ]] ; then
         spb_default_browser_data["chromium:darwin"]="/Applications/Chromium.app/Contents/MacOS/Chromium"
         # # # # # # # # # # # # #
         spb_default_browser_data["mullvad:linux:mint"]="mullvad-browser"
+        spb_default_browser_data["mullvad:linux:spaced"]="mullvad-browser"
         spb_default_browser_data["mullvad:linux:arch"]="mullvad-browser" # untested
         spb_default_browser_data["mullvad:linux:athenaos"]="mullvad-browser" # untested
         spb_default_browser_data["mullvad:linux:omarchy"]="mullvad-browser" # untested
