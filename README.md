@@ -700,6 +700,11 @@ Mild testing has been completed on the following operating systems :
             sudo apt-get update && sudo apt-get install git fish coreutils gcp screen
             curl -fsS https://dl.brave.com/install.sh | sh
           ```
+        - [Spaced Linux](https://spacedlinux.com/)
+          ```
+            sudo apt-get update && sudo apt-get install fish coreutils gcp screen
+            curl -fsS https://dl.brave.com/install.sh | sh
+          ```
         - [Pop!_OS](https://system76.com/pop/)
           ```
             sudo apt-get update && sudo apt-get install git fish coreutils gcp screen
