@@ -159,7 +159,7 @@ spb ; spb ; spb
 
 
 # Launch ten disposable independent instances of FireFox web browser.
-# Closing each browser will delete session data.
+# Closing a browser will result in session data being deleted.
 
 for i in (seq 1 10) ; spb --browser firefox ; end
 
