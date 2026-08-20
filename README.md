@@ -9,7 +9,9 @@ SPB is your friendly command line [web browser](https://github.com/henri/spb/blo
 Have you wished there was an easy way to interact with the web from your terminal? Maybe like [me](https://github.com/henri) you feel ready to automate your web surfing from the tranquility of the shell? Bundled [SPB fish snippits](https://github.com/henri/spb/?tab=readme-ov-file#fish-shell-wrappers) makes searching for information from the fish shell [easy-as](https://github.com/henri/spb/blob/main/FAQ.md#what-is-easy-as)! 
 
 
-SPB presents the power to navigate the surging currents of our planets vast digital oceans right at your fingertips. SPB is a BASH [script](https://github.com/henri/spb/blob/main/050.start-private-browser.bash) which automates management of [isolated browser sessions](https://github.com/henri/spb/blob/main/README.md#sailboat-what-are-isolated-web-sessions). The [built-in SPB templating system](https://github.com/henri/spb/blob/main/README.md#spb-templating-support) allows isolation between different tasks.
+SPB presents the power to navigate the surging currents of our planets vast digital oceans right at your fingertips. SPB is a BASH [script](https://github.com/henri/spb/blob/main/050.start-private-browser.bash) which automates management of [isolated browser sessions](https://github.com/henri/spb/blob/main/README.md#sailboat-what-are-isolated-web-sessions). 
+
+The [built-in SPB templating system](https://github.com/henri/spb/blob/main/README.md#spb-templating-support) allows isolation between different tasks. Using SPB browser templates allows you to customize your browser for that specific task. Switching between tasks also becomes easier especially if you are doing a lot at once. Just close the browser and then quickly jump right back in as needed.
 
 
 
