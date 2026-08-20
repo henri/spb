@@ -11,7 +11,7 @@ Have you wished there was an easy way to interact with the web from your termina
 
 SPB presents the power to navigate the surging currents of our planets vast digital oceans right at your fingertips. SPB is a BASH [script](https://github.com/henri/spb/blob/main/050.start-private-browser.bash) which automates management of [isolated browser sessions](https://github.com/henri/spb/blob/main/README.md#sailboat-what-are-isolated-web-sessions). 
 
-The [built-in SPB templating system](https://github.com/henri/spb/blob/main/README.md#spb-templating-support) allows isolation between different tasks. Using SPB browser templates allows you to customize your browser for that specific task. Switching between tasks also becomes easier especially if you are doing a lot at once. Just close the browser and then quickly jump right back in as needed.
+The [built-in SPB templating system](https://github.com/henri/spb/blob/main/README.md#spb-templating-support) allows isolation between different tasks. Using SPB browser templates allows you to customize your browser for that specific task. Switching between tasks also becomes easier especially if you are doing a lot at once. Just close the browser and then quickly jump right back in when you are ready.
 
 
 
