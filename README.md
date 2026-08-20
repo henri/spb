@@ -152,7 +152,7 @@ Examples of using SPB to start isolated sessions - assumes FISH shell :
 
 
 # Start three disposable independent instances of the Brave web browser.
-# Closing each browsers will delete session data.
+# Closing a browser will result in session data being deleted.
 
 spb ; spb ; spb
 
