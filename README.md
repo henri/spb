@@ -1148,6 +1148,8 @@ https://wikipedia.org
   - [WebDriverIO](https://github.com/webdriverio/webdriverio)
   - [RobotFrameWork](https://github.com/robotframework/robotframework)
 
+**Other Related Tools**
+  - [Browser-Profiles](https://github.com/TristanBrian/Browser-Profiles) (not tested / vetted)
 
 **General**
   - [Brave : Using Command Line Switches](https://support.brave.com/hc/en-us/articles/360044860011-How-Do-I-Use-Command-Line-Flags-in-Brave)
