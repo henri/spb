@@ -1141,6 +1141,7 @@ https://wikipedia.org
   - [The Pi Guy : Chromium Command Line Tools](https://the-pi-guy.com/blog/chromiums_commandline_tools_and_scripts/)
 
 
+
 **Browser Automation Software**
 
   - [Puppeteer](https://github.com/puppeteer/puppeteer)
@@ -1150,11 +1151,18 @@ https://wikipedia.org
   - [WebDriverIO](https://github.com/webdriverio/webdriverio)
   - [RobotFrameWork](https://github.com/robotframework/robotframework)
 
+
+
 **Other Related Tools**
 
 A non comprehensive list of other similar / related projects which have been identified :
-  - [Browser-Profiles](https://github.com/TristanBrian/Browser-Profiles) (not tested / vetted) (license unknown)
-  - [Kernel Profiles](https://www.kernel.sh/docs/auth/profiles) (not tested / vetted) (license unknown)
+
+  - Agent / Automation focused : 
+    - [Browser-Profiles](https://github.com/TristanBrian/Browser-Profiles) (not tested / vetted) (license unknown)
+    - [Kernel Profiles](https://www.kernel.sh/docs/auth/profiles) (not tested / vetted) (license unknown)
+    - [Browser profiles](https://agi-cli.sh/docs/browser/profiles) (not tested / vetted) (license unknown)
+      - [agi-cli](https://github.com/phnx-labs/agi-cli) (github link)
+
 
 **General**
 
