@@ -1137,10 +1137,12 @@ https://wikipedia.org
 ### :earth_asia: External Resources
 
 **Development / Testing / Automation**
+
   - [The Pi Guy : Chromium Command Line Tools](https://the-pi-guy.com/blog/chromiums_commandline_tools_and_scripts/)
 
 
 **Browser Automation Software**
+
   - [Puppeteer](https://github.com/puppeteer/puppeteer)
   - [Playwright](https://github.com/microsoft/playwright)
   - [Selenium](https://github.com/seleniumhq/selenium)
@@ -1149,9 +1151,13 @@ https://wikipedia.org
   - [RobotFrameWork](https://github.com/robotframework/robotframework)
 
 **Other Related Tools**
-  - [Browser-Profiles](https://github.com/TristanBrian/Browser-Profiles) (not tested / vetted)
+
+A non comprehensive list of other similar / related projects which have been identified :
+  - [Browser-Profiles](https://github.com/TristanBrian/Browser-Profiles) (not tested / vetted) (license unknown)
+  - [Kernel Profiles](https://www.kernel.sh/docs/auth/profiles) (not tested / vetted) (license unknown)
 
 **General**
+
   - [Brave : Using Command Line Switches](https://support.brave.com/hc/en-us/articles/360044860011-How-Do-I-Use-Command-Line-Flags-in-Brave)
   - [Brave : Cheatsheet](https://gist.github.com/henri/a454bb27edb3d3a567c5a695f0582aa7) (my gist)
   - [Browser Compartmentalization](https://secureblitz.com/browser-compartmentalization/)
