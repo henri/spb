@@ -1,4 +1,4 @@
-Configuring System Wide Brave Browser Search Policy
+Configuring System Wide Brave Browser Search Policy (LINUX)
 
 ```
 # This example will set all brave instances to use brave search
