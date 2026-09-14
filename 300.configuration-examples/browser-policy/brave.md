@@ -10,6 +10,7 @@ Configuring System Wide Brave Browser Search Policy (LINUX)
 # this option is able to overridden by user by editing browser settings.
 
 sudo mkdir -p /etc/brave/policies/recommended
+if ! [[ -e /etc/brave/policies/recommended/search.json ]] ; then
 sudo tee /etc/brave/policies/recommended/search.json > /dev/null << 'EOF'
 {
   "DefaultSearchProviderEnabled": true,
@@ -18,7 +19,9 @@ sudo tee /etc/brave/policies/recommended/search.json > /dev/null << 'EOF'
   "DefaultSearchProviderSuggestURL": "https://search.brave.com/api/suggest?q={searchTerms}"
 }
 EOF
-
+else
+echo "ERROR! : you already have a recommended search policy!" ; exit -9
+fi
 # Policy settings may be viewed by visiting : brave://policy/
 
 # Temporary disable recommended policies by running command below
@@ -36,6 +39,7 @@ EOF
 # this option is ***NOT*** able to be overridden by users running brave browser.
 
 sudo mkdir -p /etc/brave/policies/managed
+if ! [[ -e /etc/brave/policies/managed/search.json ]] ; then
 sudo tee /etc/brave/policies/managed/search.json > /dev/null << 'EOF'
 {
   "DefaultSearchProviderEnabled": true,
@@ -44,6 +48,9 @@ sudo tee /etc/brave/policies/managed/search.json > /dev/null << 'EOF'
   "DefaultSearchProviderSuggestURL": "https://search.brave.com/api/suggest?q={searchTerms}"
 }
 EOF
+else
+echo "ERROR! : you already have a managed search policy!" ; exit -9
+fi
 
 # Policy settings may be viewed by visiting : brave://policy/
 
