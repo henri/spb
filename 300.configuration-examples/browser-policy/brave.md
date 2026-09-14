@@ -3,7 +3,7 @@ Configuring System Wide Brave Browser Search Policy (LINUX)
 <hr>
 
 ```
-# This example will set all brave instances to use brave search
+# This example will set all brave (and brave origin) instances to use brave search
 # using this approach requires sudo access on the system.
 
 # This approach makes use of a recommended policy to alter the brave settings.
@@ -29,7 +29,7 @@ EOF
 <br>
 
 ```
-# This example will set all brave instances to use brave search
+# This example will set all brave (and brave origin) instances to use brave search
 # using this approach requires sudo access on the system.
 
 # This approach makes use of a recommended policy to alter the brave settings.
