@@ -1,5 +1,7 @@
 Configuring System Wide Brave Browser Search Policy (LINUX)
 
+<hr>
+
 ```
 # This example will set all brave instances to use brave search
 # using this approach requires sudo access on the system.
@@ -22,6 +24,9 @@ EOF
 # Temporary disable recommended policies by running command below
 # sudo mv -i /etc/brave/policies/recommended /etc/brave/policies/recommended.disabled
 ```
+
+<hr>
+<br>
 
 ```
 # This example will set all brave instances to use brave search
@@ -47,4 +52,5 @@ EOF
 
 ```
 
+<hr>
 
