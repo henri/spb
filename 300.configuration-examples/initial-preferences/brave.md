@@ -23,8 +23,7 @@ Configuring System Wide Initial Brave Browser Tab Settings (LINUX)
 
 brave_install_dir=$(dirname $(realpath $(which brave-browser)))
 if [ ! -e ${brave_install_dir} ] || [[ "${brave_install_dir}" == "" ]] ; then
-echo "ERROR! Unable to locate brave install directory : ${brave_install_dir}"
-exit -7
+echo "ERROR! Unable to locate brave install directory : ${brave_install_dir}" ; exit -7
 fi
 
 if ! [[ -e ${brave_install_dir}/initial_preferences ]] ; then
