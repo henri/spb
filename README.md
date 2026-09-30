@@ -336,7 +336,7 @@ Display a list of environment variables which may be configured within your shel
 
 ```spb --configuration-variables```
 
-Alternatively, provide additional variable details :
+Alternatively, provide additional environment variable detail :
 
 ```spb --configuration-variables --verbose```
 
