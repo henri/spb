@@ -26,9 +26,11 @@ Learn more about the [SPB configuration file](https://github.com/henri/spb/blob/
 <br>
 
 
-#### Using Brave Policy or Initial Preferences to Alter Default Browser Settings
+#### Using Policy or Initial Preferences to Alter Default Browser Settings
 
-Some browsers allow default configuration via [policies](https://github.com/henri/spb/tree/main/300.configuration-examples/browser-policy) and / or an [initial_preferences](https://github.com/henri/spb/tree/main/300.configuration-examples/initial-preferences) file.
+<br>
+
+Some browsers allow default startup configuration via [policies](https://github.com/henri/spb/tree/main/300.configuration-examples/browser-policy) and / or an [initial_preferences](https://github.com/henri/spb/tree/main/300.configuration-examples/initial-preferences) file.
 
   - Brave Examples
       -  [Policy](https://github.com/henri/spb/blob/main/300.configuration-examples/browser-policy/brave.md)
