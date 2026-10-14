@@ -21,7 +21,7 @@ This directory contains extra notes, settings and scripts to assist you with wit
     - Create a new Brave instance configured using this script : ```spb-brave-new```
 <hr>
 
-  - [linux_stand_boxing_notes.txt](https://github.com/henri/spb/blob/main/350.extras/linux_sandboxing_notes.txt)
+  - [linux_sand_boxing_notes.txt](https://github.com/henri/spb/blob/main/350.extras/linux_sandboxing_notes.txt)
     - Information and examples relating to opening your [SPB](https://github.com/henri/spb) browser instance within a sandboxed filesystem.
 
 <hr>
