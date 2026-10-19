@@ -136,6 +136,7 @@
 # version 11.4 - added initial built-in multi-browser support for brave-origin (for GNU/Linux systems)
 # version 11.5 - check for update lock prior to kicking off the update script sub process - cosmetic enhancment
 # version 11.6 - experimental support for Spaced Linux
+# version 11.7 - licence command line option added to display the GNU GPL v3 or later --licence
 
 ##
 ## configuration of variables
@@ -981,6 +982,9 @@ spb_list_templates="false"
 spb_show_about="false"
 spb_show_about_url="http://github.com/henri/spb/blob/main/README_INDEX.md"
 
+spb_show_licence="false"
+spb_show_licence_url="https://github.com/henri/spb/blob/main/LICENSE"
+
 new_template_dir_name=""
 edit_template_dir_name=""
 use_template_dir_name=""
@@ -1146,6 +1150,11 @@ for arg in "$@" ; do
   # show about information
   if [[ "${arg}" == "--about" ]] ; then
     spb_show_about="true"
+  fi
+
+  # show licence information
+  if [[ "${arg}" == "--licence" ]] ; then
+    spb_show_licence="true"
   fi
 
   # list templates
@@ -2619,6 +2628,9 @@ done
 # add spb_show_about_url to url list if --about option detected
 if [[ "${spb_show_about}" == "true" ]] ; then url_list="\"${spb_show_about_url}\" ${url_list}" ; fi
 
+# add spb_show_licence_url to url list if --licence option detected
+if [[ "${spb_show_licence}" == "true" ]] ; then url_list="\"${spb_show_licence_url}\" ${url_list}" ; fi
+
 # add standard_input_data to the url list
 if [[ "${read_from_stdin}" == "true" ]] ; then
     read_from_standard_input
@@ -2635,5 +2647,4 @@ screen -S "${screen_session_name}" -dm bash -c " \"${spb_browser_path}\" ${brows
 run_post_browser_startup_commands
 
 exit 0
-
 
