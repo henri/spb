@@ -136,7 +136,7 @@
 # version 11.4 - added initial built-in multi-browser support for brave-origin (for GNU/Linux systems)
 # version 11.5 - check for update lock prior to kicking off the update script sub process - cosmetic enhancment
 # version 11.6 - experimental support for Spaced Linux
-# version 11.7 - licence command line option added to display the GNU GPL v3 or later --licence
+# version 11.7 - added --licence option to display the SPB licence information (GNU GPL v3 or later)
 
 ##
 ## configuration of variables
