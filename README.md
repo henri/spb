@@ -953,7 +953,7 @@ May the privacy be with you!
 ### :warning: Disclaimer
 SPB (start private browser) is able to start multiple private browsers. But do not expect more functionality or privacy from running a browser in incognito mode. The idea behind SPB is that you can load multiple instances which are somewhat separated from one and other. Each instance is still running under your user account and on your system.
 
-SPB [removes the web browser data from disk](https://github.com/henri/spb/blob/main/README.md#spb-templating-support). However, keep in mind that data removed from a disks index may still be recoverable. SPB makes no effort to deal with data stored in memory such as file system caches or system memory which may have been [written to swap](https://en.wikipedia.org/wiki/Memory_paging).
+SPB [removes the web browser data from disk](https://github.com/henri/spb/blob/main/README.md#spb-templating-support). However, keep in mind that data removed from a disks index may still be recoverable. Also, SPB makes zero effort dealing with data stored in memory such as file system caches or system memory which may have been [written to swap](https://en.wikipedia.org/wiki/Memory_paging).
 
 In the event additional privacy is required consider running SPB within a remote machine, VM, name space isolation or some other isolation approach. Most importantly in the event additional privacy is required ; consider the following projects :
 
