@@ -7,7 +7,8 @@ Configuring System Wide Brave Browser Search Policy (LINUX)
 # using this approach requires sudo access on the system.
 
 # This approach makes use of a recommended policy to alter the brave settings.
-# this option is able to overridden by user by editing browser settings.
+# this option is able to be overridden by a user. Editing brave browser settigns
+# will be possible with this approach.
 
 sudo mkdir -p /etc/brave/policies/recommended
 if ! [[ -e /etc/brave/policies/recommended/search.json ]] ; then
@@ -35,7 +36,7 @@ fi
 # This example will set all brave (and brave origin) instances to use brave search
 # using this approach requires sudo access on the system.
 
-# This approach makes use of a recommended policy to alter the brave settings.
+# This approach makes use of a managed policy to alter the brave settings.
 # this option is ***NOT*** able to be overridden by users running brave browser.
 
 sudo mkdir -p /etc/brave/policies/managed
