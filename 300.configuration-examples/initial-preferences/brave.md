@@ -7,7 +7,7 @@ Configuring System Wide Initial Brave Browser Tab Settings (LINUX)
 # pull in these initial settings.
 
 # This approach makes use of a initial_preferences file to alter default
-# brave settings. This option is able to overridden by user by editing
+# brave settings. These options are able to overridden by a user editing
 # browser settings.
 
 # Updating the binary name for your distribution may be required
