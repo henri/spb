@@ -329,6 +329,8 @@ When using the fish shell run ```spb``` rather than ```~/bin/start-private-brows
 
 Start a fresh fish session by running ```fish``` :shell:
 
+Open a many URLs (one per line stored in a file) as browser tabs ```cat /tmp/files.list | spb``` 
+
 ---
 #### :earth_asia: Enviroment Varables
 
