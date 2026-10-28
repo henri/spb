@@ -597,7 +597,7 @@ start-private-browser --edit-configuration
 It is possible to have multiple SPB configuration files and template sets on your system and switch between these sets using the following command to specify the SPB template path.
 
 ```
-start-private-browser --template-path bin/spb-templates
+start-private-browser --template-path ~/bin/spb-templates
 ```
 
 The SPB template file always has the same name in the spb-templates directory ```spb.config``` and the default template path is ```~/bin/spb-templates```. Various options may be set via the spb.config file. The value specified  using the ```--template-path``` option is also the path in which browser templates are read and written.
