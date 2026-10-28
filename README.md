@@ -921,6 +921,7 @@ The use cases for this SPB are immense and include :
   - General Browser Automation (using browser [remote debugging port](https://github.com/henri/spb/blob/main/350.extras/README.md))
   - Testing (especially with parallelization automation)
   - Development
+  - Load a specific website while ensuring none of the data is being displayed from browser cache
   - Load-testing (especially with parallelization automation)
   - Dedicated agent task isolation
   - Privacy ; or just having multiple tabs which are not related in terms of [cookies](https://github.com/henri/spb/blob/main/README.md#cookie-what-are-cookies) etc.
