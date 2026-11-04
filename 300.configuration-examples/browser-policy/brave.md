@@ -65,7 +65,7 @@ fi
 
 <br><br><br>
 
-Configuring System Wide Brave Browser Search Policy (LINUX)
+Configuring System Wide Brave Browser DNS Policy (LINUX)
 
 <hr>
 
