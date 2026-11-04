@@ -7,7 +7,7 @@ Configuring System Wide Brave Browser Search Policy (LINUX)
 # using this approach requires sudo access on the system.
 
 # This approach makes use of a recommended policy to alter the brave settings.
-# this option is able to be overridden by a user. Editing brave browser settigns
+# this option is able to be overridden by a user. Editing brave browser settings
 # will be possible with this approach.
 
 sudo mkdir -p /etc/brave/policies/recommended
@@ -51,6 +51,69 @@ sudo tee /etc/brave/policies/managed/search.json > /dev/null << 'EOF'
 EOF
 else
 echo "ERROR! : you already have a managed search policy!" ; exit -9
+fi
+
+# Policy settings may be viewed by visiting : brave://policy/
+
+# Temporary disable managed policies by running command below
+# sudo mv -i /etc/brave/policies/managed /etc/brave/policies/managed.disabled
+
+```
+
+<hr>
+
+
+<br><br><br>
+
+Configuring System Wide Brave Browser Search Policy (LINUX)
+
+<hr>
+
+```bash
+# This example will set all brave (and brave origin) instances to use quad9 for DNS
+# resolution.
+
+# This approach makes use of a recommended policy to alter the brave settings.
+# this option is able to be overridden by a user. Editing brave browser settings
+# will be possible with this approach.
+
+sudo mkdir -p /etc/brave/policies/recommended
+if ! [[ -e /etc/brave/policies/recommended/dns.json ]] ; then
+sudo tee /etc/brave/policies/recommended/dns.json > /dev/null << 'EOF'
+{
+    "DnsOverHttpsMode": "secure",
+    "DnsOverHttpsTemplates": "https://dns.quad9.net/dns-query"
+}
+EOF
+else
+echo "ERROR! : you already have a recommended DNS policy!" ; exit -9
+fi
+# Policy settings may be viewed by visiting : brave://policy/
+
+# Temporary disable recommended policies by running command below
+# sudo mv -i /etc/brave/policies/recommended /etc/brave/policies/recommended.disabled
+```
+
+<hr>
+<br>
+
+```bash
+# This example will set all brave (and brave origin) instances to use quad9.net
+# as the DNS resolver.
+
+# This approach makes use of a managed policy to alter the brave settings.
+# this option is ***NOT*** able to be overridden by users running brave browser.
+
+sudo mkdir -p /etc/brave/policies/managed
+if ! [[ -e /etc/brave/policies/managed/dns.json ]] ; then
+sudo tee /etc/brave/policies/managed/dns.json > /dev/null << 'EOF'
+{
+    "DnsOverHttpsMode": "secure",
+    "DnsOverHttpsTemplates": "https://dns.quad9.net/dns-query"
+}
+EOF
+else
+echo "ERROR! : you already have a managed DNS policy!" ; exit -9
 fi
 
 # Policy settings may be viewed by visiting : brave://policy/
