@@ -1193,6 +1193,7 @@ A non comprehensive list of other similar / related projects which have been ide
   - [Brave : Cheatsheet](https://gist.github.com/henri/a454bb27edb3d3a567c5a695f0582aa7) (my gist)
   - [Browser Compartmentalization](https://secureblitz.com/browser-compartmentalization/)
   - [PrivacyTools](https://www.privacytools.io/) (extensive resources regarding various privacy tools)
+  - [Surveillance Self-Defense](ssd.eff.org) (EFF tips and tools for safer online communications)
 
 
 <br/>
