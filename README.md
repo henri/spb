@@ -325,13 +325,17 @@ If you are using the fish shell then you are all set... just ```<tab><tab>```
 
 #### :tophat: Tips and tricks
 
-Start a fresh fish session by running ```fish``` :shell:
+  - Start a fresh fish session by running ```fish``` :shell:
 
-:joy:
+  - Within the fish shell run ```spb``` rather than ```~/bin/start-private-browser.bash``` to save your fingers :joy:
 
-Within the fish shell run ```spb``` rather than ```~/bin/start-private-browser.bash``` to save your fingers 
+  - Open a many URLs (one per line stored in a file) as browser tabs ```cat /tmp/files.list | spb```
 
-Open a many URLs (one per line stored in a file) as browser tabs ```cat /tmp/files.list | spb``` 
+  - Got a URL on the clipboard? Create an alias for opening in a disposable session. ```alias -s spb-clipboard 'echo (pbpaste) | spb'```
+    - Running LINUX : Configure the ```spbpaste``` alias for your window manager :
+      - X11 : ```alias -s pbpaste 'xclip -selection clipboard -o'```
+      - Wayland : ```alias -s pbpaste="wl-paste -p"```
+    - Running macOS, the pbpaste command is already configured!
 
 ---
 #### :earth_asia: Enviroment Varables
