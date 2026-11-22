@@ -336,6 +336,8 @@ If you are using the fish shell then you are all set... just ```<tab><tab>```
       - X11 : ```alias -s pbpaste 'xclip -selection clipboard -o'```
       - Wayland : ```alias -s pbpaste="wl-paste -p"```
     - Running macOS, the pbpaste command is already configured!
+   
+  - Running LINUX? [Configure SPB as your default URL handler](https://github.com/henri/spb/blob/main/350.extras/start-private-browser.desktop). 
 
 ---
 #### :earth_asia: Enviroment Varables
