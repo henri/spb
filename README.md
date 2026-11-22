@@ -325,9 +325,11 @@ If you are using the fish shell then you are all set... just ```<tab><tab>```
 
 #### :tophat: Tips and tricks
 
-When using the fish shell run ```spb``` rather than ```~/bin/start-private-browser.bash``` to save your fingers :joy: 
-
 Start a fresh fish session by running ```fish``` :shell:
+
+:joy:
+
+Within the fish shell run ```spb``` rather than ```~/bin/start-private-browser.bash``` to save your fingers 
 
 Open a many URLs (one per line stored in a file) as browser tabs ```cat /tmp/files.list | spb``` 
 
