@@ -125,3 +125,37 @@ fi
 
 <hr>
 
+
+<br><br><br>
+
+Configuring System Wide Brave Browser Memory Saver Policy (LINUX)
+
+<hr>
+
+```bash
+# This example will set all brave (and brave origin) instances to enable memory saver
+
+# This approach makes use of a recommended policy to alter the brave settings.
+# this option is able to be overridden by a user. Editing brave browser settings
+# will be possible with this approach.
+
+sudo mkdir -p /etc/brave/policies/recommended
+if ! [[ -e /etc/brave/policies/recommended/dns.json ]] ; then
+sudo tee /etc/brave/policies/recommended/memory.json > /dev/null << 'EOF'
+{
+    "HighEfficiencyModeEnabled": true
+}
+EOF
+else
+echo "ERROR! : you already have a recommended DNS policy!" ; exit -9
+fi
+# Policy settings may be viewed by visiting : brave://policy/
+
+# Temporary disable recommended policies by running command below
+# sudo mv -i /etc/brave/policies/recommended /etc/brave/policies/recommended.disabled
+```
+
+<hr>
+
+
+
