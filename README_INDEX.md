@@ -44,21 +44,25 @@ The built-in [templating](https://github.com/henri/spb/blob/main/README.md#spb-t
 # ⛵ Smooth Sailing
 <br>
 
-<p align="left">
-  <!-- <a href="https://https://www.gnu.org/licenses/gpl-3.0.en.html"><img src="http://img.shields.io/badge/License-GPLv3-red.svg"></a> -->
-  <a href="https://www.gnu.org/software/bash/"><img src="https://img.shields.io/badge/bash_script-%23121011.svg?logo=gnu-bash&logoColor=white"></a>
-      <a href="https://github.com/henri/spb/blob/main/README.md"><img src="https://img.shields.io/badge/%2B-%23121011?logoColor=white"></a>
-  <a href="https://curl.se/"><img src="https://img.shields.io/badge/curl-%23121011.svg?logo=curl&logoColor=white"></a>
-      <a href="https://github.com/henri/spb/blob/main/README.md"><img src="https://img.shields.io/badge/%2B-%23121011?logoColor=white"></a>
-  <a href="https://brave.com/"><img src="https://img.shields.io/badge/Brave-%23121011.svg?logo=Brave&logoColor=white"></a>
-      <a href="https://github.com/henri/spb/blob/main/README.md"><img src="https://img.shields.io/badge/%2B-%23121011?logoColor=white"></a>
-  <a href="https://www.gnu.org/software/screen/"><img src="https://img.shields.io/badge/GNU-screen-%23121011.svg?logo=terminal&logoColor=whhttps://github.com/henri/spb/blob/main/README.md#dart-spb-feature-summaryite"></a>
-      <a href="https://github.com/henri/spb/blob/main/README.md"><img src="https://img.shields.io/badge/%2B-%23121011?logoColor=white"></a>
-  <a href="https://kernel.org/"><img src="https://img.shields.io/badge/Linux-%23121011.svg?logo=linux&logoColor=white"></a>
-      <a href="https://github.com/henri/spb/blob/main/README.md"><img src="https://img.shields.io/badge/%2B-%23121011?logoColor=white"></a>
-   <a href="https://www.apple.com/macos"><img src="https://img.shields.io/badge/macOS-%23121011.svg"></a>
-</p>
 
-# 
+<div align="left">
+
+<!-- crazy work around for blink rendering -->
+
+[![bash](https://raw.githubusercontent.com/henri/spb/refs/heads/gh-pages/camo-proxy-bypass-bash.svg)](https://www.gnu.org/software/bash/)
+[![](https://raw.githubusercontent.com/henri/spb/refs/heads/gh-pages/camo-proxy-bypass-plus.svg)](https://github.com/henri/spb/blob/main/README.md)
+[![curl](https://raw.githubusercontent.com/henri/spb/refs/heads/gh-pages/camo-proxy-bypass-curl.svg)](https://curl.se/)
+[![](https://raw.githubusercontent.com/henri/spb/refs/heads/gh-pages/camo-proxy-bypass-plus.svg)](https://github.com/henri/spb/blob/main/README.md)
+[![Brave](https://raw.githubusercontent.com/henri/spb/refs/heads/gh-pages/camo-proxy-bypass-brave.svg)](https://brave.com/)
+[![](https://raw.githubusercontent.com/henri/spb/refs/heads/gh-pages/camo-proxy-bypass-plus.svg)](https://github.com/henri/spb/blob/main/README.md)
+[![GNU screen](https://raw.githubusercontent.com/henri/spb/refs/heads/gh-pages/camo-proxy-bypass-gnuscreen.svg)](https://www.gnu.org/software/screen/)
+[![](https://raw.githubusercontent.com/henri/spb/refs/heads/gh-pages/camo-proxy-bypass-plus.svg)](https://github.com/henri/spb/blob/main/README.md)
+[![Linux](https://raw.githubusercontent.com/henri/spb/refs/heads/gh-pages/camo-proxy-bypass-gnulinux.svg)](https://kernel.org/)
+[![](https://raw.githubusercontent.com/henri/spb/refs/heads/gh-pages/camo-proxy-bypass-plus.svg)](https://github.com/henri/spb/blob/main/README.md)
+[![macOS](https://raw.githubusercontent.com/henri/spb/refs/heads/gh-pages/camo-proxy-bypass-macos.svg)](https://www.apple.com/macos)
+
+</div>
+
+
 
 <br><br>
